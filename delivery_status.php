@@ -122,12 +122,10 @@
 							<img class="img-fluid" src="img/c39.png" alt="" width="100%" height="100%">
 						</div>
 						<div class="banner-content col-lg-6 col-md-12">
-							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
+							<h1 class="title-top"><span></span></h1>
 							<h1 class="text-uppercase">
-								On Your <br>
-								First Order
+								FAST & CHEAP
 							</h1>
-							<button class="primary-btn text-uppercase"><a href="#">Order Here</a></button>
 						</div>							
 					</div>
 				</div>
