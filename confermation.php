@@ -13,6 +13,13 @@
     $state = $_POST['state'];
     $country = $_POST['country'];
     $zip = $_POST['zip']; 
+    $sql = "INSERT INTO order (order_id, initial_cost, final_cost, shipping_id, payment_id, product_quantity, delivery_time, time_created) VALUES ('$order_id', '', '$final_cost', '', '', '', '', CURRENT_TIME());";
+    $result = $conn->query($sql);
+    if($result->num_rows>0){
+        echo '<script>
+        alert("Registered Successfully");
+        </script>';
+    }
     ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
