@@ -140,7 +140,7 @@
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-40">
 							<div class="title text-center">
-								<h1 class="mb-10">Shop for Different Categories</h1>
+								<h1 class="mb-10">Shops Around Your Locality</h1>
 								<p>Cheap and Fast</p>
 							</div>
 						</div>
