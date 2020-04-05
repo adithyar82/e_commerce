@@ -345,7 +345,7 @@
 							<a class="col single-img" href="#">
 								<img class="d-block mx-auto" src="img/br5.png" alt="">
 							</a> -->
-                            <h3> Order ID :  <br> Product Nam:  <br> Pick Up Location: <br> Delivery Location: <br> Delivery Time: <br> Comments : </h3>
+                            <h3> Order ID :  <br> Product Name:  <br> Pick Up Location: <br> Delivery Location: <br> Delivery Time: <br> Comments : </h3>
                             <!-- <h3> Product Name: </h3>
                             <br> -->
 					</div>	
