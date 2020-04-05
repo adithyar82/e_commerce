@@ -1,5 +1,6 @@
     <?php
     session_start();
+    include("connect_db.php");
     $total_cost = $_SESSION['id1'];
     $order_id = $_SESSION['id2'];
     $name = $_SESSION['id3'];
@@ -13,11 +14,11 @@
     $state = $_POST['state'];
     $country = $_POST['country'];
     $zip = $_POST['zip']; 
-    $sql = "INSERT INTO order (order_id, initial_cost, final_cost, shipping_id, payment_id, product_quantity, delivery_time, time_created) VALUES ('$order_id', '', '$final_cost', '', '', '', '', CURRENT_TIME());";
+    $sql = "INSERT INTO order(order_id, initial_cost, final_cost, shipping_id, payment_id, product_quantity, delivery_time, time_created) VALUES (Null, '200', '$final_cost', '250', '450', '500', CURRENT_TIME(),CURRENT_TIME());";
     $result = $conn->query($sql);
-    if($result->num_rows>0){
+    if($result->num_rows>=0){
         echo '<script>
-        alert("Registered Successfully");
+        alert("Registered Successfully '.$sql.'");
         </script>';
     }
     ?>
