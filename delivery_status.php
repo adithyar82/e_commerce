@@ -48,9 +48,11 @@
 								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
 								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
 							</ul>
+							<!--
 							<ul class="list">
 								<li><a href="#">login</a></li>
 							</ul>
+							-->
 							<?php
 							if($username == ""){
 								echo '<ul class="list">
@@ -86,6 +88,7 @@
 						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
 								<li><a href="delivery.php">Home</a></li>
+								<li><a href="#">login</a></li>
 								<li><a href="delivery_history.php">History</a></li>
 								<!-- <li><a href="#men">Product</a></li>
 								<li><a href="#women">Women</a></li>
@@ -97,7 +100,8 @@
 								      </a>
 								      <div class="dropdown-menu">
 								        <a class="dropdown-item" href="delivery.php">Home</a>
-								        <a class="dropdown-item" href="delivery_status.php">History</a>
+									<a class="dropdown-item" href="delivery.php">Login</a>
+									<a class="dropdown-item" href="delivery_status.php">History</a>
 								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
 								        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
 								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
