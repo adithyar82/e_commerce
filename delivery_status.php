@@ -126,7 +126,6 @@
 							<h1 class="text-uppercase">
 								FAST & CHEAP
 							</h1>
-							<button class="primary-btn text-uppercase"><a href="#">Order Here</a></button>
 						</div>							
 					</div>
 				</div>
