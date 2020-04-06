@@ -1,6 +1,3 @@
-    <?php
-    include(connect_db.php);
-    ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
     <head>
@@ -111,9 +108,9 @@
 					<div class="login-form">
 						<h3 class="billing-title text-center">Login</h3>
 						<p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
-						<form method = "POST" action = "login_1.php">
-							<input type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
-							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
+						<form method = "POST" action = "login.php">
+							<input type="text" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
+							<input type="password" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
 							<button class="view-btn color-2 mt-20 w-100"><span>Login</span></button>
 							<div class="mt-20 d-flex align-items-center justify-content-between">
 								<div class="d-flex align-items-center"><input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
@@ -126,13 +123,13 @@
 					<div class="register-form">
 						<h3 class="billing-title text-center">Register</h3>
 						<p class="text-center mt-40 mb-30">Create your very own account </p>
-						<form method  = "post" action = "register.php">
-							<input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
-							<input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
-							<input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
-							<input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
-							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<button type = "submit" name = "submit" class="view-btn color-2 mt-20 w-100"><span>Register</span></button>
+						<form action="#">
+							<input type="text" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
+							<input type="email" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
+							<input type="text" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
+							<input type="text" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
+							<input type="password" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
+							<button class="view-btn color-2 mt-20 w-100"><span>Register</span></button>
 						</form>
 					</div>
 				</div>
@@ -142,7 +139,7 @@
 		
 
             <!-- Start Most Search Product Area -->
-            <!-- <section class="section-half">
+            <section class="section-half">
                 <div class="container">
                     <div class="organic-section-title text-center">
                         <h3>Most Searched Products</h3>
@@ -258,7 +255,7 @@
                         </div>
                     </div>
                 </div>
-            </section> -->
+            </section>
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->      
