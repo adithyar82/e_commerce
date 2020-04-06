@@ -6854,3 +6854,13 @@ label {
 }
 
 /*# sourceMappingURL=../css/main.map */
+.carousel-container{
+  widows: 40%;
+  margin: auto;
+  overflow: hidden;
+}
+.carousel-slide{
+  display: flex;
+  width: 100%;
+  height: 500px;
+}
