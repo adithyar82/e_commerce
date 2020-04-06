@@ -1,8 +1,4 @@
 <?php
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-include("./php/class.phpmailer.php");
 include('connect_db.php');
 if(isset($_POST['submit'])){
     $fname = $_POST['fname'];
@@ -55,7 +51,6 @@ if ($result->num_rows >= 0) {
     
     </script>';
     echo "done";
-    
     }
     else if($result->num_rows == 0) {
   
