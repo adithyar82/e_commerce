@@ -8,7 +8,7 @@
         <!-- Author Meta -->
         <meta name="author" content="CodePixar">
         <!-- Meta Description -->
-        <meta name="description" content="">
+         <meta name="description" content="">
         <!-- Meta Keyword -->
         <meta name="keywords" content="">
         <!-- meta character set -->
@@ -48,7 +48,7 @@
                 </div>
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
-                          <a class="navbar-brand" href="index.html">
+                          <a class="navbar-brand" href="category.php">
                             <img src="img/logo.png" alt="">
                           </a>
                           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,15 +67,15 @@
                                         Pages
                                       </a>
                                       <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="category.html">Category</a>
-                                        <a class="dropdown-item" href="single.html">Single</a>
-                                        <a class="dropdown-item" href="cart.html">Cart</a>
-                                        <a class="dropdown-item" href="checkout.html">Checkout</a>
-                                        <a class="dropdown-item" href="confermation.html">Confermation</a>
-                                        <a class="dropdown-item" href="login.html">Login</a>
-                                        <a class="dropdown-item" href="tracking.html">Tracking</a>
-                                        <a class="dropdown-item" href="generic.html">Generic</a>
-                                        <a class="dropdown-item" href="elements.html">Elements</a>
+                                        <a class="dropdown-item" href="category.php">Category</a>
+                                        <a class="dropdown-item" href="single.php">Single</a>
+                                        <a class="dropdown-item" href="cart.php">Cart</a>
+                                        <a class="dropdown-item" href="checkout.php">Checkout</a>
+                                        <a class="dropdown-item" href="confermation.php">Confermation</a>
+                                        <a class="dropdown-item" href="login.php">Login</a>
+                                        <a class="dropdown-item" href="tracking.php">Tracking</a>
+                                        <a class="dropdown-item" href="generic.php">Generic</a>
+                                        <a class="dropdown-item" href="elements.php">Elements</a>
                                       </div>
                                     </li>                                   
                             </ul>
@@ -92,8 +92,8 @@
                         <div class="col-first">
                             <h1>Shopping Cart</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="index.html">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="cart.html">Shopping Cart</a>
+                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="cart.php">Shopping Cart</a>
                             </nav>
                         </div>
                     </div>
@@ -103,41 +103,25 @@
 
 		<!-- Start My Account -->
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="login-form">
-						<h3 class="billing-title text-center">Login</h3>
-						<p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
-						<form method = "POST" action = "login.php">
-							<input type="text" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
-							<input type="password" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<button class="view-btn color-2 mt-20 w-100"><span>Login</span></button>
-							<div class="mt-20 d-flex align-items-center justify-content-between">
-								<div class="d-flex align-items-center"><input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
-								<a href="#">Lost your password?</a>
-							</div>
-						</form>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="register-form">
-						<h3 class="billing-title text-center">Register</h3>
-						<p class="text-center mt-40 mb-30">Create your very own account </p>
-						<form action="#">
-							<input type="text" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
-							<input type="email" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
-							<input type="text" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
-							<input type="text" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
-							<input type="password" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<button class="view-btn color-2 mt-20 w-100"><span>Register</span></button>
-						</form>
-					</div>
-				</div>
+			<div class="order-tracking">
+				<p>To track your order please enter your Order ID in the box below and press the "Track" button. This was given to you on your receipt and in the confirmation email you should have received.</p>
+				<form action="#">
+					<input type="text" placeholder="Order ID" onfocus="this.placeholder=''" onblur="this.placeholder = 'Order ID'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+					<button class="view-btn color-2 mt-20"><span>Track Order</span></button>
+				</form>
 			</div>
 		</div>
 		<!-- End My Account -->
 		
-
+		
             <!-- Start Most Search Product Area -->
             <section class="section-half">
                 <div class="container">
@@ -327,7 +311,7 @@
                     </div>
                     <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p class="footer-text m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        <p class="footer-text m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                 </div>
@@ -344,6 +328,6 @@
             <script src="js/jquery.magnific-popup.min.js"></script>
             <script src="js/owl.carousel.min.js"></script>            
             <script src="js/main.js"></script>  
-           
+
         </body>
     </html>
