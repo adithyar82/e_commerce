@@ -160,12 +160,13 @@
 									<option value="1">Default sorting</option>
 								</select>
 							</div>
-							<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+							<div class="sorting mr-auto">
+                            <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 								        Sort By
 								      </a>
-							    <div class="dropdown-menu">
+                            <div class="dropdown-menu">
 								        <a class="dropdown-item" href="category_1.php">Price : Low to High</a>
-								        <a class="dropdown-item" href="category_2.php">Price : High to Low</a>
+								        <!-- <a class="dropdown-item" href="category_2.php">Price : High to Low</a> -->
 								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
 								        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
 								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
@@ -173,8 +174,7 @@
 								        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
 								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
 								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-							    </div>
-							<div class="sorting mr-auto">
+							</div>
 								<select>
 									<option value="1">Show 12</option>
 									<option value="1">Show 12</option>
@@ -199,7 +199,7 @@
 							<?php 
 								  include('connect_db.php');
 								  session_start();
-								  $sql = "SELECT * FROM products;";
+								  $sql = "SELECT * FROM products ORDER BY final_cost DESC;";
 								  $result = $conn->query($sql);
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
@@ -209,7 +209,7 @@
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
 										  echo '<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-										      <div class="content">
+										  <div class="content">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
 											  <div class="content-details fadeIn-bottom">
@@ -456,15 +456,7 @@
 									<option value="1">Show 12</option>
 								</select>
 							</div>
-							<div class="sorting mr-auto">
-								<select>
-									<option value="category_1.php">Price : Low to High</option>
-									<option value="category_2.php">Price : High to Low</option>
-									<!-- <option value="1">Show 12</option> -->
-								</select>
-							</div>
 							<div class="pagination">
-							
 								<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 								<a href="#" class="active">1</a>
 								<a href="#">2</a>

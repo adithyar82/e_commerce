@@ -51,8 +51,22 @@
 								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
 								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
 							</ul>
+                            <?php
+							if($username == ""){
+								echo '<ul class="list">
+								<span class="glyphicon glyphicon-user"> </span>
+								<li><a href="#"> Welcome </a></li>
+							</ul>';
+							}
+							else{
+								echo '</span> <ul class="list">
+								<li><a href="#">Welcome '.$username.' </a></li>
+							</ul>';
+							}
+							
+							?>
 							<ul class="list">
-								<li><a href="#">login</a></li>
+								<li><a href="logout.php">Logout</a></li>
 							</ul>
 						</div>
 					</div>					
