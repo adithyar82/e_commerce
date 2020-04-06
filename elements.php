@@ -35,7 +35,7 @@
 				<header class="default-header">
 					<nav class="navbar navbar-expand-lg  navbar-light">
 						<div class="container">
-							  <a class="navbar-brand" href="index.php">
+							  <a class="navbar-brand" href="category.php">
 							  	<img src="img/logo.png" alt="">
 							  </a>
 							  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,11 +44,11 @@
 
 							  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 							    <ul class="navbar-nav">
-									<li><a href="index.php#home">Home</a></li>
-									<li><a href="index.php#service">Service</a></li>
-									<li><a href="index.php#feature">feature</a></li>
-									<li><a href="index.php#price">price</a></li>				
-									<li><a href="index.php#faq">Faq</a></li>
+									<li><a href="category.php#home">Home</a></li>
+									<li><a href="category.php#service">Service</a></li>
+									<li><a href="category.php#feature">feature</a></li>
+									<li><a href="category.php#price">price</a></li>				
+									<li><a href="category.php#faq">Faq</a></li>
 									<!-- Dropdown -->
 								    <li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">

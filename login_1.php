@@ -14,7 +14,7 @@ if($result->num_rows>0){
         echo $_SESSION['username'];
         if($role == "user"){
             echo '<script>
-            window.location = "index.php";
+            window.location = "category.php";
             </script>';  
         }
         else if($role = "delivery")
@@ -27,7 +27,7 @@ if($result->num_rows>0){
 else{
     echo '<script>
     alert("Incorrect Credentials")
-    window.location = "index.php";
+    window.location = "category.php";
     </script>';
 }
 ?>

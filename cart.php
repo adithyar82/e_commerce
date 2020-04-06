@@ -56,7 +56,7 @@
                 </div>
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
-                          <a class="navbar-brand" href="index.php">
+                          <a class="navbar-brand" href="category.php">
                             <img src="img/logo.png" alt="">
                           </a>
                           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,7 +100,7 @@
                         <div class="col-first">
                             <h1>Shopping Cart</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="index.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="cart.php">Shopping Cart</a>
                             </nav>
                         </div>

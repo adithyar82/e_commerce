@@ -34,7 +34,7 @@ if ($result->num_rows >= 0) {
     $mail->Subject = 'E Commerce Website';
     $mail->Body    = '<h1 align =center>Dear '.$fname.' Welcome to E Commmerce Portal</h1>
                       <h2 align =center>Your username is '.$username.' Kindly use this for future reference </h2>
-                      <h3 aling = left><a href = "http://localhost:8888/shop/index.php"> Login Using Your Credentials';
+                      <h3 aling = left><a href = "http://localhost:8888/shop/category.php"> Login Using Your Credentials';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     $mail -> isHTML(true);
     if(!$mail->send()) {
@@ -51,7 +51,7 @@ if ($result->num_rows >= 0) {
 
     echo '<script>
     alert("Successfully Registered");
-    window.location="index.php";
+    window.location="category.php";
     
     </script>';
     echo "done";
@@ -66,7 +66,7 @@ if ($result->num_rows >= 0) {
       // </script>';
       echo  '<script>
       alert("Incorrect Credentials");
-      window.location="index.php";
+      window.location="category.php";
       </script>';
       }
 ?>

@@ -1,4 +1,9 @@
-    <!DOCTYPE html>
+<?php
+	session_start();
+	$username = $_SESSION['username'];
+	echo $_SESSION['username'];
+	?>
+	<!DOCTYPE html>
     <html lang="zxx" class="no-js">
     <head>
         <!-- Mobile Specific Meta -->
@@ -42,6 +47,20 @@
 							<ul class="list">
 								<li><a href="#">login</a></li>
 							</ul>
+							<?php
+							if($username == ""){
+								echo '<ul class="list">
+								<span class="glyphicon glyphicon-user"> </span>
+								<li><a href="#"> Welcome </a></li>
+							</ul>';
+							}
+							else{
+								echo '</span> <ul class="list">
+								<li><a href="#">Welcome '.$username.' </a></li>
+							</ul>';
+							}
+							
+							?>
 						</div>
 					</div>					
 				</div>
@@ -82,6 +101,7 @@
 						  </div>						
 					</div>
 				</nav>
+			
 			</header>
             <!-- End Header Area -->
 
@@ -92,13 +112,30 @@
                         <div class="col-first">
                             <h1>Shop Category page</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="index.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="category.php">Category</a>
                             </nav>
                         </div>
                     </div>
                 </div>
-            </section>
+			</section>
+			<section class="banner-area relative" id="home">
+				<div class="container-fluid">
+					<div class="row fullscreen align-items-center justify-content-center">
+						<div class="col-lg-6 col-md-12 padding: 40px;">
+							<img class="img-fluid" src="img/c39.png" alt="" width="100%" height="100%">
+						</div>
+						<div class="banner-content col-lg-6 col-md-12">
+							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
+							<h1 class="text-uppercase">
+								On Your <br>
+								First Order
+							</h1>
+							<button class="primary-btn text-uppercase"><a href="#">Order Here</a></button>
+						</div>							
+					</div>
+				</div>
+			</section>
             <!-- End Banner Area -->
 			<div class="container">
 				<div class="row">
