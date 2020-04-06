@@ -104,7 +104,7 @@
                         <div class="col-first">
                             <h1>Product Checkout</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="index.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="checkout.php">Product Checkout</a>
                             </nav>
                         </div>
