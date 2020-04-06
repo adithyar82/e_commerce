@@ -187,7 +187,8 @@
 								  		<h5>Dettol</h5>
   										  <h3 class="text-white"><del style = "color : black">Rs 200.00</del></h3>
 										  <h3>Rs150.00</h3>
-										  <a href=" checkout.php?id1=150&id2=1&id3= Dettol">Buy Now</a>
+										  <a href=" checkout.php?id1=150&id2=1&id3= Dettol">Buy Now</a> <br>
+										  <a href=" cart_1.php?id1=150&id2=1&id3= Dettol">Add to Cart</a>
 								   </div>
 								</div>
 								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
@@ -205,7 +206,8 @@
 								  		<h5>Chicken Biriyani</h5>
 										<h3 class="text-white"><del style = "color : black">Rs 300.0</del></h3>
 								  		<h3>Rs200.00</h3>
-										<a href=" checkout.php?id1=200&id2=2&id3= Chicken_Biriyani">Buy Now</a>
+										<a href=" checkout.php?id1=200&id2=2&id3= Chicken_Biriyani">Buy Now</a> <br>
+										<a href=" cart_1.php?id1=200&id2=2&id3= Chicken_Biriyani"> Add to Cart</a>
 								   </div>
 								</div>
 								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
@@ -223,7 +225,9 @@
 								  		<h5>Teddy Bear</h5>
 										<h3 class="text-white"><del style = "color : black">Rs 500.0</del></h3>
 								  		<h3>Rs400.00</h3>
-										<a href=" checkout.php?id1=400&id2=3&id3= Teddy_Bear">Buy Now</a>
+										<a href=" checkout.php?id1=400&id2=3&id3= Teddy_Bear">Buy Now</a> <br>
+										<a href=" cart_1.php?id1=400&id2=3&id3= Teddy_Bear">Add to Cart</a>
+										
 								   </div>
 								</div>	
 								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
@@ -241,7 +245,8 @@
 								  		<h5>Tops</h5>
 										<h3 class="text-white"><del style = "color : black">Rs 800.0</del></h3>
 								  		<h3>Rs600.00</h3>
-										<a href=" checkout.php?id1=600&id2=4&id3= Tops">Buy Now</a>
+										<a href=" checkout.php?id1=600&id2=4&id3= Tops">Buy Now</a> <br>
+										<a href=" checkout.php?id1=600&id2=4&id3= Tops"> Add to Cart</a>
 								   </div>
 								</div>
 								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
@@ -259,7 +264,8 @@
 								  		<h5>Mobile Charger</h5>
 										<h3 class="text-white"><del style = "color : black">Rs 300.0</del></h3>
 								  		<h3>Rs280.00</h3>
-										<a href=" checkout.php?id1=280&id2=5&id3= Mobile_Charger">Buy Now</a>
+										<a href=" checkout.php?id1=280&id2=5&id3= Mobile_Charger">Buy Now</a> <br>
+										<a href=" cart_1.php?id1=280&id2=5&id3= Mobile_Charger">Add to Cart</a>
 								   </div>
 								</div>
 								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
@@ -277,7 +283,8 @@
 								  		<h5>Rice</h5>
 										<h3 class="text-white"><del style = "color : black">Rs 200.0</del></h3>
 								  		<h3>Rs150.00</h3>
-										<a href=" checkout.php?id1=150&id2=6&id3= Rice">Buy Now</a>
+										<a href=" checkout.php?id1=150&id2=6&id3= Rice">Buy Now</a> <br>
+										<a href=" cart_1.php?id1=150&id2=6&id3= Rice">Add to Cart</a>
 								   </div>
 								</div>	
 								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
@@ -295,7 +302,8 @@
 								  		<h5>Washing Machine</h5>
 										<h3 class="text-white"><del style = "color : black">Rs 2000.0</del></h3>
 								  		<h3>Rs1500.00</h3>
-										<a href=" checkout.php?id1=1500&id2=7&id3= Washing_Machine">Buy Now</a>
+										<a href=" checkout.php?id1=1500&id2=7&id3= Washing_Machine">Buy Now</a> <br>
+										<a href=" cart_1.php?id1=1500&id2=7&id3= Washing_Machine">Add to Cart</a>
 								   </div>
 								</div>
 								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
@@ -313,7 +321,8 @@
 								  		<h5>Mixer</h5>
 										<h3 class="text-white"><del style = "color : black">Rs 1000.0</del></h3>
 								  		<h3>Rs600.00</h3>
-										<a href=" checkout.php?id1=600&id2=8&id3= Mixer">Buy Now</a>
+										<a href=" checkout.php?id1=600&id2=8&id3= Mixer">Buy Now</a> <br>
+										<a href=" cart_1.php?id1=600&id2=8&id3= Mixer">Add to Cart</a>
 								   </div>
 								</div>
 								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
@@ -331,7 +340,8 @@
 								  		<h5>Vegetable Cutter</h5>
 										<h3 class="text-white"><del style = "color : black">Rs 180.0</del></h3>
 								  		<h3>Rs150.00</h3>
-										<a href=" checkout.php?id1=150&id2=9&id3= Vegetable Cutter">Buy Now</a>
+										<a href=" checkout.php?id1=150&id2=9&id3= Vegetable Cutter">Buy Now</a> <br>
+										<a href=" cart_1.php?id1=150&id2=9&id3= Vegetable Cutter">Add to Cart</a>
 								   </div>
 								</div>	
 								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
@@ -349,7 +359,8 @@
 								  		<h5>Shoes</h5>
 										<h3 class="text-white"><del style = "color : black">Rs 200.0</del></h3>
 								  		<h3>Rs150.00</h3>
-										<a href=" checkout.php?id1=150&id2=10&id3= Shoes">Buy Now</a>
+										<a href=" checkout.php?id1=150&id2=10&id3= Shoes">Buy Now</a> <br>
+										<a href=" cart_1.php?id1=150&id2=10&id3= Shoes">Add to Cart</a>
 								   </div>
 								</div>
 								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
