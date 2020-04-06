@@ -49,7 +49,7 @@
 								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
 							</ul>
 							<ul class="list">
-								<li><a href="#">login</a></li>
+								<li><a href="logout.php">Logout</a></li>
 							</ul>
 							<?php
 							if($username == ""){

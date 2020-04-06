@@ -75,9 +75,23 @@ Navigate your code with ease. Click on function and method calls to jump to thei
                                 <li><a href="tel:+12312-3-1209">+12312-3-1209</a></li>
                                 <li><a href="mailto:support@colorlib.com">support@colorlib.com</a></li>                             
                             </ul>
+                            <?php
+							if($username == ""){
+								echo '<ul class="list">
+								<span class="glyphicon glyphicon-user"> </span>
+								<li><a href="#"> Welcome </a></li>
+							</ul>';
+							}
+							else{
+								echo '</span> <ul class="list">
+								<li><a href="#">Welcome '.$username.' </a></li>
+							</ul>';
+							}
+							
+							?>
                             <ul class="list">
-                                <li><a href="#">login</a></li>
-                            </ul>
+								<li><a href="logout.php">Logout</a></li>
+							</ul>
                         </div>
                     </div>                  
                 </div>
