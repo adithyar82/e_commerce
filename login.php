@@ -1,120 +1,122 @@
-Skip to content
-Search or jump to…
+<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="CodePixar">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Shop</title>
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@adithyar82 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/nice-select.css">
+		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/main.css">
+		</head>
+		<body>
 
-
-adithyar82
-/
-e_commerce
-1
-00
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
-e_commerce/login_2.php
-@adithyar97 adithyar97 Updated Profile Page
-f75ad2f 1 hour ago
-349 lines (334 sloc)  20.6 KB
-  
-    <!DOCTYPE html>
-    <html lang="zxx" class="no-js">
-    <head>
-        <!-- Mobile Specific Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Favicon-->
-        <link rel="shortcut icon" href="img/fav.png">
-        <!-- Author Meta -->
-        <meta name="author" content="CodePixar">
-        <!-- Meta Description -->
-        <meta name="description" content="">
-        <!-- Meta Keyword -->
-        <meta name="keywords" content="">
-        <!-- meta character set -->
-        <meta charset="UTF-8">
-        <!-- Site Title -->
-        <title>Shop</title>
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-            <!--
-            CSS
-            ============================================= -->
-            <link rel="stylesheet" href="css/linearicons.css">
-            <link rel="stylesheet" href="css/owl.carousel.css">            
-            <link rel="stylesheet" href="css/font-awesome.min.css">
-            <link rel="stylesheet" href="css/nice-select.css">
-            <link rel="stylesheet" href="css/ion.rangeSlider.css" />
-            <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
-            <link rel="stylesheet" href="css/bootstrap.css">
-            <link rel="stylesheet" href="css/main.css">
-        </head>
-        <body>
-            <!-- Start Header Area -->
-            <header class="default-header">
-                <div class="menutop-wrap">
-                    <div class="menu-top container">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="list">
-                                <li><a href="tel:+12312-3-1209">+12312-3-1209</a></li>
-                                <li><a href="mailto:support@colorlib.com">support@colorlib.com</a></li>                             
-                            </ul>
-                            <ul class="list">
-                                <li><a href="#">login</a></li>
-                            </ul>
-                        </div>
-                    </div>                  
-                </div>
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="container">
-                          <a class="navbar-brand" href="index.html">
-                            <img src="img/logo.png" alt="">
-                          </a>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li><a href="#home">Home</a></li>
-                                <li><a href="#catagory">Category</a></li>
-                                <li><a href="#men">Men</a></li>
-                                <li><a href="#women">Women</a></li>
-                                <li><a href="#latest">latest</a></li>
-                                    <!-- Dropdown -->
-                                    <li class="dropdown">
-                                      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                        Pages
-                                      </a>
-                                      <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="category.html">Category</a>
-                                        <a class="dropdown-item" href="single.html">Single</a>
-                                        <a class="dropdown-item" href="cart.html">Cart</a>
-                                        <a class="dropdown-item" href="checkout.html">Checkout</a>
-                                        <a class="dropdown-item" href="confermation.html">Confermation</a>
-                                        <a class="dropdown-item" href="login.html">Login</a>
-                                        <a class="dropdown-item" href="tracking.html">Tracking</a>
-                                        <a class="dropdown-item" href="generic.html">Generic</a>
-                                        <a class="dropdown-item" href="elements.html">Elements</a>
-                                      </div>
-                                    </li>                                   
-                            </ul>
-                          </div>                        
-                    </div>
-                </nav>
-            </header>
+			<!-- Start Header Area -->
+			<header class="default-header">
+				<div class="menutop-wrap">
+					<div class="menu-top container">
+						<div class="d-flex justify-content-between align-items-center">
+							<ul class="list">
+								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
+								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
+							</ul>
+							<ul class="list">
+								<li><a href="#">login</a></li>
+							</ul>
+							<?php
+							if($username == ""){
+								echo '<ul class="list">
+								<span class="glyphicon glyphicon-user"> </span>
+								<li><a href="#"> Welcome </a></li>
+							</ul>';
+							}
+							else{
+								echo '</span> <ul class="list">
+								<li><a href="#">Welcome '.$username.' </a></li>
+							</ul>';
+							}
+							
+							?>
+						</div>
+					</div>					
+				</div>
+				<nav class="navbar navbar-expand-lg  navbar-light">
+					<div class="container">
+						  <a class="navbar-brand" href="#">
+							  <img src="img/logo.png" alt="">
+							  <p> Company Logo </p>
+						  </a>
+						  <!-- <div class="search-container">
+								<form action="/action_page.php">
+								  <input type="text" placeholder="Search.." name="search">
+								  <button type="submit"><i class="fa fa-search"></i></button>
+								</form>
+						  </div> -->
+						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						    <span class="navbar-toggler-icon"></span>
+						  </button>
+						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+						    <ul class="navbar-nav">
+								<!-- <li><a href="#home">Home</a></li>
+								<li><a href="#catagory">Category</a></li>
+								<li><a href="#men">Product</a></li>
+								 <li><a href="#women">Women</a></li>
+								<li><a href="#latest">Recommendations</a></li> -->
+									<!-- Dropdown -->
+								    <!-- <li class="dropdown">
+								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+								        Pages
+								      </a> -->
+								      <!-- <div class="dropdown-menu">
+								        <a class="dropdown-item" href="category.php">Category</a>
+								        <a class="dropdown-item" href="single.php">Single</a>
+								        <a class="dropdown-item" href="cart.php">Cart</a>
+								        <a class="dropdown-item" href="checkout.php">Checkout</a>
+								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
+								        <a class="dropdown-item" href="login.php">Login</a>
+								        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
+								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
+								        <a class="dropdown-item" href="elements.php">Elements</a> -->
+								      <!-- </div> -->
+								    </li>									
+						    </ul>
+						  </div>						
+					</div>
+				</nav>
+			</header>
             <!-- End Header Area -->
             <!-- Start Banner Area -->
             <section class="banner-area organic-breadcrumb">
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Shopping Cart</h1>
+                            <h1>Login</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="index.html">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="cart.html">Shopping Cart</a>
+                                <a href="cart.html">Login</a>
                             </nav>
                         </div>
                     </div>

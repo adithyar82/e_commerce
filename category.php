@@ -4,39 +4,43 @@
 	echo $_SESSION['username'];
 	?>
 	<!DOCTYPE html>
-    <html lang="zxx" class="no-js">
-    <head>
-        <!-- Mobile Specific Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Favicon-->
-        <link rel="shortcut icon" href="img/fav.png">
-        <!-- Author Meta -->
-        <meta name="author" content="CodePixar">
-        <!-- Meta Description -->
-        <meta name="description" content="">
-        <!-- Meta Keyword -->
-        <meta name="keywords" content="">
-        <!-- meta character set -->
-        <meta charset="UTF-8">
-        <!-- Site Title -->
-        <title>Shop</title>
+	<html lang="zxx" class="no-js">
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="CodePixar">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Shop</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-            <!--
-            CSS
-            ============================================= -->
-            <link rel="stylesheet" href="css/linearicons.css">
-            <link rel="stylesheet" href="css/owl.carousel.css">            
-            <link rel="stylesheet" href="css/font-awesome.min.css">
-            <link rel="stylesheet" href="css/nice-select.css">
-			<link rel="stylesheet" href="css/nouislider.min.css">
-            <link rel="stylesheet" href="css/bootstrap.css">
-            <link rel="stylesheet" href="css/main.css">
-        </head>
-        <body>
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/nice-select.css">
+		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/main.css">
+		</head>
+		<body>
 
-            <!-- Start Header Area -->
-            <header class="default-header">
+			<!-- Start Header Area -->
+			<header class="default-header">
 				<div class="menutop-wrap">
 					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
@@ -64,12 +68,18 @@
 						</div>
 					</div>					
 				</div>
-                <nav class="navbar navbar-expand-lg  navbar-light">
+				<nav class="navbar navbar-expand-lg  navbar-light">
 					<div class="container">
 						  <a class="navbar-brand" href="#">
-							  <!-- <img src="img/logo.png" alt=""> -->
+							  <img src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
+						  <div class="search-container">
+								<form action="/action_page.php">
+								  <input type="text" size = "50" placeholder="Search.." name="search">
+								  <button type="submit"><i class="fa fa-search"></i></button>
+								</form>
+						  </div>
 						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						    <span class="navbar-toggler-icon"></span>
 						  </button>
@@ -90,7 +100,7 @@
 								        <a class="dropdown-item" href="single.php">Single</a>
 								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
 								        <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href=" checkout.php">Confirmation</a>
+								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
 								        <a class="dropdown-item" href="login.php">Login</a>
 								        <a class="dropdown-item" href="tracking.php">Tracking</a>
 								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
@@ -101,12 +111,11 @@
 						  </div>						
 					</div>
 				</nav>
-			
 			</header>
             <!-- End Header Area -->
 
             <!-- Start Banner Area -->
-            <section class="banner-area organic-breadcrumb">
+            <!-- <section class="banner-area organic-breadcrumb">
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
@@ -118,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-			</section>
+			</section> -->
 			<section class="banner-area relative" id="home">
 				<div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
@@ -171,30 +180,48 @@
 						<!-- End Filter Bar -->
 						<!-- Start Best Seller -->
 						<section class="lattest-product-area pb-40 category-list">
+						
 							<div class="row">
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
+							<?php 
+								  include('connect_db.php');
+								  session_start();
+								  $sql = "SELECT * FROM products;";
+								  $result = $conn->query($sql);
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  echo '<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
+										  <div class="content">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+													<div class="bottom d-flex align-items-center justify-content-center">
+														<a href="#"><span class="lnr lnr-heart"></span></a>
+														<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
+													</div>
+											  </div>
+										  </div>
+										  <div class="price">
+										  
+												  <h5>'.$product_name.'</h5>
+													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
+												  <h3>'.$final_cost.'</h3>
+												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
+												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
+										   </div>
+										</div>';
+									  }
+								  }
+					               ?>
+								
+								<!-- <div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
 								  <div class="content">
 								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c26.png" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Dettol</h5>
-  										  <h3 class="text-white"><del style = "color : black">Rs 200.00</del></h3>
-										  <h3>Rs150.00</h3>
-										  <a href=" checkout.php?id1=150&id2=1&id3= Dettol">Buy Now</a> <br>
-										  <a href=" cart_1.php?id1=150&id2=1&id3= Dettol">Add to Cart</a>
-								   </div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c27.jpeg" alt="">
+								  		 <img class="content-image img-fluid d-block mx-auto" src="" alt="">
 								      <div class="content-details fadeIn-bottom">
 									        <div class="bottom d-flex align-items-center justify-content-center">
 												<a href="#"><span class="lnr lnr-heart"></span></a>
@@ -380,6 +407,7 @@
 										<h3 class="text-white"><del style = "color : black">Rs 250.0</del></h3>
 								  		<h3>Rs150.00</h3>
 										<a href=" checkout.php?id1=250&id2=11&id3= Apparels">Buy Now</a>
+										<a href=" cart_1.php?id1=250&id2=11&id3= Apparels">Add to Cart</a>
 								   </div>
 								</div>
 								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
@@ -399,8 +427,9 @@
 										<h3 class="text-white"><del style = "color : black">Rs 2500.0</del></h3>
 								  		<h3>Rs1000.00</h3>
 										<a href=" checkout.php?id1=1000&id2=12&id3= Furniture">Buy Now</a>
+										<a href=" cart_1.php?id1=1000&id2=12&id3= Furniture">Add to Cart</a>
 								   </div>
-								</div>																																								
+								</div>-->																																							
 							</div>
 						</section>
 						<!-- End Best Seller -->
