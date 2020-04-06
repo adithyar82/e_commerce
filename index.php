@@ -197,7 +197,6 @@
 					</div>
 				</div>	
 			</section>
-			
 			<!-- End category Area -->
 			
 			<!-- Start men-product Area -->

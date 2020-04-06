@@ -1,11 +1,3 @@
-    <?php
-    session_start();
-    include('connect_db.php');
-    $username = $_SESSION['username'];
-    // $id1 = $_REQUEST['id1'];
-    // $id2 = $_REQUEST['id2'];
-    // $id3 = $_REQUEST['id3'];
-    ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
     <head>
@@ -127,55 +119,32 @@
                         </div>
                     </div>
                 </div>
-                <?php
-                session_start();
-                include('connect_db.php');
-                $username = $_SESSION['username'];
-                $sql = "SELECT * FROM items WHERE username = '$username';";
-                $result=$conn->query($sql);
-                $sql1 = "SELECT SUM(item_price) as total_cost FROM items WHERE username ='$username';";
-                $result1 = $conn->query($sql1);
-                // 
-                if($result->num_rows>0){
-                    while($row = $result->fetch_assoc()){
-                        $item_name = $row['item_name'];
-                        $item_price = $row['item_price']; 
-                         echo'
-                            <div class="cart-single-item">
-                            <div class="row align-items-center">
-                                <div class="col-md-6 col-12">
-                                    <div class="product-item d-flex align-items-center">
-                                        <h6>'.$item_name.'</h6>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-6">
-                                    <div class="price">'.$item_price.'</div>
-                                </div>
-                                <div class="col-md-2 col-6">
-                                    <div class="quantity-container d-flex align-items-center mt-15">
-                                        <input type="text" class="quantity-amount" value="1" />
-                                        <div class="arrow-btn d-inline-flex flex-column">
-                                            <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
-                                            <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-12">
-                                    <div class="total">'.$item_price.'</div>
+                <div class="cart-single-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 col-12">
+                            <div class="product-item d-flex align-items-center">
+                                <img src="img/ci1.jpg" class="img-fluid" alt="">
+                                <h6>Pixelstore fresh Blackberry</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-6">
+                            <div class="price">$360.00</div>
+                        </div>
+                        <div class="col-md-2 col-6">
+                            <div class="quantity-container d-flex align-items-center mt-15">
+                                <input type="text" class="quantity-amount" value="1" />
+                                <div class="arrow-btn d-inline-flex flex-column">
+                                    <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
+                                    <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
                                 </div>
                             </div>
-                            </div>';
-                        }
-                    }
-                if($result1->num_rows>0){
-                    while($row = $result1->fetch_assoc()){
-                        $total_cost = $row['total_cost'];
-                    }
-                }
-                ?>
-                
-                
-                <!-- <div class="cart-single-item">
+                        </div>
+                        <div class="col-md-2 col-12">
+                            <div class="total">$720.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-single-item">
                     <div class="row align-items-center">
                         <div class="col-md-6 col-12">
                             <div class="product-item d-flex align-items-center">
@@ -224,7 +193,7 @@
                             <div class="total">$720.00</div>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
                     <a href="#" class="view-btn color-2"><span>Update Cart</span></a>
                     <div class="cuppon-wrap d-flex align-items-center flex-wrap">
@@ -237,14 +206,14 @@
                 </div>
                 <div class="subtotal-area d-flex align-items-center justify-content-end">
                     <div class="title text-uppercase">Subtotal</div>
-                    <div class="subtotal"><?php echo $total_cost ?></div>
+                    <div class="subtotal">$2160.00</div>
                 </div>
                 <div class="shipping-area d-flex justify-content-end">
                     <div class="tile text-uppercase">Shipping</div>
                     <form action="#" class="d-inline-flex flex-column align-items-end">
                         <ul class="d-flex flex-column align-items-end">
                             <li class="filter-list">
-                                <label for="flat-rate">Flat Rate:<span>Rs 50.00</span></label>
+                                <label for="flat-rate">Flat Rate:<span>$5.00</span></label>
                                 <input class="pixel-radio" type="radio" id="flat-rate" name="brand">
                             </li>
                             <li class="filter-list">
@@ -252,11 +221,11 @@
                                 <input class="pixel-radio" type="radio" id="free-shipping" name="brand">
                             </li>
                             <li class="filter-list">
-                                <label for="flat-rate-2">Flat Rate:<span>Rs 50.00</span></label>
+                                <label for="flat-rate-2">Flat Rate:<span>$10.00</span></label>
                                 <input class="pixel-radio" type="radio" id="flat-rate-2" name="brand">
                             </li>
                             <li class="filter-list">
-                                <label for="local-delivery">Local Delivery:<span>Rs 50.00</span></label>
+                                <label for="local-delivery">Local Delivery:<span>$2.00</span></label>
                                 <input class="pixel-radio" type="radio" id="local-delivery" name="brand">
                             </li>
                             <li class="calculate">Calculate Shipping</li>
