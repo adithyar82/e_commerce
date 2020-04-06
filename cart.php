@@ -280,6 +280,9 @@
                     </form>
 
                 </div>
+                <div>
+                    <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
+                </div>
             </div>
             <!-- End Cart Area -->
 
