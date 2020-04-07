@@ -1,6 +1,7 @@
     <?php
     session_start();
     include("connect_db.php");
+    include("./php/class.phpmailer.php");  
     // $fname = $_SESSION['username'];
     $total_cost = $_SESSION['id1'];
     $order_id = $_SESSION['id2'];
@@ -11,6 +12,7 @@
     $ename = $_POST['ename'];
     $address_1 = $_POST['address_1'];
     $address_2 = $_POST['address_2'];
+    $email_address = $_SESSION['email_address'];
     $city = $_POST['city'];
     $state = $_POST['state'];
     $country = $_POST['country'];
@@ -18,6 +20,35 @@
     $sql = "INSERT INTO order_status(order_id,fname,initial_cost, final_cost, shipping_id, payment_id, product_quantity, delivery_time, time_created) VALUES (Null,'$fname','200', '$final_cost', '250', '450', '500', CURRENT_TIME(),CURRENT_TIME());";
     $result = $conn->query($sql);
     if($result->num_rows>=0){
+        $mail = new PHPMailer;
+        $mailaddress = $email_address;                               // Enable verbose debug output
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail -> Username = 'noreplytasteofIndia@gmail.com';
+        $mail -> Password = 'India@2020';                          // SMTP password
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;                                    // TCP port to connect to
+        $mail->setFrom('noreplytasteofIndia@gmail.com', 'no reply');
+        $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
+        $mail->Subject = 'E Commerce Website';
+        $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
+                            <h2 align =center>Your Order Details are as follows :</h2>
+                            <h2 align =center>Order Id : '.$order_id.'</h2>
+                            <h2 align =center>Product name : '.$name.'</h2>
+                            <h2 align =center>Total Cost: '.total_cost.'</h2>
+                            <h3 aling = left><a href = "http://localhost:8888/shop/category.php"> Login Using Your Credentials';
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        $mail -> isHTML(true);
+        if(!$mail->send()) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            // echo'<script>
+            // alert("Email has been sent successfully");
+            // window.location= "cashier.php";
+            // </script>';
+        }
         echo '<script>
         alert("Registered Successfully '.$sql.'");
         </script>';

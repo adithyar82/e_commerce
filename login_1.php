@@ -15,6 +15,7 @@ if($result->num_rows>=0){
         $role = $row['role'];
         echo $username;
         $_SESSION['username'] = $username;
+        $_SESSION['email_address'] = $email_address;
         echo $_SESSION['username'];
         echo '<script>
         window.location = "category.php";
