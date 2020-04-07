@@ -1,5 +1,7 @@
     <?php
     session_start();
+    include("connect_db.php");
+    // $fname = $_SESSION['username'];
     $total_cost = $_SESSION['id1'];
     $order_id = $_SESSION['id2'];
     $name = $_SESSION['id3'];
@@ -13,6 +15,13 @@
     $state = $_POST['state'];
     $country = $_POST['country'];
     $zip = $_POST['zip']; 
+    $sql = "INSERT INTO order_status(order_id,fname,initial_cost, final_cost, shipping_id, payment_id, product_quantity, delivery_time, time_created) VALUES (Null,'$fname','200', '$final_cost', '250', '450', '500', CURRENT_TIME(),CURRENT_TIME());";
+    $result = $conn->query($sql);
+    if($result->num_rows>=0){
+        echo '<script>
+        alert("Registered Successfully '.$sql.'");
+        </script>';
+    }
     ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
@@ -56,15 +65,29 @@
                                 <li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
                                 <li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>                             
                             </ul>
+                            <?php
+							if($username == ""){
+								echo '<ul class="list">
+								<span class="glyphicon glyphicon-user"> </span>
+								<li><a href="#"> Welcome </a></li>
+							</ul>';
+							}
+							else{
+								echo '</span> <ul class="list">
+								<li><a href="#">Welcome '.$username.' </a></li>
+							</ul>';
+							}
+							
+							?>
                             <ul class="list">
-                                <li><a href="#">login</a></li>
-                            </ul>
+								<li><a href="logout.php">Logout</a></li>
+							</ul>
                         </div>
                     </div>                  
                 </div>
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
-                          <a class="navbar-brand" href="index.php">
+                          <a class="navbar-brand" href="category.php">
                             <img src="img/logo.png" alt="">
                           </a>
                           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,7 +131,7 @@
                         <div class="col-first">
                             <h1>Order Confermation</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="index.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="confermation.php">Confermation</a>
                             </nav>
                         </div>

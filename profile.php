@@ -1,4 +1,24 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
+=======
+    <?php
+    include('connect_db.php');
+    session_start();
+    $username = $_SESSION['username'];
+    $sql = "SELECT * FROM Users where fname = '$username';";
+    $result = $conn->query($sql);
+    if($result->num_rows>=0){
+        while($row = $result->fetch_assoc()){
+            $fname = $row['fname'];
+            $username = $row['username'];
+            $phone_number = $row['phone_number'];
+            $email_address = $row['email_address'];
+        }
+    }
+    
+    ?>
+    <!DOCTYPE html>
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
     <html lang="zxx" class="no-js">
     <head>
         <!-- Mobile Specific Meta -->
@@ -15,6 +35,10 @@
         <meta charset="UTF-8">
         <!-- Site Title -->
         <title>Shop</title>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
             <!--
             CSS
@@ -29,17 +53,29 @@
             <link rel="stylesheet" href="css/main.css">
         </head>
         <body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
             <!-- Start Header Area -->
             <header class="default-header">
                 <div class="menutop-wrap">
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
+<<<<<<< HEAD
                                 <li><a href="tel:+12312-3-1209">8095566699</a></li>
                                 <li><a href="mailto:support@colorlib.com">support@ajeempatel.com</a></li>                             
                             </ul>
                             <ul class="list">
                                 <li><a href="#">Profile</a></li>
+=======
+                                <li><a href="tel:+12312-3-1209">+12312-3-1209</a></li>
+                                <li><a href="mailto:support@colorlib.com">support@colorlib.com</a></li>                             
+                            </ul>
+                            <ul class="list">
+                                <li><a href="#">login</a></li>
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
                             </ul>
                         </div>
                     </div>                  
@@ -82,21 +118,33 @@
                 </nav>
             </header>
             <!-- End Header Area -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
             <!-- Start Banner Area -->
             <section class="banner-area organic-breadcrumb">
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
+<<<<<<< HEAD
                             <h1>Shopping Cart</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="cart.php">Shopping Cart</a>
+=======
+                            <h1>Profile Page</h1>
+                             <nav class="d-flex align-items-center justify-content-start">
+                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="cart.php">Profile Page</a>
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
                             </nav>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- End Banner Area -->
+<<<<<<< HEAD
 		<!-- Start My Account -->
 		<div class="container">
 			<div class="order-tracking">
@@ -108,13 +156,40 @@
                     <input type="text" placeholder="Phone Number" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone Number'" required class="common-input mt-20">
                     <input type="text" placeholder="User Name" onfocus="this.placeholder=''" onblur="this.placeholder = 'User Name'" required class="common-input mt-20">
 					<button class="view-btn color-2 mt-20"><span>Update</span></button>
+=======
+
+		<!-- Start My Account -->
+		<div class="container">
+			<div class="order-tracking">
+				<!-- <p>To track your order please enter your Order ID in the box below and press the "Track" button. This was given to you on your receipt and in the confirmation email you should have received.</p> -->
+				<form action="#">
+                    <h3> First Name:</h3>
+					<input type="text" onfocus="this.placeholder=''" value = "<?php echo $fname; ?>" required class="common-input mt-20">
+                    <h3> Email Address: </h3>
+                    <input type="text" onfocus="this.placeholder=''" value = "<?php echo $email_address; ?>"  required class="common-input mt-20">
+                    <h3> Phone Number: </h3>
+                    <input type="text" onfocus="this.placeholder=''" value = "<?php echo $phone_number; ?>"   required class="common-input mt-20">
+                    <h3> Username : </h3>
+                    <input type="text" onfocus="this.placeholder=''" value = "<?php echo $username; ?>"   required class="common-input mt-20">
+                    <!-- <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20"> -->
+					<button class="view-btn color-2 mt-20"><span>View Orders</span></button>
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
 				</form>
 			</div>
 		</div>
 		<!-- End My Account -->
 		
 		
+<<<<<<< HEAD
             <!-- Start Most Search Product Area 
+=======
+            <!-- Start Most Search Product Area -->
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
             <section class="section-half">
                 <div class="container">
                     <div class="organic-section-title text-center">
@@ -232,7 +307,12 @@
                     </div>
                 </div>
             </section>
+<<<<<<< HEAD
           End Most Search Product Area -->
+=======
+            <!-- End Most Search Product Area -->
+
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
                 <div class="container">
@@ -250,9 +330,20 @@
                                 <h6>Newsletter</h6>
                                 <p>Stay update with our latest</p>
                                 <div class="" id="mc_embed_signup">
+<<<<<<< HEAD
                                         <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
                                         <div class="d-flex flex-row">
                                             <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+=======
+
+                                        <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+
+                                        <div class="d-flex flex-row">
+
+                                            <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+
+
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
                                                 <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
                                                 <div style="position: absolute; left: -5000px;">
                                                     <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
@@ -303,6 +394,10 @@
                 </div>
             </footer>   
             <!-- End footer Area -->        
+<<<<<<< HEAD
+=======
+
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
             <script src="js/vendor/jquery-2.2.4.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
             <script src="js/vendor/bootstrap.min.js"></script>
@@ -313,5 +408,11 @@
             <script src="js/jquery.magnific-popup.min.js"></script>
             <script src="js/owl.carousel.min.js"></script>            
             <script src="js/main.js"></script>  
+<<<<<<< HEAD
         </body>
     </html>
+=======
+
+        </body>
+    </html>
+>>>>>>> d9cfb7a59539213142a37f1878f9c7f036e953c7
