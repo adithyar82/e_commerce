@@ -1,5 +1,6 @@
 <?php
 include('connect_db.php');
+include("./php/class.phpmailer.php");  
 if(isset($_POST['submit'])){
     $fname = $_POST['fname'];
     $email_address = $_POST['email_address'];
