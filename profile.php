@@ -136,7 +136,7 @@
                     <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
                     <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
                     <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20"> -->
-					<button class="view-btn color-2 mt-20"><span>View Orders</span></button>
+					<a href = "order_status.php">View Orders</a>
 				</form>
 			</div>
 		</div>
