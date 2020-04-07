@@ -131,11 +131,12 @@
 						<h3 class="billing-title text-center">Login</h3>
 						<p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
 						<form method = "POST" action = "login_1.php">
-							<input type="text" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
-							<input type="password" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<button class="view-btn color-2 mt-20 w-100"><span>Login</span></button>
+							<input type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
+							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
+							<input type = "submit" name = "submit"> 
 							<div class="mt-20 d-flex align-items-center justify-content-between">
-								<div class="d-flex align-items-center"><input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
+								<div class="d-flex align-items-center">
+                                <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
 								<a href="#">Lost your password?</a>
 							</div>
 						</form>

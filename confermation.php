@@ -1,6 +1,7 @@
     <?php
     session_start();
     include("connect_db.php");
+    // $fname = $_SESSION['username'];
     $total_cost = $_SESSION['id1'];
     $order_id = $_SESSION['id2'];
     $name = $_SESSION['id3'];
@@ -14,7 +15,7 @@
     $state = $_POST['state'];
     $country = $_POST['country'];
     $zip = $_POST['zip']; 
-    $sql = "INSERT INTO order(order_id, initial_cost, final_cost, shipping_id, payment_id, product_quantity, delivery_time, time_created) VALUES (Null, '200', '$final_cost', '250', '450', '500', CURRENT_TIME(),CURRENT_TIME());";
+    $sql = "INSERT INTO order_status(order_id,fname,initial_cost, final_cost, shipping_id, payment_id, product_quantity, delivery_time, time_created) VALUES (Null,'$fname','200', '$final_cost', '250', '450', '500', CURRENT_TIME(),CURRENT_TIME());";
     $result = $conn->query($sql);
     if($result->num_rows>=0){
         echo '<script>

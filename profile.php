@@ -1,3 +1,19 @@
+    <?php
+    include('connect_db.php');
+    session_start();
+    $username = $_SESSION['username'];
+    $sql = "SELECT * FROM Users where fname = '$username';";
+    $result = $conn->query($sql);
+    if($result->num_rows>=0){
+        while($row = $result->fetch_assoc()){
+            $fname = $row['fname'];
+            $username = $row['username'];
+            $phone_number = $row['phone_number'];
+            $email_address = $row['email_address'];
+        }
+    }
+    
+    ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
     <head>
@@ -90,10 +106,10 @@
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Shopping Cart</h1>
+                            <h1>Profile Page</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="cart.php">Shopping Cart</a>
+                                <a href="cart.php">Profile Page</a>
                             </nav>
                         </div>
                     </div>
@@ -104,18 +120,23 @@
 		<!-- Start My Account -->
 		<div class="container">
 			<div class="order-tracking">
-				<p>To track your order please enter your Order ID in the box below and press the "Track" button. This was given to you on your receipt and in the confirmation email you should have received.</p>
+				<!-- <p>To track your order please enter your Order ID in the box below and press the "Track" button. This was given to you on your receipt and in the confirmation email you should have received.</p> -->
 				<form action="#">
-					<input type="text" placeholder="Order ID" onfocus="this.placeholder=''" onblur="this.placeholder = 'Order ID'" required class="common-input mt-20">
+                    <h3> First Name:</h3>
+					<input type="text" onfocus="this.placeholder=''" value = "<?php echo $fname; ?>" required class="common-input mt-20">
+                    <h3> Email Address: </h3>
+                    <input type="text" onfocus="this.placeholder=''" value = "<?php echo $email_address; ?>"  required class="common-input mt-20">
+                    <h3> Phone Number: </h3>
+                    <input type="text" onfocus="this.placeholder=''" value = "<?php echo $phone_number; ?>"   required class="common-input mt-20">
+                    <h3> Username : </h3>
+                    <input type="text" onfocus="this.placeholder=''" value = "<?php echo $username; ?>"   required class="common-input mt-20">
+                    <!-- <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
                     <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
                     <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
                     <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
                     <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-					<button class="view-btn color-2 mt-20"><span>Track Order</span></button>
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20"> -->
+					<button class="view-btn color-2 mt-20"><span>View Orders</span></button>
 				</form>
 			</div>
 		</div>
