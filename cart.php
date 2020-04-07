@@ -1,30 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@adithyar82 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-adithyar82
-/
-e_commerce
-1
-00
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
-e_commerce/cart.php /
-@adithyar97 adithyar97 Updated Profile Page
-f38ba12 19 minutes ago
-496 lines (480 sloc)  28.4 KB
-  
-Code navigation is available!
-Navigate your code with ease. Click on function and method calls to jump to their definitions or references in the same repository. Learn more
-
     <?php
     session_start();
     include('connect_db.php');
@@ -181,6 +154,7 @@ Navigate your code with ease. Click on function and method calls to jump to thei
                     while($row = $result->fetch_assoc()){
                         $item_name = $row['item_name'];
                         $item_price = $row['item_price']; 
+                        $item_id = $row['id'];
                          echo'
                             <div class="cart-single-item">
                             <div class="row align-items-center">
@@ -193,16 +167,30 @@ Navigate your code with ease. Click on function and method calls to jump to thei
                                     <div class="price">'.$item_price.'</div>
                                 </div>
                                 <div class="col-md-2 col-6">
-                                    <div class="quantity-container d-flex align-items-center mt-15">
-                                        <input type="text" class="quantity-amount" value="1" />
-                                        <div class="arrow-btn d-inline-flex flex-column">
-                                            <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
-                                            <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
-                                        </div>
-                                    </div>
+                                <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                1
+                              </a>
+                        <div class="dropdown-menu">
+                                <a class="dropdown-item" href="category_1.php">1</a>
+                                <a class="dropdown-item" href="category_2.php">2</a>
+                                <a class="dropdown-item" href="category_1.php">3</a>
+                                <a class="dropdown-item" href="category_2.php">4</a>
+                                <a class="dropdown-item" href="category_1.php">5</a>
+                                <a class="dropdown-item" href="category_2.php">6</a>
+                                <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                                <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
+                                <a class="dropdown-item" href="confermation.php">Confirmation</a>
+                                <a class="dropdown-item" href="login.php">Login</a>
+                                <a class="dropdown-item" href="tracking.php">Tracking</a> -->
+                                <!-- <a class="dropdown-item" href="generic.php">Generic</a>
+                                <a class="dropdown-item" href="elements.php">Elements</a> -->
+                        </div>
                                 </div>
                                 <div class="col-md-2 col-12">
                                     <div class="total">'.$item_price.'</div>
+                                </div>
+                                <div class="col-md-2 col-12">
+                                    <div class="total"><a href = "cart_2.php?id1='.$item_id.'">Delete Item</a></div>
                                 </div>
                             </div>
                             </div>';
@@ -267,7 +255,7 @@ Navigate your code with ease. Click on function and method calls to jump to thei
                     </div>
                 </div> -->
                 <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
-                    <a href="#" class="view-btn color-2"><span>Update Cart</span></a>
+                    <a href="category.php" class="view-btn color-2"><span>Update Cart</span></a>
                     <div class="cuppon-wrap d-flex align-items-center flex-wrap">
                         <div class="cupon-code">
                             <input type="text">
