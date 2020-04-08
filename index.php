@@ -30,7 +30,8 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
-			<link rel="stylesheet" href="css/main.css">
+            <link rel="stylesheet" href="css/main.css">
+            <script src="js/register.js"></script>
 		</head>
 		<body>
 
@@ -132,7 +133,8 @@
 						<h3 class="billing-title text-center">Login</h3>
 						<p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
 						<form method = "POST" action = "login_1.php">
-							<input type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
+                            <input id = "remail" type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
+                            <span class="error" id="emailError"></span>
 							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
 							<input type = "submit" name = "submit"> 
 							<div class="mt-20 d-flex align-items-center justify-content-between">
@@ -149,11 +151,12 @@
 						<p class="text-center mt-40 mb-30">Create your very own account </p>
 						<form method ="POST" action = "register.php">
 							<input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
-							<input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
+                            <input id="email_at_registration" name="email_at_registration" type="email" class="form-control" size="100">
+                            <span class="error error_red" id="spanEmail_at_registration"></span>
 							<input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
 							<input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
 							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<input type = "submit" name = "submit">
+							<input class="registerButton" type = "submit" name = "submit">
 						</form>
 					</div>
 				</div>
