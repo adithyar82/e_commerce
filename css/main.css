@@ -2714,7 +2714,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 331, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
 .category-area .content-image {
-  width: 100%;
+  width: 10px;
+  height: 10px;
 }
 
 /* line 335, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
@@ -2812,7 +2813,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 436, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
 .content-image {
-  width: 100%;
+  width: 200px;
+  height: 200px;
+  align-content : left;
 }
 
 /* line 440, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */

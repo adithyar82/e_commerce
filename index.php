@@ -54,7 +54,8 @@
 							</ul>';
 							}
 							else{
-								echo '</span> <ul class="list">
+                                echo '<ul class="list">
+                                <span class="glyphicon glyphicon-user"> </span>
 								<li><a href="#">Welcome '.$username.' </a></li>
 							</ul>';
 							}

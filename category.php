@@ -36,6 +36,19 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
+			<script>
+				$('#row').pagination({
+				dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],
+				pageSize: 5,
+				showGoInput: true,
+				showGoButton: true,
+				callback: function(data, pagination) {
+					// template method of yourself
+					var html = template(data);
+					dataContainer.html(html);
+				}
+			})
+			</script>
 		</head>
 		<body>
 
@@ -56,7 +69,8 @@
 							</ul>';
 							}
 							else{
-								echo '</span> <ul class="list">
+                                echo '<ul class="list">
+                                <span class="glyphicon glyphicon-user"> </span>
 								<li><a href="#">Welcome '.$username.' </a></li>
 							</ul>';
 							}
@@ -208,7 +222,7 @@
 										  $initial_cost = $row['initial_cost'];
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
-										  echo '<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
+										  echo '<div class="col-md-3 single-product">
 										      <div class="content">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
@@ -467,8 +481,8 @@
 							
 								<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 								<a href="#" class="active">1</a>
-								<a href="#">2</a>
-								<a href="#">3</a>
+								<a href="#" class = "active" >2</a>
+								<a href="#" class = "active">3</a>
 								<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
 								<a href="#">6</a>
 								<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
