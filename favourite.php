@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    include('connect_db.php');
+    $username = $_SESSION['username'];
+    // $id1 = $_REQUEST['id1'];
+    // $id2 = $_REQUEST['id2'];
+    // $id3 = $_REQUEST['id3'];
+    ?>
+    <!DOCTYPE html>
     <html lang="zxx" class="no-js">
     <head>
         <!-- Mobile Specific Meta -->
@@ -8,13 +16,14 @@
         <!-- Author Meta -->
         <meta name="author" content="CodePixar">
         <!-- Meta Description -->
-         <meta name="description" content="">
+        <meta name="description" content="">
         <!-- Meta Keyword -->
         <meta name="keywords" content="">
         <!-- meta character set -->
         <meta charset="UTF-8">
         <!-- Site Title -->
         <title>Shop</title>
+
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
             <!--
             CSS
@@ -29,18 +38,33 @@
             <link rel="stylesheet" href="css/main.css">
         </head>
         <body>
+
             <!-- Start Header Area -->
             <header class="default-header">
                 <div class="menutop-wrap">
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="tel:+12312-3-1209">8095566699</a></li>
-                                <li><a href="mailto:support@colorlib.com">support@azeempatel.com</a></li>                             
+                                <li><a href="tel:+12312-3-1209">+12312-3-1209</a></li>
+                                <li><a href="mailto:support@colorlib.com">support@colorlib.com</a></li>                             
                             </ul>
-                            <!-- <ul class="list">
-                                <li><a href="#">login</a></li>
-                            </ul> -->
+                            <?php
+							if($username == ""){
+								echo '<ul class="list">
+								<span class="glyphicon glyphicon-user"> </span>
+								<li><a href="#"> Welcome </a></li>
+							</ul>';
+							}
+							else{
+								echo '</span> <ul class="list">
+								<li><a href="#">Welcome '.$username.' </a></li>
+							</ul>';
+							}
+							
+							?>
+                            <ul class="list">
+								<li><a href="logout.php">Logout</a></li>
+							</ul>
                         </div>
                     </div>                  
                 </div>
@@ -54,26 +78,26 @@
                           </button>
                           <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <!-- <li><a href="#home">Home</a></li>
-                                <li><a href="#catagory">Category</a></li> -->
-                                <!-- <li><a href="#men">Men</a></li>
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#catagory">Category</a></li>
+                                <li><a href="#men">Men</a></li>
                                 <li><a href="#women">Women</a></li>
-                                <li><a href="#latest">latest</a></li> -->
+                                <li><a href="#latest">latest</a></li>
                                     <!-- Dropdown -->
                                     <li class="dropdown">
-                                      <!-- <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                         Pages
-                                      </a> -->
+                                      </a>
                                       <div class="dropdown-menu">
                                         <a class="dropdown-item" href="category.php">Category</a>
-                                        <!-- <a class="dropdown-item" href="single.php">Single</a> -->
+                                        <a class="dropdown-item" href="single.php">Single</a>
                                         <a class="dropdown-item" href="cart.php">Cart</a>
                                         <a class="dropdown-item" href="checkout.php">Checkout</a>
                                         <a class="dropdown-item" href="confermation.php">Confermation</a>
                                         <a class="dropdown-item" href="login.php">Login</a>
                                         <a class="dropdown-item" href="tracking.php">Tracking</a>
-                                        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-                                        <a class="dropdown-item" href="elements.php">Elements</a> -->
+                                        <a class="dropdown-item" href="generic.php">Generic</a>
+                                        <a class="dropdown-item" href="elements.php">Elements</a>
                                       </div>
                                     </li>                                   
                             </ul>
@@ -82,15 +106,16 @@
                 </nav>
             </header>
             <!-- End Header Area -->
+
             <!-- Start Banner Area -->
             <section class="banner-area organic-breadcrumb">
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Reset Password</h1>
+                            <h1>Shopping Cart</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="cart.php">Reset Password</a>
+                                <a href="cart.php">Your Favourites</a>
                             </nav>
                         </div>
                     </div>
@@ -98,34 +123,200 @@
             </section>
             <!-- End Banner Area -->
 
-		<!-- Start My Account -->
-		<div class="container">
-			<div class="order-tracking">
-				<!-- <p>To track your order please enter your Order ID in the box below and press the "Track" button. This was given to you on your receipt and in the confirmation email you should have received.</p> -->
-				<form method = "POST" action="index_2.php">
-                    <!-- <h3> First Name:</h3>
-					<input type="text" onfocus="this.placeholder=''" value = "" required class="common-input mt-20"> -->
-                    <h3> Email Address </h3>
-                    <input type="text" name = "email_address" onfocus="this.placeholder=''" value = ""  required class="common-input mt-20">
-                    <h3> Enter New Password: </h3>
-                    <input type="password" name = "pwd" onfocus="this.placeholder=''" value = ""   required class="common-input mt-20">
-                    <!-- <h3> Username : </h3>
-                    <input type="text" onfocus="this.placeholder=''" value = ""   required class="common-input mt-20"> -->
-                    <!-- <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20"> -->
-					<button class="view-btn color-2 mt-20"><span>Reset Password</span></button>
-				</form>
-			</div>
-		</div>
-		<!-- End My Account -->
-		
-		
+            <!-- Start Cart Area -->
+            <div class="container">
+                <div class="cart-title">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="ml-15">Product</h6>
+                        </div>
+                        <div class="col-md-2">
+                            <h6>Price</h6>
+                        </div>
+                        <div class="col-md-2">
+                            <h6>Quantity</h6>
+                        </div>
+                        <div class="col-md-2">
+                            <h6>Total</h6>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                session_start();
+                include('connect_db.php');
+                $username = $_SESSION['username'];
+                $sql = "SELECT * FROM favourites WHERE username = '$username';";
+                $result=$conn->query($sql);
+                $sql1 = "SELECT SUM(item_price) as total_cost FROM favourites WHERE username ='$username';";
+                $result1 = $conn->query($sql1);
+                // 
+                if($result->num_rows>0){
+                    while($row = $result->fetch_assoc()){
+                        $item_name = $row['item_name'];
+                        $item_price = $row['item_price']; 
+                        $item_id = $row['id'];
+                         echo'
+                            <div class="cart-single-item">
+                            <div class="row align-items-center">
+                                <div class="col-md-6 col-12">
+                                    <div class="product-item d-flex align-items-center">
+                                        <h6>'.$item_name.'</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-6">
+                                    <div class="price">'.$item_price.'</div>
+                                </div>
+                                <div class="col-md-2 col-6">
+                                <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                1
+                              </a>
+                        <div class="dropdown-menu">
+                                <a class="dropdown-item" href="category_1.php">1</a>
+                                <a class="dropdown-item" href="category_2.php">2</a>
+                                <a class="dropdown-item" href="category_1.php">3</a>
+                                <a class="dropdown-item" href="category_2.php">4</a>
+                                <a class="dropdown-item" href="category_1.php">5</a>
+                                <a class="dropdown-item" href="category_2.php">6</a>
+                                <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                                <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
+                                <a class="dropdown-item" href="confermation.php">Confirmation</a>
+                                <a class="dropdown-item" href="login.php">Login</a>
+                                <a class="dropdown-item" href="tracking.php">Tracking</a> -->
+                                <!-- <a class="dropdown-item" href="generic.php">Generic</a>
+                                <a class="dropdown-item" href="elements.php">Elements</a> -->
+                        </div>
+                                </div>
+                                <div class="col-md-2 col-12">
+                                    <div class="total">'.$item_price.'</div>
+                                </div>
+                                <div class="col-md-2 col-12">
+                                    <div class="total"><a href = "cart_2.php?id1='.$item_id.'">Delete Item</a></div>
+                                </div>
+                            </div>
+                            </div>';
+                        }
+                    }
+                if($result1->num_rows>0){
+                    while($row = $result1->fetch_assoc()){
+                        $total_cost = $row['total_cost'];
+                    }
+                }
+                ?>
+                
+                
+                <!-- <div class="cart-single-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 col-12">
+                            <div class="product-item d-flex align-items-center">
+                                <img src="img/ci2.jpg" class="img-fluid" alt="">
+                                <h6>Pixelstore fresh Blackberry</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-6">
+                            <div class="price">$360.00</div>
+                        </div>
+                        <div class="col-md-2 col-6">
+                            <div class="quantity-container d-flex align-items-center mt-15">
+                                <input type="text" class="quantity-amount" value="1" />
+                                <div class="arrow-btn d-inline-flex flex-column">
+                                    <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
+                                    <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-12">
+                            <div class="total">$720.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-single-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 col-12">
+                            <div class="product-item d-flex align-items-center">
+                                <img src="img/ci3.jpg" class="img-fluid" alt="">
+                                <h6>Pixelstore fresh Blackberry</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-6">
+                            <div class="price">$360.00</div>
+                        </div>
+                        <div class="col-md-2 col-6">
+                            <div class="quantity-container d-flex align-items-center mt-15">
+                                <input type="text" class="quantity-amount" value="1" />
+                                <div class="arrow-btn d-inline-flex flex-column">
+                                    <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
+                                    <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-12">
+                            <div class="total">$720.00</div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
+                    <a href="category.php" class="view-btn color-2"><span>Update Cart</span></a>
+                    <div class="cuppon-wrap d-flex align-items-center flex-wrap">
+                        <div class="cupon-code">
+                            <input type="text">
+                            <button class="view-btn color-2"><span>Apply</span></button>
+                        </div>
+                        <a href="#" class="view-btn color-2 have-btn"><span>Have a Coupon?</span></a>
+                    </div>
+                </div>
+                <div class="subtotal-area d-flex align-items-center justify-content-end">
+                    <div class="title text-uppercase">Subtotal</div>
+                    <div class="subtotal"><?php echo $total_cost ?></div>
+                </div>
+                <div class="shipping-area d-flex justify-content-end">
+                    <div class="tile text-uppercase">Shipping</div>
+                    <form action="#" class="d-inline-flex flex-column align-items-end">
+                        <ul class="d-flex flex-column align-items-end">
+                            <li class="filter-list">
+                                <label for="flat-rate">Flat Rate:<span>Rs 50.00</span></label>
+                                <input class="pixel-radio" type="radio" id="flat-rate" name="brand">
+                            </li>
+                            <li class="filter-list">
+                                <label for="free-shipping">Free Shipping</label>
+                                <input class="pixel-radio" type="radio" id="free-shipping" name="brand">
+                            </li>
+                            <li class="filter-list">
+                                <label for="flat-rate-2">Flat Rate:<span>Rs 50.00</span></label>
+                                <input class="pixel-radio" type="radio" id="flat-rate-2" name="brand">
+                            </li>
+                            <li class="filter-list">
+                                <label for="local-delivery">Local Delivery:<span>Rs 50.00</span></label>
+                                <input class="pixel-radio" type="radio" id="local-delivery" name="brand">
+                            </li>
+                            <li class="calculate">Calculate Shipping</li>
+                        </ul>
+                        <div class="sorting">
+                            <select>
+                                <option value="1">Bangladesh</option>
+                                <option value="1">India</option>
+                                <option value="1">Srilanka</option>
+                            </select>
+                        </div>
+                        <div class="sorting mt-20">
+                            <select>
+                                <option value="1">Select a State</option>
+                                <option value="1">Select a State</option>
+                                <option value="1">Select a State</option>
+                            </select>
+                        </div>
+                        <input type="text" placeholder="Postcode/Zipcode" onfocus="this.placeholder=''" onblur="this.placeholder = 'Postcode/Zipcode'" required class="common-input mt-10">
+                        <button class="view-btn color-2 mt-10"><span>Update Details</span></button>
+                    </form>
+
+                </div>
+                <div>
+                    <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
+                </div>
+            </div>
+            <!-- End Cart Area -->
+
             <!-- Start Most Search Product Area -->
-            <!-- <section class="section-half">
+            <section class="section-half">
                 <div class="container">
                     <div class="organic-section-title text-center">
                         <h3>Most Searched Products</h3>
@@ -241,7 +432,7 @@
                         </div>
                     </div>
                 </div>
-            </section> -->
+            </section>
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->      
@@ -313,12 +504,13 @@
                     </div>
                     <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p class="footer-text m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </p>
+                        <p class="footer-text m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved></p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                 </div>
             </footer>   
             <!-- End footer Area -->        
+
             <script src="js/vendor/jquery-2.2.4.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
             <script src="js/vendor/bootstrap.min.js"></script>
@@ -329,6 +521,5 @@
             <script src="js/jquery.magnific-popup.min.js"></script>
             <script src="js/owl.carousel.min.js"></script>            
             <script src="js/main.js"></script>  
-
         </body>
     </html>

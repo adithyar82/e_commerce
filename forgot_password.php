@@ -102,13 +102,13 @@
 		<div class="container">
 			<div class="order-tracking">
 				<!-- <p>To track your order please enter your Order ID in the box below and press the "Track" button. This was given to you on your receipt and in the confirmation email you should have received.</p> -->
-				<form action="#">
+				<form method = "POST" action="index_1.php">
                     <!-- <h3> First Name:</h3>
 					<input type="text" onfocus="this.placeholder=''" value = "" required class="common-input mt-20"> -->
                     <h3> Email Address: </h3>
-                    <input type="text" onfocus="this.placeholder=''" value = ""  required class="common-input mt-20">
+                    <input type="text" name = "email_address" onfocus="this.placeholder=''" value = ""  required class="common-input mt-20">
                     <h3> Phone Number: </h3>
-                    <input type="text" onfocus="this.placeholder=''" value = ""   required class="common-input mt-20">
+                    <input type="text" name = "phone_number" onfocus="this.placeholder=''" value = ""   required class="common-input mt-20">
                     <!-- <h3> Username : </h3>
                     <input type="text" onfocus="this.placeholder=''" value = ""   required class="common-input mt-20"> -->
                     <!-- <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
