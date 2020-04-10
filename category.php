@@ -9,7 +9,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
@@ -228,7 +230,7 @@
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
 											  <div class="content-details fadeIn-bottom">
 													<div class="bottom d-flex align-items-center justify-content-center">
-														<a href="#"><span class="lnr lnr-heart"></span></a>
+														<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'"><span class="lnr lnr-heart"></span></a>
 														<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
 													</div>
 											  </div>
@@ -644,16 +646,12 @@
                     <div class="organic-section-title text-center">
                         <h3>Most Searched Products</h3>
                     </div>
-                    <div class="row mt-30">
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r1.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Blueberry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> Rs240.00</div>
-                                </div>
-                            </div>
-                        </div>
+					<div class="row mt-30">
+					<div class="mySlides fade">
+						<div class="numbertext">1 / 3</div>
+						<img src="img1.jpg" style="width:100%">
+						<div class="text">Caption Text</div>
+					</div>
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="single-search-product d-flex">
                                 <a href="#"><img src="img/r2.jpg" alt=""></a>
