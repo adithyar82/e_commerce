@@ -1,171 +1,131 @@
 <!DOCTYPE html>
-	<html lang="zxx" class="no-js">
-	<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-		<!-- Mobile Specific Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
-		<!-- Author Meta -->
-		<meta name="author" content="CodePixar">
-		<!-- Meta Description -->
-		<meta name="description" content="">
-		<!-- Meta Keyword -->
-		<meta name="keywords" content="">
-		<!-- meta character set -->
-		<meta charset="UTF-8">
-		<!-- Site Title -->
-		<title>Shop</title>
-
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="css/linearicons.css">
-			<link rel="stylesheet" href="css/font-awesome.min.css">
-			<link rel="stylesheet" href="css/nice-select.css">
-		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
-		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
-			<link rel="stylesheet" href="css/bootstrap.css">
+    <html lang="zxx" class="no-js">
+    <head>
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon-->
+        <link rel="shortcut icon" href="img/fav.png">
+        <!-- Author Meta -->
+        <meta name="author" content="CodePixar">
+        <!-- Meta Description -->
+         <meta name="description" content="">
+        <!-- Meta Keyword -->
+        <meta name="keywords" content="">
+        <!-- meta character set -->
+        <meta charset="UTF-8">
+        <!-- Site Title -->
+        <title>Shop</title>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+            <!--
+            CSS
+            ============================================= -->
+            <link rel="stylesheet" href="css/linearicons.css">
+            <link rel="stylesheet" href="css/owl.carousel.css">            
+            <link rel="stylesheet" href="css/font-awesome.min.css">
+            <link rel="stylesheet" href="css/nice-select.css">
+            <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+            <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+            <link rel="stylesheet" href="css/bootstrap.css">
             <link rel="stylesheet" href="css/main.css">
-            <script src="js/register.js"></script>
-		</head>
-		<body>
-
-			<!-- Start Header Area -->
-			<header class="default-header">
-				<div class="menutop-wrap">
-					<div class="menu-top container">
-						<div class="d-flex justify-content-between align-items-center">
-							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
-								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
-							</ul>
-							<ul class="list">
-								<li><a href="#">login</a></li>
-							</ul>
-							<?php
-							if($username == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
-							</ul>';
-							}
-							else{
-                                echo '<ul class="list">
-                                <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#">Welcome '.$username.' </a></li>
-							</ul>';
-							}
-							
-							?>
-						</div>
-					</div>					
-				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light">
-					<div class="container">
-						  <a class="navbar-brand" href="#">
-							  <img src="img/logo.png" alt="">
-							  <p> Company Logo </p>
-						  </a>
-						  <!-- <div class="search-container">
-								<form action="/action_page.php">
-								  <input type="text" placeholder="Search.." name="search">
-								  <button type="submit"><i class="fa fa-search"></i></button>
-								</form>
-						  </div> -->
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
-						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
-								<!-- <li><a href="#home">Home</a></li>
-								<li><a href="#catagory">Category</a></li>
-								<li><a href="#men">Product</a></li>
-								 <li><a href="#women">Women</a></li>
-								<li><a href="#latest">Recommendations</a></li> -->
-									<!-- Dropdown -->
-								    <!-- <li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
-								      </a> -->
-								      <!-- <div class="dropdown-menu">
-								        <a class="dropdown-item" href="category.php">Category</a>
-								        <a class="dropdown-item" href="single.php">Single</a>
-								        <a class="dropdown-item" href="cart.php">Cart</a>
-								        <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      <!-- </div> -->
-								    </li>									
-						    </ul>
-						  </div>						
-					</div>
-				</nav>
-			</header>
+        </head>
+        <body>
+            <!-- Start Header Area -->
+            <header class="default-header">
+                <div class="menutop-wrap">
+                    <div class="menu-top container">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <ul class="list">
+                                <li><a href="tel:+12312-3-1209">8095566699</a></li>
+                                <li><a href="mailto:support@colorlib.com">support@azeempatel.com</a></li>                             
+                            </ul>
+                            <!-- <ul class="list">
+                                <li><a href="#">login</a></li>
+                            </ul> -->
+                        </div>
+                    </div>                  
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container">
+                          <a class="navbar-brand" href="category.php">
+                            <img src="img/logo.png" alt="">
+                          </a>
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <!-- <li><a href="#home">Home</a></li>
+                                <li><a href="#catagory">Category</a></li> -->
+                                <!-- <li><a href="#men">Men</a></li>
+                                <li><a href="#women">Women</a></li>
+                                <li><a href="#latest">latest</a></li> -->
+                                    <!-- Dropdown -->
+                                    <li class="dropdown">
+                                      <!-- <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                        Pages
+                                      </a> -->
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="category.php">Category</a>
+                                        <!-- <a class="dropdown-item" href="single.php">Single</a> -->
+                                        <a class="dropdown-item" href="cart.php">Cart</a>
+                                        <a class="dropdown-item" href="checkout.php">Checkout</a>
+                                        <a class="dropdown-item" href="confermation.php">Confermation</a>
+                                        <a class="dropdown-item" href="login.php">Login</a>
+                                        <a class="dropdown-item" href="tracking.php">Tracking</a>
+                                        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
+                                        <a class="dropdown-item" href="elements.php">Elements</a> -->
+                                      </div>
+                                    </li>                                   
+                            </ul>
+                          </div>                        
+                    </div>
+                </nav>
+            </header>
             <!-- End Header Area -->
             <!-- Start Banner Area -->
             <section class="banner-area organic-breadcrumb">
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Login</h1>
+                            <h1>Forget Password</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="index.html">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="cart.html">Login</a>
+                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="cart.php">Forget Password</a>
                             </nav>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- End Banner Area -->
+
 		<!-- Start My Account -->
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="login-form">
-						<h3 class="billing-title text-center">Login</h3>
-						<p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
-						<form method = "POST" action = "login_1.php">
-                            <input id = "remail" type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
-                            <span class="error" id="emailError"></span>
-							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<input type = "submit" name = "submit"> 
-							<div class="mt-20 d-flex align-items-center justify-content-between">
-								<div class="d-flex align-items-center">
-                                <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
-								<a href="forgot_password.php">Lost your password?</a>
-							</div>
-						</form>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="register-form">
-						<h3 class="billing-title text-center">Register</h3>
-						<p class="text-center mt-40 mb-30">Create your very own account </p>
-						<form method ="POST" action = "register.php">
-							<input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
-                            <input id="email_at_registration" name="email_at_registration" type="email" class="form-control" size="100">
-                            <span class="error error_red" id="spanEmail_at_registration"></span>
-							<input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
-							<input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
-							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<input class="registerButton" type = "submit" name = "submit">
-						</form>
-					</div>
-				</div>
+			<div class="order-tracking">
+				<!-- <p>To track your order please enter your Order ID in the box below and press the "Track" button. This was given to you on your receipt and in the confirmation email you should have received.</p> -->
+				<form method = "POST" action="index_1.php">
+                    <!-- <h3> First Name:</h3>
+					<input type="text" onfocus="this.placeholder=''" value = "" required class="common-input mt-20"> -->
+                    <h3> Email Address: </h3>
+                    <input type="text" name = "email_address" onfocus="this.placeholder=''" value = ""  required class="common-input mt-20">
+                    <h3> Phone Number: </h3>
+                    <input type="text" name = "phone_number" onfocus="this.placeholder=''" value = ""   required class="common-input mt-20">
+                    <!-- <h3> Username : </h3>
+                    <input type="text" onfocus="this.placeholder=''" value = ""   required class="common-input mt-20"> -->
+                    <!-- <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
+                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20"> -->
+					<button class="view-btn color-2 mt-20"><span>Submit</span></button>
+				</form>
 			</div>
 		</div>
 		<!-- End My Account -->
 		
+		
             <!-- Start Most Search Product Area -->
-            <section class="section-half">
+            <!-- <section class="section-half">
                 <div class="container">
                     <div class="organic-section-title text-center">
                         <h3>Most Searched Products</h3>
@@ -281,8 +241,9 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Most Search Product Area -->
+
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
                 <div class="container">
@@ -300,9 +261,14 @@
                                 <h6>Newsletter</h6>
                                 <p>Stay update with our latest</p>
                                 <div class="" id="mc_embed_signup">
+
                                         <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+
                                         <div class="d-flex flex-row">
+
                                             <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+
+
                                                 <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
                                                 <div style="position: absolute; left: -5000px;">
                                                     <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
@@ -347,7 +313,7 @@
                     </div>
                     <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p class="footer-text m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        <p class="footer-text m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                 </div>
@@ -363,18 +329,6 @@
             <script src="js/jquery.magnific-popup.min.js"></script>
             <script src="js/owl.carousel.min.js"></script>            
             <script src="js/main.js"></script>  
-           
+
         </body>
     </html>
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About

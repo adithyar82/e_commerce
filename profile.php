@@ -31,7 +31,6 @@
         <meta charset="UTF-8">
         <!-- Site Title -->
         <title>Shop</title>
-
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
             <!--
             CSS
@@ -46,7 +45,6 @@
             <link rel="stylesheet" href="css/main.css">
         </head>
         <body>
-
             <!-- Start Header Area -->
             <header class="default-header">
                 <div class="menutop-wrap">
@@ -100,7 +98,6 @@
                 </nav>
             </header>
             <!-- End Header Area -->
-
             <!-- Start Banner Area -->
             <section class="banner-area organic-breadcrumb">
                 <div class="container">
@@ -338,7 +335,6 @@
                 </div>
             </footer>   
             <!-- End footer Area -->        
-
             <script src="js/vendor/jquery-2.2.4.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
             <script src="js/vendor/bootstrap.min.js"></script>
