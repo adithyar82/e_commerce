@@ -1,5 +1,6 @@
 <?php
-	session_start();
+    session_start();
+    $id1 = $_REQUEST['id1'];
 	$username = $_SESSION['username'];
 	echo $_SESSION['username'];
 	?>
@@ -58,17 +59,10 @@
 			<header class="default-header">
 				<div class="menutop-wrap">
 					<div class="menu-top container">
-					<div class="form-group has-feedback has-feedback-left">
-						<!-- <label>Pickup Location</label> -->
-						<!-- \\] -->
-						<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
-						
-					 </div>
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
 								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
-								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
 							</ul>
 							<?php
 							if($username == ""){
@@ -80,81 +74,69 @@
 							else{
                                 echo '<ul class="list">
                                 <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#" style="margin-right:20px">Welcome '.$username.' </a></li>
+								<li><a href="#">Welcome '.$username.' </a></li>
 							</ul>';
 							}
 							
 							?>
 							<ul class="list">
-<<<<<<< HEAD
-								<span class="glyphicon glyphicon-off"> </span>
 								<li><a href="logout.php">Logout</a></li>
-=======
-								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:25px; margin-left:20px; font-size:27px"> </span><a href="logout.php">Logout</a></li>
->>>>>>> efea5580f5f56311a4a6f31ca311b6058170a16b
 							</ul>
 						</div>
-					</div>	
-					<br>				
+					</div>					
 				</div>
 				<nav class="navbar navbar-expand-lg  navbar-light">
-<<<<<<< HEAD
-					<div class="container" style="width:1500px">
-						<span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span>
-=======
-					<div class="container" style="width:1500px;">
-					<span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span>
->>>>>>> efea5580f5f56311a4a6f31ca311b6058170a16b
+					<div class="container">
 						  <a class="navbar-brand" href="#">
 							  <img src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <div class="search-container" style="width:1500px;">
-								<form action="/action_page.php">
-								  <input type="text" size = "40" placeholder="Search.." name="search">
+						  <div class="search-container">
+								<!-- <form action="/action_page.php">
+								  <input type="text" size = "50" placeholder="Search.." name="search">
 								  <button type="submit"><i class="fa fa-search"></i></button>
-								</form>
+								</form> -->
+                                <h3 style="margin-left:120px;"><?php echo $id1 ?></h3> 
 						  </div>
 						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						    <span class="navbar-toggler-icon"></span>
 						  </button>
-						  <div class="collapse navbar-collapse" style = "margin-right:30%;" id="navbarSupportedContent">
+						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
 								<li><a href="#home">Home</a></li>
-
 								<!-- <li><a href="#catagory">Category</a></li>
 								<li><a href="#men">Product</a></li> -->
 								<!-- <li><a href="#women">Women</a></li> -->
-								<li><a href="#latest">Recommendations</a></li>
+								<!-- <li><a href="#latest">Recommendations</a></li> -->
 									<!-- Dropdown -->
-								    <li class="dropdown">
+								    <!-- <li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 								        Pages
 								      </a>
-								      <div class="dropdown-menu" style="margin-top:10px">
-								        <!-- <a class="dropdown-item" href="category.php">Category</a>
+								      <div class="dropdown-menu">
+								        <<a class="dropdown-item" href="category.php">Category</a>
 								        <a class="dropdown-item" href="single.php">Single</a> -->
 								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <a class="dropdown-item" href="checkout.php">Checkout</a>
+								        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
 								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
 								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a>
+								        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
 								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
+								        <a class="dropdown-item" href="elements.php">Elements</a>
 								      </div>
-								    </li>
+								    </li-->
 									<li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 								        Category
 								      </a>
 								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
-								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
+								        <a class="dropdown-item" href="department.php">Electronics</a>
+								        <a class="dropdown-item" href="department.php">Groceries</a>
 								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
-								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
-								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
-								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
+								        <a class="dropdown-item" href="department.php">Fashion</a>
+								        <a class="dropdown-item" href="department.php">Medicines</a>
+								        <a class="dropdown-item" href="department.php">Sport Equipments</a>
+								        <a class="dropdown-item" href="department.php">Hardware</a>
 								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
 								        <a class="dropdown-item" href="elements.php">Elements</a> -->
 								      </div>
@@ -181,7 +163,7 @@
                 </div>
 			</section> -->
 			<section class="banner-area relative" id="home">
-				<div class="container-fluid">
+				<!-- <div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
 						<div class="col-lg-6 col-md-12 padding: 40px;">
 							<img class="img-fluid" src="img/c39.png" alt="" width="100%" height="100%">
@@ -194,7 +176,7 @@
 							</h1>
 							<button class="primary-btn text-uppercase"><a href="#">Order Here</a></button>
 						</div>							
-					</div>
+					</div> -->
 				</div>
 			</section>
             <!-- End Banner Area -->
@@ -246,18 +228,12 @@
 						<!-- End Filter Bar -->
 						<!-- Start Best Seller -->
 						<section class="lattest-product-area pb-40 category-list">
-						<br>
 						
 							<div class="row">
 							<?php 
 								  include('connect_db.php');
-<<<<<<< HEAD
-								//   session_start();
-								  $sql = "SELECT * FROM products;";
-=======
 								  session_start();
-								  $sql = "SELECT * FROM products limit 6;";
->>>>>>> efea5580f5f56311a4a6f31ca311b6058170a16b
+								  $sql = "SELECT * FROM products;";
 								  $result = $conn->query($sql);
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
@@ -266,45 +242,8 @@
 										  $initial_cost = $row['initial_cost'];
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
-										  echo '<div class="col-md-2 single-product">
-											  <div class="content">
-											  
-											  <div class="content-overlay"></div>
-												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
-											  <div class="content-details fadeIn-bottom">
-											  
-													<div class="bottom d-flex align-items-center justify-content-center">
-														<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'"><span class="lnr lnr-heart"></span></a>
-														<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-													</div>
-											  </div>
-										  </div>
-										  <div class="price">
-										  
-												  <h5>'.$product_name.'</h5>
-													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
-												  <h3>'.$final_cost.'</h3>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
-										   </div>
-										</div>
-										<br>';
-									  }
-								  }
-								  
-								  $sql1 = "SELECT * FROM products limit 4;";
-								  $result1 = $conn->query($sql1);
-								//   echo '<h3 style="margin-left:10px;"> Groceries </h3>';
-								  if($result1->num_rows>0){
-									  while($row = $result1->fetch_assoc()){
-										  $product_id = $row['product_id'];
-										  $product_name = $row['product_name'];
-										  $initial_cost = $row['initial_cost'];
-										  $final_cost = $row['final_cost'];
-										  $product_image = $row['product_image'];
-										  echo '<div class="col-md-2 single-product">
-											  <div class="content">
-											
+										  echo '<div class="col-md-3 single-product">
+										      <div class="content">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
 											  <div class="content-details fadeIn-bottom">
@@ -320,7 +259,6 @@
 													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
 												  <h3>'.$final_cost.'</h3>
 												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-												  <span class="glyphicon glyphicon-shopping-cart"> </span>
 												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
 										   </div>
 										</div>';
@@ -763,7 +701,7 @@
                                 </div>
                             </div>
 						</div>
-						<!-- <div class="row mt-30">
+						<div class="row mt-30">
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="single-search-product d-flex">
                                 <a href="#"><img src="img/r1.jpg"  id="firstClone"  alt=""></a>
@@ -847,7 +785,7 @@
                         </div>
                     </div>
                 </div>
-            </section> -->
+            </section>
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->      
