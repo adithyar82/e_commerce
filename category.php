@@ -79,20 +79,22 @@
 							
 							?>
 							<ul class="list">
+								<span class="glyphicon glyphicon-off"> </span>
 								<li><a href="logout.php">Logout</a></li>
 							</ul>
 						</div>
 					</div>					
 				</div>
 				<nav class="navbar navbar-expand-lg  navbar-light">
-					<div class="container">
+					<div class="container" style="width:1500px">
+						<span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span>
 						  <a class="navbar-brand" href="#">
 							  <img src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
 						  <div class="search-container">
 								<form action="/action_page.php">
-								  <input type="text" size = "50" placeholder="Search.." name="search">
+								  <input type="text" size = "40" placeholder="Search.." name="search">
 								  <button type="submit"><i class="fa fa-search"></i></button>
 								</form>
 						  </div>
@@ -214,7 +216,7 @@
 							<div class="row">
 							<?php 
 								  include('connect_db.php');
-								  session_start();
+								//   session_start();
 								  $sql = "SELECT * FROM products;";
 								  $result = $conn->query($sql);
 								  if($result->num_rows>0){
@@ -241,6 +243,7 @@
 													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
 												  <h3>'.$final_cost.'</h3>
 												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
+												  <span class="glyphicon glyphicon-shopping-cart"> </span>
 												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
 										   </div>
 										</div>';
@@ -683,7 +686,7 @@
                                 </div>
                             </div>
 						</div>
-						<div class="row mt-30">
+						<!-- <div class="row mt-30">
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="single-search-product d-flex">
                                 <a href="#"><img src="img/r1.jpg"  id="firstClone"  alt=""></a>
@@ -767,7 +770,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->      
