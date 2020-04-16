@@ -45,8 +45,8 @@
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="tel:+12312-3-1209">+12312-3-1209</a></li>
-                                <li><a href="mailto:support@colorlib.com">support@colorlib.com</a></li>                             
+                                <li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">support@azeempatel.com</a></li>                             
                             </ul>
                             <?php
 							if($username == ""){
@@ -190,6 +190,7 @@
                                     <div class="total">'.$item_price.'</div>
                                 </div>
                                 <div class="col-md-2 col-12">
+                                    <span class="glyphicon glyphicon-remove"> </span>
                                     <div class="total"><a href = "cart_2.php?id1='.$item_id.'">Delete Item</a></div>
                                 </div>
                             </div>
