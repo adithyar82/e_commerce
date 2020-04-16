@@ -1,8 +1,34 @@
 <?php
 	session_start();
-	$username = $_SESSION['username'];
+	$uname = $_SESSION['uname'];
 	echo $_SESSION['username'];
-	?>
+	include('connect_db.php');
+	$registration_status = $_REQUEST['id1'];
+	$encrypted = $_REQUEST['id2'];
+	function my_simple_crypt( $string, $action = 'd') {
+    // you may change these values to your own
+    $secret_key = 'my_simple_secret_key';
+    $secret_iv = 'my_simple_secret_iv';
+  
+    $output = false;
+    $encrypt_method = "AES-256-CBC";
+    $key = hash( 'sha256', $secret_key );
+    $iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
+  
+    if( $action == 'e' ) {
+        $output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
+    }
+    else if( $action == 'd' ){
+        $output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
+    }
+  
+    return $output;
+  }
+	$email_address = my_simple_crypt($encrypted, 'd' );
+	echo $email_address;
+	$sql = "UPDATE Users SET registration_status = '$registration_status' WHERE email_address = '$email_address';";
+	$result = $conn->query($sql)
+?>
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
@@ -80,7 +106,7 @@
 							else{
                                 echo '<ul class="list">
                                 <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#" style="margin-right:20px">Welcome '.$username.' </a></li>
+								<li><a href="#" style="margin-right:20px">Welcome '.$uname.' </a></li>
 							</ul>';
 							}
 							

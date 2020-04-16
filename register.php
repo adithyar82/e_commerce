@@ -8,13 +8,43 @@ if(isset($_POST['submit'])){
     $username = $_POST['username'];
     $password  = md5($_POST['pwd']);
 }
-$sql = "INSERT INTO Users(fname,email_address,phone_number,username,password) VALUES ('$fname','$email_address','$phone_number','$username','$password')";
+$sql_1 = "SELECT * FROM Users where email_address = '$email_address';";
+$registration_status = 0;
+$result_1 = $conn->query($sql_1);
+if($result_1->num_rows>0){
+    echo '<script>
+    alert("Email address has already been Registered")
+    window.location = "index.php";
+    </script>';
+}
+else{
+$sql = "INSERT INTO Users(fname,email_address,phone_number,username,password,registration_status) VALUES ('$fname','$email_address','$phone_number','$username','$password','$registration_status')";
 // if (($result = $conn->query($sql))!== False){
 //     echo "New record created successfully";
 // } else {
 //     echo "Error: " . $sql . "<br>" . $conn->error;
 // }
-
+function my_simple_crypt( $string, $action = 'e' ) {
+    // you may change these values to your own
+    $secret_key = 'my_simple_secret_key';
+    $secret_iv = 'my_simple_secret_iv';
+ 
+    $output = false;
+    $encrypt_method = "AES-256-CBC";
+    $key = hash( 'sha256', $secret_key );
+    $iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
+ 
+    if( $action == 'e' ) {
+        $output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
+    }
+    else if( $action == 'd' ){
+        $output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
+    }
+ 
+    return $output;
+}
+$email = my_simple_crypt($email_address,'e');
+$registration_status = 1;
 $result = $conn->query($sql);
 if ($result->num_rows >= 0) {
     $mail = new PHPMailer;
@@ -31,7 +61,7 @@ if ($result->num_rows >= 0) {
     $mail->Subject = 'E Commerce Website';
     $mail->Body    = '<h1 align =center>Dear '.$fname.' Welcome to E Commmerce Portal</h1>
                       <h2 align =center>Your username is '.$username.' Kindly use this for future reference </h2>
-                      <h3 aling = left><a href = "http://localhost:8888/shop/category.php"> Login Using Your Credentials';
+                      <h3 aling = left><a href = "http://localhost:8888/shop/category.php?id1='.$registration_status.'&id2='.$email.'"> Login Using Your Credentials';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     $mail -> isHTML(true);
     if(!$mail->send()) {
@@ -65,4 +95,5 @@ if ($result->num_rows >= 0) {
       window.location="category.php";
       </script>';
       }
+    }
 ?>
