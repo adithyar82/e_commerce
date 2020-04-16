@@ -1,3 +1,30 @@
+<?php
+include('connect_db.php');
+$registration_status = $_REQUEST['id1'];
+$encrypted = $_REQUEST['id2'];
+function my_simple_crypt( $string, $action = 'd') {
+    // you may change these values to your own
+    $secret_key = 'my_simple_secret_key';
+    $secret_iv = 'my_simple_secret_iv';
+  
+    $output = false;
+    $encrypt_method = "AES-256-CBC";
+    $key = hash( 'sha256', $secret_key );
+    $iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
+  
+    if( $action == 'e' ) {
+        $output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
+    }
+    else if( $action == 'd' ){
+        $output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
+    }
+  
+    return $output;
+  }
+$email_address = my_simple_crypt($encrypted, 'd' );
+$sql = "UPDATE Users SET registration_status = '$registration_status' WHERE email_address = '$email_address';";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
@@ -151,7 +178,7 @@
 						<p class="text-center mt-40 mb-30">Create your very own account </p>
 						<form method ="POST" action = "register.php">
 							<input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
-                            <input id="email_at_registration" name="email_at_registration" type="email" class="form-control" size="100">
+                            <input type="email" name = "email_address" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address'" required class="common-input mt-20">
                             <span class="error error_red" id="spanEmail_at_registration"></span>
 							<input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
 							<input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
@@ -366,15 +393,3 @@
            
         </body>
     </html>
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About

@@ -4,25 +4,35 @@ session_start();
 if(isset($_POST['submit'])){
     $email_address = $_POST['email_address'];
     $pwd = md5($_POST['pwd']);
-    $sql = "SELECT * FROM Users where email_address = '$email_address' and password = '$pwd';";
+    $sql = "SELECT * FROM Users where email_address = '$email_address' AND password = '$pwd'";
    $result = $conn->query($sql);
-    echo $username;
-        echo $email_address;
-        echo $pwd;
 if($result->num_rows>=0){
     while($row = $result->fetch_assoc()){
-        $username = $row['fname'];
+        $_SESSION['uname'] = $row['fname'];
         $role = $row['role'];
         echo $username;
-        $_SESSION['username'] = $username;
         $_SESSION['email_address'] = $email_address;
-        echo $_SESSION['username'];
+        $registration_status = $row['registration_status'];
+        echo $registration_status;
+        if($registration_status == '0')
+        {
+            echo'<script>
+            alert("Invalid Credentials");
+            window.location = "index.php";
+            </script>';
+        }
+        else{
+            echo '<script>
+            window.location = "category.php";
+            </script>';
+        }
+        // echo $_SESSION['username'];
         echo '<script>
         window.location = "category.php";
         </script>';
-        echo $username;
-        echo $email_address;
-        echo $pwd;
+        // echo $username;
+        // echo $email_address;
+        // echo $pwd;
     }
    
 }
