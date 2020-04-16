@@ -67,7 +67,7 @@
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
 								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
-								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>
+								<li><a href="contact_us.php">support@azimpatel.com</a></li>
 								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
 							</ul>
 							<?php
@@ -86,25 +86,15 @@
 							
 							?>
 							<ul class="list">
-<<<<<<< HEAD
-								<span class="glyphicon glyphicon-off"> </span>
-								<li><a href="logout.php">Logout</a></li>
-=======
 								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:25px; margin-left:20px; font-size:27px"> </span><a href="logout.php">Logout</a></li>
->>>>>>> efea5580f5f56311a4a6f31ca311b6058170a16b
 							</ul>
 						</div>
 					</div>	
 					<br>				
 				</div>
 				<nav class="navbar navbar-expand-lg  navbar-light">
-<<<<<<< HEAD
-					<div class="container" style="width:1500px">
-						<span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span>
-=======
 					<div class="container" style="width:1500px;">
 					<span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span>
->>>>>>> efea5580f5f56311a4a6f31ca311b6058170a16b
 						  <a class="navbar-brand" href="#">
 							  <img src="img/logo.png" alt="">
 							  <p> Company Logo </p>
@@ -251,13 +241,8 @@
 							<div class="row">
 							<?php 
 								  include('connect_db.php');
-<<<<<<< HEAD
-								//   session_start();
-								  $sql = "SELECT * FROM products;";
-=======
 								  session_start();
 								  $sql = "SELECT * FROM products limit 6;";
->>>>>>> efea5580f5f56311a4a6f31ca311b6058170a16b
 								  $result = $conn->query($sql);
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
