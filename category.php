@@ -92,7 +92,7 @@
 					 </div>
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
+								<li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
 								<li><a href="contact_us.php">support@azimpatel.com</a></li>
 								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
 							</ul>
@@ -173,7 +173,10 @@
 								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
 								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
 								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      </div>
+									  </div>
+									  	<ul class="list">
+											<li><span class="glyphicon glyphicon-shopping-cart" style="float:right; margin-right:25px; margin-left:20px; font-size:27px"> </span><a href="logout.php">CART</a></li>
+										</ul>
 								    </li>									
 						    </ul>
 						  </div>						
