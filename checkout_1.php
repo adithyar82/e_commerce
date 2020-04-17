@@ -276,28 +276,38 @@
 									<div>Product</div>
 									<div>Total</div>
 								</div>
-							<div class="list-row d-flex justify-content-between">
+							
                             <?php 
                             $sql = "SELECT * FROM items WHERE username = '$uname';";
                             $result = $conn->query($sql);
+                            $sql1 = "SELECT SUM(final_cost) as total_cost FROM items WHERE username ='$uname';";
+                            $result1 = $conn->query($sql1);
+                            if($result1->num_rows>0){
+                                while($row = $result1->fetch_assoc()){
+                                    $total_cost = $row['total_cost'];
+                                }
+                            }
                             if($result->num_rows>0){
                                 while($row=$result->fetch_assoc()){
                                     $item_price = $row['item_price'];
                                     $item_name = $row['item_name'];
                                     $product_quantity = $row['product_quantity'];
-                                    echo '<div>'.$item_name.'</div>
+                                    $total_price = $item_price * $product_quantity;
+                                    echo '<div class="list-row d-flex justify-content-between">
+                                    <div>'.$item_name.'</div><br>
                                     <div>x '.$product_quantity.'</div>
                                     <br>
-                                    <div><?php echo $id1?></div>';
+                                    <div>'.$total_price.'</div>
+                                    </div>';
                                 }
                             }
 
 								
                             ?>
-							</div>
+							
 							<div class="list-row d-flex justify-content-between">
 								<h6>Subtotal</h6>
-								<div><?php echo $id1?></div>
+								<div><?php echo $total_cost?></div>
 							</div>
 							<div class="list-row d-flex justify-content-between">
 								<h6>Shipping</h6>

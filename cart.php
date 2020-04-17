@@ -176,7 +176,7 @@
                 $username = $_SESSION['username'];
                 $sql = "SELECT * FROM items WHERE username = '$username';";
                 $result=$conn->query($sql);
-                $sql1 = "SELECT SUM(item_price) as total_cost FROM items WHERE username ='$username';";
+                $sql1 = "SELECT SUM(final_cost) as total_cost FROM items WHERE username ='$username';";
                 $result1 = $conn->query($sql1);
                 // 
                 if($result->num_rows>0){
@@ -191,17 +191,18 @@
                             <div class="row align-items-center">
                                 <div class="col-md-6 col-12">
                                     <div class="product-item d-flex align-items-center">
-                                        <h6>'.$item_name.' x '.$product_quantity.'</h6>
+                                        <h6>'.$item_name.'</h6>
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-6">
                                     <div class="price">'.$item_price.'</div>
                                 </div>
                                 <div class="col-md-2 col-6">
-                                <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                1
+                                <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">'.$product_quantity.'
+                                
                               </a>
                         <div class="dropdown-menu">
+                                <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
                                 <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
                                 <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
                                 <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
@@ -342,7 +343,7 @@
 
                 </div> -->
                 <div>
-                    <a href = button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
+                    <a href = "checkout_1.php"  button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
                 </div>
             </div>
             <!-- End Cart Area -->

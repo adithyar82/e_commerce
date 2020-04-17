@@ -32,6 +32,7 @@
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -64,6 +65,48 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
+<style>			
+.dropbtn {
+  background-color: transparent;
+  color: black;
+  padding: 1px;
+  font-size: 10px;
+  border: none;
+  border-color:transparent;
+  /* cursor: pointer; */
+
+}
+
+/* .dropbtn:hover, .dropbtn:focus {
+  background-color: #ffffff;
+} */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* .dropdown a:hover {background-color: #ddd;} */
+
+.show {display: block;}
+</style>
 			<script>
 				$('#row').pagination({
 				dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],
@@ -77,9 +120,30 @@
 				}
 			})
 			</script>
+			<script>
+				/* When the user clicks on the button, 
+				toggle between hiding and showing the dropdown content */
+				function myFunction() {
+				document.getElementById("myDropdown").classList.toggle("show");
+				}
+
+				// Close the dropdown if the user clicks outside of it
+				window.onclick = function(event) {
+				if (!event.target.matches('.dropbtn')) {
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+					}
+				}
+				}
+				</script>
 		</head>
 		<body>
-
+	
 			<!-- Start Header Area -->
 			<header class="default-header">
 				<div class="menutop-wrap">
@@ -118,9 +182,20 @@
 					</div>	
 					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-left:5%">
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
 					<div class="container" style="width:1500px;">
-					<span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span>
+							<div class="dropdown">
+					<button onclick="myFunction()" class="dropbtn" style = "margin-left:10px; color: black; background-color: transparent; border-color: transparent; cursor: default;"><span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:45px"> </span></button>
+					<div id="myDropdown" class="dropdown-content">
+						<a href="category.php">Home</a>
+						<a href="profile.php">Profile</a>
+						<a href="order_status.php">Order</a>
+						<a href="favourite.php">Favourites</a>
+						<a href="cart.php">Cart</a>
+						<a href="logout.php">Logout</a>
+					</div>
+					</div>
+					<!-- <span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span> -->
 						  <a class="navbar-brand" href="#">
 							  <img src="img/logo.png" alt="">
 							  <p> Company Logo </p>
@@ -199,6 +274,7 @@
                 </div>
 			</section> -->
 			<section class="banner-area relative" id="home">
+			
 				<div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
 						<div class="col-lg-6 col-md-12 padding: 40px;">
@@ -300,7 +376,8 @@
 												  <h5>'.$product_name.'</h5>
 													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
 												  <h3>'.$final_cost.'</h3>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
+												  <a href=" checkout_2.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
+												  <span class="glyphicon glyphicon-shopping-cart"> </span>
 												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
 										   </div>
 										</div>
