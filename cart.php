@@ -41,21 +41,14 @@
 
             <!-- Start Header Area -->
             <header class="default-header">
-				<div class="menutop-wrap">
-					<div class="menu-top container">
-					<div class="form-group has-feedback has-feedback-left">
-						<!-- <label>Pickup Location</label> -->
-						<!-- \\] -->
-						<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
-						
-					 </div>
-						<div class="d-flex justify-content-between align-items-center">
-							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
-								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
-							</ul>
-							<?php
+                <div class="menutop-wrap">
+                    <div class="menu-top container">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <ul class="list">
+                                <li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">support@azeempatel.com</a></li>                             
+                            </ul>
+                            <?php
 							if($username == ""){
 								echo '<ul class="list">
 								<span class="glyphicon glyphicon-user"> </span>
@@ -228,6 +221,7 @@
                                     <div class="total">'.$total_price.'</div>
                                 </div>
                                 <div class="col-md-2 col-12">
+                                    <span class="glyphicon glyphicon-remove"> </span>
                                     <div class="total"><a href = "cart_2.php?id1='.$item_id.'">Delete Item</a></div>
                                 </div>
                             </div>
@@ -348,7 +342,7 @@
 
                 </div> -->
                 <div>
-                    <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
+                    <a href = button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
                 </div>
             </div>
             <!-- End Cart Area -->

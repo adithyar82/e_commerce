@@ -191,6 +191,7 @@
                                     <div class="total">'.$item_price.'</div>
                                 </div>
                                 <div class="col-md-2 col-12">
+                                    <span class="glyphicon glyphicon-remove"> </span>
                                     <div class="total"><a href = "cart_2.php?id1='.$item_id.'">Delete Item</a></div>
                                 </div>
                             </div>

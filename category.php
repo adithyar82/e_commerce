@@ -92,8 +92,8 @@
 					 </div>
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
-								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>
+								<li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
+								<li><a href="contact_us.php">support@azimpatel.com</a></li>
 								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
 							</ul>
 							<?php
@@ -127,7 +127,7 @@
 						  </a>
 						  <div class="search-container" style="width:1500px;">
 								<form action="/action_page.php">
-								  <input type="text" size = "50" placeholder="Search.." name="search">
+								  <input type="text" size = "40" placeholder="Search.." name="search">
 								  <button type="submit"><i class="fa fa-search"></i></button>
 								</form>
 						  </div>
@@ -173,7 +173,10 @@
 								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
 								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
 								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      </div>
+									  </div>
+									  	<ul class="list">
+											<li><span class="glyphicon glyphicon-shopping-cart" style="float:right; margin-right:25px; margin-left:20px; font-size:27px"> </span><a href="logout.php">CART</a></li>
+										</ul>
 								    </li>									
 						    </ul>
 						  </div>						
@@ -320,26 +323,25 @@
 										echo'<div class="col-md-2 single-product">
 											<div class="content">
 											
-											<div class="content-overlay"></div>
-												 <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
-											<div class="content-details fadeIn-bottom">
-											
-												  <div class="bottom d-flex align-items-center justify-content-center">
-													  <a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'"><span class="lnr lnr-heart"></span></a>
-													  <a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-												  </div>
-											</div>
-										</div>
-										<div class="price">
-										
-												<h5>'.$product_name.'</h5>
-												  <h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
-												<h3>'.$final_cost.'</h3>
-												<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-												<a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
-										 </div>
-									  </div>
-									  <br>';
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+													<div class="bottom d-flex align-items-center justify-content-center">
+														<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'"><span class="lnr lnr-heart"></span></a>
+														<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
+													</div>
+											  </div>
+										  </div>
+										  <div class="price">
+										  
+												  <h5>'.$product_name.'</h5>
+													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
+												  <h3>'.$final_cost.'</h3>
+												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
+												  <span class="glyphicon glyphicon-shopping-cart"> </span>
+												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
+										   </div>
+										</div>';
 									  }
 								  }
 					               ?>
@@ -779,7 +781,7 @@
                                 </div>
                             </div>
 						</div>
-						<div class="row mt-30">
+						<!-- <div class="row mt-30">
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="single-search-product d-flex">
                                 <a href="#"><img src="img/r1.jpg"  id="firstClone"  alt=""></a>
@@ -863,7 +865,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->      
