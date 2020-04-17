@@ -68,11 +68,8 @@ $result = $conn->query($sql);
 					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
-								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
-							</ul>
-							<ul class="list">
-								<li><a href="#">login</a></li>
+								<li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
+								<li><a href="contact.php">support@azimpatel.com</a></li>								
 							</ul>
 							<?php
 							if($username == ""){
@@ -86,9 +83,11 @@ $result = $conn->query($sql);
                                 <span class="glyphicon glyphicon-user"> </span>
 								<li><a href="#">Welcome '.$username.' </a></li>
 							</ul>';
-							}
-							
-							?>
+                            }
+                            ?>
+							<ul class="list">
+								<li><a href="#">login</a></li>
+							</ul>
 						</div>
 					</div>					
 				</div>
@@ -138,7 +137,7 @@ $result = $conn->query($sql);
 			</header>
             <!-- End Header Area -->
             <!-- Start Banner Area -->
-            <section class="banner-area organic-breadcrumb">
+            <!-- <section class="banner-area organic-breadcrumb">
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
@@ -150,20 +149,21 @@ $result = $conn->query($sql);
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Banner Area -->
 		<!-- Start My Account -->
-		<div class="container">
+		<div class="container" style="margin-left:7%; margin-bottom:7%; margin-top:7%">
 			<div class="row">
 				<div class="col-md-6">
-					<div class="login-form">
+					<div class="login-form" style="margin-bottom:-7%; margin-top-7%">
 						<h3 class="billing-title text-center">Login</h3>
 						<p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
 						<form method = "POST" action = "login_1.php">
                             <input id = "remail" type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
                             <span class="error" id="emailError"></span>
 							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<input type = "submit" name = "submit"> 
+                            <br>
+							<button class="view-btn color-2 w-100 mt-20"><span>Submit</span></button>
 							<div class="mt-20 d-flex align-items-center justify-content-between">
 								<div class="d-flex align-items-center">
                                 <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
@@ -183,7 +183,8 @@ $result = $conn->query($sql);
 							<input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
 							<input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
 							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<input class="registerButton" type = "submit" name = "submit">
+                            <br>
+							<button class="view-btn color-2 w-100 mt-20"><span>Submit</span></button>
 						</form>
 					</div>
 				</div>
@@ -192,7 +193,7 @@ $result = $conn->query($sql);
 		<!-- End My Account -->
 		
             <!-- Start Most Search Product Area -->
-            <section class="section-half">
+            <!-- <section class="section-half">
                 <div class="container">
                     <div class="organic-section-title text-center">
                         <h3>Most Searched Products</h3>
@@ -308,7 +309,7 @@ $result = $conn->query($sql);
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Most Search Product Area -->
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
