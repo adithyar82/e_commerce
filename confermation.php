@@ -16,7 +16,14 @@
     $city = $_POST['city'];
     $state = $_POST['state'];
     $country = $_POST['country'];
-    $zip = $_POST['zip']; 
+    $zip = $_POST['zip'];
+    $shipping_address = $_POST['shipping_address'];
+    $address_11 = $_POST['address_11'];
+    $address_12 = $_POST['address_12'];
+    $city_1 = $_POST['city_1'];
+    $state_1 = $_POST['state_1'];
+    $country_1 = $_POST['country_1'];
+    $zip_1= $_POST['zip_1'];
     $sql = "INSERT INTO order_status(order_id,fname,initial_cost, final_cost, shipping_id, payment_id, product_quantity, delivery_time, time_created) VALUES (Null,'$fname','200', '$final_cost', '250', '450', '500', CURRENT_TIME(),CURRENT_TIME());";
     $result = $conn->query($sql);
     if($result->num_rows>=0){
@@ -184,7 +191,7 @@
 						</tr>
 						<tr>
 							<td>Date</td>
-							<td>: Oct 03, 2017</td>
+							<td>: <?php echo date("d/m/Y")?></td>
 						</tr>
 						<tr>
 							<td>Total</td>
@@ -221,27 +228,52 @@
 						</tr>
 					</table>
 				</div>
+                <?php
+                echo'
 				<div class="col-md-4">
 					<h3 class="billing-title mt-20 pl-15">Shipping Address</h3>
-					<table class="order-rable">
+                    <table class="order-rable">';
+                    if(isset($_POST['shipping_address'])){
+                    echo'
 						<tr>
 							<td>Street</td>
-							<td>: 56/8 panthapath</td>
+							<td>: '.$address_11.'</td>
 						</tr>
 						<tr>
 							<td>City</td>
-							<td>: Dhaka</td>
+							<td>: '.$city_1.'</td>
 						</tr>
 						<tr>
 							<td>Country</td>
-							<td>: Bangladesh</td>
+							<td>: '.$country_1.'</td>
 						</tr>
 						<tr>
 							<td>Postcode</td>
-							<td>: 1205</td>
-						</tr>
-					</table>
-				</div>
+							<td>: '.$zip_1.'</td>
+                        </tr>';
+                    }
+                    else{
+                        echo'
+                            <tr>
+                                <td>Street</td>
+                                <td>: '.$address_1.'</td>
+                            </tr>
+                            <tr>
+                                <td>City</td>
+                                <td>: '.$city.'</td>
+                            </tr>
+                            <tr>
+                                <td>Country</td>
+                                <td>: '.$country.'</td>
+                            </tr>
+                            <tr>
+                                <td>Postcode</td>
+                                <td>: '.$zip.'</td>
+                            </tr>';
+                        }
+					echo'</table>
+                </div>';
+                ?>
 			</div>
 		</div>
 		<!-- End Checkout Area -->

@@ -56,55 +56,84 @@
 							</ul>';
 							}
 							else{
-								echo '</span> <ul class="list">
-								<li><a href="#">Welcome '.$username.' </a></li>
+                                echo '<ul class="list">
+                                <span class="glyphicon glyphicon-user"> </span>
+								<li><a href="#" style="margin-right:20px">Welcome '.$uname.' </a></li>
 							</ul>';
 							}
 							
 							?>
-                            <ul class="list">
-								<li><a href="logout.php">Logout</a></li>
+							<ul class="list">
+								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:25px; margin-left:20px; font-size:27px"> </span><a href="logout.php">Logout</a></li>
 							</ul>
-                        </div>
-                    </div>                  
-                </div>
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="container">
-                          <a class="navbar-brand" href="category.php">
-                            <img src="img/logo.png" alt="">
-                          </a>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li><a href="#home">Home</a></li>
-                                <li><a href="#catagory">Category</a></li>
-                                <li><a href="#men">Men</a></li>
-                                <li><a href="#women">Women</a></li>
-                                <li><a href="#latest">latest</a></li>
-                                    <!-- Dropdown -->
-                                    <li class="dropdown">
-                                      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                        Pages
-                                      </a>
-                                      <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="category.php">Category</a>
-                                        <a class="dropdown-item" href="single.php">Single</a>
-                                        <a class="dropdown-item" href="cart.php">Cart</a>
-                                        <a class="dropdown-item" href="checkout.php">Checkout</a>
-                                        <a class="dropdown-item" href="confermation.php">Confermation</a>
-                                        <a class="dropdown-item" href="login.php">Login</a>
-                                        <a class="dropdown-item" href="tracking.php">Tracking</a>
-                                        <a class="dropdown-item" href="generic.php">Generic</a>
-                                        <a class="dropdown-item" href="elements.php">Elements</a>
-                                      </div>
-                                    </li>                                   
-                            </ul>
-                          </div>                        
-                    </div>
-                </nav>
-            </header>
+						</div>
+					</div>	
+					<br>				
+				</div>
+				<nav class="navbar navbar-expand-lg  navbar-light">
+					<div class="container" style="width:1500px;">
+					<span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span>
+						  <a class="navbar-brand" href="#">
+							  <img src="img/logo.png" alt="">
+							  <p> Company Logo </p>
+						  </a>
+						  <div class="search-container" style="width:1600px;">
+								<!-- <form action="/action_page.php">
+								  <input type="text" size = "50" placeholder="Search.." name="search">
+								  <button type="submit"><i class="fa fa-search"></i></button>
+								</form> -->
+						  </div>
+						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						    <span class="navbar-toggler-icon"></span>
+						  </button>
+						  <div class="collapse navbar-collapse" style = "margin-left:40%;" id="navbarSupportedContent">
+						    <ul class="navbar-nav">
+								<li><a href="#home">Home</a></li>
+
+								<!-- <li><a href="#catagory">Category</a></li>
+								<li><a href="#men">Product</a></li> -->
+								<!-- <li><a href="#women">Women</a></li> -->
+								<li><a href="#latest">Recommendations</a></li>
+									<!-- Dropdown -->
+								    <li class="dropdown">
+								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+								        Pages
+								      </a>
+								      <div class="dropdown-menu" style="margin-top:10px">
+								        <!-- <a class="dropdown-item" href="category.php">Category</a>
+								        <a class="dropdown-item" href="single.php">Single</a> -->
+								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+								        <a class="dropdown-item" href="checkout.php">Checkout</a>
+								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
+								        <a class="dropdown-item" href="login.php">Login</a>
+								        <a class="dropdown-item" href="tracking.php">Tracking</a>
+								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
+								        <a class="dropdown-item" href="elements.php">Elements</a> -->
+								      </div>
+								    </li>
+									<li class="dropdown">
+								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+								        Category
+								      </a>
+								      <div class="dropdown-menu">
+								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
+								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
+								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
+								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
+								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
+								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
+								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
+								        <a class="dropdown-item" href="elements.php">Elements</a> -->
+								      </div>
+								    </li>									
+						    </ul>
+						  </div>						
+					</div>
+				</nav>
+			</header>
+            <br>
+            <br>
             <!-- End Header Area -->
 
             <!-- Start Banner Area -->
@@ -134,7 +163,7 @@
                             <h6>Price</h6>
                         </div>
                         <div class="col-md-2">
-                            <h6>Quantity</h6>
+                            <h6>Change Product Quantity</h6>
                         </div>
                         <div class="col-md-2">
                             <h6>Total</h6>
@@ -154,13 +183,15 @@
                     while($row = $result->fetch_assoc()){
                         $item_name = $row['item_name'];
                         $item_price = $row['item_price']; 
+                        $product_quantity = $row['product_quantity'];
                         $item_id = $row['id'];
+                        $total_price = $product_quantity * $item_price;
                          echo'
                             <div class="cart-single-item">
                             <div class="row align-items-center">
                                 <div class="col-md-6 col-12">
                                     <div class="product-item d-flex align-items-center">
-                                        <h6>'.$item_name.'</h6>
+                                        <h6>'.$item_name.' x '.$product_quantity.'</h6>
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-6">
@@ -171,12 +202,12 @@
                                 1
                               </a>
                         <div class="dropdown-menu">
-                                <a class="dropdown-item" href="category_1.php">1</a>
-                                <a class="dropdown-item" href="category_2.php">2</a>
-                                <a class="dropdown-item" href="category_1.php">3</a>
-                                <a class="dropdown-item" href="category_2.php">4</a>
-                                <a class="dropdown-item" href="category_1.php">5</a>
-                                <a class="dropdown-item" href="category_2.php">6</a>
+                                <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                                <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
+                                <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
+                                <a class="dropdown-item" href="quantity.php?id1=4&id2='.$item_id.'">4</a>
+                                <a class="dropdown-item" href="quantity.php?id1=5&id2='.$item_id.'">5</a>
+                                <a class="dropdown-item" href="quantity.php?id1=6&id2='.$item_id.'">6</a>
                                 <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
                                 <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
                                 <a class="dropdown-item" href="confermation.php">Confirmation</a>
@@ -187,7 +218,7 @@
                         </div>
                                 </div>
                                 <div class="col-md-2 col-12">
-                                    <div class="total">'.$item_price.'</div>
+                                    <div class="total">'.$total_price.'</div>
                                 </div>
                                 <div class="col-md-2 col-12">
                                     <span class="glyphicon glyphicon-remove"> </span>
@@ -255,7 +286,7 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
+                <!-- <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
                     <a href="category.php" class="view-btn color-2"><span>Update Cart</span></a>
                     <div class="cuppon-wrap d-flex align-items-center flex-wrap">
                         <div class="cupon-code">
@@ -264,13 +295,13 @@
                         </div>
                         <a href="#" class="view-btn color-2 have-btn"><span>Have a Coupon?</span></a>
                     </div>
-                </div>
+                </div> -->
                 <div class="subtotal-area d-flex align-items-center justify-content-end">
                     <div class="title text-uppercase">Subtotal</div>
                     <div class="subtotal"><?php echo $total_cost ?></div>
                 </div>
                 <div class="shipping-area d-flex justify-content-end">
-                    <div class="tile text-uppercase">Shipping</div>
+                    <!-- <div class="tile text-uppercase">Shipping</div>
                     <form action="#" class="d-inline-flex flex-column align-items-end">
                         <ul class="d-flex flex-column align-items-end">
                             <li class="filter-list">
@@ -309,9 +340,9 @@
                         <button class="view-btn color-2 mt-10"><span>Update Details</span></button>
                     </form>
 
-                </div>
+                </div> -->
                 <div>
-                    <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
+                    <a href = button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
                 </div>
             </div>
             <!-- End Cart Area -->
