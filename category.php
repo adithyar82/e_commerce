@@ -265,19 +265,22 @@
 						<br>
 						
 							<div class="row">
+							
 							<?php 
 								  include('connect_db.php');
 								  session_start();
-								  $sql = "SELECT * FROM products limit 6;";
+								  $sql = "SELECT * FROM products limit 4;";
 								  $result = $conn->query($sql);
+								  echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
+										  
 										  $product_id = $row['product_id'];
 										  $product_name = $row['product_name'];
 										  $initial_cost = $row['initial_cost'];
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
-										  echo '<div class="col-md-2 single-product">
+										  echo'<div class="col-md-2 single-product">
 											  <div class="content">
 											  
 											  <div class="content-overlay"></div>
@@ -305,35 +308,38 @@
 								  
 								  $sql1 = "SELECT * FROM products limit 4;";
 								  $result1 = $conn->query($sql1);
-								//   echo '<h3 style="margin-left:10px;"> Groceries </h3>';
+								//   echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
+								  echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
 								  if($result1->num_rows>0){
 									  while($row = $result1->fetch_assoc()){
-										  $product_id = $row['product_id'];
-										  $product_name = $row['product_name'];
-										  $initial_cost = $row['initial_cost'];
-										  $final_cost = $row['final_cost'];
-										  $product_image = $row['product_image'];
-										  echo '<div class="col-md-2 single-product">
-											  <div class="content">
+										$product_id = $row['product_id'];
+										$product_name = $row['product_name'];
+										$initial_cost = $row['initial_cost'];
+										$final_cost = $row['final_cost'];
+										$product_image = $row['product_image'];
+										echo'<div class="col-md-2 single-product">
+											<div class="content">
 											
-											  <div class="content-overlay"></div>
-												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
-											  <div class="content-details fadeIn-bottom">
-													<div class="bottom d-flex align-items-center justify-content-center">
-														<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'"><span class="lnr lnr-heart"></span></a>
-														<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-													</div>
-											  </div>
-										  </div>
-										  <div class="price">
-										  
-												  <h5>'.$product_name.'</h5>
-													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
-												  <h3>'.$final_cost.'</h3>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
-										   </div>
-										</div>';
+											<div class="content-overlay"></div>
+												 <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											<div class="content-details fadeIn-bottom">
+											
+												  <div class="bottom d-flex align-items-center justify-content-center">
+													  <a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'"><span class="lnr lnr-heart"></span></a>
+													  <a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
+												  </div>
+											</div>
+										</div>
+										<div class="price">
+										
+												<h5>'.$product_name.'</h5>
+												  <h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
+												<h3>'.$final_cost.'</h3>
+												<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
+												<a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
+										 </div>
+									  </div>
+									  <br>';
 									  }
 								  }
 					               ?>

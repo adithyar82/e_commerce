@@ -233,14 +233,44 @@
                                 </div>
                             </div>
                             <div class="mt-20">
-                                <input type="checkbox" class="pixel-checkbox" id="login-3">
+                                <input type="checkbox" name = " " class="pixel-checkbox" id="login-3">
                                 <label for="login-3">Create an account?</label>
                             </div>
                             <h3 class="billing-title mt-20 mb-10">Billing Details</h3>
                             <div class="mt-20">
-                                <input type="checkbox" class="pixel-checkbox" id="login-6">
+                                <input type="checkbox" name = "shipping_address" class="pixel-checkbox" id="login-6">
                                 <label for="login-6">Ship to a different address?</label>
                             </div>
+                            <div class="row">
+                            <div class="col-lg-12">
+                                    <input name = "address_11" type="text" placeholder="Address line 01*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Address line 01*'" class="common-input">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input name = "address_12" type="text" placeholder="Address line 02*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Address line 02*'" class="common-input">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input name = "city_1" type="text" placeholder="Town/City*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Town/City*'" class="common-input">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input name = "state_1" type="text" placeholder="State*" onfocus="this.placeholder=''" onblur="this.placeholder = 'State*'" class="common-input">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input name = "country_1" type="text" placeholder="Country*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Country*'" class="common-input">
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="sorting">
+                                        <select>
+                                            <option value="1">District*</option>
+                                            <option value="1">Default sorting</option>
+                                            <option value="1">Default sorting</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input name="zip_1" type="text" placeholder="Postcode/ZIP" onfocus="this.placeholder=''" onblur="this.placeholder = 'Postcode/ZIP'" class="common-input">
+                                </div>
+                            </div>
+                            <br>
                             <textarea placeholder="Order Notes" onfocus="this.placeholder=''" onblur="this.placeholder = 'Order Notes'" class="common-textarea"></textarea>
                         </div>
                         <div class="col-lg-4 col-md-6">

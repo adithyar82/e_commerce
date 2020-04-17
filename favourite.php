@@ -42,13 +42,16 @@
             <!-- Start Header Area -->
             <header class="default-header">
                 <div class="menutop-wrap">
-                    <div class="menu-top container">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="list">
-                                <li><a href="tel:+12312-3-1209">+12312-3-1209</a></li>
-                                <li><a href="mailto:support@colorlib.com">support@colorlib.com</a></li>                             
-                            </ul>
-                            <?php
+					<div class="menu-top container">
+						<div class="d-flex justify-content-between align-items-center">
+							<ul class="list">
+								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
+								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
+							</ul>
+							<ul class="list">
+								<li><a href="#">login</a></li>
+							</ul>
+							<?php
 							if($username == ""){
 								echo '<ul class="list">
 								<span class="glyphicon glyphicon-user"> </span>
@@ -56,18 +59,16 @@
 							</ul>';
 							}
 							else{
-								echo '</span> <ul class="list">
+                                echo '<ul class="list">
+                                <span class="glyphicon glyphicon-user"> </span>
 								<li><a href="#">Welcome '.$username.' </a></li>
 							</ul>';
 							}
 							
 							?>
-                            <ul class="list">
-								<li><a href="logout.php">Logout</a></li>
-							</ul>
-                        </div>
-                    </div>                  
-                </div>
+						</div>
+					</div>					
+				</div>
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
                           <a class="navbar-brand" href="category.php">
