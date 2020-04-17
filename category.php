@@ -83,7 +83,7 @@
 			<!-- Start Header Area -->
 			<header class="default-header">
 				<div class="menutop-wrap">
-					<div class="menu-top container">
+					<div class="menu-top container" style="margin-left:7%;">
 					<div class="form-group has-feedback has-feedback-left">
 						<!-- <label>Pickup Location</label> -->
 						<!-- \\] -->
@@ -112,13 +112,13 @@
 							
 							?>
 							<ul class="list">
-								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:25px; margin-left:20px; font-size:27px"> </span><a href="logout.php">Logout</a></li>
+								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:25px; margin-left:20px; font-size:20px"> </span><a href="logout.php">Logout</a></li>
 							</ul>
 						</div>
 					</div>	
 					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light">
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-left:5%">
 					<div class="container" style="width:1500px;">
 					<span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span>
 						  <a class="navbar-brand" href="#">
@@ -135,7 +135,7 @@
 						    <span class="navbar-toggler-icon"></span>
 						  </button>
 						  <div class="collapse navbar-collapse" style = "margin-right:30%;" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
+						    <ul class="navbar-nav" style="width:1500px;">
 								<li><a href="#home">Home</a></li>
 
 								<!-- <li><a href="#catagory">Category</a></li>
@@ -174,9 +174,8 @@
 								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
 								        <a class="dropdown-item" href="elements.php">Elements</a> -->
 									  </div>
-									  	<ul class="list">
-											<li><span class="glyphicon glyphicon-shopping-cart" style="float:right; margin-right:25px; margin-left:20px; font-size:27px"> </span><a href="logout.php">CART</a></li>
-										</ul>
+									  <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
+									  <li><a href="favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
 								    </li>									
 						    </ul>
 						  </div>						
@@ -751,6 +750,7 @@
                                 <div class="desc">
                                     <a href="#" class="title">Pixelstore fresh Cabbage</a>
                                     <div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+									<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
                                 </div>
                             </div>
                         </div>
@@ -760,6 +760,7 @@
                                 <div class="desc">
                                     <a href="#" class="title">Pixelstore fresh Cabbage</a>
                                     <div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+									<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
                                 </div>
                             </div>
                         </div>
@@ -769,6 +770,7 @@
                                 <div class="desc">
                                     <a href="#" class="title">Pixelstore fresh Raspberry</a>
                                     <div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+									<a href=" checkout.php?id1=189&id3=Pixelstore fresh Raspberry ">Buy Now</a> <br>
                                 </div>
                             </div>
                         </div>
@@ -778,6 +780,7 @@
                                 <div class="desc">
                                     <a href="#" class="title">Pixelstore fresh Kiwi</a>
                                     <div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+									<a href=" checkout.php?id1=189&id3=Pixelstore fresh Kiwi">Buy Now</a> <br>
                                 </div>
                             </div>
 						</div>
