@@ -91,7 +91,6 @@
 						
 					 </div>
 						<div class="d-flex justify-content-between align-items-center">
-							<ul class="list">
 								<li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
 								<li><a href="contact_us.php">support@azimpatel.com</a></li>
 								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
@@ -120,7 +119,7 @@
 				</div>
 				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-left:5%">
 					<div class="container" style="width:1500px;">
-					<span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span>
+					<!-- <span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span> -->
 						  <a class="navbar-brand" href="#">
 							  <img src="img/logo.png" alt="">
 							  <p> Company Logo </p>
@@ -279,6 +278,7 @@
 										  $initial_cost = $row['initial_cost'];
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-2 single-product">
 											  <div class="content">
 											  
@@ -297,7 +297,9 @@
 												  <h5>'.$product_name.'</h5>
 													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
 												  <h3>'.$final_cost.'</h3>
+												  <h4>You save '.$discount.'%</h4>
 												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
+												  <span class="glyphicon glyphicon-shopping-cart"> </span>
 												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
 										   </div>
 										</div>
@@ -315,6 +317,7 @@
 										  $initial_cost = $row['initial_cost'];
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-2 single-product">
 											  <div class="content">
 											
@@ -332,6 +335,7 @@
 												  <h5>'.$product_name.'</h5>
 													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
 												  <h3>'.$final_cost.'</h3>
+												  <h4>You save '.$discount.'%</h4>
 												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
 												  <span class="glyphicon glyphicon-shopping-cart"> </span>
 												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
