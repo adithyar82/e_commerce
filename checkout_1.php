@@ -1,13 +1,8 @@
     <?php
     session_start();
-    $id1 = $_REQUEST['id1'];
-    $id2 = $_REQUEST['id2'];
-    $id3 = $_REQUEST['id3'];
-    $id4 = $id1 + 50;
-    $_SESSION['id1'] = $id1;
-    $_SESSION['id2'] = $id2;
-    $_SESSION['id3'] = $id3;
-    $_SESSION['id4'] = $id4;
+    include('connect_db.php');
+    $uname = $_SESSION['uname'];
+    echo $uname;
     ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
@@ -60,7 +55,7 @@
 							}
 							else{
 								echo '</span> <ul class="list">
-								<li><a href="#">Welcome '.$username.' </a></li>
+								<li><a href="#">Welcome '.$uname.' </a></li>
 							</ul>';
 							}
 							
@@ -282,9 +277,23 @@
 									<div>Total</div>
 								</div>
 							<div class="list-row d-flex justify-content-between">
-								<div><?php echo $id3?></div>
-								<div>x 02</div>
-								<div><?php echo $id1?></div>
+                            <?php 
+                            $sql = "SELECT * FROM items WHERE username = '$uname';";
+                            $result = $conn->query($sql);
+                            if($result->num_rows>0){
+                                while($row=$result->fetch_assoc()){
+                                    $item_price = $row['item_price'];
+                                    $item_name = $row['item_name'];
+                                    $product_quantity = $row['product_quantity'];
+                                    echo '<div>'.$item_name.'</div>
+                                    <div>x '.$product_quantity.'</div>
+                                    <br>
+                                    <div><?php echo $id1?></div>';
+                                }
+                            }
+
+								
+                            ?>
 							</div>
 							<div class="list-row d-flex justify-content-between">
 								<h6>Subtotal</h6>

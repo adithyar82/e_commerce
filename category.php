@@ -266,20 +266,27 @@
 						<br>
 						
 							<div class="row">
+							
 							<?php 
 								  include('connect_db.php');
 								  session_start();
-								  $sql = "SELECT * FROM products limit 6;";
+								  $sql = "SELECT * FROM products limit 4;";
 								  $result = $conn->query($sql);
+								  echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
+										  
 										  $product_id = $row['product_id'];
 										  $product_name = $row['product_name'];
 										  $initial_cost = $row['initial_cost'];
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
+<<<<<<< HEAD
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-2 single-product">
+=======
+										  echo'<div class="col-md-2 single-product">
+>>>>>>> 36d03547182ee5e23b989adbe6766509434ad37b
 											  <div class="content">
 											  
 											  <div class="content-overlay"></div>
@@ -309,9 +316,11 @@
 								  
 								  $sql1 = "SELECT * FROM products limit 4;";
 								  $result1 = $conn->query($sql1);
-								//   echo '<h3 style="margin-left:10px;"> Groceries </h3>';
+								//   echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
+								  echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
 								  if($result1->num_rows>0){
 									  while($row = $result1->fetch_assoc()){
+<<<<<<< HEAD
 										  $product_id = $row['product_id'];
 										  $product_name = $row['product_name'];
 										  $initial_cost = $row['initial_cost'];
@@ -320,6 +329,15 @@
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-2 single-product">
 											  <div class="content">
+=======
+										$product_id = $row['product_id'];
+										$product_name = $row['product_name'];
+										$initial_cost = $row['initial_cost'];
+										$final_cost = $row['final_cost'];
+										$product_image = $row['product_image'];
+										echo'<div class="col-md-2 single-product">
+											<div class="content">
+>>>>>>> 36d03547182ee5e23b989adbe6766509434ad37b
 											
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
