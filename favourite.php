@@ -45,8 +45,8 @@
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="tel:+12312-3-1209">+12312-3-1209</a></li>
-                                <li><a href="mailto:support@colorlib.com">support@colorlib.com</a></li>                             
+                                <li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">support@azeempatel.com</a></li>                             
                             </ul>
                             <?php
 							if($username == ""){
@@ -56,14 +56,16 @@
 							</ul>';
 							}
 							else{
-								echo '</span> <ul class="list">
-								<li><a href="#">Welcome '.$username.' </a></li>
+                                echo '<ul class="list">
+                                <span class="glyphicon glyphicon-user"> </span>
+								<li><a href="#" style="margin-right:20px">Welcome '.$uname.' </a></li>
 							</ul>';
 							}
 							
 							?>
                             <ul class="list">
 								<li><a href="logout.php">Logout</a></li>
+                                <span class="glyphicon glyphicon-log-out"> </span>
 							</ul>
                         </div>
                     </div>                  
@@ -80,9 +82,9 @@
                             <ul class="navbar-nav">
                                 <li><a href="#home">Home</a></li>
                                 <li><a href="#catagory">Category</a></li>
-                                <li><a href="#men">Men</a></li>
+                                <!-- <li><a href="#men">Men</a></li>
                                 <li><a href="#women">Women</a></li>
-                                <li><a href="#latest">latest</a></li>
+                                <li><a href="#latest">latest</a></li> -->
                                     <!-- Dropdown -->
                                     <li class="dropdown">
                                       <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
