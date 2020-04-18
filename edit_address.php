@@ -97,7 +97,7 @@
 								        <a class="dropdown-item" href="generic.php">Generic</a>
 								        <a class="dropdown-item" href="elements.php">Elements</a> -->
 								      </div>
-								    </li>									 -->
+								    </li>									 
 						    </ul>
 						  </div>						
 					</div>
