@@ -91,8 +91,7 @@
 						
 					 </div>
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
-								<li><a href="contact_us.php">support@azimpatel.com</a></li>
+								<li><a href="contact_us.php">+91 8095566699   |   support@azimpatel.com</a></li>
 								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
 							</ul>
 							<?php
@@ -124,16 +123,23 @@
 							  <img src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <div class="search-container" style="width:1500px;">
+						  <!-- <div class="search-container" style="width:1500px;">
 								<form action="/action_page.php">
 								  <input type="text" size = "40" placeholder="Search.." name="search">
 								  <button type="submit"><i class="fa fa-search"></i></button>
 								</form>
+						  </div> -->
+						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
+           					 <form action="#" method="get">
+              					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
+             					<button type="submit" class="d-none"></button>
+           					 </form>
 						  </div>
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
+						  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						    <span class="navbar-toggler-icon"></span>
-						  </button>
-						  <div class="collapse navbar-collapse" style = "margin-right:30%;" id="navbarSupportedContent">
+						  </button> -->
+						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
 								<li><a href="#home">Home</a></li>
 
@@ -250,7 +256,7 @@
 									<option value="1">Show 12</option>
 								</select>
 							</div>
-							<div class="pagination">
+							<!-- <div class="pagination">
 								<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 								<a href="#" class="active">1</a>
 								<a href="#">2</a>
@@ -258,7 +264,7 @@
 								<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
 								<a href="#">6</a>
 								<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-							</div>
+							</div> -->
 						</div>
 						<!-- End Filter Bar -->
 						<!-- Start Best Seller -->
@@ -269,10 +275,11 @@
 							
 							<?php 
 								  include('connect_db.php');
-								  session_start();
+								//   session_start();
 								  $sql = "SELECT * FROM products limit 4;";
 								  $result = $conn->query($sql);
 								  echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
+
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
 										  
@@ -282,9 +289,9 @@
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
-										  echo '<div class="col-md-2 single-product">
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'"><span class="glyphicon glyphicon-plus-sign" style="float:right; font-size:15px"> </span></a>
 											  <div class="content">
-											  
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
 											  <div class="content-details fadeIn-bottom">
@@ -309,7 +316,7 @@
 										<br>';
 									  }
 								  }
-								  
+
 								  $sql1 = "SELECT * FROM products limit 4;";
 								  $result1 = $conn->query($sql1);
 								//   echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
