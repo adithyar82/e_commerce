@@ -18,7 +18,7 @@ if($result_1->num_rows>0){
     </script>';
 }
 else{
-$sql = "INSERT INTO Users(fname,email_address,phone_number,username,password,registration_status) VALUES ('$fname','$email_address','$phone_number','$username','$password','$registration_status')";
+$sql = "INSERT INTO Users(user_id,fname,email_address,phone_number,username,password,registration_status) VALUES (Null, '$fname','$email_address','$phone_number','$username','$password','$registration_status')";
 // if (($result = $conn->query($sql))!== False){
 //     echo "New record created successfully";
 // } else {
