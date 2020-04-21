@@ -45,35 +45,15 @@
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
-                                <li><a href="contact_us.php">support@azeempatel.com</a></li>                             
+                                <li><a href="contact_us.php">+91 8095566699   |   support@azeempatel.com</a></li>                            
                             </ul>
-                            <?php
-							if($username == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
-							</ul>';
-							}
-							else{
-                                echo '<ul class="list">
-                                <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#" style="margin-right:20px">Welcome '.$uname.' </a></li>
-							</ul>';
-							}
-							
-							?>
-                            <ul class="list">
-								<li><a href="logout.php">Logout</a></li>
-                                <span class="glyphicon glyphicon-log-out"> </span>
-							</ul>
                         </div>
                     </div>                  
                 </div>
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
                           <a class="navbar-brand" href="category.php">
-                            <img src="img/logo.png" alt="">
+                            <img src="img/logo.png"style="margin-left:2%;" alt="">
                           </a>
                           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -114,7 +94,7 @@
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Shopping Cart</h1>
+                            <h1>Favourites</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="cart.php">Your Favourites</a>
@@ -144,7 +124,7 @@
                     </div>
                 </div>
                 <?php
-                session_start();
+                // session_start();
                 include('connect_db.php');
                 $username = $_SESSION['username'];
                 $sql = "SELECT * FROM favourites WHERE username = '$username';";
@@ -257,7 +237,7 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
+                <!-- <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
                     <a href="category.php" class="view-btn color-2"><span>Update Cart</span></a>
                     <div class="cuppon-wrap d-flex align-items-center flex-wrap">
                         <div class="cupon-code">
@@ -266,16 +246,16 @@
                         </div>
                         <a href="#" class="view-btn color-2 have-btn"><span>Have a Coupon?</span></a>
                     </div>
-                </div>
+                </div> -->
                 <div class="subtotal-area d-flex align-items-center justify-content-end">
-                    <div class="title text-uppercase">Subtotal</div>
+                    <div class="title text-uppercase">Total</div>
                     <div class="subtotal"><?php echo $total_cost ?></div>
                 </div>
-                <div class="shipping-area d-flex justify-content-end">
+                <!-- <div class="shipping-area d-flex justify-content-end">
                     <div class="tile text-uppercase">Shipping</div>
                     <form action="#" class="d-inline-flex flex-column align-items-end">
-                        <ul class="d-flex flex-column align-items-end">
-                            <li class="filter-list">
+                        <ul class="d-flex flex-column align-items-end"> -->
+                            <!-- <li class="filter-list">
                                 <label for="flat-rate">Flat Rate:<span>Rs 50.00</span></label>
                                 <input class="pixel-radio" type="radio" id="flat-rate" name="brand">
                             </li>
@@ -291,9 +271,9 @@
                                 <label for="local-delivery">Local Delivery:<span>Rs 50.00</span></label>
                                 <input class="pixel-radio" type="radio" id="local-delivery" name="brand">
                             </li>
-                            <li class="calculate">Calculate Shipping</li>
-                        </ul>
-                        <div class="sorting">
+                            <li class="calculate">Calculate Shipping</li> -->
+                        <!-- </ul> -->
+                        <!-- <div class="sorting">
                             <select>
                                 <option value="1">Bangladesh</option>
                                 <option value="1">India</option>
@@ -306,20 +286,20 @@
                                 <option value="1">Select a State</option>
                                 <option value="1">Select a State</option>
                             </select>
-                        </div>
-                        <input type="text" placeholder="Postcode/Zipcode" onfocus="this.placeholder=''" onblur="this.placeholder = 'Postcode/Zipcode'" required class="common-input mt-10">
-                        <button class="view-btn color-2 mt-10"><span>Update Details</span></button>
+                        </div> -->
+                        <!-- <input type="text" placeholder="Postcode/Zipcode" onfocus="this.placeholder=''" onblur="this.placeholder = 'Postcode/Zipcode'" required class="common-input mt-10">
+                        <button class="view-btn color-2 mt-10"><span>Update Details</span></button> -->
                     </form>
 
                 </div>
-                <div>
-                    <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
+                <div style="margin-bottom:10%;">
+                    <button class="view-btn color-2 w-100 mt-20"><span>Add To Cart</span></button>
                 </div>
             </div>
             <!-- End Cart Area -->
 
             <!-- Start Most Search Product Area -->
-            <section class="section-half">
+            <!-- <section class="section-half">
                 <div class="container">
                     <div class="organic-section-title text-center">
                         <h3>Most Searched Products</h3>
@@ -435,7 +415,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->      
