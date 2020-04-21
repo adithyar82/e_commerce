@@ -342,6 +342,7 @@
 			<!-- Start brand Area -->
 			<section class="brand-area pb-100">
 				<div class="container">
+				<h3 style="margin-left:45%"> Current Orders </h3>
 					<div class="row logo-wrap">
 							<!-- <a class="col single-img" href="#">
 								<img class="d-block mx-auto" src="img/br1.png" alt="">
@@ -358,8 +359,10 @@
 							<a class="col single-img" href="#">
 								<img class="d-block mx-auto" src="img/br5.png" alt="">
 							</a> -->
-							
-                            <h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Current Orders <br> Order ID : <?php echo $order_id ?> <br> Product Name: <?php echo $product_name ?><br> Product Cost: <?php echo $final_cost ?><br> Pick Up Location: <br> Delivery Location: <br> Delivery Time: <br> </h3>
+							<?php
+							include('connect_db.php');
+							?>
+                            <h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <br> Order ID : <?php echo $order_id ?> <br> Product Name: <?php echo $product_name ?><br> Product Cost: <?php echo $final_cost ?><br> Pick Up Location: <br> Delivery Location: <br> Delivery Time: <br> </h3>
                             <!-- <h3> Product Name: </h3>
                             <br> -->
 					</div>	

@@ -24,7 +24,7 @@
     $state_1 = $_POST['state_1'];
     $country_1 = $_POST['country_1'];
     $zip_1= $_POST['zip_1'];
-    $sql = "INSERT INTO order_status(order_id,fname,initial_cost, final_cost, shipping_id, payment_id, product_quantity, delivery_time, time_created) VALUES (Null,'$fname','200', '$final_cost', '250', '450', '500', CURRENT_TIME(),CURRENT_TIME());";
+    $sql = "INSERT INTO order_status(order_id,item_id,fname,initial_cost, final_cost, shipping_id, payment_id, product_quantity, delivery_time, time_created) VALUES (Null,'$order_id','$fname','200', '$final_cost', '250', '450', 500, CURRENT_TIME(),CURRENT_TIME());";
     $result = $conn->query($sql);
     if($result->num_rows>=0){
         $mail = new PHPMailer;
