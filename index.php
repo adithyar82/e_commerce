@@ -184,7 +184,7 @@ $result = $conn->query($sql);
 							<input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
 							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
                             <br>
-							<button class="view-btn color-2 w-100 mt-20"><span>Submit</span></button>
+							<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-20"><span>Submit</span>
 						</form>
 					</div>
 				</div>
