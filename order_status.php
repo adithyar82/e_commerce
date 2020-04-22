@@ -336,14 +336,11 @@
 							</div>							
 						</div>																		 -->
 					</div>
-			</section> -->
+			</section>
 			<!-- End related-product Area -->
 	
 			<!-- Start brand Area -->
-			<section class="brand-area pb-100">
-				<div class="container">
-				<h3 style="margin-left:45%"> Current Orders </h3>
-					<div class="row logo-wrap">
+			
 							<!-- <a class="col single-img" href="#">
 								<img class="d-block mx-auto" src="img/br1.png" alt="">
 							</a>
@@ -359,15 +356,34 @@
 							<a class="col single-img" href="#">
 								<img class="d-block mx-auto" src="img/br5.png" alt="">
 							</a> -->
+							<br>
+							<h3 style="margin-left:45%"> Current Orders </h3>
 							<?php
 							include('connect_db.php');
+							$sql = "SELECT * FROM order_status WHERE status = 'ordered';";
+							$result = $conn->query($sql);
+							if($result->num_rows>0){
+								while($row = $result->fetch_assoc()){
+									$order_id = $row['order_id'];
+									$product_name = $row['product_name'];
+									$final_cost = $row['final_cost'];
+									$status = $row['status'];
+									echo '<section class="brand-area pb-100">
+									<div class="container">
+										<div class="row logo-wrap"><div class="row logo-wrap">
+									<h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <br> Order ID : '.$order_id.' <br> Product Name: '.$product_name.'<br> Product Cost: '.$final_cost.'<br> Pick Up Location: <br> Status : '.$status.' <br> Delivery Location: <br> Delivery Time: <br> </h3>
+									</div>
+								</div>	
+			            	</section>';
+									
+								}
+							}
 							?>
-                            <h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <br> Order ID : <?php echo $order_id ?> <br> Product Name: <?php echo $product_name ?><br> Product Cost: <?php echo $final_cost ?><br> Pick Up Location: <br> Delivery Location: <br> Delivery Time: <br> </h3>
+                            
                             <!-- <h3> Product Name: </h3>
                             <br> -->
-					</div>	
-				</div>	
-			</section>
+						
+				
 			<!-- End brand Area -->
 
 			<!-- start footer Area -->		
