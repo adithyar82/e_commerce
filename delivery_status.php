@@ -1,7 +1,18 @@
 <?php
-	session_start();
+    include('connect_db.php');
+    session_start();
 	$username = $_SESSION['username'];
-	echo $_SESSION['username'];
+    echo $_SESSION['username'];
+    $sql = "SELECT * FROM order_status WHERE fname = '$username';";
+    $result = $conn->query($sql);
+    if($result->num_rows>0){
+        while($row = $result->fetch_assoc()){
+            $final_cost = $row['final_cost'];
+            $product_name = $row['product_name'];
+            $order_id = $row['order_id'];
+
+        }
+    }
 	?>
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -325,13 +336,11 @@
 							</div>							
 						</div>																		 -->
 					</div>
-			</section> -->
+			</section>
 			<!-- End related-product Area -->
 	
 			<!-- Start brand Area -->
-			<section class="brand-area pb-100">
-				<div class="container">
-					<div class="row logo-wrap">
+			
 							<!-- <a class="col single-img" href="#">
 								<img class="d-block mx-auto" src="img/br1.png" alt="">
 							</a>
@@ -347,13 +356,122 @@
 							<a class="col single-img" href="#">
 								<img class="d-block mx-auto" src="img/br5.png" alt="">
 							</a> -->
-							
-                            <h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Current Orders <br> Order ID :  <br> Product Name: <br> Product Cost: <br> Pick Up Location: <br> Delivery Location: <br> Delivery Time: <br> </h3>
+							<br>
+							<h3 style="margin-left:45%"> Current Orders </h3>
+							<?php
+							include('connect_db.php');
+							$sql = "SELECT * FROM order_status where status != 'delivered' limit 1;";
+							$result = $conn->query($sql);
+							if($result->num_rows>0){
+								while($row = $result->fetch_assoc()){
+									$order_id = $row['order_id'];
+									$product_name = $row['product_name'];
+									$final_cost = $row['final_cost'];
+									$status = $row['status'];
+									echo '<section class="brand-area pb-100">
+									<div class="container">
+										<div class="row logo-wrap"><div class="row logo-wrap">
+									<h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <br> Order ID : '.$order_id.' <br> Product Name: '.$product_name.'<br> Product Cost: '.$final_cost.'<br> Pick Up Location: <br> Delivery Location: <br> Delivery Time: <br> </h3>
+									<div class="container">
+									<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted"> <br></a><br></h5><br>
+									</div>';
+									if($status == "ordered"){
+										echo'<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted">Order Accepted <br></a><br></h5><br>
+										</div>
+										</div>
+										
+										
+										
+										<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"> Order Collected <br></a><br></h5><br>
+										</div>
+										</div>
+										
+										<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"> Delivered <br></a><br></h5><br>
+										</div>
+										</div>';
+									}
+									else if($status == "order accepted"){
+										echo'<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted <br></a><br></h5><br>
+										</div>
+										</div>
+										
+										
+										
+										<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"> Order Collected <br></a><br></h5><br>
+										</div>
+										</div>
+										
+										<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"> Delivered <br></a><br></h5><br>
+										</div>
+										</div>';
+									}
+									else if($status == "order collected"){
+										echo'<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted"><span class="glyphicon glyphicon-check"></span>Order Accepted <br></a><br></h5><br>
+										</div>
+										</div>
+										
+										
+										
+										<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"><span class="glyphicon glyphicon-check"></span> Order Collected <br></a><br></h5><br>
+										</div>
+										</div>
+										
+										<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"> Delivered <br></a><br></h5><br>
+										</div>
+										</div>';
+									}
+									else{
+										echo'<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted <br></a><br></h5><br>
+										</div>
+										</div>
+										
+										
+										
+										<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"><span class="glyphicon glyphicon-check"></span> Order Collected <br></a><br></h5><br>
+										</div>
+										</div>
+										
+										<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"><span class="glyphicon glyphicon-check"> </span>Delivered <br></a><br></h5><br>
+										</div>
+										</div>';
+									}
+									echo'
+
+								</div>	
+			            	</section>';
+									
+								}
+							}
+							?>
+                            
                             <!-- <h3> Product Name: </h3>
                             <br> -->
-					</div>	
-				</div>	
-			</section>
+						
+				
 			<!-- End brand Area -->
 
 			<!-- start footer Area -->		

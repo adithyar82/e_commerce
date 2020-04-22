@@ -24,7 +24,8 @@
     $state_1 = $_POST['state_1'];
     $country_1 = $_POST['country_1'];
     $zip_1= $_POST['zip_1'];
-    $sql = "INSERT INTO order_status(order_id,fname,initial_cost, final_cost, shipping_id, payment_id, product_quantity, delivery_time, time_created) VALUES (Null,'$fname','200', '$final_cost', '250', '450', '500', CURRENT_TIME(),CURRENT_TIME());";
+    $status = 'ordered';
+    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, shipping_id, payment_id, product_quantity,status,time_created) VALUES (Null,'$order_id','$fname','$final_cost', '$name', '250', '450', '1','$status',CURRENT_TIME());";
     $result = $conn->query($sql);
     if($result->num_rows>=0){
         $mail = new PHPMailer;
@@ -57,7 +58,7 @@
             // </script>';
         }
         echo '<script>
-        alert("Registered Successfully '.$sql.'");
+        alert("Registered Successfully '.$sql.''.$result.'");
         </script>';
     }
     ?>
@@ -179,8 +180,8 @@
             <!-- End Banner Area -->
 
 		<!-- Start Checkout Area -->
-		<div class="container">
-			<p class="text-center">Thank you. Your order has been received.</p>
+		<div class="container" style="margin-left:17%">
+			<p class="text-center" style="font-size:25px">Thank you. Your order has been received.</p>
 			<div class="row mt-50">
 				<div class="col-md-4">
 					<h3 class="billing-title mt-20 pl-15">Order Info</h3>
@@ -278,7 +279,7 @@
 		</div>
 		<!-- End Checkout Area -->
 		<!-- Start Billing Details Form -->
-		<div class="container">
+		<div class="container" style="margin-left:17%">
 			<div class="billing-form">
 				<div class="row">
 					<div class="col-12">
@@ -315,8 +316,8 @@
 		<!-- End Billing Details Form -->
 
             <!-- Start Most Search Product Area -->
-            <section class="section-half">
-                <div class="container">
+            <!-- <section class="section-half">
+                <div class="container" style="margin-left:17%">
                     <div class="organic-section-title text-center">
                         <h3>Most Searched Products</h3>
                     </div>
@@ -431,12 +432,15 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Most Search Product Area -->
 
-            <!-- start footer Area -->      
+            <!-- start footer Area -->  
+            <br>
+            <br>
+            <br>    
             <footer class="footer-area section-gap">
-                <div class="container">
+                <div class="container" style="margin-left:17%">
                     <div class="row">
                         <div class="col-lg-3  col-md-6 col-sm-6">
                             <div class="single-footer-widget">
