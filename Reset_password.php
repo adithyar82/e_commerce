@@ -29,18 +29,15 @@
             <link rel="stylesheet" href="css/main.css">
         </head>
         <body>
-            <!-- Start Header Area -->
-            <header class="default-header">
+        <header class="default-header">
                 <div class="menutop-wrap">
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="tel:+12312-3-1209">8095566699</a></li>
-                                <li><a href="mailto:support@colorlib.com">support@azeempatel.com</a></li>                             
+                                <li><a href="contact_us.php">+91 8095566699   |   supporazeempatel@gmail.com</a></li>
+                                                            
                             </ul>
-                            <!-- <ul class="list">
-                                <li><a href="#">login</a></li>
-                            </ul> -->
+                            
                         </div>
                     </div>                  
                 </div>
@@ -54,196 +51,33 @@
                           </button>
                           <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <!-- <li><a href="#home">Home</a></li>
-                                <li><a href="#catagory">Category</a></li> -->
-                                <!-- <li><a href="#men">Men</a></li>
-                                <li><a href="#women">Women</a></li>
-                                <li><a href="#latest">latest</a></li> -->
-                                    <!-- Dropdown -->
-                                    <li class="dropdown">
-                                      <!-- <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                        Pages
-                                      </a> -->
-                                      <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="category.php">Category</a>
-                                        <!-- <a class="dropdown-item" href="single.php">Single</a> -->
-                                        <a class="dropdown-item" href="cart.php">Cart</a>
-                                        <a class="dropdown-item" href="checkout.php">Checkout</a>
-                                        <a class="dropdown-item" href="confermation.php">Confermation</a>
-                                        <a class="dropdown-item" href="login.php">Login</a>
-                                        <a class="dropdown-item" href="tracking.php">Tracking</a>
-                                        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-                                        <a class="dropdown-item" href="elements.php">Elements</a> -->
-                                      </div>
-                                    </li>                                   
+                                <li><a href="#home">Home</a></li>
+                                
                             </ul>
                           </div>                        
                     </div>
                 </nav>
             </header>
-            <!-- End Header Area -->
-            <!-- Start Banner Area -->
-            <section class="banner-area organic-breadcrumb">
-                <div class="container">
-                    <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
-                        <div class="col-first">
-                            <h1>Reset Password</h1>
-                             <nav class="d-flex align-items-center justify-content-start">
-                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="cart.php">Reset Password</a>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Banner Area -->
-
-		<!-- Start My Account -->
-		<div class="container">
-			<div class="order-tracking">
-				<!-- <p>To track your order please enter your Order ID in the box below and press the "Track" button. This was given to you on your receipt and in the confirmation email you should have received.</p> -->
-				<form method = "POST" action="index_2.php">
-                    <!-- <h3> First Name:</h3>
-					<input type="text" onfocus="this.placeholder=''" value = "" required class="common-input mt-20"> -->
-                    <h3> Email Address </h3>
-                    <input type="text" name = "email_address" onfocus="this.placeholder=''" value = ""  required class="common-input mt-20">
-                    <h3> Enter New Password: </h3>
-                    <input type="password" name = "pwd" onfocus="this.placeholder=''" value = ""   required class="common-input mt-20">
-                    <!-- <h3> Username : </h3>
-                    <input type="text" onfocus="this.placeholder=''" value = ""   required class="common-input mt-20"> -->
-                    <!-- <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20"> -->
-					<button class="view-btn color-2 mt-20"><span>Reset Password</span></button>
-				</form>
-			</div>
-		</div>
-		<!-- End My Account -->
-		
-		
-            <!-- Start Most Search Product Area -->
-            <!-- <section class="section-half">
-                <div class="container">
-                    <div class="organic-section-title text-center">
-                        <h3>Most Searched Products</h3>
-                    </div>
-                    <div class="row mt-30">
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r1.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Blueberry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $240.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r2.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Cabbage</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $189.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r3.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Raspberry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $189.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r4.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Kiwi</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $189.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r5.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore Bell Pepper</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $120.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r6.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Blackberry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $120.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r7.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Brocoli</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $120.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r8.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Carrot</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $120.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r9.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Strawberry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $240.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r10.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Prixma MG2 Light Inkjet</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $240.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r11.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Cherry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $240.00 <del>$340.00</del></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r12.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Beans</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $240.00 <del>$340.00</del></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-            <!-- End Most Search Product Area -->
-
+           
+            <!-- reset password-->
+            <div class="container" style="margin-top:10%;margin-bottom:5%;margin-left:27%">
+				<div class="col-md-6">
+					<div class="login-form">
+						<h3 class="billing-title text-center">Reset Password</h3>
+						<p class="text-center mt-80 mb-40">Set New Password </p>
+						<form method = "POST" action = "login_1.php">
+							<input type="password" name = "new_password" placeholder="New Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" required class="common-input mt-20">
+							<input type="password" name = "confirm_new_password" placeholder="Confirm New Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Confirm New Password*'" required class="common-input mt-20">
+                            <input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
+							<div class="mt-20 d-flex align-items-center justify-content-between">
+								<div class="d-flex align-items-center">
+                                <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
+							</div>
+                            <button class="view-btn color-2 w-100 mt-20"><span>Reset Password</span></button>
+						</form>
+					</div>
+				</div>
+            </div>              
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
                 <div class="container">
