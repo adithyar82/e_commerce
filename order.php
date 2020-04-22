@@ -12,11 +12,7 @@
             $order_id = $row['order_id'];
 
         }
-	}
-	$order_id = $_REQUEST['id1'];
-	$status = $_REQUEST['id2'];
-	$sql1 = "UPDATE order_status SET status = '$status' WHERE order_id = '$order_id';";
-	$result1 = $conn->query($sql1);
+    }
 	?>
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -364,17 +360,18 @@
 							<h3 style="margin-left:45%"> Current Orders </h3>
 							<?php
 							include('connect_db.php');
-							$sql = "SELECT * FROM order_status where status = 'delivered';";
+							$sql = "SELECT * FROM order_status WHERE status = 'delivered';";
 							$result = $conn->query($sql);
 							if($result->num_rows>0){
 								while($row = $result->fetch_assoc()){
 									$order_id = $row['order_id'];
 									$product_name = $row['product_name'];
 									$final_cost = $row['final_cost'];
+									$status = $row['status'];
 									echo '<section class="brand-area pb-100">
 									<div class="container">
 										<div class="row logo-wrap"><div class="row logo-wrap">
-									<h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <br> Order ID : '.$order_id.' <br> Product Name: '.$product_name.'<br> Product Cost: '.$final_cost.'<br> Pick Up Location: <br> Delivery Location: <br> Delivery Time: <br> </h3>
+									<h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <br> Order ID : '.$order_id.' <br> Product Name: '.$product_name.'<br> Product Cost: '.$final_cost.'<br> Pick Up Location: <br> Status : '.$status.' <br> Delivery Location: <br> Delivery Time: <br> </h3>
 									</div>
 								</div>	
 			            	</section>';
