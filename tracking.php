@@ -3,9 +3,11 @@
     <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+    
         <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Favicon-->
@@ -34,25 +36,7 @@
             <link rel="stylesheet" href="css/bootstrap.css">
             <link rel="stylesheet" href="css/main.css">
 
-            <style> 
-        h4 { 
-            display: flex; 
-            flex-direction: row; 
-        } 
-           
-        h4:after { 
-            content: ""; 
-            flex: 1 1; 
-            border-bottom: 2px solid #000; 
-            margin-right:10%; 
-        } 
-        h4:before { 
-            content: ""; 
-            flex: 1 1; 
-            border-bottom: 2px solid #000; 
-            margin-left:10%
-        } 
-        </style>
+            
         </head>
         <body>
 
@@ -105,15 +89,25 @@
             <!-- End Banner Area -->
 
             <!-- Tracking Check Boxes -->
-
-            <div>
-                <h3 style="text-align:center;">Shipping&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Product&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;On The Way</h3>
-                <br>
-                <br>
-                <h4><span class="glyphicon glyphicon-ok-circle" style="font-size:30px; color : black;"></span></h4>
+            <div class="w3-container" style="margin-left:2%; margin-bottom:5%">
+            <br>
+            <div class="w3-light-grey w3-round-xlarge">
+                <div class="w3-container w3-padding w3-blue w3-round-xlarge" style="width:25%; text-align:center">Order Placed</div>
             </div>
             <br>
+            <div class="w3-light-grey w3-round-xlarge">
+                <div class="w3-container w3-padding w3-blue w3-round-xlarge" style="width:50%; text-align:center">Order Collected</div>
+            </div>
             <br>
+            <div class="w3-light-grey w3-round-xlarge">
+                <div class="w3-container w3-padding w3-blue w3-round-xlarge" style="width:75%; text-align:center">Out for Delivery</div>
+            </div>
+            <br>
+            <div class="w3-light-grey w3-round-xlarge">
+                <div class="w3-container w3-padding w3-blue w3-round-xlarge" style="width:100%;text-align:center">Order Delivered</div>
+            </div>
+            </div>
+
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
                 <div class="container">
