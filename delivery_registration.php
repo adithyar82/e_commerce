@@ -1,3 +1,30 @@
+<?php
+include('connect_db.php');
+$registration_status = $_REQUEST['id1'];
+$encrypted = $_REQUEST['id2'];
+function my_simple_crypt( $string, $action = 'd') {
+    // you may change these values to your own
+    $secret_key = 'my_simple_secret_key';
+    $secret_iv = 'my_simple_secret_iv';
+  
+    $output = false;
+    $encrypt_method = "AES-256-CBC";
+    $key = hash( 'sha256', $secret_key );
+    $iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
+  
+    if( $action == 'e' ) {
+        $output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
+    }
+    else if( $action == 'd' ){
+        $output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
+    }
+  
+    return $output;
+  }
+$email_address = my_simple_crypt($encrypted, 'd' );
+$sql = "UPDATE Users SET registration_status = '$registration_status' WHERE email_address = '$email_address';";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
@@ -30,7 +57,8 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
-			<link rel="stylesheet" href="css/main.css">
+            <link rel="stylesheet" href="css/main.css">
+            <script src="js/register.js"></script>
 		</head>
 		<body>
 
@@ -41,10 +69,7 @@
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
 								<li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
-								<li><a href="contact_us.php">support@azimpatel.com</a></li>								
-							</ul>
-							<ul class="list">
-								<li><a href="#">login</a></li>
+								<li><a href="contact.php">support@azimpatel.com</a></li>								
 							</ul>
 							<?php
 							if($username == ""){
@@ -54,12 +79,15 @@
 							</ul>';
 							}
 							else{
-								echo '</span> <ul class="list">
+                                echo '<ul class="list">
+                                <span class="glyphicon glyphicon-user"> </span>
 								<li><a href="#">Welcome '.$username.' </a></li>
 							</ul>';
-							}
-							
-							?>
+                            }
+                            ?>
+							<ul class="list">
+								<li><a href="#">login</a></li>
+							</ul>
 						</div>
 					</div>					
 				</div>
@@ -109,7 +137,7 @@
 			</header>
             <!-- End Header Area -->
             <!-- Start Banner Area -->
-            <section class="banner-area organic-breadcrumb">
+            <!-- <section class="banner-area organic-breadcrumb">
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
@@ -121,38 +149,42 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Banner Area -->
 		<!-- Start My Account -->
-		<div class="container">
+		<div class="container" style="margin-left:7%; margin-bottom:7%; margin-top:7%">
 			<div class="row">
-				<div class="col-md-6">
-					<div class="login-form">
+				<!-- <div class="col-md-6">
+					<div class="login-form" style="margin-bottom:-7%; margin-top-7%">
 						<h3 class="billing-title text-center">Login</h3>
 						<p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
 						<form method = "POST" action = "login_1.php">
-							<input type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
+                            <input id = "remail" type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
+                            <span class="error" id="emailError"></span>
 							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<input type = "submit" name = "submit"> 
+                            <br>
+							<button class="view-btn color-2 w-100 mt-20"><span>Submit</span></button>
 							<div class="mt-20 d-flex align-items-center justify-content-between">
 								<div class="d-flex align-items-center">
                                 <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
-								<a href="#">Lost your password?</a>
+								<a href="forgot_password.php">Lost your password?</a>
 							</div>
 						</form>
 					</div>
-				</div>
-				<div class="col-md-6">
+				</div> -->
+				<div class="col-md-6" style="margin-left:40%;">
 					<div class="register-form">
 						<h3 class="billing-title text-center">Register</h3>
 						<p class="text-center mt-40 mb-30">Create your very own account </p>
 						<form method ="POST" action = "register.php">
 							<input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
-							<input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
-							<input type="text" name = "phone_number" placeholder="Phone number*" min = "4" max = "10" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
+                            <input type="email" name = "email_address" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address'" required class="common-input mt-20">
+                            <span class="error error_red" id="spanEmail_at_registration"></span>
+							<input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
 							<input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
-							<input type="password" name = "pwd" placeholder="Password*" min = "6" max = "12" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<input type = "submit" name = "submit">
+							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
+                            <br>
+							<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-20"><span>Submit</span>
 						</form>
 					</div>
 				</div>
@@ -161,7 +193,7 @@
 		<!-- End My Account -->
 		
             <!-- Start Most Search Product Area -->
-            <section class="section-half">
+            <!-- <section class="section-half">
                 <div class="container">
                     <div class="organic-section-title text-center">
                         <h3>Most Searched Products</h3>
@@ -277,7 +309,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Most Search Product Area -->
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
@@ -362,15 +394,3 @@
            
         </body>
     </html>
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About

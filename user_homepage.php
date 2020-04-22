@@ -63,9 +63,9 @@
             <div class="container" style="margin-top:10%;margin-bottom:5%;margin-left:27%">
 				<div class="col-md-6">
 					<div class="login-form">
-						<h3 class="billing-title text-center">Delivery Home Page</h3>
+						<h3 class="billing-title text-center">User Home Page</h3>
 						<p class="text-center mt-80 mb-40"> </p>
-						<form >
+						<form method = "POST" action = "login_1.php">
                             <h5> Total Users: </h5>
                             <br>
                             <br>
@@ -83,9 +83,9 @@
 								<div class="d-flex align-items-center">
                                 <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label></div>
 							</div>
-                            <button class="view-btn color-2 w-30 mt-20" onclick="window.location.href = 'admin_home.php';"><span>Personal</span></button> &emsp; &emsp; &emsp; &emsp;
-                            <button class="view-btn color-2 w-30 mt-20" onclick="window.location.href = 'delivery_work.php';"><span>Delivery Details</span></button>
-                            <button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button>
+                            <button class="view-btn color-2 w-30 mt-20"><span>User Details</span></button> &emsp; &emsp; &emsp; &emsp;
+                            <button class="view-btn color-2 w-30 mt-20"><span>View All Orders</span></button>
+                            <!-- <button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button> -->
 						</form>
 					</div>
 				</div>

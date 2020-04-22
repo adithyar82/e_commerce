@@ -1,3 +1,14 @@
+    <?php
+    include('connect_db.php');
+    $order_id = $_REQUEST['id'];
+    $sql = "SELECT * FROM order_status WHERE order_id = '$order_id';";
+    $result = $conn->query($sql);
+    if($result->num_rows>0){
+        while($row=$result->fetch_assoc()){
+            $status  = $row['status'];
+        }
+    }
+    ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
     <head>
@@ -7,6 +18,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
     
         <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,6 +47,61 @@
             <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
             <link rel="stylesheet" href="css/bootstrap.css">
             <link rel="stylesheet" href="css/main.css">
+            
+                <style type = "text/css"> 
+        .my-class{
+            width : 100%;
+            background-color: white;
+        }
+        .progressbar{
+            counter-reset: step;
+        }
+        .progressbar li{
+            list-style-type: none;
+            float : left;
+            width : 33.33%;
+            position : relative;
+            text-align: center;
+        }
+        .progressbar li:before{
+            content: counter(step);
+            counter-increment: step;
+            width:30px;
+            height:30px;
+            line-height:30px; 
+            border: 1px solid #ddd;
+            display: block;
+            text-align: center;
+            margin: 0 auto 10px auto;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .progressbar li:after{
+            content: '';
+            position : absolute;
+            width : 100%;
+            height: 1px;
+            background-color: #ddd;
+            top: 15px;
+            left: -50%;
+            z-index : -1;
+
+        }
+        .progressbar li:first-child:after{
+            content : none;
+        }
+        .progressbar li.active_1{
+            color :green;
+        }
+        .progressbar li.active_1:before{
+            border-color: green;
+        }
+        .progressbar li.active_1 + li:after{
+            background-color: green;
+        }
+        </style>
+         
+
 
             
         </head>
@@ -53,6 +120,7 @@
                         </div>
                     </div>                  
                 </div>
+
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
                           <a class="navbar-brand" href="category.php">
@@ -73,6 +141,13 @@
             <!-- End Header Area -->
 
             <!-- Start Banner Area -->
+            <!-- <div>
+            <ul class="progressbar">
+                <li class = "active"> Step 1 </li>
+                <li class = "active"> Step 2 </li>
+                <li class = "active">Step 3 </li>
+            </ul>
+    </div> -->
             <section class="banner-area organic-breadcrumb">
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
@@ -86,27 +161,43 @@
                     </div>
                 </div>
             </section>
+            <br>
+            <br>
+            <br>
+            <div class = "my-class">
+            <ul class="progressbar">
+                <?php
+                if($status == "ordered"){
+                    echo'<li class = "active_1"> Order Placed </li>
+                    <li> Out for Delivery </li>
+                    <li> Order Delivered </li>';
+                }
+                else if($status == "ordered collected"){
+                    echo'<li class = "active_1"> Order Placed </li>
+                    <li class = "active_1"> Out for Delivery </li>
+                    <li> Order Delivered </li>';
+                }
+                else if($status = "delivered"){
+                    echo'<li class = "active_1"> Order Placed </li>
+                    <li class = "active_1"> Out for Delivery </li>
+                    <li class = "active_1"> Order Delivered </li>';
+                }
+                ?>
+            </ul>
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br> 
             <!-- End Banner Area -->
 
             <!-- Tracking Check Boxes -->
-            <div class="w3-container" style="margin-left:2%; margin-bottom:5%">
-            <br>
-            <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-container w3-padding w3-blue w3-round-xlarge" style="width:25%; text-align:center">Order Placed</div>
-            </div>
-            <br>
-            <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-container w3-padding w3-blue w3-round-xlarge" style="width:50%; text-align:center">Order Collected</div>
-            </div>
-            <br>
-            <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-container w3-padding w3-blue w3-round-xlarge" style="width:75%; text-align:center">Out for Delivery</div>
-            </div>
-            <br>
-            <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-container w3-padding w3-blue w3-round-xlarge" style="width:100%;text-align:center">Order Delivered</div>
-            </div>
-            </div>
+            
 
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">

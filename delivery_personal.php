@@ -63,29 +63,21 @@
             <div class="container" style="margin-top:10%;margin-bottom:5%;margin-left:27%">
 				<div class="col-md-6">
 					<div class="login-form">
-						<h3 class="billing-title text-center">Delivery Home Page</h3>
+						<h3 class="billing-title text-center">Personal Details</h3>
 						<p class="text-center mt-80 mb-40"> </p>
-						<form >
-                            <h5> Total Users: </h5>
-                            <br>
-                            <br>
-                            <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Email Address" class="common-input mt-20" disabled>
-                            <br>        
-                            <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Email Address:
-								      </a>
-								      <div class="dropdown-menu" style="margin-top:10px">
-								        <a class="dropdown-item" href="checkout.php">Registration</a>
-								        <a class="dropdown-item" href="confermation.php">Home Page</a>
-								      </div>
-                            </h5> 
+						<form method = "POST" action = "login_1.php">
+                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "First Name" class="common-input mt-20" disabled>
+                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Phone Number" class="common-input mt-20" disabled>
+                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Aadhar Card Number" class="common-input mt-20" disabled>
+                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Driving License Number" class="common-input mt-20" disabled> 
+                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Address" class="common-input mt-20" disabled>     
+                        
 							<div class="mt-20 d-flex align-items-center justify-content-between">
 								<div class="d-flex align-items-center">
                                 <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label></div>
 							</div>
-                            <button class="view-btn color-2 w-30 mt-20" onclick="window.location.href = 'admin_home.php';"><span>Personal</span></button> &emsp; &emsp; &emsp; &emsp;
-                            <button class="view-btn color-2 w-30 mt-20" onclick="window.location.href = 'delivery_work.php';"><span>Delivery Details</span></button>
-                            <button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button>
+                            <button class="view-btn color-2 w-100 mt-20"><span>Update</span></button> 
+                            <!-- <button class="view-btn color-2 w-30 mt-20"><span>Delivery Details</span></button> -->
 						</form>
 					</div>
 				</div>

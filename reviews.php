@@ -98,30 +98,11 @@
 						  </button>
 						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
-								<li><a href="delivery.php">Home</a></li>
-								<li><a href="#">login</a></li>
-								<li><a href="delivery_history.php">History</a></li>
+								<li><a href="admin_home.php">Home</a></li>
 								<!-- <li><a href="#men">Product</a></li>
 								<li><a href="#women">Women</a></li>
 								<li><a href="#latest">Recommendations</a></li> -->
-									<!-- Dropdown -->
-								    <li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
-								      </a>
-								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="delivery.php">Home</a>
-									<a class="dropdown-item" href="delivery.php">Login</a>
-									<a class="dropdown-item" href="delivery_status.php">History</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      </div>
-								    </li>									
+									<!-- Dropdown -->									
 						    </ul>
 						  </div>						
 					</div>
@@ -357,7 +338,7 @@
 								<img class="d-block mx-auto" src="img/br5.png" alt="">
 							</a> -->
 							<br>
-							<h3 style="margin-left:45%"> Current Orders </h3>
+							<h3 style="margin-left:45%"> Customer Reviews </h3>
 							<?php
 							include('connect_db.php');
 							$sql = "SELECT * FROM order_status WHERE status != 'delivered';";
@@ -371,14 +352,10 @@
 									echo '<section class="brand-area pb-100">
 									<div class="container">
 										<div class="row logo-wrap"><div class="row logo-wrap">
-									<h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <br> Order ID : '.$order_id.' <br> Product Name: '.$product_name.'<br> Product Cost: '.$final_cost.'<br> Pick Up Location: <br> Status : '.$status.' <br> Delivery Location: <br> Delivery Time: <br> </h3>
+									<h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <br> Customer Name: <br> Customer Email Address: <br> Product Name:<br> Product Review: </h3>
 						            <div class="container">
 										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5><br>
 										</div>
-									<div class="container">
-										<h5><a href = "tracking.php?id='.$order_id.'">View Order Status<br></a><br></h5><br>
-										</div>
-									</div>
 								
 								
 										
