@@ -135,15 +135,16 @@
 						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
 								<li><a href="#home">Home</a></li>
-								<li><a href="#latest">User Details</a></li>
+								<li><a href="user_details.php">User Details</a></li>
+								<li><a href="reviews.php">Reviews</a></li>
 									<!-- Dropdown -->
 								    <li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 								        Delivery Boy
 								      </a>
 								      <div class="dropdown-menu" style="margin-top:10px">
-								        <a class="dropdown-item" href="checkout.php">Registration</a>
-								        <a class="dropdown-item" href="confermation.php">Home Page</a>
+								        <a class="dropdown-item" href="delivery_registration.php">Registration</a>
+								        <a class="dropdown-item" href="D_homepage.php">Home Page</a>
 								      </div>
 								    </li>
 									<li class="dropdown">

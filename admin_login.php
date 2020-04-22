@@ -65,7 +65,7 @@
 					<div class="login-form">
 						<h3 class="billing-title text-center">Admin Login</h3>
 						<p class="text-center mt-80 mb-40">Enter Your Login Details</p>
-						<form method = "POST" action = "login_1.php">
+						<form>
 							<input type="text" name = "admin_username" placeholder="Admin Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Admin Username*'" required class="common-input mt-20">
 							<input type="password" name = "password" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
                             <input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
@@ -73,7 +73,7 @@
 								<div class="d-flex align-items-center">
                                 <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
 							</div>
-                            <button class="view-btn color-2 w-100 mt-20"><span>SUBMIT</span></button>
+                            <button class="view-btn color-2 w-100 mt-20" onclick="window.location.href = 'admin_home.php';"><span>SUBMIT</span></button>
 						</form>
 					</div>
 				</div>
