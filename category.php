@@ -271,7 +271,6 @@
 						<!-- Start Best Seller -->
 						<section class="lattest-product-area pb-40 category-list">
 						<br>
-						
 							<div class="row">
 							
 							<?php 
@@ -292,27 +291,22 @@
 										  $product_image = $row['product_image'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-2 single-product">
-										 <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-plus" style="float:right; font-size:25px"> </span></a>
+										 <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:92%"> </span></a>
+										 <a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="float:right; font-size:20px; margin-top:7%"></span></a>
 											  <div class="content">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
 											  <div class="content-details fadeIn-bottom">
-											  
-													<div class="bottom d-flex align-items-center justify-content-center">
-														<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'"><span class="lnr lnr-heart"></span></a>
-														<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-													</div>
 											  </div>
 										  </div>
+										  <br>
 										  <div class="price">
 										  
-												  <h5>'.$product_name.'</h5>
-													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
-												  <h3>'.$final_cost.'</h3>
-												  <h4>You save '.$discount.'%</h4>
+												  <h3>'.$product_name.'</h3>
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+												  <h4>'.$final_cost.'</h4>
+												  <h5>You save '.$discount.'%</h5>
 												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-												  <span class="glyphicon glyphicon-shopping-cart"> </span>
-												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
 										   </div>
 										</div>
 										<br>';
@@ -321,9 +315,9 @@
 
 								  $sql1 = "SELECT * FROM products limit 4;";
 								  $result1 = $conn->query($sql1);
-								//   echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
-								  echo '<a class="dropdown-item" href="department.php?id1=Electronics">View All </a>';
-								  echo '<h3 style = "margin-left:40px;">  </h3>';
+								  //echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
+								  echo '<a class="dropdown-item" href="department.php?id1=Electronics" style="margin-top:10%; margin-left:3%">View All </a>';
+								  echo '<h3 style = "margin-left:40px;"></h3>';
 								  if($result1->num_rows>0){
 									  while($row = $result1->fetch_assoc()){
 										  $product_id = $row['product_id'];
@@ -333,27 +327,23 @@
 										  $product_image = $row['product_image'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-2 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'"><span class="glyphicon glyphicon-plus-sign" style="float:right; font-size:15px"> </span></a>
+										  	<a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:92%"> </span></a>
+										 	<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="float:right; font-size:20px; margin-top:7%"></span></a>
 											  <div class="content">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
 											  <div class="content-details fadeIn-bottom">
 											  
-													<div class="bottom d-flex align-items-center justify-content-center">
-														<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'"><span class="lnr lnr-heart"></span></a>
-														<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-													</div>
 											  </div>
 										  </div>
+										  <br>
 										  <div class="price">
 										  
-												  <h5>'.$product_name.'</h5>
-													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
-												  <h3>'.$final_cost.'</h3>
-												  <h4>You save '.$discount.'%</h4>
+												  <h3>'.$product_name.'</h3>
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+												  <h4>'.$final_cost.'</h4>
+												  <h5>You save '.$discount.'%</h5>
 												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-												  <span class="glyphicon glyphicon-shopping-cart"> </span>
-												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
 										   </div>
 										</div>';
 										
