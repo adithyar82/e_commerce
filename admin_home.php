@@ -143,8 +143,8 @@
 								        Delivery Boy
 								      </a>
 								      <div class="dropdown-menu" style="margin-top:10px">
-								        <a class="dropdown-item" href="checkout.php">Registration</a>
-								        <a class="dropdown-item" href="confermation.php">Home Page</a>
+								        <a class="dropdown-item" href="delivery_registration.php">Registration</a>
+								        <a class="dropdown-item" href="D_homepage.php">Home Page</a>
 								      </div>
 								    </li>
 									<li class="dropdown">
