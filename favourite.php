@@ -124,14 +124,14 @@
                     </div>
                 </div>
                 <?php
-                // session_start();
+                session_start();
                 include('connect_db.php');
                 $username = $_SESSION['username'];
                 $sql = "SELECT * FROM favourites WHERE username = '$username';";
                 $result=$conn->query($sql);
                 $sql1 = "SELECT SUM(item_price) as total_cost FROM favourites WHERE username ='$username';";
                 $result1 = $conn->query($sql1);
-                // 
+                
                 if($result->num_rows>0){
                     while($row = $result->fetch_assoc()){
                         $item_name = $row['item_name'];

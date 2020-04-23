@@ -40,24 +40,23 @@
 					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
-								<li><a href="contact_us.php">support@azimpatel.com</a></li>								
+								<li><a href="contact_us.php">+91 8095566699   |   support@azimpatel.com</a></li>								
 							</ul>
 							<ul class="list">
 								<li><a href="#">login</a></li>
 							</ul>
 							<?php
-							if($username == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
-							</ul>';
-							}
-							else{
-								echo '</span> <ul class="list">
-								<li><a href="#">Welcome '.$username.' </a></li>
-							</ul>';
-							}
+							// if($username == ""){
+							// 	echo '<ul class="list">
+							// 	<span class="glyphicon glyphicon-user"> </span>
+							// 	<li><a href="#"> Welcome </a></li>
+							// </ul>';
+							// }
+							// else{
+							// 	echo '</span> <ul class="list">
+							// 	<li><a href="#">Welcome '.$username.' </a></li>
+							// </ul>';
+							// }
 							
 							?>
 						</div>
@@ -80,28 +79,7 @@
 						  </button>
 						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
-								<!-- <li><a href="#home">Home</a></li>
-								<li><a href="#catagory">Category</a></li>
-								<li><a href="#men">Product</a></li>
-								 <li><a href="#women">Women</a></li>
-								<li><a href="#latest">Recommendations</a></li> -->
-									<!-- Dropdown -->
-								    <!-- <li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
-								      </a> -->
-								      <!-- <div class="dropdown-menu">
-								        <a class="dropdown-item" href="category.php">Category</a>
-								        <a class="dropdown-item" href="single.php">Single</a>
-								        <a class="dropdown-item" href="cart.php">Cart</a>
-								        <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      <!-- </div> -->
-								    </li>									
+												
 						    </ul>
 						  </div>						
 					</div>
@@ -133,11 +111,11 @@
 						<form method = "POST" action = "login_1.php">
 							<input type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
 							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<input type = "submit" name = "submit"> 
+							<input style="margin-left:43%; margin-top:4%" type = "submit" name = "submit"> 
 							<div class="mt-20 d-flex align-items-center justify-content-between">
 								<div class="d-flex align-items-center">
                                 <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
-								<a href="#">Lost your password?</a>
+								<a href="forgot_password.php">Lost your password?</a>
 							</div>
 						</form>
 					</div>
@@ -151,8 +129,8 @@
 							<input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
 							<input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
 							<input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
-							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<input type = "submit" name = "submit">
+							<input type="password" name = "pwd" placeholder="Password*" min = "6" max = "12" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
+							<input style="margin-left:43%; margin-top:4%" type = "submit" name = "submit">
 						</form>
 					</div>
 				</div>
@@ -362,15 +340,3 @@
            
         </body>
     </html>
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
