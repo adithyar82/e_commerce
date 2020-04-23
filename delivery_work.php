@@ -63,7 +63,7 @@
             <div class="container" style="margin-top:10%;margin-bottom:5%;margin-left:27%">
 				<div class="col-md-6">
 					<div class="login-form">
-						<h3 class="billing-title text-center">PWork Details</h3>
+						<h3 class="billing-title text-center">Work Details</h3>
 						<p class="text-center mt-80 mb-40"> </p>
 						<!-- <form method = "POST" action = "login_1.php">
                         <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "First Name" class="common-input mt-20" disabled>
