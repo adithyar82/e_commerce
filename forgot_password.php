@@ -35,12 +35,9 @@
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="tel:+12312-3-1209">8095566699</a></li>
-                                <li><a href="mailto:support@colorlib.com">support@azeempatel.com</a></li>                             
+                                <li><a href="contact_us.php">>+91 8095566699   |   support@azeempatel.com</a></li>                             
                             </ul>
-                            <!-- <ul class="list">
-                                <li><a href="#">login</a></li>
-                            </ul> -->
+                            
                         </div>
                     </div>                  
                 </div>
@@ -54,28 +51,7 @@
                           </button>
                           <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <!-- <li><a href="#home">Home</a></li>
-                                <li><a href="#catagory">Category</a></li> -->
-                                <!-- <li><a href="#men">Men</a></li>
-                                <li><a href="#women">Women</a></li>
-                                <li><a href="#latest">latest</a></li> -->
-                                    <!-- Dropdown -->
-                                    <li class="dropdown">
-                                      <!-- <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                        Pages
-                                      </a> -->
-                                      <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="category.php">Category</a>
-                                        <!-- <a class="dropdown-item" href="single.php">Single</a> -->
-                                        <a class="dropdown-item" href="cart.php">Cart</a>
-                                        <a class="dropdown-item" href="checkout.php">Checkout</a>
-                                        <a class="dropdown-item" href="confermation.php">Confermation</a>
-                                        <a class="dropdown-item" href="login.php">Login</a>
-                                        <a class="dropdown-item" href="tracking.php">Tracking</a>
-                                        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-                                        <a class="dropdown-item" href="elements.php">Elements</a> -->
-                                      </div>
-                                    </li>                                   
+                                
                             </ul>
                           </div>                        
                     </div>
@@ -87,10 +63,10 @@
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Forget Password</h1>
+                            <h1>Forgot Password</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="cart.php">Forget Password</a>
+                                <a href="forgot_password.php.php">Forgot Password</a>
                             </nav>
                         </div>
                     </div>
@@ -99,150 +75,26 @@
             <!-- End Banner Area -->
 
 		<!-- Start My Account -->
-		<div class="container">
-			<div class="order-tracking">
-				<!-- <p>To track your order please enter your Order ID in the box below and press the "Track" button. This was given to you on your receipt and in the confirmation email you should have received.</p> -->
-				<form method = "POST" action="index_1.php">
-                    <!-- <h3> First Name:</h3>
-					<input type="text" onfocus="this.placeholder=''" value = "" required class="common-input mt-20"> -->
-                    <h3> Email Address: </h3>
-                    <input type="text" name = "email_address" onfocus="this.placeholder=''" value = ""  required class="common-input mt-20">
-                    <h3> Phone Number: </h3>
-                    <input type="text" name = "phone_number" onfocus="this.placeholder=''" value = ""   required class="common-input mt-20">
-                    <!-- <h3> Username : </h3>
-                    <input type="text" onfocus="this.placeholder=''" value = ""   required class="common-input mt-20"> -->
-                    <!-- <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20">
-                    <input type="text" placeholder="Billing Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Billing Email Address'" required class="common-input mt-20"> -->
-					<button class="view-btn color-2 mt-20"><span>Submit</span></button>
-				</form>
-			</div>
-		</div>
+		<div class="container" style="margin-left:25%; margin-bottom:4%">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="login-form">
+						<h3 class="billing-title text-center">Forgot Password</h3>
+						<p class="text-center mt-80 mb-40">Enter your E-mail and Phone Number</p>
+						<form method = "POST" action = "login_1.php">
+							<input type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
+							<input type="text" name = "pwd" placeholder="Phone Number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone Number*'" required class="common-input mt-20">
+							<input style="margin-left:43%; margin-top:4%" type = "submit" name = "submit"> 
+							
+						</form>
+					</div>
+				</div>
+            </div>
+        </div>
 		<!-- End My Account -->
 		
 		
-            <!-- Start Most Search Product Area -->
-            <!-- <section class="section-half">
-                <div class="container">
-                    <div class="organic-section-title text-center">
-                        <h3>Most Searched Products</h3>
-                    </div>
-                    <div class="row mt-30">
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r1.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Blueberry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $240.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r2.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Cabbage</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $189.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r3.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Raspberry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $189.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r4.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Kiwi</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $189.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r5.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore Bell Pepper</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $120.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r6.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Blackberry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $120.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r7.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Brocoli</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $120.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r8.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Carrot</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $120.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r9.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Strawberry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $240.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r10.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Prixma MG2 Light Inkjet</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $240.00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r11.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Cherry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $240.00 <del>$340.00</del></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r12.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Beans</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> $240.00 <del>$340.00</del></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-            <!-- End Most Search Product Area -->
+          
 
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
