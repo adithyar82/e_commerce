@@ -77,28 +77,30 @@
 						  </button>
 						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
-								<li><a href="#home">Home</a></li>
-								<li><a href="#catagory">Category</a></li>
-								<li><a href="#men">Product</a></li>
-								<!-- <li><a href="#women">Women</a></li> -->
-								<li><a href="#latest">Recommendations</a></li>
-									<!-- Dropdown -->
-								    <li class="dropdown">
+								<li><a href="category.php">Home</a></li>
+								<li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
+								        Category
 								      </a>
 								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="category.php">Category</a>
-								        <a class="dropdown-item" href="single.php">Single</a>
+								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
+								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
 								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a>
+								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
+								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
+								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
+								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
 								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
 								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      </div>
-								    </li>									
+									  </div>
+									  <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
+									  <li><a href="favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
+								    </li>
+								<!-- <li><a href="#men">Product</a></li> -->
+								<!-- <li><a href="#women">Women</a></li> -->
+								<!-- <li><a href="#latest">Recommendations</a></li> -->
+									<!-- Dropdown -->
+								    								
 						    </ul>
 						  </div>						
 					</div>
@@ -371,12 +373,56 @@
                                         <input type="checkbox" class="pixel-checkbox" id="login-4">
                                         <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label>
                                     </div>
+                                    </form>
                                     <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
                                 </div>
+                                <?php
+                                $firstName = "Aditya";
+                                $lastName = "Ritesh";
+                                $amount = "800";
+                                $itemName = "Dettol";
+                                echo <<<EOD
+                                
+
+    <style>
+    
+    .payment-button {
+      width:200px;
+      height:100px;
+      
+    }
+    
+    </style>
+  
+  
+  
+  
+    
+    <form name = "hidden-payment-form" class="paypal" action="payments_1.php" method="post" id="paypal_form">
+        <input type="hidden" name="cmd" value="_xclick" />
+        <input type="hidden" name="no_note" value="1" />
+        <input type="hidden" name="lc" value="IN" />
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+        <input type="hidden" name="first_name" value="$firstName" />
+        <input type="hidden" name="last_name" value="$lastName" />
+        <input type="hidden" name="payer_email" value="$email" />
+        <input type="hidden" name="item_number" value="1" / >
+		<input type="hidden" name="item_name" value="$itemName" / >
+		<input type="hidden" name="amount" value="$amount" / >
+    <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" border="0" type = "submit" name="submit1" alt="PayPal - The safer, easier way to pay online!"/>
+    </form>
+
+EOD;
+  
+
+
+    ?>
                             </div>
+                            
                         </div>
                     </div>
-                </form>
+                
+                
             </div>
             <!-- End Billing Details Form -->
 

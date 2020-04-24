@@ -103,7 +103,7 @@
 						  </button>
 						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
-								<li><a href="#home">Home</a></li>
+								<li><a href="category.php">Home</a></li>
 								<!-- <li><a href="#catagory">Category</a></li>
 								<li><a href="#men">Product</a></li> -->
 								<!-- <li><a href="#women">Women</a></li> -->

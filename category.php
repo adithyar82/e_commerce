@@ -239,13 +239,13 @@
 							
 							?>
 							<ul class="list">
-								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:25px; margin-left:20px; font-size:20px"> </span><a href="logout.php">Logout</a></li>
+								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:5px; font-size:20px"> &nbsp; &nbsp;</span><a href="logout.php" style = "margin-rigth:15px;">Logout</a></li>
 							</ul>
 						</div>
 					</div>	
 					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-left:5%">
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
 					<div class="container" style="width:1500px;">
 					<div class="dropdown">
 							<button onclick="myFunction()" class="btn"><span class="glyphicon glyphicon-align-justify"></span></button>
@@ -261,7 +261,7 @@
 						</div>
 					<!-- <span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span> -->
 						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
-							  <img style="margin-left:20px;" src="img/logo.png" alt="">
+							  <img style="margin-left:10px;" src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
 						  <!-- <div class="search-container" style="width:1500px;">
@@ -416,7 +416,7 @@
 								  echo '
 								  <h3 style = "margin-left:40px;"> Electronics </h3>
 								  <br>
-								  <a href="department.php?id1=Electronics" style="margin-left:65%;"> View All +</a>';
+								  <a href="department.php?id1=Electronics" style="margin-left:85%;"> View All +</a>';
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
 										  
@@ -426,7 +426,7 @@
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
-										  echo '<div class="col-md-2 single-product">
+										  echo '<div class="col-md-3 single-product">
 										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
 											  <div class="content" style="border:10px solid white;">
 											  <div class="content-overlay"></div>
@@ -458,7 +458,7 @@
 								  
 								  echo '<h3 style = "margin-left:40px;"> Electronics </h3>
 								  <br>
-								  <a href="department.php?id1=Electronics" style="margin-left:65%;"> View All +</a>';
+								  <a href="department.php?id1=Electronics" style="margin-left:85%;"> View All +</a>';
 								  if($result1->num_rows>0){
 									  while($row = $result1->fetch_assoc()){
 										  $product_id = $row['product_id'];
@@ -467,7 +467,7 @@
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
-										  echo '<div class="col-md-2 single-product">
+										  echo '<div class="col-md-3 single-product">
 										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-plus" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
 											  <div class="content" style="border:10px solid white;">
 											  <div class="content-overlay"></div>
@@ -803,8 +803,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </section> -->
+                </div-->
+            </section>
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->      
