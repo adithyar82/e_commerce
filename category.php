@@ -378,7 +378,7 @@
 						</div>
 
 						<!-- Start Filter Bar -->
-						<!-- <div class="filter-bar d-flex flex-wrap align-items-center">
+						<div class="filter-bar d-flex flex-wrap align-items-center">
 							<a href="#" class="grid-btn active"><i class="fa fa-th" aria-hidden="true"></i></a>
 							<a href="#" class="list-btn"><i class="fa fa-th-list" aria-hidden="true"></i></a>
 							<div class="sorting">
@@ -402,21 +402,21 @@
 									<option value="1">Show 12</option>
 								</select>
 							</div>
-						</div> -->
+						</div>
 						<!-- End Filter Bar -->
 						<!-- Start Best Seller -->
 						<section class="lattest-product-area pb-40 category-list">
 						<br>
 							<div class="row" style="margin-bottom:3%; margin-top:3%">
-							
 							<?php 
 								  include('connect_db.php');
 								//   session_start();
 								  $sql = "SELECT * FROM products limit 4;";
 								  $result = $conn->query($sql);
 								  echo '
-								  <h3 style = "margin-left:40px;"> Electronics </h3>';
-
+								  <h3 style = "margin-left:40px;"> Electronics </h3>
+								  <br>
+								  <a href="department.php?id1=Electronics" style="margin-left:65%;"> View All +</a>';
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
 										  
@@ -456,7 +456,9 @@
 								  $result1 = $conn->query($sql1);
 								  //echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
 								  
-								  echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
+								  echo '<h3 style = "margin-left:40px;"> Electronics </h3>
+								  <br>
+								  <a href="department.php?id1=Electronics" style="margin-left:65%;"> View All +</a>';
 								  if($result1->num_rows>0){
 									  while($row = $result1->fetch_assoc()){
 										  $product_id = $row['product_id'];

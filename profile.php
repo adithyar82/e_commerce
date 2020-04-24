@@ -156,6 +156,7 @@
                     <br>
                     </h1>
 				</form>
+                <button href="update_profile.php" class="view-btn color-2 w-100 mt-20"><span>Update Profile</span></button>
 			</div>
 		</div>
 		<!-- End My Account -->
