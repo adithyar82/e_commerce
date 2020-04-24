@@ -299,8 +299,8 @@
                                                   <h4>You save '.$discount.'%</h4>
                                                   <br>
 												  
-												  <span class="glyphicon glyphicon-shopping-cart"> </span>
-                                                  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "font-size: 20px;">Add to Cart</a><br>
+							
+                                                  <a href=" favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "font-size: 20px;"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span>Add to Favourites</a><br>
                                                   <br>
                                                   <button onclick="window.location = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>
                                                   <br>
