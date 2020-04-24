@@ -308,6 +308,7 @@
 									<div class="total"><?php echo $final_cost?></div>
 								</div>
 							</div>
+                            
 						</div>
 					</div>
 				</div>

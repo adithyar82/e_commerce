@@ -254,6 +254,7 @@
 								<a href="order_status.php">Order Status</a>
 								<a href="order_history.php">Order History</a>
 								<a href="favourite.php">Wishlist</a>
+								<a href="cart.php">Cart</a>
 								<a href="logout.php">Logout</a>
 								<a href="contact_us.php">Help...?</a>
 							</div>
@@ -290,15 +291,15 @@
 									<!-- Dropdown -->
 								    <li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
+								        Orders
 								      </a>
 								      <div class="dropdown-menu" style="margin-top:10px">
 								        <!-- <a class="dropdown-item" href="category.php">Category</a>
 								        <a class="dropdown-item" href="single.php">Single</a> -->
 								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
+								        <a class="dropdown-item" href="order.php">Your Orders</a>
+								        <a class="dropdown-item" href="order_status.php">Current Orders</a>
+								        <a class="dropdown-item" href="login.php">Cancelles Orders</a>
 								        <a class="dropdown-item" href="tracking.php">Tracking</a>
 								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
 								        <a class="dropdown-item" href="elements.php">Elements</a> -->
@@ -372,7 +373,7 @@
 								<a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
 								<a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
 								<a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
-								<a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>        
+								<a class="dropdown-item" href="department.php?id1=Hardware">Hardware</a>        
 							</div>
 						</div>
 
@@ -436,7 +437,7 @@
 										  <br>
 										  <div class="price">
 										  
-												  <h3>'.$product_name.'</h3>
+												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 												  <h4>'.$final_cost.'</h4>
 												  <h5>You save '.$discount.'%</h5>
@@ -476,7 +477,7 @@
 										  <br>
 										  <div class="price">
 										  
-												  <h3>'.$product_name.'</h3>
+										  	<h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 												  <h4>'.$final_cost.'</h4>
 												  <h5>You save '.$discount.'%</h5>
