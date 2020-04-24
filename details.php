@@ -126,6 +126,9 @@
 						  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						    <span class="navbar-toggler-icon"></span>
 						  </button> -->
+						  <div class="collapse navbar-collapse" style = "margin-left:45%;" id="navbarSupportedContent">
+						    <ul class="navbar-nav" style="width:1500px;">
+								<li><a href="category.php" style = "margin-left:85%">Home</a></li>
 						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
 								<li></li>
@@ -305,7 +308,8 @@
                                                   <button onclick="window.location = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>
                                                   <br>
                                                   <h5>Location</h5><br>
-                                                  <h5>Reviews</h5>
+												  <h5>Reviews</h5>
+												  <textarea type="text" name = "comment" cols="30" rows="5" placeholder="Comment*" onfocus="this.placeholder=" onblur="this.placeholder = Comment*" required class="common-input mt-20"></textarea>
                                     
 										   </div>
 										</div>

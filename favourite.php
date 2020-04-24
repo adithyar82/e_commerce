@@ -66,7 +66,7 @@
                                 <li><a href="#women">Women</a></li>
                                 <li><a href="#latest">latest</a></li> -->
                                     <!-- Dropdown -->
-                                    <li class="dropdown">
+                                    <!-- <li class="dropdown">
                                       <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                         Pages
                                       </a>
@@ -81,7 +81,7 @@
                                         <a class="dropdown-item" href="generic.php">Generic</a>
                                         <a class="dropdown-item" href="elements.php">Elements</a>
                                       </div>
-                                    </li>                                   
+                                    </li>                                    -->
                             </ul>
                           </div>                        
                     </div>
@@ -127,38 +127,42 @@
                 session_start();
                 include('connect_db.php');
                 $username = $_SESSION['username'];
-                $sql = "SELECT * FROM favourites WHERE username = '$username';";
+                $sql = "SELECT * FROM items WHERE username = '$username';";
                 $result=$conn->query($sql);
-                $sql1 = "SELECT SUM(item_price) as total_cost FROM favourites WHERE username ='$username';";
+                $sql1 = "SELECT SUM(final_cost) as total_cost FROM items WHERE username ='$username';";
                 $result1 = $conn->query($sql1);
-                
+                // 
                 if($result->num_rows>0){
                     while($row = $result->fetch_assoc()){
                         $item_name = $row['item_name'];
                         $item_price = $row['item_price']; 
+                        $product_quantity = $row['product_quantity'];
                         $item_id = $row['id'];
+                        $total_price = $product_quantity * $item_price;
                          echo'
                             <div class="cart-single-item">
                             <div class="row align-items-center">
                                 <div class="col-md-6 col-12">
                                     <div class="product-item d-flex align-items-center">
-                                        <h6>'.$item_name.'</h6>
+                                        <h3>'.$item_name.'</h3>
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-6">
                                     <div class="price">'.$item_price.'</div>
                                 </div>
+                                
                                 <div class="col-md-2 col-6">
-                                <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                1
+                                <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">'.$product_quantity.'
+                                
                               </a>
                         <div class="dropdown-menu">
-                                <a class="dropdown-item" href="category_1.php">1</a>
-                                <a class="dropdown-item" href="category_2.php">2</a>
-                                <a class="dropdown-item" href="category_1.php">3</a>
-                                <a class="dropdown-item" href="category_2.php">4</a>
-                                <a class="dropdown-item" href="category_1.php">5</a>
-                                <a class="dropdown-item" href="category_2.php">6</a>
+                                <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                                <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                                <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
+                                <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
+                                <a class="dropdown-item" href="quantity.php?id1=4&id2='.$item_id.'">4</a>
+                                <a class="dropdown-item" href="quantity.php?id1=5&id2='.$item_id.'">5</a>
+                                <a class="dropdown-item" href="quantity.php?id1=6&id2='.$item_id.'">6</a>
                                 <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
                                 <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
                                 <a class="dropdown-item" href="confermation.php">Confirmation</a>
@@ -169,7 +173,7 @@
                         </div>
                                 </div>
                                 <div class="col-md-2 col-12">
-                                    <div class="total">'.$item_price.'</div>
+                                    <div class="total">'.$total_price.'</div>
                                 </div>
                                 <div class="col-md-2 col-12">
                                     <span class="glyphicon glyphicon-remove"> </span>
@@ -293,7 +297,7 @@
 
                 </div>
                 <div style="margin-bottom:10%;">
-                    <button class="view-btn color-2 w-100 mt-20"><span>Add To Cart</span></button>
+                    <button onclick="location.href = 'cart.php';" class="view-btn color-2 w-100 mt-20"><span>Add To Cart</span></button>
                 </div>
             </div>
             <!-- End Cart Area -->
@@ -414,13 +418,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </section> -->
+                </div-->
+            </section>
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
-                <div class="container">
+                <div class="container" style = "margin-left:15%">
                     <div class="row">
                         <div class="col-lg-3  col-md-6 col-sm-6">
                             <div class="single-footer-widget">

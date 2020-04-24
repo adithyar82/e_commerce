@@ -152,9 +152,9 @@ $result = $conn->query($sql);
             </section> -->
             <!-- End Banner Area -->
 		<!-- Start My Account -->
-		<div class="container" style="margin-left:7%; margin-bottom:7%; margin-top:7%">
+		<div class="container" style="margin-left:16%; margin-bottom:7%; margin-top:7%">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-lg-6">
 					<div class="login-form" style="margin-bottom:-7%; margin-top-7%">
 						<h3 class="billing-title text-center">Login</h3>
 						<p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
@@ -172,7 +172,7 @@ $result = $conn->query($sql);
 						</form>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-lg-6">
 					<div class="register-form">
 						<h3 class="billing-title text-center">Register</h3>
 						<p class="text-center mt-40 mb-30">Create your very own account </p>

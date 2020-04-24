@@ -15,6 +15,6 @@ $final_cost = $final_cost * $product_quantity;
 $sql = "UPDATE items SET product_quantity = '$product_quantity', final_cost = '$final_cost' WHERE id = '$item_id';";
 $result = $conn->query($sql);
 echo '<script>
-    window.location = "cart.php";
+    window.location = "favourite.php";
     </script>';
 ?>
