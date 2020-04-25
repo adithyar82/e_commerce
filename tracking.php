@@ -172,7 +172,7 @@
                     <li> Out for Delivery </li>
                     <li> Order Delivered </li>';
                 }
-                else if($status == "ordered collected"){
+                else if($status == "order_collected"){
                     echo'<li class = "active_1"> Order Placed </li>
                     <li class = "active_1"> Out for Delivery </li>
                     <li> Order Delivered </li>';
