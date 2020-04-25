@@ -56,8 +56,7 @@
 					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
-								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
+								<li><a href="cotact_us.php">+91 8095566699   |   support@azimpatel.com<</a></li>							
 							</ul>
 							<!--
 							<ul class="list">
@@ -87,15 +86,13 @@
 							  <img src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <div class="search-container">
-								<form action="/action_page.php">
-								  <input type="text" placeholder="Search.." name="search">
-								  <button type="submit"><i class="fa fa-search"></i></button>
-								</form>
+						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
+           					 <form action="#" method="get">
+              					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
+             					<button type="submit" class="d-none"></button>
+           					 </form>
 						  </div>
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
+						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
 						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
 								<li><a href="delivery.php">Home</a></li>
@@ -130,7 +127,7 @@
 			<!-- End Header Area -->
 
 			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">
+			<!-- <section class="banner-area relative" id="home">
 				<div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
 						<div class="col-lg-6 col-md-12 padding: 40px;">
@@ -144,7 +141,7 @@
 						</div>							
 					</div>
 				</div>
-			</section>
+			</section> -->
 			<!-- End banner Area -->	
 
 			<!-- Start category Area -->
@@ -357,7 +354,7 @@
 								<img class="d-block mx-auto" src="img/br5.png" alt="">
 							</a> -->
 							<br>
-							<h3 style="margin-left:45%"> Current Orders </h3>
+							<h3 style="margin-left:45%"> Order History </h3>
 							<?php
 							include('connect_db.php');
 							$sql = "SELECT * FROM order_status WHERE status = 'delivered';";

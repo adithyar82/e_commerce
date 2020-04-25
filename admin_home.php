@@ -78,6 +78,132 @@
 				}
 			})
 			</script>
+			
+			<script>
+				/* When the user clicks on the button, 
+				toggle between hiding and showing the dropdown content */
+				function myFunction() {
+				document.getElementById("myDropdown").classList.toggle("show");
+				}
+
+				// Close the dropdown if the user clicks outside of it
+				window.onclick = function(event) {
+				if (!event.target.matches('.dropbtn')) {
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+					}
+				}
+				}
+			</script>
+
+			<script>
+				/* When the user clicks on the button, 
+				toggle between hiding and showing the dropdown content */
+				function dropFunction() {
+				document.getElementById("Dropdown").classList.toggle("show");
+				}
+
+				// Close the dropdown if the user clicks outside of it
+				window.onclick = function(event) {
+				if (!event.target.matches('.btn')) {
+					var dropdowns = document.getElementsByClassName("dropdown_content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+					}
+				}
+				}
+			</script>
+
+			<style>
+			.dropbtn {
+			background-color: #FFFFFF;
+			color: black;
+			padding: 16px;
+			font-size: 20px;
+			border: none;
+			cursor: pointer;
+			}
+
+			.dropbtn:hover, .dropbtn:focus {
+			background-color: #2980B9;
+			}
+
+			.dropdown {
+			position: relative;
+			display: inline-block;
+			}
+
+			.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f1f1f1;
+			min-width: 160px;
+			overflow: auto;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+			}
+
+			.dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			}
+
+			.dropdown a:hover {background-color: #ddd;}
+
+			.show {display: block;}
+			</style>
+
+			<style>
+			.btn {
+			background-color: #FFFFFF;
+			color: black;
+			padding: 16px;
+			font-size: 20px;
+			border: none;
+			cursor: pointer;
+			}
+
+			.btn:hover, .btn:focus {
+			background-color: #2980B9;
+			}
+
+			.dropdown {
+			position: relative;
+			display: inline-block;
+			}
+
+			.dropdown_content {
+			display: none;
+			position: absolute;
+			background-color: #f1f1f1;
+			min-width: 160px;
+			overflow: auto;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+			}
+
+			.dropdown_content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			}
+
+			.dropdown a:hover {background-color: #ddd;}
+
+			.show {display: block;}
+			</style>
 		</head>
 		<body>
 
@@ -119,7 +245,18 @@
 				</div>
 				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-left:5%">
 					<div class="container" style="width:1500px;">
-		>
+					<div class="dropdown">
+							<button onclick="myFunction()" class="btn"><span class="glyphicon glyphicon-align-justify"></span></button>
+							<div id="myDropdown" class="dropdown-content">
+								<a href="profile.php">Profile</a>
+								<a href="order_status.php">Order Status</a>
+								<a href="order_history.php">Order History</a>
+								<a href="favourite.php">Wishlist</a>
+								<a href="cart.php">Cart</a>
+								<a href="logout.php">Logout</a>
+								<a href="contact_us.php">Help...?</a>
+							</div>
+						</div>
 						  <a class="navbar-brand" href="#">
 							  <img src="img/logo.png" alt="">
 							  <p> Company Logo </p>
@@ -135,8 +272,8 @@
 						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
 								<li><a href="#home">Home</a></li>
-								<li><a href="#home">Reviews</a></li>
-								<li><a href="#latest">User Details</a></li>
+								<li><a href="reviews.php">Reviews</a></li>
+								<li><a href="user_homepage.php">User Details</a></li>
 									<!-- Dropdown -->
 								    <li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -169,9 +306,21 @@
 			</header>
             <!-- End Header Area -->
 			
-			<div class="container" style = "margin:10px; width : 2000px;">
-				<div class="row" style = "margin:10px; width : 1700px;">
-					<div class="col-lg-12">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12" style="margin-top:2%; margin-bottom:2%;">
+					<div class="dropdown" style="margin-left:50%;">
+							<button onclick="dropFunction()" class="btn"><span class="glyphicon glyphicon-th-large" style="color:black;font-size:25px"></span></span></button>
+							<div id="Dropdown" class="dropdown_content">
+								<a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
+								<a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
+								<a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
+								<a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
+								<a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
+								<a class="dropdown-item" href="department.php?id1=Hardware">Hardware</a>        
+							</div>
+						</div>
+
 						<!-- Start Filter Bar -->
 						<div class="filter-bar d-flex flex-wrap align-items-center">
 							<a href="#" class="grid-btn active"><i class="fa fa-th" aria-hidden="true"></i></a>
@@ -189,13 +338,6 @@
 							    <div class="dropdown-menu">
 								        <a class="dropdown-item" href="category_1.php">Price : Low to High</a>
 								        <a class="dropdown-item" href="category_2.php">Price : High to Low</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
 							    </div>
 							<div class="sorting mr-auto">
 								<select>
@@ -204,138 +346,75 @@
 									<option value="1">Show 12</option>
 								</select>
 							</div>
-							<!-- <div class="pagination">
-								<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-								<a href="#" class="active">1</a>
-								<a href="#">2</a>
-								<a href="#">3</a>
-								<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-								<a href="#">6</a>
-								<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-							</div> -->
 						</div>
 						<!-- End Filter Bar -->
 						<!-- Start Best Seller -->
 						<section class="lattest-product-area pb-40 category-list">
 						<br>
+						<div class="container" style="margin-bottom:7%; margin-top:7%">
 							<div class="row">
-							
-							<?php 
-								  include('connect_db.php');
-								//   session_start();
-								  $sql = "SELECT * FROM products limit 4;";
-								  $result = $conn->query($sql);
-								  echo '
-								  <h3 style = "margin-left:40px;"> Electronics </h3>';
-
-								  if($result->num_rows>0){
-									  while($row = $result->fetch_assoc()){
-										  
-										  $product_id = $row['product_id'];
-										  $product_name = $row['product_name'];
-										  $initial_cost = $row['initial_cost'];
-										  $final_cost = $row['final_cost'];
-										  $product_image = $row['product_image'];
-										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
-										  echo '<div class="col-md-2 single-product">
-										 <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:92%"> </span></a>
-										 <a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="float:right; font-size:20px; margin-top:7%"></span></a>
-											  <div class="content">
-											  <div class="content-overlay"></div>
-												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
-											  <div class="content-details fadeIn-bottom">
-											  </div>
-										  </div>
-										  <br>
-										  <div class="price">
-										  
-												  <h3>'.$product_name.'</h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-										   </div>
-										</div>
-										<br>';
-									  }
-								  }
-
-								  $sql1 = "SELECT * FROM products limit 4;";
-								  $result1 = $conn->query($sql1);
-								  //echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
-								  echo '<a class="dropdown-item" href="department.php?id1=Electronics" style="margin-top:10%; margin-left:3%">View All </a>';
-								  echo '<h3 style = "margin-left:40px;"></h3>';
-								  if($result1->num_rows>0){
-									  while($row = $result1->fetch_assoc()){
-										  $product_id = $row['product_id'];
-										  $product_name = $row['product_name'];
-										  $initial_cost = $row['initial_cost'];
-										  $final_cost = $row['final_cost'];
-										  $product_image = $row['product_image'];
-										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
-										  echo '<div class="col-md-2 single-product">
-										  	<a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:92%"> </span></a>
-										 	<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="float:right; font-size:20px; margin-top:7%"></span></a>
-											  <div class="content">
-											  <div class="content-overlay"></div>
-												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
-											  <div class="content-details fadeIn-bottom">
-											  
-											  </div>
-										  </div>
-										  <br>
-										  <div class="price">
-										  
-												  <h3>'.$product_name.'</h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-										   </div>
-										</div>';
-										
-									  }
-								  }
-					               ?>
-																																							
-							</div>
-						</section>
-						<!-- End Best Seller -->
-						<!-- Start Filter Bar -->
-						<div class="filter-bar d-flex flex-wrap align-items-center">
-							<div class="sorting mr-auto">
-								<select>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-								</select>
-							</div>
-							<div class="sorting mr-auto">
-								<select>
-									<option value="category_1.php">Price : Low to High</option>
-									<option value="category_2.php">Price : High to Low</option>
-									<!-- <option value="1">Show 12</option> -->
-								</select>
-							</div>
-							<div class="pagination">
-							
-								<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-								<a href="#" class="active">1</a>
-								<a href="#" class = "active" >2</a>
-								<a href="#" class = "active">3</a>
-								<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-								<a href="#">6</a>
-								<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+								<div class="col-lg-6">
+									<div class="login-form">
+										<h3 class="billing-title text-center">User</h3>
+										<p class="text-center mt-80 mb-40"> </p>
+										<form>
+											<h5> Total Users: </h5>
+											<br>
+											<br>
+											<input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Email Address" class="common-input mt-20" disabled>
+											<br>        
+											<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+														Email Address:
+													</a>
+													<div class="dropdown-menu" style="margin-top:10px">
+														<a class="dropdown-item" href="checkout.php">Registration</a>
+														<a class="dropdown-item" href="confermation.php">Home Page</a>
+													</div>
+											</h5> 
+											<div class="mt-20 d-flex align-items-center justify-content-between">
+												<div class="d-flex align-items-center">
+													<!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label> -->
+												</div>
+											</div>
+											<button class="view-btn color-2 w-30 mt-20"><span>User Details</span></button> &emsp; &emsp; &emsp; &emsp;
+											<button class="view-btn color-2 w-30 mt-20"><span>View All Orders</span></button>
+											<!-- <button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button> -->
+										</form>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="login-form">
+										<h3 class="billing-title text-center">Delivery Boy</h3>
+										<p class="text-center mt-80 mb-40"> </p>
+										<form >
+											<h5> Total Users: </h5>
+											<br>
+											<br>
+											<input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Email Address" class="common-input mt-20" disabled>
+											<br>        
+											<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+														Email Address:
+													</a>
+													<div class="dropdown-menu" style="margin-top:10px">
+														<a class="dropdown-item" href="checkout.php">Registration</a>
+														<a class="dropdown-item" href="confermation.php">Home Page</a>
+													</div>
+											</h5> 
+											<div class="mt-20 d-flex align-items-center justify-content-between">
+												<div class="d-flex align-items-center">
+													<!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label> -->
+												</div>
+											</div>
+											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'delivery_personal.php';"><span>Personal</span></button> &emsp; &emsp; &emsp; &emsp;
+											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'delivery_work.php';"><span>Delivery Details</span></button>
+											<button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button>
+										</form>
+									</div>
+								</div>
 							</div>
 						</div>
-						<!-- End Filter Bar -->
-					</div>
-					
-						</div>
-					</div>
-				</div>
-			</div>
-		
+            </section>
+            <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">

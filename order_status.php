@@ -87,7 +87,7 @@
 							  <img src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <div class="search-container">
+						  <!-- <div class="search-container">
 								<form action="/action_page.php">
 								  <input type="text" placeholder="Search.." name="search">
 								  <button type="submit"><i class="fa fa-search"></i></button>
@@ -95,7 +95,7 @@
 						  </div>
 						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						    <span class="navbar-toggler-icon"></span>
-						  </button>
+						  </button> -->
 						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
 								<li><a href="delivery.php">Home</a></li>
@@ -130,7 +130,7 @@
 			<!-- End Header Area -->
 
 			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">
+			<!-- <section class="banner-area relative" id="home">
 				<div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
 						<div class="col-lg-6 col-md-12 padding: 40px;">
@@ -144,7 +144,7 @@
 						</div>							
 					</div>
 				</div>
-			</section>
+			</section> -->
 			<!-- End banner Area -->	
 
 			<!-- Start category Area -->
