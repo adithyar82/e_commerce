@@ -217,88 +217,69 @@
 						<!-- End Filter Bar -->
 						<!-- Start Best Seller -->
 						<section class="lattest-product-area pb-40 category-list">
-						<br>
-							<div class="row">
-							
-							<?php 
-								  include('connect_db.php');
-								//   session_start();
-								  $sql = "SELECT * FROM products limit 4;";
-								  $result = $conn->query($sql);
-								  echo '
-								  <h3 style = "margin-left:40px;"> Electronics </h3>';
-
-								  if($result->num_rows>0){
-									  while($row = $result->fetch_assoc()){
-										  
-										  $product_id = $row['product_id'];
-										  $product_name = $row['product_name'];
-										  $initial_cost = $row['initial_cost'];
-										  $final_cost = $row['final_cost'];
-										  $product_image = $row['product_image'];
-										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
-										  echo '<div class="col-md-2 single-product">
-										 <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:92%"> </span></a>
-										 <a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="float:right; font-size:20px; margin-top:7%"></span></a>
-											  <div class="content">
-											  <div class="content-overlay"></div>
-												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
-											  <div class="content-details fadeIn-bottom">
-											  </div>
-										  </div>
-										  <br>
-										  <div class="price">
-										  
-												  <h3>'.$product_name.'</h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-										   </div>
-										</div>
-										<br>';
-									  }
-								  }
-
-								  $sql1 = "SELECT * FROM products limit 4;";
-								  $result1 = $conn->query($sql1);
-								  //echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
-								  echo '<a class="dropdown-item" href="department.php?id1=Electronics" style="margin-top:10%; margin-left:3%">View All </a>';
-								  echo '<h3 style = "margin-left:40px;"></h3>';
-								  if($result1->num_rows>0){
-									  while($row = $result1->fetch_assoc()){
-										  $product_id = $row['product_id'];
-										  $product_name = $row['product_name'];
-										  $initial_cost = $row['initial_cost'];
-										  $final_cost = $row['final_cost'];
-										  $product_image = $row['product_image'];
-										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
-										  echo '<div class="col-md-2 single-product">
-										  	<a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:92%"> </span></a>
-										 	<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="float:right; font-size:20px; margin-top:7%"></span></a>
-											  <div class="content">
-											  <div class="content-overlay"></div>
-												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
-											  <div class="content-details fadeIn-bottom">
-											  
-											  </div>
-										  </div>
-										  <br>
-										  <div class="price">
-										  
-												  <h3>'.$product_name.'</h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-										   </div>
-										</div>';
-										
-									  }
-								  }
-					               ?>
-																																							
+						<div class="container" style="margin-left:16%; margin-bottom:7%; margin-top:7%">
+			<div class="row">
+				<div class="col-lg-6">
+				<div class="login-form">
+						<h3 class="billing-title text-center">User Home Page</h3>
+						<p class="text-center mt-80 mb-40"> </p>
+						<form method = "POST" action = "login_1.php">
+                            <h5> Total Users: </h5>
+                            <br>
+                            <br>
+                            <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Email Address" class="common-input mt-20" disabled>
+                            <br>        
+                            <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+								        Email Address:
+								      </a>
+								      <div class="dropdown-menu" style="margin-top:10px">
+								        <a class="dropdown-item" href="checkout.php">Registration</a>
+								        <a class="dropdown-item" href="confermation.php">Home Page</a>
+								      </div>
+                            </h5> 
+							<div class="mt-20 d-flex align-items-center justify-content-between">
+								<div class="d-flex align-items-center">
+                                <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label></div>
 							</div>
+                            <button class="view-btn color-2 w-30 mt-20"><span>User Details</span></button> &emsp; &emsp; &emsp; &emsp;
+                            <button class="view-btn color-2 w-30 mt-20"><span>View All Orders</span></button>
+                            <!-- <button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button> -->
+						</form>
+					</div>
+				</div>
+				<div class="col-lg-6">
+				<div class="login-form">
+						<h3 class="billing-title text-center">Delivery Home Page</h3>
+						<p class="text-center mt-80 mb-40"> </p>
+						<form >
+                            <h5> Total Users: </h5>
+                            <br>
+                            <br>
+                            <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Email Address" class="common-input mt-20" disabled>
+                            <br>        
+                            <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+								        Email Address:
+								      </a>
+								      <div class="dropdown-menu" style="margin-top:10px">
+								        <a class="dropdown-item" href="checkout.php">Registration</a>
+								        <a class="dropdown-item" href="confermation.php">Home Page</a>
+								      </div>
+                            </h5> 
+							<div class="mt-20 d-flex align-items-center justify-content-between">
+								<div class="d-flex align-items-center">
+                                <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label></div>
+							</div>
+                            <button class="view-btn color-2 w-30 mt-20" onclick="window.location.href = 'admin_home.php';"><span>Personal</span></button> &emsp; &emsp; &emsp; &emsp;
+                            <button class="view-btn color-2 w-30 mt-20" onclick="window.location.href = 'delivery_work.php';"><span>Delivery Details</span></button>
+                            <button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+						
+																																							
+					
 						</section>
 						<!-- End Best Seller -->
 						<!-- Start Filter Bar -->
