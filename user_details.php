@@ -73,6 +73,7 @@
                         <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Address" class="common-input mt-20" disabled>      -->
                         
                         <div class="mt-20 d-flex align-items-center justify-content-between">
+                        <form>
 								<div class="d-flex align-items-center">
                                 <!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label--></div>
 							</div>
