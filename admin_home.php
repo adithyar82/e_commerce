@@ -357,7 +357,7 @@
 									<div class="login-form">
 										<h3 class="billing-title text-center">User</h3>
 										<p class="text-center mt-80 mb-40"> </p>
-										<form>
+										
 											<h5> Total Users: </h5>
 											<br>
 											<br>
@@ -376,17 +376,17 @@
 													<!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label> -->
 												</div>
 											</div>
-											<button class="view-btn color-2 w-30 mt-20"><span>User Details</span></button> &emsp; &emsp; &emsp; &emsp;
-											<button class="view-btn color-2 w-30 mt-20"><span>View All Orders</span></button>
+											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'user_details.php';"><span>User Details</span></button> &emsp; &emsp; &emsp; &emsp;
+											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'order_status.php';"><span>View All Orders</span></button>
 											<!-- <button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button> -->
-										</form>
+										
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="login-form">
 										<h3 class="billing-title text-center">Delivery Boy</h3>
 										<p class="text-center mt-80 mb-40"> </p>
-										<form >
+										
 											<h5> Total Users: </h5>
 											<br>
 											<br>
@@ -407,8 +407,8 @@
 											</div>
 											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'delivery_personal.php';"><span>Personal</span></button> &emsp; &emsp; &emsp; &emsp;
 											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'delivery_work.php';"><span>Delivery Details</span></button>
-											<button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button>
-										</form>
+											<button class="view-btn color-2 w-100 mt-20" onclick="location.href = 'delivery_history.php';"><span>View All Orders</span></button>
+										
 									</div>
 								</div>
 							</div>

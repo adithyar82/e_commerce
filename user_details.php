@@ -75,18 +75,19 @@
                         <div class="mt-20 d-flex align-items-center justify-content-between">
                         <form>
 								<div class="d-flex align-items-center">
-                                <!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label></div> -->
-							    </div>
-                            <button class="view-btn color-2 w-100 mt-20"><span>Profile</span></button> 
-                            <button class="view-btn color-2 w-100 mt-20"><span>Order Status</span></button> 
-                            <button class="view-btn color-2 w-100 mt-20"><span>Order History</span></button>
-                            <button class="view-btn color-2 w-100 mt-20"><span>Confirmation</span></button>    
-                            <button class="view-btn color-2 w-100 mt-20"><span>Checkout</span></button>  
-                            <button class="view-btn color-2 w-100 mt-20"><span>Cart</span></button>  
-                            <button class="view-btn color-2 w-100 mt-20"><span>Favourites</span></button>  
-                            <button class="view-btn color-2 w-100 mt-20"><span>Tracking</span></button> 
+                                <!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label--></div>
+							</div>
+                            
+                            <button onclick="location.href = 'profile.php';" class="view-btn color-2 w-100 mt-20"><span>Profile</span></button>
+                            <button onclick="location.href = 'order_status.php';" class="view-btn color-2 w-100 mt-20"><span>Order Status</span></button> 
+                            <button onclick="location.href = 'order.php';" class="view-btn color-2 w-100 mt-20"><span>Order History</span></button>
+                            <button onclick="location.href = 'confermation.php';" class="view-btn color-2 w-100 mt-20"><span>Confirmation</span></button>    
+                            <button onclick="location.href = 'checkout.php';" class="view-btn color-2 w-100 mt-20"><span>Checkout</span></button>  
+                            <button onclick="location.href = 'cart.php';" class="view-btn color-2 w-100 mt-20"><span>Cart</span></button>  
+                            <button onclick="location.href = 'favourite.php';" class="view-btn color-2 w-100 mt-20"><span>Favourites</span></button>  
+                            <button onclick="location.href = 'tracking.php';" class="view-btn color-2 w-100 mt-20"><span>Tracking</span></button> 
                             <!-- <button class="view-btn color-2 w-30 mt-20"><span>Delivery Details</span></button> -->
-						</form>
+						
 					</div>
 				</div>
             </div>              
