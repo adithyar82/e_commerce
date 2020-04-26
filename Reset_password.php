@@ -1,3 +1,17 @@
+<?php
+include('connect_db.php');
+if(isset($_POST['submit'])){
+$pwd = md5($_POST['pwd']);
+$email_address = $_POST['email_address'];
+$sql = "UPDATE Users SET password = '$pwd' WHERE email_address = '$email_address';";
+$result = $conn->query($sql);
+if($result->num_rows>=0){
+    echo '<script>
+    alert("Registered Successfully");
+    </script>';
+}
+}
+?>
 <!DOCTYPE html>
     <html lang="zxx" class="no-js">
     <head>
@@ -65,15 +79,15 @@
 					<div class="login-form">
 						<h3 class="billing-title text-center">Reset Password</h3>
 						<p class="text-center mt-80 mb-40">Set New Password </p>
-						<form method = "POST" action = "login_1.php">
-							<input type="password" name = "new_password" placeholder="New Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" required class="common-input mt-20">
+						<form method = "POST" action = "">
+                            <input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20"> 
+							<input type="password" name = "pwd" placeholder="New Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" required class="common-input mt-20">
 							<input type="password" name = "confirm_new_password" placeholder="Confirm New Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Confirm New Password*'" required class="common-input mt-20">
-                            <input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
 							<div class="mt-20 d-flex align-items-center justify-content-between">
 								<div class="d-flex align-items-center">
                                 <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
 							</div>
-                            <button class="view-btn color-2 w-100 mt-20"><span>Reset Password</span></button>
+                            <button name = "submit" type = "submit"><span>Reset Password</span></button>
 						</form>
 					</div>
 				</div>
