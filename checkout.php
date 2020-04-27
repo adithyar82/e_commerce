@@ -425,7 +425,7 @@ echo <<<EOD
         <input type="hidden" name="item_number" value="1" / >
 		<input type="hidden" name="item_name" value="$itemName" / >
 		<input type="hidden" name="amount" value="$amount" / >
-        <button class="view-btn color-2 w-20 mt-20"><span>Checkout with Paytm</span></button>
+        <button class="view-btn color-2 w-20 mt-20"><span style = "color:#0984D1; font-weight:bold;">PAYTM</span></button>
     </form>
 
 EOD;
