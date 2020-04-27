@@ -34,9 +34,63 @@
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+	<style>
+	.main {
+		margin-left: 10%;
+		margin-top: 15%;
+	}
+	.rating-star {
+		direction: rtl;
+		font-size: 40px;
+		unicode-bidi: bidi-override;
+		display: inline-block;
+	}
+	.rating-star input {
+		opacity: 0;
+		position: relative;
+		left: -30px;
+		z-index: 2;
+		cursor: pointer;
+	}
+	.rating-star span.star:before {
+		color: #777777;
+	}
+	.rating-star span.star {
+		display: inline-block;
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		position: relative;
+		z-index: 1;
+	}
+	.rating-star span {
+		margin-left: -30px;
+	}
+	.rating-star span.star:before {
+		color: #777777;
+		content:"\f006";
+	}
+	.rating-star input:hover + span.star:before, .rating-star input:hover + span.star ~ span.star:before, .rating-star input:checked + span.star:before, .rating-star input:checked + span.star ~ span.star:before {
+		color: #ffd100;
+		content:"\f005";
+	}
+	
+	.selected-rating{
+		color: #ffd100;
+		font-weight: bold;
+		font-size: 42px;
+	}
+	</style>
+	<script>
+		$('#rating-form').on('change','[name="rating"]',function(){
+		$('#selected-rating').text($('[name="rating"]:checked').val());
+	});
+	</script>
 
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -173,8 +227,21 @@
 														<br>
 														<br>
 														<h5>Location</h5><br>
+															<div class="main" style="margin-left:-2px;">
+															<form id="rating-form">
+														<span class="rating-star" style="margin-left:28%;">
+															<input type="radio" name="rating" value="5"><span class="star"></span>
 														
-											
+															<input type="radio" name="rating" value="4"><span class="star"></span>
+														
+															<input type="radio" name="rating" value="3"><span class="star"></span>
+														
+															<input type="radio" name="rating" value="2"><span class="star"></span>
+														
+															<input type="radio" name="rating" value="1"><span class="star"></span>
+														</span>
+														</form>
+														<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Submit Rating</span></button>
 												</div>
 												</div>
 												<br>';
