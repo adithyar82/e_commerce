@@ -125,6 +125,12 @@
 			</script>
 
 			<style>
+                .container{
+                padding:20px;
+                border:dotted 1px;
+                white-space:nowrap;
+                overflow-x:auto;
+            }
 			.dropbtn {
 			background-color: #FFFFFF;
 			color: black;
@@ -481,35 +487,7 @@
                 </div>
 			</section> -->
 			<section class="banner-area relative" id="home">
-				<div class="container-fluid">
-					<div class="row fullscreen align-items-center justify-content-center">
-						<div class="banner-content col-lg-8" style="margin-left:-10%;">
-							<div class="slide-holder">
-									<span id="slide-1"></span>
-									<span id="slide-2"></span>
-									<span id="slide-3"></span>
-									<span id="slide-4"></span>
-								<div class="slide-group">
-									<img src="img/E.png" class="slide-image" id="slide-1" /><img src="img/G.png" class="slide-image" id="slide-2"/><img src="img/H.png" class="slide-image" id="slide-3"/><img src="img/P.png" class="slide-image" id="slide-4" />
-								</div>
-								<div class="slide-button-holder">
-									<a href="#slide-1" class="slider-button"></a>
-									<a href="#slide-2" class="slider-button"></a>
-									<a href="#slide-3" class="slider-button"></a>
-									<a href="#slide-4" class="slider-button"></a>
-								</div>
-							</div>
-						</div>
-						<div class="banner-content col-lg-4">
-							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
-							<h1 class="text-uppercase">
-								On Your <br>
-								First Order
-							</h1>
-							<button class="primary-btn text-uppercase"><a href="#">Order Here</a></button>
-						</div>							
-					</div>
-				</div>
+				
 			</section>
             <!-- End Banner Area -->
 			<div class="container">
@@ -528,122 +506,11 @@
 						</div>
 
 						<!-- Start Filter Bar -->
-						<div class="filter-bar d-flex flex-wrap align-items-center">
-							<a href="#" class="grid-btn active"><i class="fa fa-th" aria-hidden="true"></i></a>
-							<a href="#" class="list-btn"><i class="fa fa-th-list" aria-hidden="true"></i></a>
-							<div class="sorting">
-								<select>
-									<option value="1">Default sorting</option>
-									<option value="1">Default sorting</option>
-									<option value="1">Default sorting</option>
-								</select>
-							</div>
-							<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Sort By
-								      </a>
-							    <div class="dropdown-menu">
-								        <a class="dropdown-item" href="category_1.php">Price : Low to High</a>
-								        <a class="dropdown-item" href="category_2.php">Price : High to Low</a>
-							    </div>
-							<div class="sorting mr-auto">
-								<select>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-								</select>
-							</div>
-						</div>
+						
 						<!-- End Filter Bar -->
 						<!-- Start Best Seller -->
 						<section class="lattest-product-area pb-40 category-list">
-						<br>
-							<div class="row" style="margin-bottom:3%; margin-top:3%">
-							<?php 
-								  include('connect_db.php');
-								//   session_start();
-								  $sql = "SELECT * FROM products limit 4;";
-								  $result = $conn->query($sql);
-								  echo '
-								  <h3 style = "margin-left:40px;"> Electronics </h3>
-								  <br>
-								  <a href="department.php?id1=Electronics" style="margin-left:85%;"> View All +</a>';
-								  if($result->num_rows>0){
-									  while($row = $result->fetch_assoc()){
-										  
-										  $product_id = $row['product_id'];
-										  $product_name = $row['product_name'];
-										  $initial_cost = $row['initial_cost'];
-										  $final_cost = $row['final_cost'];
-										  $product_image = $row['product_image'];
-										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
-										  echo '<div class="col-md-3 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
-											  <div class="content" style="border:10px solid white;">
-											  <div class="content-overlay"></div>
-												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
-											  <div class="content-details fadeIn-bottom">
-											  </div>
-										  </div>
-										  <br>
-										  <div class="price">
-										  
-												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-										   </div>
-										</div>
-										<br>';
-									  }
-								  }
-							?>
-							</div>
-							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
-							<div class="row" style="margin-top:3%; margin-bottom:3%">
-							<?php
-								  $sql1 = "SELECT * FROM products limit 4;";
-								  $result1 = $conn->query($sql1);
-								  //echo '<h3 style = "margin-left:40px;"> Electronics </h3>';
-								  
-								  echo '<h3 style = "margin-left:40px;"> Electronics </h3>
-								  <br>
-								  <a href="department.php?id1=Electronics" style="margin-left:85%;"> View All +</a>';
-								  if($result1->num_rows>0){
-									  while($row = $result1->fetch_assoc()){
-										  $product_id = $row['product_id'];
-										  $product_name = $row['product_name'];
-										  $initial_cost = $row['initial_cost'];
-										  $final_cost = $row['final_cost'];
-										  $product_image = $row['product_image'];
-										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
-										  echo '<div class="col-md-3 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-plus" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
-											  <div class="content" style="border:10px solid white;">
-											  <div class="content-overlay"></div>
-												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
-											  <div class="content-details fadeIn-bottom">
-											  
-											  </div>
-										  </div>
-										  <br>
-										  <div class="price">
-										  
-										  	<h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
-										   </div>
-										</div>';
-										
-									  }
-								  }
-					        ?>
-							</div>
-								
-																																					
-							</div>
+						
 						</section>
 						<!-- End Best Seller -->
 						<!-- Start Filter Bar -->
