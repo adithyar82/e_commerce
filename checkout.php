@@ -1,4 +1,5 @@
     <?php
+    require_once('config.php');
     session_start();
     $id1 = $_REQUEST['id1'];
     $id2 = $_REQUEST['id2'];
@@ -429,13 +430,31 @@ echo <<<EOD
     </form>
 
 EOD;
+
   
-  
+$final_amount = $amount * 100;
 
 
 
     ?>
     
+    <form action="" method="POST"> 
+<script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_wziRFtUD6cTGmR" // Enter the Key ID generated from the Dashboard
+    data-amount="<?php echo $final_amount ?>" // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    data-currency="INR"
+    data-buttontext="Pay with Razorpay"
+    data-name="<?php echo $itemName ?>"
+    data-description="Test transaction"
+    data-image="https://example.com/your_logo.jpg"
+    data-prefill.name="Aditya Ritesh"
+    data-prefill.email="maditya183@gmail.com"
+    data-prefill.contact="8971966482"
+    data-theme.color="#F37254"
+></script>
+<input type="hidden" custom="Hidden Element" name="hidden">
+</form>
             <!-- End Billing Details Form -->
 
             <!-- Start Most Search Product Area -->
