@@ -37,10 +37,11 @@
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<style>
 	.main {
-		margin-left: 40%;
+		margin-left: 10%;
 		margin-top: 15%;
 	}
 	.rating-star {
@@ -90,7 +91,7 @@
 		$('#selected-rating').text($('[name="rating"]:checked').val());
 	});
 	</script>
-	
+
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
@@ -226,10 +227,10 @@
 														<br>
 														<br>
 														<h5>Location</h5><br>
-															<div class="main">
+															<div class="main" style="margin-left:-2px;">
 															<form id="rating-form">
-														<span class="rating-star">
-														<input type="radio" name="rating" value="5"><span class="star"></span>
+														<span class="rating-star" style="margin-left:28%;">
+															<input type="radio" name="rating" value="5"><span class="star"></span>
 														
 															<input type="radio" name="rating" value="4"><span class="star"></span>
 														
@@ -240,9 +241,7 @@
 															<input type="radio" name="rating" value="1"><span class="star"></span>
 														</span>
 														</form>
-															<p>Thanks For Giving <span id="selected-rating" class="selected-rating" >0</span> Stars.</p>
-															</div>	
-											
+														<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Submit Rating</span></button>
 												</div>
 												</div>
 												<br>';
