@@ -132,6 +132,17 @@
 				}
 			})
 			</script>
+			<script type="text/javascript">
+				function Copy() 
+				{
+					alert("Link has been copied to the clipboard")
+					var Url = document.getElementById("paste-box");
+					Url.value = window.location.href;
+					Url.focus();
+					Url.select();  
+					document.execCommand("Copy");
+				}
+			</script>
 		</head>
 		<body>
 
@@ -157,9 +168,9 @@
 				</nav>
 			</header>
             <!-- End Header Area -->
-						
+		    
 							<div class="row">
-								<div class="col-lg-8" style="margin-left:10%;margin-bottom:5%;">
+								<div class="col-lg-8" style="margin-left:10%;margin-top:5%;">
 									<?php 
 										include('connect_db.php');
 										//   session_start();
@@ -221,7 +232,14 @@
 									
 														<a href=" favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "font-size: 20px; color:black"><span class="glyphicon glyphicon-heart" style="font-size:25px; color:black; margin-right:3%;"></span>Add to Favourites</a><br>
 														<br>
-														<span class="glyphicon glyphicon-share-alt" style="font-size:25px; color:black; margin-right:3%;"></span>
+														<button value="Copy Url" onclick="Copy();" ><span class="glyphicon glyphicon-share-alt" style="font-size:25px; color:black; margin-right:3%;"> Share</span>
+														<div>
+
+															
+															
+
+														</div>
+														</div>
 														<br>
 														<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>
 														<br>
@@ -272,7 +290,7 @@
 														<br>
 														<h5>Description</h5>
 														<textarea type="text" name = "description" cols="10" rows="5" placeholder="Description*" onfocus="this.placeholder=" onblur="this.placeholder = Description*" required class="common-input mt-20"></textarea>
-													</div>';
+														';
 											}
 										}
 									?>
