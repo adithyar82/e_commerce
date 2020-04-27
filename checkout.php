@@ -397,10 +397,45 @@
     </form>
 
 EOD;
+echo <<<EOD
+                                
+
+    <style>
+    
+    .payment-button {
+      width:200px;
+      height:100px;
+      
+    }
+    
+    </style>
+  
+  
+  
+  
+    
+    <form name = "hidden-payment-form" class="paypal" action="./Paytmkit/TxnTest.php" method="post" id="paypal_form">
+        <input type="hidden" name="cmd" value="_xclick" />
+        <input type="hidden" name="no_note" value="1" />
+        <input type="hidden" name="lc" value="IN" />
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+        <input type="hidden" name="first_name" value="$firstName" />
+        <input type="hidden" name="last_name" value="$lastName" />
+        <input type="hidden" name="payer_email" value="$email" />
+        <input type="hidden" name="item_number" value="1" / >
+		<input type="hidden" name="item_name" value="$itemName" / >
+		<input type="hidden" name="amount" value="$amount" / >
+        <button class="view-btn color-2 w-20 mt-20"><span style = "color:#0984D1; font-weight:bold;">PAYTM</span></button>
+    </form>
+
+EOD;
+  
   
 
 
+
     ?>
+    
             <!-- End Billing Details Form -->
 
             <!-- Start Most Search Product Area -->
