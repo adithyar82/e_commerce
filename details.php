@@ -81,6 +81,7 @@
 			<script type="text/javascript">
 				function Copy() 
 				{
+					alert("Link has been copied to the clipboard")
 					var Url = document.getElementById("paste-box");
 					Url.value = window.location.href;
 					Url.focus();
@@ -177,7 +178,7 @@
 									
 														<a href=" favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "font-size: 20px; color:black"><span class="glyphicon glyphicon-heart" style="font-size:25px; color:black; margin-right:3%;"></span>Add to Favourites</a><br>
 														<br>
-														<button value="Copy Url" onclick="Copy();" ><span class="glyphicon glyphicon-share-alt" style="font-size:25px; color:black; margin-right:3%;"></span></button>
+														<button value="Copy Url" onclick="Copy();" ><span class="glyphicon glyphicon-share-alt" style="font-size:25px; color:black; margin-right:3%;"> Share</span>
 														<div>
 
 															
