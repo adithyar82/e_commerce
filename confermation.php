@@ -25,7 +25,14 @@
     $country_1 = $_POST['country_1'];
     $zip_1= $_POST['zip_1'];
     $status = 'ordered';
-    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, shipping_id, payment_id, product_quantity,status,time_created) VALUES (Null,'$order_id','$fname','$final_cost', '$name', '250', '450', '1','$status',CURRENT_TIME());";
+    $sql_1 = "SELECT * FROM products where product_id  = '$order_id';";
+    $result_1 = $conn->query($sql_1);
+    if($result_1->num_rows>=0){
+        while($row = $result_1->fetch_assoc()){
+            $product_image = $row['product_image'];
+        }
+    }
+    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, shipping_id, payment_id, product_quantity,status,product_image) VALUES (Null,'$order_id','$fname','$final_cost', '$name', '250', '450', '1','$status','$product_image');";
     $result = $conn->query($sql);
     if($result->num_rows>=0){
         $mail = new PHPMailer;

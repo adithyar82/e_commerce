@@ -9,7 +9,8 @@
         while($row = $result->fetch_assoc()){
             $final_cost = $row['final_cost'];
             $product_name = $row['product_name'];
-            $order_id = $row['order_id'];
+			$order_id = $row['order_id'];
+			$product_image = $row['$product_image'];
 
         }
     }
@@ -368,22 +369,38 @@
 									$product_name = $row['product_name'];
 									$final_cost = $row['final_cost'];
 									$status = $row['status'];
+									$product_image = $row['product_image'];
 									echo '<section class="brand-area pb-100">
 									<div class="container">
 										<div class="row logo-wrap"><div class="row logo-wrap">
-									<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Pick Up Location &nbsp;: <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location: <br><br> Delivery Time &emsp; &nbsp : <br><br> </h3>
-						            <div class="container">
+										<div class="container">
+											<img class="content-image" src="'.$product_image.'" alt="">
+										</div>
+									</div>
+									<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Pick Up Location &nbsp;: <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location: <br><br> Delivery &emsp; &emsp; &nbsp; &emsp; &nbsp : Delivered by today <br><br> </h3>';
+									if(($status == "ordered") || ($status == "order accepted")){
+										echo '<div class="container">
 										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5><br>
 										</div>
 									<div class="container">
-										<h5><a href = "tracking.php?id='.$order_id.'">View Order Status<br></a><br></h5><br>
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order cancelled"> Cancel Order <br></a><br></h5><br>
+										</div>
+									</div> ';
+									}
+									echo'
+									<div class="container">
+										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5><br>
+										</div>
+									<div class="container">
+										<h5><a href = "tracking.php?id='.$order_id.'">Track Your Order<br></a><br></h5><br>
 										</div>
 									</div>
 								
 								
 										
 									
-			            	</section>';
+							</section>';
+							
 									
 								}
 							}

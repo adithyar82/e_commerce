@@ -349,6 +349,11 @@ function setCircleDasharray() {
                     <li class = "active_1"> Out for Delivery </li>
                     <li> Order Delivered </li>';
                 }
+                else if($status == "order_accepted"){
+                  echo'<li class = "active_1"> Order Placed </li>
+                  <li> Out for Delivery </li>
+                  <li> Order Delivered </li>';
+              }
                 else if($status = "delivered"){
                     echo'<li class = "active_1"> Order Placed </li>
                     <li class = "active_1"> Out for Delivery </li>
