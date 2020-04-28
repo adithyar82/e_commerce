@@ -829,47 +829,162 @@
                     <div class="organic-section-title text-center">
                         <h3>Most Searched Products</h3>
                     </div>
-					<div class="row mt-30">
-					<div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r2.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Cabbage</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-									<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-                                </div>
-                            </div>
+					<!-- <div class="row mt-30"> -->
+					<div class="col-xs-12" >
+						<div id ="imageCarousel" class = "carousel slides" data-interval = "4000" data-ride = "carousel" data-pause = "hover" data-wrap = "true" style = "border-color:black;" >
+					
+							<ol class = "carousel-indicators">
+								<li data-target = "#imageCarousel" data-slide-to = "0" class = "active" style = "border-color:black;"></li>
+								<li data-target = "#imageCarousel" data-slide-to = "1" style = "border-color:black;"></li>
+								<li data-target = "#imageCarousel" data-slide-to = "2" style = "border-color:black;"></li>
+							</ol>
+							<div class = "carousel-inner">
+								<div class = "item active" >
+								  	<div class = "row">
+									  	<div class = "col-xs-3" style = "background-color:white;">
+								  	  
+											<div class="single-search-product d-flex" style = "background-color:white;" >
+												<a href="#"><img src="img/r2.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">Pixelstore fresh Cabbage</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+									  	</div>
+										<div class = "col-xs-3" style = "background-color:white;">
+								  	  
+											<div class="single-search-product d-flex" style = "background-color:white;">
+												<a href="#"><img src="img/r2.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">Pixelstore fresh Cabbage</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+									  	</div>
+										<div class = "col-xs-3" style = "background-color:white;">
+								  	  
+											<div class="single-search-product d-flex" style = "background-color:white;">
+												<a href="#"><img src="img/r2.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">Pixelstore fresh Cabbage</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+									  	</div>
+										<div class = "col-xs-3" style = "background-color:white;">
+									
+											<div class="single-search-product d-flex" style = "background-color:white;">
+												<a href="#"><img src="img/r2.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">Pixelstore fresh Cabbage</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class = "item">
+								  	<div class = "row">
+									  	<div class = "col-xs-3" style = "background-color:white;">
+								  	  
+											<div class="single-search-product d-flex" style = "background-color:white;">
+												<a href="#"><img src="img/r3.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">abc</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+									  	</div>
+										<div class = "col-xs-3" style = "background-color:white;">
+								  	  
+											<div class="single-search-product d-flex" style = "background-color:white;">
+												<a href="#"><img src="img/r3.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">abc</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+									  	</div>
+										<div class = "col-xs-3" style = "background-color:white;">
+								  	  
+											<div class="single-search-product d-flex" style = "background-color:white;">
+												<a href="#"><img src="img/r3.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">abc</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+									  	</div>
+										<div class = "col-xs-3" style = "background-color:white;">
+									
+											<div class="single-search-product d-flex" style = "background-color:white;" >
+												<a href="#"><img src="img/r3.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">abc</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class = "item">
+								  	<div class = "row">
+									  	<div class = "col-xs-3" style = "background-color:white;">
+								  	  
+											<div class="single-search-product d-flex" style = "background-color:white;">
+												<a href="#"><img src="img/r4.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">Pixelstore fresh Cabbage</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+									  	</div>
+										<div class = "col-xs-3" style = "background-color:white;">
+								  	  
+											<div class="single-search-product d-flex" style = "background-color:white;">
+												<a href="#"><img src="img/r4.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">Pixelstore fresh Cabbage</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+									  	</div>
+										<div class = "col-xs-3" style = "background-color:white;">
+								  	  
+											<div class="single-search-product d-flex" style = "background-color:white;">
+												<a href="#"><img src="img/r4.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">Pixelstore fresh Cabbage</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+									  	</div>
+										<div class = "col-xs-3" style = "background-color:white;">
+									
+											<div class="single-search-product d-flex" style = "background-color:white;">
+												<a href="#"><img src="img/r4.jpg" alt=""></a>
+												<div class="desc">
+													<a href="#" class="title">Pixelstore fresh Cabbage</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
+													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
                         </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r2.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Cabbage</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-									<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r3.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Raspberry</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-									<a href=" checkout.php?id1=189&id3=Pixelstore fresh Raspberry ">Buy Now</a> <br>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="img/r4.jpg" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Pixelstore fresh Kiwi</a>
-                                    <div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-									<a href=" checkout.php?id1=189&id3=Pixelstore fresh Kiwi">Buy Now</a> <br>
-                                </div>
-                            </div>
-						</div>
 						<!-- <div class="row mt-30">
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="single-search-product d-flex">
