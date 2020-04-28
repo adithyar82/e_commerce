@@ -386,13 +386,13 @@
 					<div class="dropdown">
 							<button onclick="myFunction()" class="btn"><span class="glyphicon glyphicon-align-justify"></span></button>
 							<div id="myDropdown" class="dropdown-content">
-								<a href="profile.php">Profile</a>
+								<a href="profile.php"><span class="glyphicon glyphicon-user"> </span> Profile</a>
 								<a href="order_status.php">Order Status</a>
 								<a href="order_history.php">Order History</a>
-								<a href="favourite.php">Wishlist</a>
-								<a href="cart.php">Cart</a>
-								<a href="logout.php">Logout</a>
-								<a href="contact_us.php">Help...?</a>
+								<a href="favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
+								<a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+								<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+								<a href="contact_us.php"><span class="glyphicon glyphicon-question-sign"></span> Help...?</a>
 							</div>
 						</div>
 					<!-- <span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span> -->
@@ -575,6 +575,7 @@
 										  $initial_cost = $row['initial_cost'];
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-3 single-product">
 										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
@@ -590,8 +591,11 @@
 												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
+												  <h5>You save '.$discount.'%</h5>';
+												  if($product_quantity<5){
+													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+												  }
+												  echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
 										   </div>
 										</div>
 										<br>';
@@ -616,6 +620,7 @@
 										  $initial_cost = $row['initial_cost'];
 										  $final_cost = $row['final_cost'];
 										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-3 single-product">
 										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-plus" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
@@ -629,11 +634,14 @@
 										  <br>
 										  <div class="price">
 										  
-										  	<h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
+												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
+												  <h5>You save '.$discount.'%</h5>';
+												  if($product_quantity<5){
+													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+												  }
+												  echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
 										   </div>
 										</div>';
 										

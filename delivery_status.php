@@ -360,7 +360,7 @@
 							<h3 style="margin-left:45%"> Current Orders </h3>
 							<?php
 							include('connect_db.php');
-							$sql = "SELECT * FROM order_status where status != 'delivered' limit 1;";
+							$sql = "SELECT * FROM order_status where status != 'delivered';";
 							$result = $conn->query($sql);
 							if($result->num_rows>0){
 								while($row = $result->fetch_assoc()){
@@ -368,13 +368,17 @@
 									$product_name = $row['product_name'];
 									$final_cost = $row['final_cost'];
 									$status = $row['status'];
-									echo '<section class="brand-area pb-100">
+									$product_image = $row['product_image'];
+									echo '<div class="container">
+									<div class="row logo-wrap"><div class="row logo-wrap">
 									<div class="container">
-										<div class="row logo-wrap"><div class="row logo-wrap">
-									<h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <br> Order ID : '.$order_id.' <br> Product Name: '.$product_name.'<br> Product Cost: '.$final_cost.'<br> Pick Up Location: <br> Delivery Location: <br> Delivery Time: <br> </h3>
-									<div class="container">
-									<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted"> <br></a><br></h5><br>
-									</div>';
+										<img class="content-image" src="'.$product_image.'" alt="">
+									</div>
+								</div>
+								<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Pick Up Location &nbsp;: <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location: <br><br> Delivery Time &emsp; &nbsp : <br><br> </h3>
+								
+								
+								</div>';
 									if($status == "ordered"){
 										echo'<div class="container">
 										<div class="container">
@@ -393,6 +397,13 @@
 										<div class="container">
 										<div class="container">
 										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"> Delivered <br></a><br></h5><br>
+										</div>
+										</div>';
+									}
+									else if($status == "order cancelled"){
+										echo'<div class="container">
+										<div class="container">
+										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order cancelled"><span class="glyphicon glyphicon-check"></span> Order Cancelled <br></a><br></h5><br>
 										</div>
 										</div>';
 									}
