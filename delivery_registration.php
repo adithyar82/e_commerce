@@ -176,7 +176,7 @@ $result = $conn->query($sql);
 					<div class="register-form">
 						<h3 class="billing-title text-center">Register</h3>
 						<p class="text-center mt-40 mb-30">Create your very own account </p>
-						<form method ="POST" action = "register.php">
+						<form method ="POST" action = "register_1.php">
 							<input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
                             <input type="email" name = "email_address" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address'" required class="common-input mt-20">
                             <span class="error error_red" id="spanEmail_at_registration"></span>
@@ -184,7 +184,7 @@ $result = $conn->query($sql);
 							<input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
 							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
                             <br>
-							<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-20"><span>Submit</span>
+							<input type = "submit" name = "submit1" class="view-btn color-2 w-100 mt-20"><span>Submit</span>
 						</form>
 					</div>
 				</div>
