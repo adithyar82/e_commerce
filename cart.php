@@ -2,6 +2,7 @@
     session_start();
     include('connect_db.php');
     $username = $_SESSION['username'];
+    $product_id = $_SESSION['product_id'];
     // $id1 = $_REQUEST['id1'];
     // $id2 = $_REQUEST['id2'];
     // $id3 = $_REQUEST['id3'];
@@ -184,14 +185,16 @@
                         $item_name = $row['item_name'];
                         $item_price = $row['item_price']; 
                         $product_quantity = $row['product_quantity'];
+                        $product_quantity_1 = $row['initial_quantity'];
                         $item_id = $row['id'];
                         $total_price = $product_quantity * $item_price;
+                        
                          echo'
                             <div class="cart-single-item">
                             <div class="row align-items-center">
                                 <div class="col-md-6 col-12">
                                     <div class="product-item d-flex align-items-center">
-                                        <h6>'.$item_name.'</h6>
+                                        <h3>'.$item_name.'</h3>
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-6">
@@ -200,7 +203,88 @@
                                 <div class="col-md-2 col-6">
                                 <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">'.$product_quantity.'
                                 
-                              </a>
+                              </a>';
+                        if($product_quantity_1 == 0){
+                                echo '<p> Out of Stock</p>';
+                        }
+                        else if($product_quantity_1 == 1){
+                            echo '<div class="dropdown-menu">
+                            <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                            <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                            <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                            <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
+                            <a class="dropdown-item" href="confermation.php">Confirmation</a>
+                            <a class="dropdown-item" href="login.php">Login</a>
+                            <a class="dropdown-item" href="tracking.php">Tracking</a> -->
+                            <!-- <a class="dropdown-item" href="generic.php">Generic</a>
+                            <a class="dropdown-item" href="elements.php">Elements</a> -->
+                        </div>';
+                        }
+                        else if($product_quantity_1 == 2){
+                        echo'
+                        <div class="dropdown-menu">
+                                <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                                <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                                <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
+                                <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                                <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
+                                <a class="dropdown-item" href="confermation.php">Confirmation</a>
+                                <a class="dropdown-item" href="login.php">Login</a>
+                                <a class="dropdown-item" href="tracking.php">Tracking</a> -->
+                                <!-- <a class="dropdown-item" href="generic.php">Generic</a>
+                                <a class="dropdown-item" href="elements.php">Elements</a> -->
+                        </div>';
+                        }
+                        else if($product_quantity_1 == 3){
+                            echo'<div class="dropdown-menu">
+                            <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                            <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                            <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
+                            <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
+                            <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                            <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
+                            <a class="dropdown-item" href="confermation.php">Confirmation</a>
+                            <a class="dropdown-item" href="login.php">Login</a>
+                            <a class="dropdown-item" href="tracking.php">Tracking</a> -->
+                            <!-- <a class="dropdown-item" href="generic.php">Generic</a>
+                            <a class="dropdown-item" href="elements.php">Elements</a> -->
+                        </div>';
+                        }
+                        else if($product_quantity_1 == 4){
+                            echo '<div class="dropdown-menu">
+                            <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                            <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                            <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
+                            <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
+                            <a class="dropdown-item" href="quantity.php?id1=4&id2='.$item_id.'">4</a>
+                            <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                            <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
+                            <a class="dropdown-item" href="confermation.php">Confirmation</a>
+                            <a class="dropdown-item" href="login.php">Login</a>
+                            <a class="dropdown-item" href="tracking.php">Tracking</a> -->
+                            <!-- <a class="dropdown-item" href="generic.php">Generic</a>
+                            <a class="dropdown-item" href="elements.php">Elements</a> -->
+                         </div>';
+                        }
+                        else if($product_quantity_1 == 5){
+                            echo '<div class="dropdown-menu">
+                            <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                            <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
+                            <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
+                            <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
+                            <a class="dropdown-item" href="quantity.php?id1=4&id2='.$item_id.'">4</a>
+                            <a class="dropdown-item" href="quantity.php?id1=5&id2='.$item_id.'">5</a>
+                            <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                            <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
+                            <a class="dropdown-item" href="confermation.php">Confirmation</a>
+                            <a class="dropdown-item" href="login.php">Login</a>
+                            <a class="dropdown-item" href="tracking.php">Tracking</a> -->
+                            <!-- <a class="dropdown-item" href="generic.php">Generic</a>
+                            <a class="dropdown-item" href="elements.php">Elements</a> -->
+                         </div>';
+                        }
+                        else{
+                        echo'
                         <div class="dropdown-menu">
                                 <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
                                 <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
@@ -216,8 +300,10 @@
                                 <a class="dropdown-item" href="tracking.php">Tracking</a> -->
                                 <!-- <a class="dropdown-item" href="generic.php">Generic</a>
                                 <a class="dropdown-item" href="elements.php">Elements</a> -->
-                        </div>
-                                </div>
+                        </div>';
+                        }
+                        
+                                echo'</div>
                                 <div class="col-md-2 col-12">
                                     <div class="total">'.$total_price.'</div>
                                 </div>

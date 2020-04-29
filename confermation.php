@@ -34,6 +34,16 @@
     }
     $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, shipping_id, payment_id, product_quantity,status,product_image) VALUES (Null,'$order_id','$fname','$final_cost', '$name', '250', '450', '1','$status','$product_image');";
     $result = $conn->query($sql);
+    $sql1 = "SELECT * FROM products WHERE product_id = '$order_id';";
+    $result1 = $conn->query($sql1);
+    if($result1->num_rows>0){
+        while($row = $result1->fetch_assoc()){
+            $product_quantity = $row['product_quantity'];
+        }
+    }
+    $product_quantity = $product_quantity - 1;
+    $sql2 = "UPDATE products SET product_quantity = '$product_quantity' WHERE product_id = '$order_id';";
+    $result2 = $conn->query($sql2);
     if($result->num_rows>=0){
         $mail = new PHPMailer;
         $mailaddress = $email_address;                               // Enable verbose debug output
@@ -68,6 +78,7 @@
         alert("Registered Successfully '.$sql.''.$result.'");
         </script>';
     }
+
     ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">

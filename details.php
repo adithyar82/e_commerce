@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	$uname = $_SESSION['uname'];
+	$product_name = $_REQUEST['id'];
 	echo $_SESSION['username'];
 	include('connect_db.php');
 	$registration_status = $_REQUEST['id1'];
@@ -174,7 +175,7 @@
 									<?php 
 										include('connect_db.php');
 										//   session_start();
-										$sql = "SELECT * FROM products limit 1;";
+										$sql = "SELECT * FROM products WHERE product_name = '$product_name';";
 										$result = $conn->query($sql);
 
 										if($result->num_rows>0){
@@ -185,6 +186,7 @@
 												$initial_cost = $row['initial_cost'];
 												$final_cost = $row['final_cost'];
 												$product_image = $row['product_image'];
+												$product_quantity = $row['product_quantity'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 												echo '<div class="col-md-6 single-product">
 												<a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-plus" style="float:right; font-size:25px"> </span></a>
@@ -208,7 +210,7 @@
 									<?php
 										include('connect_db.php');
 										//   session_start();
-										$sql = "SELECT * FROM products limit 1;";
+										$sql = "SELECT * FROM products where product_name = '$product_name';";
 										$result = $conn->query($sql);
 		
 										if($result->num_rows>0){
@@ -219,6 +221,7 @@
 												$initial_cost = $row['initial_cost'];
 												$final_cost = $row['final_cost'];
 												$product_image = $row['product_image'];
+												$product_quantity = $row['product_quantity'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 
 													echo '<div class="price">
@@ -240,8 +243,20 @@
 
 														</div>
 														</div>
-														<br>
-														<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>
+														<br>';
+														if($product_quantity<5){
+															if($product_quantity==0){
+															  echo'<p style = "color:red"> Out of Stock <p>';  
+															}
+															else{
+															echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+															echo '<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>';
+															}
+														}
+														else{
+														echo'<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>';
+														}
+														echo'
 														<br>
 														<br>
 														<h5>Location</h5><br>
