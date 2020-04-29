@@ -270,20 +270,10 @@
 						  </div>
 						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
 						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
-						    <ul class="navbar-nav" style="width:1500px;">
+						    <ul class="navbar-nav" style="width:1500px; float:right">
 								<li><a href="#home">Home</a></li>
-								<li><a href="reviews.php">Reviews</a></li>
-								<li><a href="user_homepage.php">User Details</a></li>
+								<li><a href="transactions.php">Transactions</a></li>
 									<!-- Dropdown -->
-								    <li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Delivery Boy
-								      </a>
-								      <div class="dropdown-menu" style="margin-top:10px">
-								        <a class="dropdown-item" href="delivery_registration.php">Registration</a>
-								        <a class="dropdown-item" href="D_homepage.php">Home Page</a>
-								      </div>
-								    </li>
 									<li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 								        Category
@@ -356,7 +346,7 @@
 								<div class="col-lg-6">
 									<div class="login-form">
 										<h3 class="billing-title text-center">User</h3>
-										<p class="text-center mt-80 mb-40"> </p>
+										<p class="text-center mt-10 mb-10"> </p>
 										
 											<h5> Total Users: </h5>
 											<br>
@@ -376,7 +366,7 @@
 													<!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label> -->
 												</div>
 											</div>
-											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'user_details.php';"><span>User Details</span></button> &emsp; &emsp; &emsp; &emsp;
+											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'user_details.php';"><span>User Details</span></button> &emsp; &emsp; &emsp;
 											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'order_status.php';"><span>View All Orders</span></button>
 											<!-- <button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button> -->
 										
@@ -385,10 +375,12 @@
 								<div class="col-lg-6">
 									<div class="login-form">
 										<h3 class="billing-title text-center">Delivery Boy</h3>
-										<p class="text-center mt-80 mb-40"> </p>
-										
+										<p class="text-center mt-10 mb-10"> </p>
+
+											
 											<h5> Total Users: </h5>
 											<br>
+											<button class="view-btn color-2 w-100 mt-20" onclick="location.href = 'delivery_registration.php';"><span>Registration</span></button>
 											<br>
 											<input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Email Address" class="common-input mt-20" disabled>
 											<br>        

@@ -1,30 +1,3 @@
-<?php
-include('connect_db.php');
-$registration_status = $_REQUEST['id1'];
-$encrypted = $_REQUEST['id2'];
-function my_simple_crypt( $string, $action = 'd') {
-    // you may change these values to your own
-    $secret_key = 'my_simple_secret_key';
-    $secret_iv = 'my_simple_secret_iv';
-  
-    $output = false;
-    $encrypt_method = "AES-256-CBC";
-    $key = hash( 'sha256', $secret_key );
-    $iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
-  
-    if( $action == 'e' ) {
-        $output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
-    }
-    else if( $action == 'd' ){
-        $output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
-    }
-  
-    return $output;
-  }
-$email_address = my_simple_crypt($encrypted, 'd' );
-$sql = "UPDATE Users SET registration_status = '$registration_status' WHERE email_address = '$email_address';";
-$result = $conn->query($sql);
-?>
 <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
@@ -68,8 +41,8 @@ $result = $conn->query($sql);
 					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
-								<li><a href="contact.php">support@azimpatel.com</a></li>								
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+															
 							</ul>
 							<?php
 							if($username == ""){
@@ -86,7 +59,7 @@ $result = $conn->query($sql);
                             }
                             ?>
 							<ul class="list">
-								<li><a href="#">login</a></li>
+								<li><a href="logout.php">Logout</a></li>
 							</ul>
 						</div>
 					</div>					
@@ -94,94 +67,41 @@ $result = $conn->query($sql);
 				<nav class="navbar navbar-expand-lg  navbar-light">
 					<div class="container">
 						  <a class="navbar-brand" href="#">
-							  <img src="img/logo.png" alt="">
+							  <img style="margin-left:25%;"src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <!-- <div class="search-container">
-								<form action="/action_page.php">
-								  <input type="text" placeholder="Search.." name="search">
-								  <button type="submit"><i class="fa fa-search"></i></button>
-								</form>
-						  </div> -->
 						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						    <span class="navbar-toggler-icon"></span>
 						  </button>
-						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
-								<!-- <li><a href="#home">Home</a></li>
-								<li><a href="#catagory">Category</a></li>
-								<li><a href="#men">Product</a></li>
-								 <li><a href="#women">Women</a></li>
-								<li><a href="#latest">Recommendations</a></li> -->
-									<!-- Dropdown -->
-								    <!-- <li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
-								      </a> -->
-								      <!-- <div class="dropdown-menu">
-								        <a class="dropdown-item" href="category.php">Category</a>
-								        <a class="dropdown-item" href="single.php">Single</a>
-								        <a class="dropdown-item" href="cart.php">Cart</a>
-								        <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      <!-- </div> -->
-								    </li>									
-						    </ul>
-						  </div>						
 					</div>
 				</nav>
 			</header>
             <!-- End Header Area -->
-            <!-- Start Banner Area -->
-        
-
             <!-- End Banner Area -->
-            <!-- Start My Account -->
-            <div class="container" style="margin-left:16%; margin-bottom:7%; margin-top:7%">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="login-form" style="margin-bottom:-7%; margin-top-7%">
-                            <h3 class="billing-title text-center">Login</h3>
-                            <p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
-                            <form method = "POST" action = "login_1.php">
-                                <input id = "remail" type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
-                                <span class="error" id="emailError"></span>
-                                <input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-                                <br>
-                                <button class="view-btn color-2 w-100 mt-20"><span>Submit</span></button>
-                                <div class="mt-20 d-flex align-items-center justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                    <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
-                                    <a href="forgot_password.php">Lost your password?</a>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="register-form">
-                            <h3 class="billing-title text-center">Register</h3>
-                            <p class="text-center mt-40 mb-30">Create your very own account </p>
-                            <form method ="POST" action = "register.php">
-                                <input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
-                                <input type="email" name = "email_address" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address'" required class="common-input mt-20">
-                                <span class="error error_red" id="spanEmail_at_registration"></span>
-                                <input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
-                                <input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
-                                <input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-                                <br>
-                                <input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-20"><span>Submit</span>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End My Account -->
-
-
+		<!-- Start My Account -->
+		<div class="container" style="margin-left:16%; margin-bottom:7%; margin-top:7%">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login-form" style="margin-bottom:-7%; margin-top-7%">
+						<h3 class="billing-title text-center"><span  style="font-size:50px;" class="glyphicon glyphicon-user"></span></h3>
+                        <h4 class="text-center mt-20 mb-40">User Name</h4>
+						<p class="text-center mt-10 mb-40">Welcome back !</p>
+                        <button class="view-btn color-2 w-100 mt-10"><span>Check In</span></button>
+                        <h4 class="text-center mt-20 mb-40">Activities Finished</h4>
+                        <h4 class="text-center mt-10 mb-40">Activities Pending</h4>
+                        <h4 class="text-center mt-10 mb-40">Overall Rating</h4>
+						<form method = "POST" action = "login_1.php">
+                            <h5 class="text-center mt-10 mb-40">Overall Review</h5>
+							<textarea type="text" name = "comment" cols="5" rows="2" placeholder="Comment*" onfocus="this.placeholder=" onblur="this.placeholder = Comment*" required class="common-input mt-10"></textarea>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End My Account -->
+		
+            
+            <!-- End Most Search Product Area -->
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
                 <div class="container">
