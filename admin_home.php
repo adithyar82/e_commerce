@@ -27,7 +27,7 @@
 	$email_address = my_simple_crypt($encrypted, 'd' );
 	echo $email_address;
 	$sql = "UPDATE Users SET registration_status = '$registration_status' WHERE email_address = '$email_address';";
-	$result = $conn->query($sql)
+	$result = $conn->query($sql);
 ?>
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
