@@ -271,8 +271,9 @@
 						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
 						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px; float:right">
-								<li><a href="#home">Home</a></li>
+								<li><a href="category.php">Home</a></li>
 								<li><a href="transactions.php">Transactions</a></li>
+								<li><a href="stock_alert.php">Stock Alert</a></li>
 									<!-- Dropdown -->
 									<li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
