@@ -303,7 +303,12 @@
                                     </div>';
                                 }
                             }
-
+                            if($total_cost >= 15000){
+                                echo '<script>
+                                alert("Total Amount Should Not Exceed 15000")
+                                window.location = "cart.php";
+                                </script>';
+                            }
 								
                             ?>
 							
