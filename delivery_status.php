@@ -101,6 +101,7 @@
 								<li><a href="delivery.php">Home</a></li>
 								<li><a href="#">login</a></li>
 								<li><a href="delivery_history.php">History</a></li>
+							
 								<!-- <li><a href="#men">Product</a></li>
 								<li><a href="#women">Women</a></li>
 								<li><a href="#latest">Recommendations</a></li> -->
@@ -358,6 +359,7 @@
 							</a> -->
 							<br>
 							<h3 style="margin-left:45%"> Current Orders </h3>
+							<button onclick="location.href = 'delivery_details_2.php';" class="view-btn color-2 w-20 mt-10" style = "margin-left:45%" ><span>Check Out</span></button>
 							<?php
 							include('connect_db.php');
 							$sql = "SELECT * FROM order_status where status != 'delivered';";
