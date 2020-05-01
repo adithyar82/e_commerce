@@ -125,7 +125,7 @@
 									echo '<section class="brand-area pb-100">
 									<div class="container">
 										<div class="row logo-wrap"><div class="row logo-wrap">
-									<h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br> Order ID:'.$order_id.' <br> Transaction ID: '.$payment_id.' <br> Transaction Amount: '.$final_cost.' <br> Product Name: '.$product_name.' <br> Transaction Time: '.$time_created.' <br> Payment Method: '.$payment_type.' <br></h3>
+									<h3><br> Order ID &nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:'.$order_id.' <br><br> Transaction ID &emsp;&emsp;&emsp;: '.$payment_id.'<br> <br>Transaction Amount: '.$final_cost.' <br><br> Product Name &emsp;&emsp;&emsp;: '.$product_name.' <br><br> Transaction Time &nbsp;&nbsp;&emsp;: '.$time_created.' <br><br> Payment Method &nbsp;&nbsp;&nbsp;&emsp;: '.$payment_type.' <br><br></h3>
 									</div>
 								</div>	
 			            	</section>';
