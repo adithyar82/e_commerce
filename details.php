@@ -289,11 +289,11 @@
 														<span class="rating-star" style="margin-left:28%;">
 															<input type="radio" name="rating" value="5"><span class="star"></span>
 														
-															<input type="radio" name="rating" value="4"><span class="star"></span>
+																<input type="radio" name="rating" value="4"><span class="star"></span>
 														
-															<input type="radio" name="rating" value="3"><span class="star"></span>
+																<input type="radio" name="rating" value="3"><span class="star"></span>
 														
-															<input type="radio" name="rating" value="2"><span class="star"></span>
+																<input type="radio" name="rating" value="2"><span class="star"></span>
 														
 															<input type="radio" name="rating" value="1"><span class="star"></span>
 														</span>  
@@ -312,7 +312,7 @@
 							<div class="container" style="margin-bottom:5%;">
 									<?php
 										include('connect_db.php');
-										//   session_start();
+										//session_start();
 										$sql = "SELECT * FROM products limit 1;";
 										$result = $conn->query($sql);
 		
@@ -326,25 +326,27 @@
 												$product_image = $row['product_image'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 												echo'<div class="reviews" style="margin-left:10%;margin-right:15%">
-														<h5>Reviews</h5>
-														<textarea type="text" name = "comment" cols="10" rows="5" placeholder="Comment*" onfocus="this.placeholder=" onblur="this.placeholder = Comment*" required class="common-input mt-20"></textarea>
-														<br>
 														<h5>Description</h5>
 														<textarea type="text" name = "description" cols="10" rows="5" placeholder="Description*" onfocus="this.placeholder=" onblur="this.placeholder = Description*" required class="common-input mt-20"></textarea>
-														
 														<br>
+														<h5>Reviews</h5>
+														<form method = "POST" action = "product_reviews.php">
+															<textarea type="text" name = "comment" cols="10" rows="5" placeholder="Comment*" onfocus="this.placeholder=" onblur="this.placeholder = Comment*" required class="common-input mt-20"></textarea>
+															<input type = "text" name = "product_name" value = "'.$product_name.'" hidden> 
+															<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-20"><span></span></button>
+															
+														</form>
 														<button onclick="myFunction()" class="view-btn color-2 w-20 mt-10">View Reviews</button>
-
 														<div id="myDIV">';
-														$sql1 = "SELECT * FROM product_reviews WHERE product_name = '$product_name';";
-														$result1 = $conn->query($sql1);
-														if($result1->num_rows>0){
-															while($row = $result1->fetch_assoc()){
-																$reviews = $row['reviews'];
-																echo '<h3>'.$reviews.'</h3><br>';
+															$sql1 = "SELECT * FROM product_reviews WHERE product_name = '$product_name';";
+															$result1 = $conn->query($sql1);
+															if($result1->num_rows>0){
+																while($row = $result1->fetch_assoc()){
+																	$reviews = $row['reviews'];
+																	echo '<h5>'.$reviews.'</h5><br>';
+																}
 															}
-														}
-														echo '</div>
+														echo'</div>
 														';
 											}
 										}
