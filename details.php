@@ -260,21 +260,22 @@
 														<br>
 														<br>
 														<h5>Location</h5><br>
-															<div class="main" style="margin-left:-2px;">
-															<form id="rating-form">
-														<span class="rating-star" style="margin-left:28%;">
-															<input type="radio" name="rating" value="5"><span class="star"></span>
+														<br>
+														<div class="main" style="margin-left:-2px;">
+														<form id="rating-form">
+															<span class="rating-star" style="margin-left:28%;">
+																<input type="radio" name="rating" value="5"><span class="star"></span>
 														
-															<input type="radio" name="rating" value="4"><span class="star"></span>
+																<input type="radio" name="rating" value="4"><span class="star"></span>
 														
-															<input type="radio" name="rating" value="3"><span class="star"></span>
+																<input type="radio" name="rating" value="3"><span class="star"></span>
 														
-															<input type="radio" name="rating" value="2"><span class="star"></span>
+																<input type="radio" name="rating" value="2"><span class="star"></span>
 														
-															<input type="radio" name="rating" value="1"><span class="star"></span>
-														</span>
-														</form>
+																<input type="radio" name="rating" value="1"><span class="star"></span>
+															</span>
 														<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Submit Rating</span></button>
+														</form>
 												</div>
 												</div>
 												<br>';
@@ -286,7 +287,7 @@
 							<div class="container" style="margin-bottom:5%;">
 									<?php
 										include('connect_db.php');
-										//   session_start();
+										//session_start();
 										$sql = "SELECT * FROM products limit 1;";
 										$result = $conn->query($sql);
 		
@@ -300,11 +301,14 @@
 												$product_image = $row['product_image'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 												echo'<div class="reviews" style="margin-left:10%;margin-right:15%">
-														<h5>Reviews</h5>
-														<textarea type="text" name = "comment" cols="10" rows="5" placeholder="Comment*" onfocus="this.placeholder=" onblur="this.placeholder = Comment*" required class="common-input mt-20"></textarea>
-														<br>
 														<h5>Description</h5>
 														<textarea type="text" name = "description" cols="10" rows="5" placeholder="Description*" onfocus="this.placeholder=" onblur="this.placeholder = Description*" required class="common-input mt-20"></textarea>
+														<br>
+														<h5>Reviews</h5>
+														<form>
+															<textarea type="text" name = "comment" cols="10" rows="5" placeholder="Comment*" onfocus="this.placeholder=" onblur="this.placeholder = Comment*" required class="common-input mt-20"></textarea>
+															<button class="view-btn color-2 w-100 mt-20"><span>Submit Review</span></button>
+														</form>
 														';
 											}
 										}
