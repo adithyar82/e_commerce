@@ -119,7 +119,14 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
-			
+			<style>
+				#myDIV {
+				width: 100%;
+				padding: 50px 0;
+				text-align: center;
+				margin-top: 20px;
+				}
+			</style>
 			<script>
 				$('#row').pagination({
 				dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],
@@ -142,6 +149,16 @@
 					Url.focus();
 					Url.select();  
 					document.execCommand("Copy");
+				}
+			</script>
+			<script>
+				function myFunction() {
+					var x = document.getElementById("myDIV");
+					if (x.style.display === "none") {
+						x.style.display = "block";
+					} else {
+						x.style.display = "none";
+					}
 				}
 			</script>
 		</head>
@@ -169,7 +186,7 @@
 				</nav>
 			</header>
             <!-- End Header Area -->
-		    
+		    <section>
 							<div class="row">
 								<div class="col-lg-8" style="margin-left:10%;margin-top:5%;">
 									<?php 
@@ -177,7 +194,6 @@
 										//   session_start();
 										$sql = "SELECT * FROM products WHERE product_name = '$product_name';";
 										$result = $conn->query($sql);
-
 										if($result->num_rows>0){
 											while($row = $result->fetch_assoc()){
 												
@@ -212,7 +228,13 @@
 										//   session_start();
 										$sql = "SELECT * FROM products where product_name = '$product_name';";
 										$result = $conn->query($sql);
-		
+										$sql2 = "SELECT AVG(ratings) as average_ratings FROM product_ratings WHERE product_name = '$product_name';";
+										$result2 = $conn->query($sql2);
+										if($result2->num_rows>0){
+											while($row = $result2->fetch_assoc()){
+												$average_ratings = $row['average_ratings'];
+											}
+										}
 										if($result->num_rows>0){
 											while($row = $result->fetch_assoc()){
 												
@@ -260,8 +282,10 @@
 														<br>
 														<br>
 														<h5>Location</h5><br>
-															<div class="main" style="margin-left:-2px;">
-															<form id="rating-form">
+														<h5> Average Ratings: '.round($average_ratings,1).'</h5><br>
+														
+								
+														<form method = "POST" action = "product_ratings.php">
 														<span class="rating-star" style="margin-left:28%;">
 															<input type="radio" name="rating" value="5"><span class="star"></span>
 														
@@ -272,9 +296,11 @@
 															<input type="radio" name="rating" value="2"><span class="star"></span>
 														
 															<input type="radio" name="rating" value="1"><span class="star"></span>
-														</span>
+														</span>  
+														<input type = "text" name = "product_name" value = "'.$product_name.'" hidden>  
+														<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-10"><span></span>
 														</form>
-														<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Submit Rating</span></button>
+														
 												</div>
 												</div>
 												<br>';
@@ -305,6 +331,20 @@
 														<br>
 														<h5>Description</h5>
 														<textarea type="text" name = "description" cols="10" rows="5" placeholder="Description*" onfocus="this.placeholder=" onblur="this.placeholder = Description*" required class="common-input mt-20"></textarea>
+														
+														<br>
+														<button onclick="myFunction()" class="view-btn color-2 w-20 mt-10">View Reviews</button>
+
+														<div id="myDIV">';
+														$sql1 = "SELECT * FROM product_reviews WHERE product_name = '$product_name';";
+														$result1 = $conn->query($sql1);
+														if($result1->num_rows>0){
+															while($row = $result1->fetch_assoc()){
+																$reviews = $row['reviews'];
+																echo '<h3>'.$reviews.'</h3><br>';
+															}
+														}
+														echo '</div>
 														';
 											}
 										}
@@ -312,7 +352,7 @@
 							</div>	
 																																										
 
-					
+			</section>		
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
                 <div class="container">
