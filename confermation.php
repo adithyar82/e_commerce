@@ -41,9 +41,14 @@
             $product_quantity = $row['product_quantity'];
         }
     }
+    
     $product_quantity = $product_quantity - 1;
-    $sql2 = "UPDATE products SET product_quantity = '$product_quantity' WHERE product_id = '$order_id';";
+    $sql_2 = "UPDATE products SET product_quantity = '$product_quantity' WHERE product_id = '$order_id';";
     $result2 = $conn->query($sql2);
+    $payment_type = "abc";
+    $fname = "abc";
+    $sql_2 = "INSERT INTO payment(payment_id, final_cost,payment_type,time_created,order_id,fname,product_name) VALUES (Null, '$final_cost', '$payment_type', CURRENT_TIME(), '$order_id','$fname','$name');";
+    $result_2 = $conn->query($sql_2);
     if($result->num_rows>=0){
         $mail = new PHPMailer;
         $mailaddress = $email_address;                               // Enable verbose debug output

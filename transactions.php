@@ -110,18 +110,22 @@
 							<h3 style="margin-left:45%"> Your Transactions </h3>
 							<?php
 							include('connect_db.php');
-							$sql = "SELECT * FROM order_status WHERE status = 'ordered';";
+							$sql = "SELECT * FROM payment";
 							$result = $conn->query($sql);
 							if($result->num_rows>0){
 								while($row = $result->fetch_assoc()){
-									$order_id = $row['order_id'];
-									$product_name = $row['product_name'];
+									$payment_id = $row['payment_id'];
 									$final_cost = $row['final_cost'];
-									$status = $row['status'];
+									$payment_type = $row['payment_type'];
+									$time_created = $row['time_created'];
+									$order_id = $row['order_id'];
+									$fname = $row['fname'];
+									$product_name = $row['product_name'];
+									
 									echo '<section class="brand-area pb-100">
 									<div class="container">
 										<div class="row logo-wrap"><div class="row logo-wrap">
-									<h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br> Order ID: <br> Transaction ID: <br> Transaction Amount: <br> Product Name: <br> Transaction Time: <br> Payment Method: <br> Status <br> </h3>
+									<h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br> Order ID:'.$order_id.' <br> Transaction ID: '.$payment_id.' <br> Transaction Amount: '.$final_cost.' <br> Product Name: '.$product_name.' <br> Transaction Time: '.$time_created.' <br> Payment Method: '.$payment_type.' <br></h3>
 									</div>
 								</div>	
 			            	</section>';
