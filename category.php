@@ -348,34 +348,35 @@
 			<header class="default-header">
 				<div class="menutop-wrap">
 					<div class="menu-top container" style="margin-left:7%;">
-					<div class="form-group has-feedback has-feedback-left">
-						<!-- <label>Pickup Location</label> -->
-						<!-- \\] -->
-						<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
-						
-					 </div>
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
+							
+						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
 								<li><a href="contact_us.php">+91 8095566699   |   support@azimpatel.com</a></li>
 								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
 							</ul>
 							<?php
-							if($username == ""){
+							if($uname == ""){
 								echo '<ul class="list">
 								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
+								<li><a href="profile.php"> Welcome </a></li>
 							</ul>';
 							}
 							else{
                                 echo '<ul class="list">
                                 <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#" style="margin-right:20px">Welcome '.$uname.' </a></li>
+								<li><a href="profile.php" style="margin-right:20px">Welcome '.$uname.' </a></li>
 							</ul>';
 							}
 							
 							?>
 							<ul class="list">
-								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:5px; font-size:20px"> &nbsp; &nbsp;</span><a href="logout.php" style = "margin-rigth:15px;">Logout</a></li>
+								<span class="glyphicon glyphicon-log-out" style="font-size:20px;"></span>
+								<li><a href="logout.php">Logout</a></li>
 							</ul>
 						</div>
 					</div>	
@@ -383,46 +384,35 @@
 				</div>
 				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
 					<div class="container" style="width:1500px;">
-					<div class="dropdown">
-							<button onclick="myFunction()" class="btn"><span class="glyphicon glyphicon-align-justify"></span></button>
-							<div id="myDropdown" class="dropdown-content">
-								<a href="profile.php"><span class="glyphicon glyphicon-user"> </span> Profile</a>
-								<a href="order_status.php">Order Status</a>
-								<a href="order_history.php">Order History</a>
-								<a href="favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
-								<a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
-								<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-								<a href="contact_us.php"><span class="glyphicon glyphicon-question-sign"></span> Help...?</a>
-							</div>
-						</div>
-					<!-- <span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span> -->
+						<div class="dropdown">
+							  <button onclick="myFunction()" class="btn"><span class="glyphicon glyphicon-align-justify"></span></button>
+							  <div id="myDropdown" class="dropdown-content">
+									<a href="profile.php"><span class="glyphicon glyphicon-user"> </span> Profile</a>
+									<a href="order_status.php">Order Status</a>
+									<a href="order_history.php">Order History</a>
+									<a href="favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
+									<a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+									<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+									<a href="contact_us.php"><span class="glyphicon glyphicon-question-sign"></span> Help...?</a>
+							  </div>
+					      </div>
 						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
 							  <img style="margin-left:10px;" src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <!-- <div class="search-container" style="width:1500px;">
-								<form action="/action_page.php">
-								  <input type="text" size = "40" placeholder="Search.." name="search">
-								  <button type="submit"><i class="fa fa-search"></i></button>
-								</form>
-						  </div> -->
+						  
 						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
            					 <form action="#" method="get">
               					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
              					<button type="submit" class="d-none"></button>
            					 </form>
 						  </div>
+
 						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
-						  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button> -->
+	
 						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
-								<li><a href="#home">Home</a></li>
-
-								<!-- <li><a href="#catagory">Category</a></li>
-								<li><a href="#men">Product</a></li> -->
-								<!-- <li><a href="#women">Women</a></li> -->
+								<li><a href="category.php">Home</a></li>
 								<li><a href="#latest">Recommendations</a></li>
 									<!-- Dropdown -->
 								    <li class="dropdown">
@@ -430,15 +420,10 @@
 								        Orders
 								      </a>
 								      <div class="dropdown-menu" style="margin-top:10px">
-								        <!-- <a class="dropdown-item" href="category.php">Category</a>
-								        <a class="dropdown-item" href="single.php">Single</a> -->
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
 								        <a class="dropdown-item" href="order.php">Your Orders</a>
 								        <a class="dropdown-item" href="order_status.php">Current Orders</a>
 								        <a class="dropdown-item" href="login.php">Cancelles Orders</a>
 								        <a class="dropdown-item" href="tracking.php">Tracking</a>
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
 								      </div>
 								    </li>
 									<li class="dropdown">
@@ -448,13 +433,10 @@
 								      <div class="dropdown-menu">
 								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
 								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
 								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
 								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
 								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
 								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
 									  </div>
 									  <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
 									  <li><a href="favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
@@ -467,19 +449,6 @@
             <!-- End Header Area -->
 
             <!-- Start Banner Area -->
-            <!-- <section class="banner-area organic-breadcrumb">
-                <div class="container">
-                    <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
-                        <div class="col-first">
-                            <h1>Shop Category page</h1>
-                             <nav class="d-flex align-items-center justify-content-start">
-                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="category.php">Category</a>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-			</section> -->
 			<section class="banner-area relative" id="home">
 				<div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
@@ -686,16 +655,6 @@
 									<!-- <option value="1">Show 12</option> -->
 								</select>
 							</div>
-							<!-- <div class="pagination">
-							
-								<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-								<a href="#" class="active">1</a>
-								<a href="#" class = "active" >2</a>
-								<a href="#" class = "active">3</a>
-								<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-								<a href="#">6</a>
-								<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-							</div> -->
 						</div>
 						<!-- End Filter Bar -->
 					</div>
@@ -855,7 +814,7 @@
                     </div>
 					<!-- <div class="row mt-30"> -->
 					<div class="col-xs-12" >
-						<div id ="imageCarousel" class = "carousel slides" data-interval = "4000" data-ride = "carousel" data-pause = "hover" data-wrap = "true" style = "border-color:black;" >
+						<div id ="imageCarousel" class = "carousel slides" data-interval = "3000" data-ride = "carousel" data-pause = "hover" data-wrap = "true" style = "border-color:black;" >
 					
 							<ol class = "carousel-indicators">
 								<li data-target = "#imageCarousel" data-slide-to = "0" class = "active" style = "border-color:black;"></li>

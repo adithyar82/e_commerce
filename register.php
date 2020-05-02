@@ -78,7 +78,7 @@ if ($result->num_rows >= 0) {
 
     echo '<script>
     alert("Successfully Registered");
-    window.location="category.php";
+    window.location="index.php";
     
     </script>';
     echo "done";

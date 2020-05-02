@@ -152,7 +152,7 @@ $result = $conn->query($sql);
                                 <span class="error" id="emailError"></span>
                                 <input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
                                 <br>
-                                <button class="view-btn color-2 w-100 mt-20"><span>Submit</span></button>
+                                <input type="submit" name="submit" class="view-btn color-2 w-100 mt-20"><span></span>
                                 <div class="mt-20 d-flex align-items-center justify-content-between">
                                     <div class="d-flex align-items-center">
                                     <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
