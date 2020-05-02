@@ -347,7 +347,7 @@
 			<!-- Start Header Area -->
 			<header class="default-header">
 				<div class="menutop-wrap">
-					<div class="menu-top container" style="margin-left:7%;">
+					<div class="menu-top container" style="margin-left:3%;">
 						<div class="form-group has-feedback has-feedback-left">
 							<!-- <label>Pickup Location</label> -->
 							<!-- \\] -->
@@ -356,7 +356,7 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   support@azimpatel.com</a></li>
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
 								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
 							</ul>
 							<?php
@@ -422,7 +422,7 @@
 								      <div class="dropdown-menu" style="margin-top:10px">
 								        <a class="dropdown-item" href="order.php">Your Orders</a>
 								        <a class="dropdown-item" href="order_status.php">Current Orders</a>
-								        <a class="dropdown-item" href="login.php">Cancelles Orders</a>
+								        <!-- <a class="dropdown-item" href="login.php">Cancelled Orders</a> -->
 								        <a class="dropdown-item" href="tracking.php">Tracking</a>
 								      </div>
 								    </li>
@@ -586,7 +586,7 @@
 							<div class="row" style="margin-bottom:3%; margin-top:3%">
 							<?php 
 								  include('connect_db.php');
-								//   session_start();
+								  session_start();
 								  $sql = "SELECT * FROM products limit 4;";
 								  $result = $conn->query($sql);
 								  echo '

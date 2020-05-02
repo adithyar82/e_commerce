@@ -1,63 +1,76 @@
 <!DOCTYPE html>
-    <html lang="zxx" class="no-js">
-    <head>
-        <!-- Mobile Specific Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Favicon-->
-        <link rel="shortcut icon" href="img/fav.png">
-        <!-- Author Meta -->
-        <meta name="author" content="CodePixar">
-        <!-- Meta Description -->
-         <meta name="description" content="">
-        <!-- Meta Keyword -->
-        <meta name="keywords" content="">
-        <!-- meta character set -->
-        <meta charset="UTF-8">
-        <!-- Site Title -->
-        <title>Shop</title>
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-            <!--
-            CSS
-            ============================================= -->
-            <link rel="stylesheet" href="css/linearicons.css">
-            <link rel="stylesheet" href="css/owl.carousel.css">            
-            <link rel="stylesheet" href="css/font-awesome.min.css">
-            <link rel="stylesheet" href="css/nice-select.css">
-            <link rel="stylesheet" href="css/ion.rangeSlider.css" />
-            <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
-            <link rel="stylesheet" href="css/bootstrap.css">
-            <link rel="stylesheet" href="css/main.css">
+	<html lang="zxx" class="no-js">
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="CodePixar">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Shop</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/nice-select.css">
+		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/main.css">
+			<link href="style.css" rel="stylesheet">
         </head>
         <body>
-        <header class="default-header">
-                <div class="menutop-wrap">
-                    <div class="menu-top container">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="list">
-                                <li><a href="contact_us.php">+91 8095566699   |   supporazeempatel@gmail.com</a></li>
-                                                            
-                            </ul>
-                            
-                        </div>
-                    </div>                  
-                </div>
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="container">
-                          <a class="navbar-brand" href="category.php">
-                            <img src="img/logo.png" alt="">
-                          </a>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li><a href="admin_home.php">Home</a></li>
-                                
-                            </ul>
-                          </div>                        
-                    </div>
-                </nav>
-            </header>
+
+            <!-- Start Header Area -->
+            <header class="default-header">
+				<div class="menutop-wrap">
+					<div class="menu-top container" style="margin-left:3%;">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
+							
+						</div>
+						
+						<div class="d-flex justify-content-between align-items-center">
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+						</div>
+					</div>	
+					<br>				
+				</div>
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
+					<div class="container" style="width:1500px;">
+
+						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
+							  <img style="margin-left:25px;" src="img/logo.png" alt="">
+							  <p> Company Logo </p>
+						  </a>
+	
+						  <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
+						    <ul class="navbar-nav" style="width:1500px;">
+								<li><a href="D_homepage.php">Home</a></li>					
+						    </ul>
+						  </div>						
+					</div>
+				</nav>
+			</header>
            
             <!-- reset password-->
             <div class="container" style="margin-top:10%;margin-bottom:5%;margin-left:27%">
@@ -81,7 +94,7 @@
                             </h5> 
 							<div class="mt-20 d-flex align-items-center justify-content-between">
 								<div class="d-flex align-items-center">
-                                <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label></div>
+                                </div>
 							</div>
                             <button class="view-btn color-2 w-30 mt-20"><span>User Details</span></button> &emsp; &emsp; &emsp; &emsp;
                             <button class="view-btn color-2 w-30 mt-20"><span>View All Orders</span></button>

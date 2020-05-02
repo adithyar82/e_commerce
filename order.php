@@ -20,7 +20,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
@@ -47,78 +49,39 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
-		</head>
-		<body>
+			<link href="style.css" rel="stylesheet">
+        </head>
+        <body>
 
-			<!-- Start Header Area -->
-			<header class="default-header">
+            <!-- Start Header Area -->
+            <header class="default-header">
 				<div class="menutop-wrap">
-					<div class="menu-top container">
-						<div class="d-flex justify-content-between align-items-center">
-							<ul class="list">
-								<li><a href="cotact_us.php">+91 8095566699   |   support@azimpatel.com<</a></li>							
-							</ul>
-							<!--
-							<ul class="list">
-								<li><a href="#">login</a></li>
-							</ul>
-							-->
-							<?php
-							if($username == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
-							</ul>';
-							}
-							else{
-								echo '</span> <ul class="list">
-								<li><a href="#">Welcome '.$username.' </a></li>
-							</ul>';
-							}
+					<div class="menu-top container" style="margin-left:3%;">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
 							
-							?>
 						</div>
-					</div>					
+						
+						<div class="d-flex justify-content-between align-items-center">
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+						</div>
+					</div>	
+					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light">
-					<div class="container">
-						  <a class="navbar-brand" href="#">
-							  <img src="img/logo.png" alt="">
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
+					<div class="container" style="width:1500px;">
+
+						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
+							  <img style="margin-left:25px;" src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
-           					 <form action="#" method="get">
-              					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
-             					<button type="submit" class="d-none"></button>
-           					 </form>
-						  </div>
-						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
-						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
-								<li><a href="delivery.php">Home</a></li>
-								<li><a href="#">login</a></li>
-								<li><a href="delivery_history.php">History</a></li>
-								<!-- <li><a href="#men">Product</a></li>
-								<li><a href="#women">Women</a></li>
-								<li><a href="#latest">Recommendations</a></li> -->
-									<!-- Dropdown -->
-								    <li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
-								      </a>
-								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="delivery.php">Home</a>
-									<a class="dropdown-item" href="delivery.php">Login</a>
-									<a class="dropdown-item" href="delivery_status.php">History</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      </div>
-								    </li>									
+	
+						  <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
+						    <ul class="navbar-nav" style="width:1500px;">
+								<li><a href="D_homepage.php">Home</a></li>					
 						    </ul>
 						  </div>						
 					</div>

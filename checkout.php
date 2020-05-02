@@ -11,100 +11,96 @@
     $_SESSION['id4'] = $id4;
     ?>
     <!DOCTYPE html>
-    <html lang="zxx" class="no-js">
-    <head>
-        <!-- Mobile Specific Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Favicon-->
-        <link rel="shortcut icon" href="img/fav.png">
-        <!-- Author Meta -->
-        <meta name="author" content="CodePixar">
-        <!-- Meta Description -->
-        <meta name="description" content="">
-        <!-- Meta Keyword -->
-        <meta name="keywords" content="">
-        <!-- meta character set -->
-        <meta charset="UTF-8">
-        <!-- Site Title -->
-        <title>Shop</title>
+	<html lang="zxx" class="no-js">
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-            <!--
-            CSS
-            ============================================= -->
-            <link rel="stylesheet" href="css/linearicons.css">
-            <link rel="stylesheet" href="css/owl.carousel.css">            
-            <link rel="stylesheet" href="css/font-awesome.min.css">
-            <link rel="stylesheet" href="css/nice-select.css">
-            <link rel="stylesheet" href="css/ion.rangeSlider.css" />
-            <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
-            <link rel="stylesheet" href="css/bootstrap.css">
-            <link rel="stylesheet" href="css/main.css">
+
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="CodePixar">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Shop</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/nice-select.css">
+		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/main.css">
+			<link href="style.css" rel="stylesheet">
         </head>
         <body>
 
             <!-- Start Header Area -->
             <header class="default-header">
 				<div class="menutop-wrap">
-					<div class="menu-top container">
-						<div class="d-flex justify-content-between align-items-center">
-							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
-								<li><a href="contact_us.php">support@azimpatel.com</a></li>								
-							</ul>
-                            <?php
-							if($username == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
-							</ul>';
-							}
-							else{
-								echo '</span> <ul class="list">
-								<li><a href="#">Welcome '.$username.' </a></li>
-							</ul>';
-							}
+					<div class="menu-top container" style="margin-left:3%;">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
 							
-							?>
-							<ul class="list">
-								<li><a href="logout.php">Logout</a></li>
-							</ul>
 						</div>
-					</div>					
+						
+						<div class="d-flex justify-content-between align-items-center">
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+						</div>
+					</div>	
+					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light">
-					<div class="container">
-						  <a class="navbar-brand" href="#">
-							  <!-- <img src="img/logo.png" alt=""> -->
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
+					<div class="container" style="width:1500px;">
+
+						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
+							  <img style="margin-left:10px;" src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
-						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
-								<li><a href="#home">Home</a></li>
-								<li><a href="#catagory">Category</a></li>
-								<li><a href="#men">Product</a></li>
-								<!-- <li><a href="#women">Women</a></li> -->
-								<li><a href="#latest">Recommendations</a></li>
+						  
+						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
+           					 <form action="#" method="get">
+              					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
+             					<button type="submit" class="d-none"></button>
+           					 </form>
+						  </div>
+
+						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
+	
+						  <div class="collapse navbar-collapse" style = "margin-left:35%;" id="navbarSupportedContent">
+						    <ul class="navbar-nav" style="width:1500px;">
+								<li><a href="category.php">Home</a></li>
 									<!-- Dropdown -->
-								    <li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
-								      </a>
-								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="category.php">Category</a>
-								        <a class="dropdown-item" href="single.php">Single</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a>
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      </div>
-								    </li>									
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Orders
+                                    </a>
+                                    <div class="dropdown-menu" style="margin-top:10px">
+                                    <a class="dropdown-item" href="order.php">Your Orders</a>
+                                    <a class="dropdown-item" href="order_status.php">Current Orders</a>
+                                    <!-- <a class="dropdown-item" href="login.php">Cancelled Orders</a> -->
+                                    <a class="dropdown-item" href="tracking.php">Tracking</a>
+                                    </div>
+                                </li>
+                                    <li><a href="favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
+                                </li>									
 						    </ul>
 						  </div>						
 					</div>

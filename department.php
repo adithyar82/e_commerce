@@ -39,6 +39,7 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
+			<link href="style.css" rel="stylesheet">
 			<script>
 				$('#row').pagination({
 				dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],
@@ -52,94 +53,94 @@
 				}
 			})
 			</script>
+			
 		</head>
 		<body>
 
 			<!-- Start Header Area -->
 			<header class="default-header">
 				<div class="menutop-wrap">
-					<div class="menu-top container">
+					<div class="menu-top container" style="margin-left:3%;">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
+							
+						</div>
+						
 						<div class="d-flex justify-content-between align-items-center">
-							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
-								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
 							</ul>
 							<?php
-							if($username == ""){
+							if($uname == ""){
 								echo '<ul class="list">
 								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
+								<li><a href="profile.php"> Welcome </a></li>
 							</ul>';
 							}
 							else{
                                 echo '<ul class="list">
                                 <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#">Welcome '.$username.' </a></li>
+								<li><a href="profile.php" style="margin-right:20px">Welcome '.$uname.' </a></li>
 							</ul>';
 							}
 							
 							?>
 							<ul class="list">
+								<span class="glyphicon glyphicon-log-out" style="font-size:20px;"></span>
 								<li><a href="logout.php">Logout</a></li>
 							</ul>
 						</div>
-					</div>					
+					</div>	
+					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light">
-					<div class="container">
-						  <a class="navbar-brand" href="#">
-							  <img src="img/logo.png" alt="">
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
+					<div class="container" style="width:1500px;">
+						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
+							  <img style="margin-left:10px;" src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <div class="search-container">
-								<!-- <form action="/action_page.php">
-								  <input type="text" size = "50" placeholder="Search.." name="search">
-								  <button type="submit"><i class="fa fa-search"></i></button>
-								</form> -->
-                                <h3 style="margin-left:120px;"><?php echo $id1 ?></h3> 
+						  
+						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
+           					 <form action="#" method="get">
+              					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
+             					<button type="submit" class="d-none"></button>
+           					 </form>
 						  </div>
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
-						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
+
+						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
+	
+						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
+						    <ul class="navbar-nav" style="width:1500px;">
 								<li><a href="category.php">Home</a></li>
-								<!-- <li><a href="#catagory">Category</a></li>
-								<li><a href="#men">Product</a></li> -->
-								<!-- <li><a href="#women">Women</a></li> -->
-								<!-- <li><a href="#latest">Recommendations</a></li> -->
+								<li><a href="#latest">Recommendations</a></li>
 									<!-- Dropdown -->
-								    <!-- <li class="dropdown">
+								    <li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
+								        Orders
 								      </a>
-								      <div class="dropdown-menu">
-								        <<a class="dropdown-item" href="category.php">Category</a>
-								        <a class="dropdown-item" href="single.php">Single</a> -->
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a>
+								      <div class="dropdown-menu" style="margin-top:10px">
+								        <a class="dropdown-item" href="order.php">Your Orders</a>
+								        <a class="dropdown-item" href="order_status.php">Current Orders</a>
+								        <!-- <a class="dropdown-item" href="login.php">Cancelled Orders</a> -->
+								        <a class="dropdown-item" href="tracking.php">Tracking</a>
 								      </div>
-								    </li-->
+								    </li>
 									<li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 								        Category
 								      </a>
 								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="department.php">Electronics</a>
-								        <a class="dropdown-item" href="department.php">Groceries</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <a class="dropdown-item" href="department.php">Fashion</a>
-								        <a class="dropdown-item" href="department.php">Medicines</a>
-								        <a class="dropdown-item" href="department.php">Sport Equipments</a>
-								        <a class="dropdown-item" href="department.php">Hardware</a>
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      </div>
+								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
+								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
+								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
+								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
+								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
+								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
+									  </div>
+									  <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
+									  <li><a href="favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
 								    </li>									
 						    </ul>
 						  </div>						
@@ -148,37 +149,6 @@
 			</header>
             <!-- End Header Area -->
 
-            <!-- Start Banner Area -->
-            <!-- <section class="banner-area organic-breadcrumb">
-                <div class="container">
-                    <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
-                        <div class="col-first">
-                            <h1>Shop Category page</h1>
-                             <nav class="d-flex align-items-center justify-content-start">
-                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="category.php">Category</a>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-			</section> -->
-			<section class="banner-area relative" id="home">
-				<!-- <div class="container-fluid">
-					<div class="row fullscreen align-items-center justify-content-center">
-						<div class="col-lg-6 col-md-12 padding: 40px;">
-							<img class="img-fluid" src="img/c39.png" alt="" width="100%" height="100%">
-						</div>
-						<div class="banner-content col-lg-6 col-md-12">
-							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
-							<h1 class="text-uppercase">
-								On Your <br>
-								First Order
-							</h1>
-							<button class="primary-btn text-uppercase"><a href="#">Order Here</a></button>
-						</div>							
-					</div> -->
-				</div>
-			</section>
             <!-- End Banner Area -->
 			<div class="container">
 				<div class="row">
@@ -277,220 +247,7 @@
 								</div>';
 									}
 								}
-					               ?>
-								
-								<!-- <div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Chicken Biriyani</h5>
-										<h3 class="text-white"><del style = "color : black">Rs 300.0</del></h3>
-								  		<h3>Rs200.00</h3>
-										<a href=" checkout.php?id1=200&id2=2&id3= Chicken_Biriyani">Buy Now</a> <br>
-										<a href=" cart_1.php?id1=200&id2=2&id3= Chicken_Biriyani"> Add to Cart</a>
-								   </div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c28.jpg" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Teddy Bear</h5>
-										<h3 class="text-white"><del style = "color : black">Rs 500.0</del></h3>
-								  		<h3>Rs400.00</h3>
-										<a href=" checkout.php?id1=400&id2=3&id3= Teddy_Bear">Buy Now</a> <br>
-										<a href=" cart_1.php?id1=400&id2=3&id3= Teddy_Bear">Add to Cart</a>
-										
-								   </div>
-								</div>	
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c29.jpg" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Tops</h5>
-										<h3 class="text-white"><del style = "color : black">Rs 800.0</del></h3>
-								  		<h3>Rs600.00</h3>
-										<a href=" checkout.php?id1=600&id2=4&id3= Tops">Buy Now</a> <br>
-										<a href=" checkout.php?id1=600&id2=4&id3= Tops"> Add to Cart</a>
-								   </div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c30.jpeg" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Mobile Charger</h5>
-										<h3 class="text-white"><del style = "color : black">Rs 300.0</del></h3>
-								  		<h3>Rs280.00</h3>
-										<a href=" checkout.php?id1=280&id2=5&id3= Mobile_Charger">Buy Now</a> <br>
-										<a href=" cart_1.php?id1=280&id2=5&id3= Mobile_Charger">Add to Cart</a>
-								   </div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c31.jpg" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Rice</h5>
-										<h3 class="text-white"><del style = "color : black">Rs 200.0</del></h3>
-								  		<h3>Rs150.00</h3>
-										<a href=" checkout.php?id1=150&id2=6&id3= Rice">Buy Now</a> <br>
-										<a href=" cart_1.php?id1=150&id2=6&id3= Rice">Add to Cart</a>
-								   </div>
-								</div>	
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c32.jpg" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Washing Machine</h5>
-										<h3 class="text-white"><del style = "color : black">Rs 2000.0</del></h3>
-								  		<h3>Rs1500.00</h3>
-										<a href=" checkout.php?id1=1500&id2=7&id3= Washing_Machine">Buy Now</a> <br>
-										<a href=" cart_1.php?id1=1500&id2=7&id3= Washing_Machine">Add to Cart</a>
-								   </div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c33.jpg" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Mixer</h5>
-										<h3 class="text-white"><del style = "color : black">Rs 1000.0</del></h3>
-								  		<h3>Rs600.00</h3>
-										<a href=" checkout.php?id1=600&id2=8&id3= Mixer">Buy Now</a> <br>
-										<a href=" cart_1.php?id1=600&id2=8&id3= Mixer">Add to Cart</a>
-								   </div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c34.jpg" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Vegetable Cutter</h5>
-										<h3 class="text-white"><del style = "color : black">Rs 180.0</del></h3>
-								  		<h3>Rs150.00</h3>
-										<a href=" checkout.php?id1=150&id2=9&id3= Vegetable Cutter">Buy Now</a> <br>
-										<a href=" cart_1.php?id1=150&id2=9&id3= Vegetable Cutter">Add to Cart</a>
-								   </div>
-								</div>	
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c35.jpg" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Shoes</h5>
-										<h3 class="text-white"><del style = "color : black">Rs 200.0</del></h3>
-								  		<h3>Rs150.00</h3>
-										<a href=" checkout.php?id1=150&id2=10&id3= Shoes">Buy Now</a> <br>
-										<a href=" cart_1.php?id1=150&id2=10&id3= Shoes">Add to Cart</a>
-								   </div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c37.jpg" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												 
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Apparels</h5>
-										<h3 class="text-white"><del style = "color : black">Rs 250.0</del></h3>
-								  		<h3>Rs150.00</h3>
-										<a href=" checkout.php?id1=250&id2=11&id3= Apparels">Buy Now</a>
-										<a href=" cart_1.php?id1=250&id2=11&id3= Apparels">Add to Cart</a>
-								   </div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product">
-								  <div class="content">
-								      <div class="content-overlay"></div>
-								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c38.jpg" alt="">
-								      <div class="content-details fadeIn-bottom">
-									        <div class="bottom d-flex align-items-center justify-content-center">
-												<a href="#"><span class="lnr lnr-heart"></span></a>
-												 
-												<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-											</div>
-								      </div>
-								  </div>
-								  <div class="price">
-								  		<h5>Furniture</h5>
-										<h3 class="text-white"><del style = "color : black">Rs 2500.0</del></h3>
-								  		<h3>Rs1000.00</h3>
-										<a href=" checkout.php?id1=1000&id2=12&id3= Furniture">Buy Now</a>
-										<a href=" cart_1.php?id1=1000&id2=12&id3= Furniture">Add to Cart</a>
-								   </div>
-								</div>-->																																							
+					        	?>																																
 							</div>
 						</section>
 						<!-- End Best Seller -->
