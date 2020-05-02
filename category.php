@@ -530,7 +530,7 @@
 							<?php 
 								  include('connect_db.php');
 								//   session_start();
-								  $sql = "SELECT * FROM products limit 4;";
+								  $sql = "SELECT * FROM products WHERE category = 'Electronics' limit 4;";
 								  $result = $conn->query($sql);
 								  echo '
 								  <h3 style = "margin-left:40px;"> Electronics </h3>
@@ -587,12 +587,12 @@
 							<?php 
 								  include('connect_db.php');
 								//   session_start();
-								  $sql = "SELECT * FROM products limit 4;";
+								  $sql = "SELECT * FROM products WHERE category = 'Food' limit 4;";
 								  $result = $conn->query($sql);
 								  echo '
-								  <h3 style = "margin-left:40px;"> Electronics </h3>
+								  <h3 style = "margin-left:40px;"> Food </h3>
 								  <br>
-								  <a href="department.php?id1=Electronics" style="margin-left:85%;"> View All +</a>';
+								  <a href="department.php?id1=Food" style="margin-left:85%;"> View All +</a>';
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
 										  

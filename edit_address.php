@@ -1,4 +1,5 @@
 <?php
+include('connect_db.php');
     session_start();
     $id1 = $_REQUEST['id1'];
     $id2 = $_REQUEST['id2'];
@@ -8,6 +9,29 @@
     $_SESSION['id2'] = $id2;
     $_SESSION['id3'] = $id3;
     $_SESSION['id4'] = $id4;
+    $sql = "SELECT * FROM shipping;";
+    $result = $conn->query($sql);
+    if($result->num_rows>0){
+        while ($row = $result->fetch_assoc()){
+            $address_1 = $row['address_1'];
+            $address_2 = $row['address_2'];
+            $city = $row['city'];
+            $state = $row['state'];
+            $zipcode = $row['zip'];
+            $country = $row['country'];
+
+        }
+    }
+    $sql1 = "SELECT * FROM Users WHERE username  = 'abc';";
+        $result1= $conn->query($sql1);
+        if($result1->num_rows>0){
+            while ($row = $result1->fetch_assoc()){
+                $fname = $row['fname'];
+                $email_address = $row['email_address'];
+                $phone_number = $row['phone_number'];
+
+            }
+    }
     ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
@@ -128,16 +152,16 @@
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="text" name = "fname" placeholder="First name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'First name*'" required class="common-input">
+                                    <input type="text" name = "fname" placeholder="First name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'First name*'" value = "<?php echo $fname?>" required class="common-input">
                                 </div>
                                 <div class="col-lg-6">
                                     <input type="text" name = "lname" placeholder="Last name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Last name*'" required class="common-input">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" name = "pnname" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input">
+                                    <input type="text" name = "pnname" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" value = "<?php echo $phone_number?>" required class="common-input">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="email" name = "ename" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address*'" required class="common-input">
+                                    <input type="email" name = "ename" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address*'" value = "<?php echo $email_address?>" required class="common-input">
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="sorting">
@@ -149,19 +173,19 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name = "address_1" type="text" placeholder="Address line 01*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Address line 01*'" required class="common-input">
+                                    <input name = "address_1" type="text" placeholder="Address line 01*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Address line 01*'" value = "<?php echo $address_1?>" required class="common-input">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name = "address_2" type="text" placeholder="Address line 02*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Address line 02*'" class="common-input">
+                                    <input name = "address_2" type="text" placeholder="Address line 02*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Address line 02*'" value = "<?php echo $address_2?>" class="common-input">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name = "city" type="text" placeholder="Town/City*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Town/City*'" required class="common-input">
+                                    <input name = "city" type="text" placeholder="Town/City*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Town/City*'" value = "<?php echo $city?>" required class="common-input">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name = "state" type="text" placeholder="State*" onfocus="this.placeholder=''" onblur="this.placeholder = 'State*'" required class="common-input">
+                                    <input name = "state" type="text" placeholder="State*" onfocus="this.placeholder=''" onblur="this.placeholder = 'State*'" value = "<?php echo $city?>" required class="common-input">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name = "country" type="text" placeholder="Country*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Country*'" required class="common-input">
+                                    <input name = "country" type="text" placeholder="Country*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Country*'" value = "<?php echo $state?>" required class="common-input">
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="sorting">
@@ -173,7 +197,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name="zip" type="text" placeholder="Postcode/ZIP" onfocus="this.placeholder=''" onblur="this.placeholder = 'Postcode/ZIP'" required class="common-input">
+                                    <input name="zip" type="text" placeholder="Postcode/ZIP" onfocus="this.placeholder=''" onblur="this.placeholder = 'Postcode/ZIP'" value = "<?php echo $zipcode?>" required class="common-input">
                                 </div>
                                 <button class="view-btn color-2 w-100 mt-20"><span>Save Address</span></button>
                             </div>
