@@ -20,7 +20,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
@@ -47,82 +49,39 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
-		</head>
-		<body>
+			<link href="style.css" rel="stylesheet">
+        </head>
+        <body>
 
-			<!-- Start Header Area -->
-			<header class="default-header">
+            <!-- Start Header Area -->
+            <header class="default-header">
 				<div class="menutop-wrap">
-					<div class="menu-top container">
-						<div class="d-flex justify-content-between align-items-center">
-							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
-								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
-							</ul>
-							<!--
-							<ul class="list">
-								<li><a href="#">login</a></li>
-							</ul>
-							-->
-							<?php
-							if($username == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
-							</ul>';
-							}
-							else{
-								echo '</span> <ul class="list">
-								<li><a href="#">Welcome '.$username.' </a></li>
-							</ul>';
-							}
+					<div class="menu-top container" style="margin-left:3%;">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
 							
-							?>
 						</div>
-					</div>					
+						
+						<div class="d-flex justify-content-between align-items-center">
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+						</div>
+					</div>	
+					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light">
-					<div class="container">
-						  <a class="navbar-brand" href="#">
-							  <img src="img/logo.png" alt="">
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
+					<div class="container" style="width:1500px;">
+
+						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
+							  <img style="margin-left:25px;" src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <div class="search-container">
-								<form action="/action_page.php">
-								  <input type="text" placeholder="Search.." name="search">
-								  <button type="submit"><i class="fa fa-search"></i></button>
-								</form>
-						  </div>
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
-						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
-								<li><a href="delivery.php">Home</a></li>
-								<li><a href="#">login</a></li>
-								<li><a href="delivery_history.php">History</a></li>
-							
-								<!-- <li><a href="#men">Product</a></li>
-								<li><a href="#women">Women</a></li>
-								<li><a href="#latest">Recommendations</a></li> -->
-									<!-- Dropdown -->
-								    <li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
-								      </a>
-								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="delivery.php">Home</a>
-									<a class="dropdown-item" href="delivery.php">Login</a>
-									<a class="dropdown-item" href="delivery_status.php">History</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      </div>
-								    </li>									
+	
+						  <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
+						    <ul class="navbar-nav" style="width:1500px;">
+								<li><a href="D_homepage.php">Home</a></li>					
 						    </ul>
 						  </div>						
 					</div>
@@ -130,361 +89,133 @@
 			</header>
 			<!-- End Header Area -->
 
-			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">
-				<div class="container-fluid">
-					<div class="row fullscreen align-items-center justify-content-center">
-						<div class="col-lg-6 col-md-12 padding: 40px;">
-							<img class="img-fluid" src="img/c39.png" alt="" width="100%" height="100%">
-						</div>
-						<div class="banner-content col-lg-6 col-md-12">
-							<h1 class="title-top"><span></span></h1>
-							<h1 class="text-uppercase">
-								FAST & CHEAP
-							</h1>
-						</div>							
-					</div>
-				</div>
-			</section>
-			<!-- End banner Area -->	
-
-			<!-- Start category Area -->
-			<!-- End category Area -->
 			
-			<!-- Start men-product Area -->
-			<!-- <section class="men-product-area section-gap relative" id="men">
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-40">
-							<div class="title text-center">
-								<h1 class="text-white mb-10">New Products</h1>
-								<p class="text-white">Cheap and Fast</p>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-3 col-md-6 single-product">
-						  <div class="content">
-						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="img/c18.jpg" alt="">
-						      <div class="content-details fadeIn-bottom">
-							        <div class="bottom d-flex align-items-center justify-content-center">
-										<a href="#"><span class="lnr lnr-heart"></span></a>
-										<<a href="#"><span class="lnr lnr-layers"></span></a> -->
-										<!-- <a href="#"><span class="lnr lnr-cart"></span></a> -->
-			<!-- End men-product Area -->
-
-			<!-- Start women-product Area -->
-			<!-- <section class="women-product-area section-gap" id="women">
-				<div class="container">
-					<div class="countdown-content pb-40">
-						<div class="title text-center">
-							<h1 class="mb-10">Category</h1>
-							<p>Cheap and Fast</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-3 col-md-6 single-product">
-						  <div class="content">
-						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="img/c13.jpg" alt="">
-						      <div class="content-details fadeIn-bottom">
-							        <div class="bottom d-flex align-items-center justify-content-center">
-										<a href="#"><span class="lnr lnr-heart"></span></a>
-										<!-- <a href="#"><span class="lnr lnr-layers"></span></a>
-										<a href="#"><span class="lnr lnr-cart"></span></a> -->
-						
-			<!-- End women-product Area -->
-			
-			<!-- Start Count Down Area -->
-			<!-- <div class="countdown-area">
-				<div class="container">
-					<div class="countdown-content">
-						<div class="title text-center">
-							<h1 class="mb-10">Exclusive Hot Deal Ends in:</h1>
-							<p>Who are in extremely love with eco friendly system.</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xl-4 col-lg-4"></div>
-						<div class="col-xl-6 col-lg-7">
-							<div class="countdown d-flex justify-content-center justify-content-md-end" id="js-countdown">
-								<div class="countdown-item">
-									<!-- <div class="countdown-timer js-countdown-days time" aria-labelledby="day-countdown">
-
-									</div> -->
-
-									<!-- <div class="countdown-label" id="day-countdown">Days</div> -->
-			<!-- End Count Down Area -->
-
-			<!-- Start related-product Area --> 
-			<!-- <section class="related-product-area section-gap" id="latest">
-				<div class="container">
-					<div class="related-content">
-						<div class="title text-center">
-							<h1 class="mb-10">Related Searched Products</h1>
-							<p>Who are in extremely love with eco friendly system.</p>
-						</div>
-					</div>					
-					<div class="row">
-						<div class="col-lg-3 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r1.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>		
-						<div class="col-lg-3 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r2.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>		
-						<div class="col-lg-3 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r3.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>		
-						<div class="col-lg-3 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r4.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>	
-						<!-- <div class="col-lg-3 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r5.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>		
-						<div class="col-lg-3 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r6.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>		
-						<div class="col-lg-3 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r7.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>		
-						<div class="col-lg-3 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r8.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>	
-						<div class="col-lg-3 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r9.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>		
-						<div class="col-lg-3 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r10.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>		
-						<div class="col-lg-3 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r11.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>		
-						<div class="col-lg-3 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="img/r12.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-								</div>
-							</div>							
-						</div>																		 -->
-					</div>
-			</section>
 			<!-- End related-product Area -->
 	
 			<!-- Start brand Area -->
-			
-							<!-- <a class="col single-img" href="#">
-								<img class="d-block mx-auto" src="img/br1.png" alt="">
-							</a>
-							<a class="col single-img" href="#">
-								<img class="d-block mx-auto" src="img/br2.png" alt="">
-							</a>
-							<a class="col single-img" href="#">
-								<img class="d-block mx-auto" src="img/br3.png" alt="">
-							</a>
-							<a class="col single-img" href="#">
-								<img class="d-block mx-auto" src="img/br4.png" alt="">
-							</a>
-							<a class="col single-img" href="#">
-								<img class="d-block mx-auto" src="img/br5.png" alt="">
-							</a> -->
-							<br>
-							<h3 style="margin-left:45%"> Current Orders </h3>
-							<button onclick="location.href = 'delivery_details_2.php';" class="view-btn color-2 w-20 mt-10" style = "margin-left:45%" ><span>Check Out</span></button>
-							<?php
-							include('connect_db.php');
-							$sql = "SELECT * FROM order_status where status != 'delivered';";
-							$result = $conn->query($sql);
-							if($result->num_rows>0){
-								while($row = $result->fetch_assoc()){
-									$order_id = $row['order_id'];
-									$product_name = $row['product_name'];
-									$final_cost = $row['final_cost'];
-									$status = $row['status'];
-									$product_image = $row['product_image'];
-									echo '<div class="container">
-									<div class="row logo-wrap"><div class="row logo-wrap">
-									<div class="container">
-										<img class="content-image" src="'.$product_image.'" alt="">
-									</div>
-								</div>
-								<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Pick Up Location &nbsp;: <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location: <br><br> Delivery Time &emsp; &nbsp : <br><br> </h3>
-								
-								
-								</div>';
-									if($status == "ordered"){
-										echo'<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted">Order Accepted <br></a><br></h5><br>
-										</div>
-										</div>
-										
-										
-										
-										<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"> Order Collected <br></a><br></h5><br>
-										</div>
-										</div>
-										
-										<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"> Delivered <br></a><br></h5><br>
-										</div>
-										</div>';
-									}
-									else if($status == "order cancelled"){
-										echo'<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order cancelled"><span class="glyphicon glyphicon-check"></span> Order Cancelled <br></a><br></h5><br>
-										</div>
-										</div>';
-									}
-									else if($status == "order accepted"){
-										echo'<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted <br></a><br></h5><br>
-										</div>
-										</div>
-										
-										
-										
-										<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"> Order Collected <br></a><br></h5><br>
-										</div>
-										</div>
-										
-										<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"> Delivered <br></a><br></h5><br>
-										</div>
-										</div>';
-									}
-									else if($status == "order collected"){
-										echo'<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted"><span class="glyphicon glyphicon-check"></span>Order Accepted <br></a><br></h5><br>
-										</div>
-										</div>
-										
-										
-										
-										<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"><span class="glyphicon glyphicon-check"></span> Order Collected <br></a><br></h5><br>
-										</div>
-										</div>
-										
-										<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"> Delivered <br></a><br></h5><br>
-										</div>
-										</div>';
-									}
-									else{
-										echo'<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted <br></a><br></h5><br>
-										</div>
-										</div>
-										
-										
-										
-										<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"><span class="glyphicon glyphicon-check"></span> Order Collected <br></a><br></h5><br>
-										</div>
-										</div>
-										
-										<div class="container">
-										<div class="container">
-										<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"><span class="glyphicon glyphicon-check"> </span>Delivered <br></a><br></h5><br>
-										</div>
-										</div>';
-									}
-									echo'
-
-								</div>	
-			            	</section>';
-									
-								}
-							}
-							?>
-                            
-                            <!-- <h3> Product Name: </h3>
-                            <br> -->
-						
+			<h3 style="margin-left:45%;margin-top:5%"> Current Orders </h3>
+			<button onclick="location.href = 'delivery_details_2.php';" class="view-btn color-2 w-20 mt-10" style = "margin-left:45%" ><span>Check Out</span></button>
+			<?php
+			include('connect_db.php');
+			$sql = "SELECT * FROM order_status where status != 'delivered';";
+			$result = $conn->query($sql);
+			if($result->num_rows>0){
+				while($row = $result->fetch_assoc()){
+					$order_id = $row['order_id'];
+					$product_name = $row['product_name'];
+					$final_cost = $row['final_cost'];
+					$status = $row['status'];
+					$product_image = $row['product_image'];
+					echo '<div class="container">
+					<div class="row logo-wrap"><div class="row logo-wrap">
+					<div class="container">
+						<img class="content-image" src="'.$product_image.'" alt="">
+					</div>
+				</div>
+				<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Pick Up Location &nbsp;: <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location: <br><br> Delivery Time &emsp; &nbsp : <br><br> </h3>
 				
+				
+				</div>';
+					if($status == "ordered"){
+						echo'<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted">Order Accepted <br></a><br></h5><br>
+						</div>
+						</div>
+						
+						
+						
+						<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"> Order Collected <br></a><br></h5><br>
+						</div>
+						</div>
+						
+						<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"> Delivered <br></a><br></h5><br>
+						</div>
+						</div>';
+					}
+					else if($status == "order cancelled"){
+						echo'<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order cancelled"><span class="glyphicon glyphicon-check"></span> Order Cancelled <br></a><br></h5><br>
+						</div>
+						</div>';
+					}
+					else if($status == "order accepted"){
+						echo'<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted <br></a><br></h5><br>
+						</div>
+						</div>
+						
+						
+						
+						<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"> Order Collected <br></a><br></h5><br>
+						</div>
+						</div>
+						
+						<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"> Delivered <br></a><br></h5><br>
+						</div>
+						</div>';
+					}
+					else if($status == "order collected"){
+						echo'<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted"><span class="glyphicon glyphicon-check"></span>Order Accepted <br></a><br></h5><br>
+						</div>
+						</div>
+						
+						
+						
+						<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"><span class="glyphicon glyphicon-check"></span> Order Collected <br></a><br></h5><br>
+						</div>
+						</div>
+						
+						<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"> Delivered <br></a><br></h5><br>
+						</div>
+						</div>';
+					}
+					else{
+						echo'<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted <br></a><br></h5><br>
+						</div>
+						</div>
+						
+						
+						
+						<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order collected"><span class="glyphicon glyphicon-check"></span> Order Collected <br></a><br></h5><br>
+						</div>
+						</div>
+						
+						<div class="container">
+						<div class="container">
+						<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=delivered"><span class="glyphicon glyphicon-check"> </span>Delivered <br></a><br></h5><br>
+						</div>
+						</div>';
+					}
+					echo'
+
+				</div>	
+			</section>';
+					
+				}
+			}
+			?>
+                            
 			<!-- End brand Area -->
 
 			<!-- start footer Area -->		

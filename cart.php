@@ -9,132 +9,100 @@
     ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
-    <head>
-        <!-- Mobile Specific Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Favicon-->
-        <link rel="shortcut icon" href="img/fav.png">
-        <!-- Author Meta -->
-        <meta name="author" content="CodePixar">
-        <!-- Meta Description -->
-        <meta name="description" content="">
-        <!-- Meta Keyword -->
-        <meta name="keywords" content="">
-        <!-- meta character set -->
-        <meta charset="UTF-8">
-        <!-- Site Title -->
-        <title>Shop</title>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-            <!--
-            CSS
-            ============================================= -->
-            <link rel="stylesheet" href="css/linearicons.css">
-            <link rel="stylesheet" href="css/owl.carousel.css">            
-            <link rel="stylesheet" href="css/font-awesome.min.css">
-            <link rel="stylesheet" href="css/nice-select.css">
-            <link rel="stylesheet" href="css/ion.rangeSlider.css" />
-            <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
-            <link rel="stylesheet" href="css/bootstrap.css">
-            <link rel="stylesheet" href="css/main.css">
+
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="CodePixar">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Shop</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/nice-select.css">
+		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/main.css">
+			<link href="style.css" rel="stylesheet">
         </head>
         <body>
 
             <!-- Start Header Area -->
             <header class="default-header">
-                <div class="menutop-wrap">
-                    <div class="menu-top container">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="list">
-                                <li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
-                                <li><a href="contact_us.php">support@azeempatel.com</a></li>                             
-                            </ul>
-                            <?php
-							if($username == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
-							</ul>';
-							}
-							else{
-                                echo '<ul class="list">
-                                <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#" style="margin-right:20px">Welcome '.$uname.' </a></li>
-							</ul>';
-							}
+				<div class="menutop-wrap">
+					<div class="menu-top container" style="margin-left:3%;">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
 							
-							?>
-							<ul class="list">
-								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:25px; margin-left:20px; font-size:27px"> </span><a href="logout.php">Logout</a></li>
-							</ul>
+						</div>
+						
+						<div class="d-flex justify-content-between align-items-center">
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
 						</div>
 					</div>	
 					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light">
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
 					<div class="container" style="width:1500px;">
-					<span class="glyphicon glyphicon-align-justify" style="float:left; margin-right:25px; margin-left:20px; font-size:27px"> </span>
-						  <a class="navbar-brand" href="#">
-							  <img src="img/logo.png" alt="">
+
+						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
+							  <img style="margin-left:10px;" src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <div class="search-container" style="width:1600px;">
-								<!-- <form action="/action_page.php">
-								  <input type="text" size = "50" placeholder="Search.." name="search">
-								  <button type="submit"><i class="fa fa-search"></i></button>
-								</form> -->
+						  
+						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
+           					 <form action="#" method="get">
+              					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
+             					<button type="submit" class="d-none"></button>
+           					 </form>
 						  </div>
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
-						  <div class="collapse navbar-collapse" style = "margin-left:40%;" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
-								<li><a href="#home">Home</a></li>
 
-								<!-- <li><a href="#catagory">Category</a></li>
-								<li><a href="#men">Product</a></li> -->
-								<!-- <li><a href="#women">Women</a></li> -->
-								<li><a href="#latest">Recommendations</a></li>
+						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
+	
+						  <div class="collapse navbar-collapse" style = "margin-left:35%;" id="navbarSupportedContent">
+						    <ul class="navbar-nav" style="width:1500px;">
+								<li><a href="category.php">Home</a></li>
 									<!-- Dropdown -->
-								    <li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
-								      </a>
-								      <div class="dropdown-menu" style="margin-top:10px">
-								        <!-- <a class="dropdown-item" href="category.php">Category</a>
-								        <a class="dropdown-item" href="single.php">Single</a> -->
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a>
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      </div>
-								    </li>
-									<li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Category
-								      </a>
-								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
-								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
-								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
-								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
-								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      </div>
-								    </li>									
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Orders
+                                    </a>
+                                    <div class="dropdown-menu" style="margin-top:10px">
+                                    <a class="dropdown-item" href="order.php">Your Orders</a>
+                                    <a class="dropdown-item" href="order_status.php">Current Orders</a>
+                                    <!-- <a class="dropdown-item" href="login.php">Cancelled Orders</a> -->
+                                    <a class="dropdown-item" href="tracking.php">Tracking</a>
+                                    </div>
+                                </li>
+                                    <li><a href="favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
+                                </li>									
 						    </ul>
 						  </div>						
 					</div>
 				</nav>
 			</header>
-            <br>
-            <br>
             <!-- End Header Area -->
 
             <!-- Start Banner Area -->
@@ -308,8 +276,10 @@
                                     <div class="total">'.$total_price.'</div>
                                 </div>
                                 <div class="col-md-2 col-12">
-                                    <span class="glyphicon glyphicon-remove"> </span>
-                                    <div class="total"><a href = "cart_2.php?id1='.$item_id.'">Delete Item</a></div>
+                                    <ul>
+                                        <div class="total"><a href = "cart_2.php?id1='.$item_id.'">Remove Item</a></div>
+                                        <span class="glyphicon glyphicon-remove"> </span>
+                                    </ul>
                                 </div>
                             </div>
                             </div>';
@@ -322,114 +292,13 @@
                 }
                 ?>
                 
-                
-                <!-- <div class="cart-single-item">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 col-12">
-                            <div class="product-item d-flex align-items-center">
-                                <img src="img/ci2.jpg" class="img-fluid" alt="">
-                                <h6>Pixelstore fresh Blackberry</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-6">
-                            <div class="price">$360.00</div>
-                        </div>
-                        <div class="col-md-2 col-6">
-                            <div class="quantity-container d-flex align-items-center mt-15">
-                                <input type="text" class="quantity-amount" value="1" />
-                                <div class="arrow-btn d-inline-flex flex-column">
-                                    <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
-                                    <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-12">
-                            <div class="total">$720.00</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-single-item">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 col-12">
-                            <div class="product-item d-flex align-items-center">
-                                <img src="img/ci3.jpg" class="img-fluid" alt="">
-                                <h6>Pixelstore fresh Blackberry</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-6">
-                            <div class="price">$360.00</div>
-                        </div>
-                        <div class="col-md-2 col-6">
-                            <div class="quantity-container d-flex align-items-center mt-15">
-                                <input type="text" class="quantity-amount" value="1" />
-                                <div class="arrow-btn d-inline-flex flex-column">
-                                    <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
-                                    <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-12">
-                            <div class="total">$720.00</div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
-                    <a href="category.php" class="view-btn color-2"><span>Update Cart</span></a>
-                    <div class="cuppon-wrap d-flex align-items-center flex-wrap">
-                        <div class="cupon-code">
-                            <input type="text">
-                            <button class="view-btn color-2"><span>Apply</span></button>
-                        </div>
-                        <a href="#" class="view-btn color-2 have-btn"><span>Have a Coupon?</span></a>
-                    </div>
-                </div> -->
                 <div class="subtotal-area d-flex align-items-center justify-content-end">
                     <div class="title text-uppercase">Subtotal</div>
                     <div class="subtotal"><?php echo $total_cost ?></div>
                 </div>
-                <div class="shipping-area d-flex justify-content-end">
-                    <!-- <div class="tile text-uppercase">Shipping</div>
-                    <form action="#" class="d-inline-flex flex-column align-items-end">
-                        <ul class="d-flex flex-column align-items-end">
-                            <li class="filter-list">
-                                <label for="flat-rate">Flat Rate:<span>Rs 50.00</span></label>
-                                <input class="pixel-radio" type="radio" id="flat-rate" name="brand">
-                            </li>
-                            <li class="filter-list">
-                                <label for="free-shipping">Free Shipping</label>
-                                <input class="pixel-radio" type="radio" id="free-shipping" name="brand">
-                            </li>
-                            <li class="filter-list">
-                                <label for="flat-rate-2">Flat Rate:<span>Rs 50.00</span></label>
-                                <input class="pixel-radio" type="radio" id="flat-rate-2" name="brand">
-                            </li>
-                            <li class="filter-list">
-                                <label for="local-delivery">Local Delivery:<span>Rs 50.00</span></label>
-                                <input class="pixel-radio" type="radio" id="local-delivery" name="brand">
-                            </li>
-                            <li class="calculate">Calculate Shipping</li>
-                        </ul>
-                        <div class="sorting">
-                            <select>
-                                <option value="1">Bangladesh</option>
-                                <option value="1">India</option>
-                                <option value="1">Srilanka</option>
-                            </select>
-                        </div>
-                        <div class="sorting mt-20">
-                            <select>
-                                <option value="1">Select a State</option>
-                                <option value="1">Select a State</option>
-                                <option value="1">Select a State</option>
-                            </select>
-                        </div>
-                        <input type="text" placeholder="Postcode/Zipcode" onfocus="this.placeholder=''" onblur="this.placeholder = 'Postcode/Zipcode'" required class="common-input mt-10">
-                        <button class="view-btn color-2 mt-10"><span>Update Details</span></button>
-                    </form>
-
-                </div> -->
+                   
                 <div>
-                    <a href = "checkout_1.php"  button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
+                    <a href = "checkout_1.php"  button class="view-btn color-2 w-100 mt-20"><span>Buy Now</span></button>
                 </div>
             </div>
             <!-- End Cart Area -->

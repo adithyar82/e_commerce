@@ -20,7 +20,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
@@ -47,55 +49,45 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
-		</head>
-		<body>
+			<link href="style.css" rel="stylesheet">
+        </head>
+        <body>
 
-			<!-- Start Header Area -->
-			<header class="default-header">
-                <div class="menutop-wrap">
-                    <div class="menu-top container">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="list">
-                                <li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com.com</a></li>                             
-                            </ul>
-                            <?php
-							if($username == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
-							</ul>';
-							}
-							else{
-                                echo '<ul class="list">
-                                <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#" style="margin-right:20px">Welcome '.$uname.' </a></li>
-							</ul>';
-							}
+            <!-- Start Header Area -->
+            <header class="default-header">
+				<div class="menutop-wrap">
+					<div class="menu-top container" style="margin-left:3%;">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
 							
-							?>
-                            <ul class="list">
-								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:5px; font-size:20px"> &nbsp; &nbsp;</span><a href="logout.php" style = "margin-rigth:15px;">Logout</a></li>
-							</ul>
-                        </div>
-                    </div>                  
-                </div>
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="container">
-                          <a class="navbar-brand" href="category.php">
-                            <img style="margin-left:25px;" src="img/logo.png" alt="">
-                            <p> Company Logo </p>
-                          </a>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li><a href="category.php">Home</a></li>
-                            </ul>
-                          </div>                        
-                    </div>
-                </nav>
-            </header>
+						</div>
+						
+						<div class="d-flex justify-content-between align-items-center">
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+						</div>
+					</div>	
+					<br>				
+				</div>
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
+					<div class="container" style="width:1500px;">
+
+						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
+							  <img style="margin-left:25px;" src="img/logo.png" alt="">
+							  <p> Company Logo </p>
+						  </a>
+	
+						  <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
+						    <ul class="navbar-nav" style="width:1500px;">
+								<li><a href="D_homepage.php">Home</a></li>					
+						    </ul>
+						  </div>						
+					</div>
+				</nav>
+			</header>
+           
 			<!-- End Header Area -->
 
 			<!-- start banner Area -->

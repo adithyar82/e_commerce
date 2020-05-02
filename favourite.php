@@ -7,86 +7,78 @@
     // $id3 = $_REQUEST['id3'];
     ?>
     <!DOCTYPE html>
-    <html lang="zxx" class="no-js">
-    <head>
-        <!-- Mobile Specific Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Favicon-->
-        <link rel="shortcut icon" href="img/fav.png">
-        <!-- Author Meta -->
-        <meta name="author" content="CodePixar">
-        <!-- Meta Description -->
-        <meta name="description" content="">
-        <!-- Meta Keyword -->
-        <meta name="keywords" content="">
-        <!-- meta character set -->
-        <meta charset="UTF-8">
-        <!-- Site Title -->
-        <title>Shop</title>
+	<html lang="zxx" class="no-js">
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-            <!--
-            CSS
-            ============================================= -->
-            <link rel="stylesheet" href="css/linearicons.css">
-            <link rel="stylesheet" href="css/owl.carousel.css">            
-            <link rel="stylesheet" href="css/font-awesome.min.css">
-            <link rel="stylesheet" href="css/nice-select.css">
-            <link rel="stylesheet" href="css/ion.rangeSlider.css" />
-            <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
-            <link rel="stylesheet" href="css/bootstrap.css">
-            <link rel="stylesheet" href="css/main.css">
+
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="CodePixar">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Shop</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/nice-select.css">
+		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/main.css">
+			<link href="style.css" rel="stylesheet">
         </head>
         <body>
 
             <!-- Start Header Area -->
             <header class="default-header">
-                <div class="menutop-wrap">
-                    <div class="menu-top container">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="list">
-                                <li><a href="contact_us.php">+91 8095566699   |   support@azeempatel.com</a></li>                            
-                            </ul>
-                        </div>
-                    </div>                  
-                </div>
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="container">
-                          <a class="navbar-brand" href="category.php">
-                            <img src="img/logo.png"style="margin-left:2%;" alt="">
-                          </a>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li><a href="#home">Home</a></li>
-                                <li><a href="#catagory">Category</a></li>
-                                <!-- <li><a href="#men">Men</a></li>
-                                <li><a href="#women">Women</a></li>
-                                <li><a href="#latest">latest</a></li> -->
-                                    <!-- Dropdown -->
-                                    <!-- <li class="dropdown">
-                                      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                        Pages
-                                      </a>
-                                      <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="category.php">Category</a>
-                                        <a class="dropdown-item" href="single.php">Single</a>
-                                        <a class="dropdown-item" href="cart.php">Cart</a>
-                                        <a class="dropdown-item" href="checkout.php">Checkout</a>
-                                        <a class="dropdown-item" href="confermation.php">Confermation</a>
-                                        <a class="dropdown-item" href="login.php">Login</a>
-                                        <a class="dropdown-item" href="tracking.php">Tracking</a>
-                                        <a class="dropdown-item" href="generic.php">Generic</a>
-                                        <a class="dropdown-item" href="elements.php">Elements</a>
-                                      </div>
-                                    </li>                                    -->
-                            </ul>
-                          </div>                        
-                    </div>
-                </nav>
-            </header>
+				<div class="menutop-wrap">
+					<div class="menu-top container" style="margin-left:3%;">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
+							
+						</div>
+						
+						<div class="d-flex justify-content-between align-items-center">
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+						</div>
+					</div>	
+					<br>				
+				</div>
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
+					<div class="container" style="width:1500px;">
+
+						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
+							  <img style="margin-left:25px;" src="img/logo.png" alt="">
+							  <p> Company Logo </p>
+						  </a>
+	
+						  <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
+						    <ul class="navbar-nav" style="width:1500px;">
+								<li><a href="D_homepage.php">Home</a></li>					
+						    </ul>
+						  </div>						
+					</div>
+				</nav>
+			</header>
             <!-- End Header Area -->
 
             <!-- Start Banner Area -->

@@ -167,20 +167,33 @@
 			<!-- Start Header Area -->
 			<header class="default-header">
 				<div class="menutop-wrap">
-					<div class="menu-top container" style="margin-left:7%;">
+					<div class="menu-top container" style="margin-left:3%;">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
+							
+						</div>
+						
+						<div class="d-flex justify-content-between align-items-center">
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+						</div>
+					</div>	
+					<br>				
 				</div>
-
-				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-left:5%">
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
 					<div class="container" style="width:1500px;">
-						  <a class="navbar-brand" href="#">
-							  <img style="margin-left:25%;"src="img/logo.png" alt="">
+
+						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
+							  <img style="margin-left:25px;" src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-					
-						  <div class="collapse navbar-collapse" style = "margin-left:45%;" id="navbarSupportedContent">
+	
+						  <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
-								<li><a href="category.php" style = "margin-left:85%">Home</a></li>
-							</ul>
+								<li><a href="D_homepage.php">Home</a></li>					
+						    </ul>
 						  </div>						
 					</div>
 				</nav>
