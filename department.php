@@ -1,6 +1,7 @@
 <?php
     session_start();
-    $id1 = $_REQUEST['id1'];
+	$id1 = $_REQUEST['id1'];
+	$category = $id1;
 	$username = $_SESSION['username'];
 	echo $_SESSION['username'];
 	?>
@@ -233,7 +234,7 @@
 							<?php 
 								  include('connect_db.php');
 								  session_start();
-								  $sql = "SELECT * FROM products;";
+								  $sql = "SELECT * FROM products WHERE category = '$category';";
 								  $result = $conn->query($sql);
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
