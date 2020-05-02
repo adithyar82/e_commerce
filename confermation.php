@@ -46,6 +46,7 @@
 }
     $sql3 = "INSERT INTO shipping(shipping_id, product_id, address_1, address_2,city,state,zipcode,country) VALUES (Null, '$order_id','$address_1','$address_2','$city','$state','$zip','$country');";
     $result3 = $conn->query($sql3);
+    
     $sql_2 = "UPDATE products SET product_quantity = '$product_quantity' WHERE product_id = '$order_id';";
     $result2 = $conn->query($sql2);
     $payment_type = "abc";
@@ -83,10 +84,10 @@
             // </script>';
         }
         echo '<script>
-        alert("Registered Successfully '.$sql.''.$result.''.$sql3.'");
+        alert("Registered Successfully '.$sql.''.$result.'");
         </script>';
     }
-
+    
     ?>
     <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
