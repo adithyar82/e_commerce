@@ -51,7 +51,9 @@
     $result2 = $conn->query($sql2);
     $payment_type = "abc";
     $fname = "abc";
-    $sql_2 = "INSERT INTO payment(payment_id, final_cost,payment_type,time_created,order_id,fname,product_name) VALUES (Null, '$final_cost', '$payment_type', CURRENT_TIME(), '$order_id','$fname','$name');";
+    $payment_status = "Successful";
+    
+    $sql_2 = "INSERT INTO payment(payment_id, final_cost,payment_type,time_created,order_id,fname,product_name,product_image,status) VALUES (Null, '$final_cost', '$payment_type', CURRENT_TIME(), '$order_id','$fname','$name','$product_image','$payment_status');";
     $result_2 = $conn->query($sql_2);
     if($result->num_rows>=0){
         $mail = new PHPMailer;
