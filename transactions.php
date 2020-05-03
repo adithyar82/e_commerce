@@ -119,7 +119,11 @@
 									echo '<section class="brand-area pb-100">
 									<div class="container">
 										<div class="row logo-wrap"><div class="row logo-wrap">
-									<h3><br> Order ID &nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:'.$order_id.' <br><br> Transaction ID &emsp;&emsp;&emsp;: '.$payment_id.'<br> <br>Transaction Amount: '.$final_cost.' <br><br> Product Name &emsp;&emsp;&emsp;: '.$product_name.' <br><br> Transaction Time &nbsp;&nbsp;&emsp;: '.$time_created.' <br><br> Payment Method &nbsp;&nbsp;&nbsp;&emsp;: '.$payment_type.' <br><br> Payment Status &nbsp;&nbsp;&nbsp;&emsp;: '.$status.' <br><br></h3>
+										<div class="container">
+											<img class="content-image" src="'.$product_image.'" alt="">
+										</div>
+									</div>
+									<h3><br> Order ID &nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:'.$order_id.' <br><br> Transaction ID &emsp;&emsp;&emsp;: '.$payment_id.'<br> <br>Transaction Amount: '.$final_cost.' <br><br> Product Name &emsp;&emsp;&emsp;: '.$product_name.' <br><br> Transaction Time &nbsp;&nbsp;&emsp;: '.$time_created.' <br><br> Payment Method &nbsp;&nbsp;&nbsp;&emsp;: '.$payment_type.' <br><br> Payment Status &nbsp;&nbsp;&emsp;&emsp;: '.$status.' <br><br></h3>
 									</div>
 								</div>	
 			            	</section>';
