@@ -146,8 +146,8 @@
                 $username = $_SESSION['username'];
                 $sql = "SELECT * FROM items WHERE username = '$username';";
                 $result=$conn->query($sql);
-                $sql1 = "SELECT SUM(final_cost) as total_cost FROM items WHERE username ='$username';";
-                $result1 = $conn->query($sql1);
+                // $sql1 = "SELECT SUM(final_cost) as total_cost FROM items WHERE username ='$username';";
+                // $result1 = $conn->query($sql1);
                 // 
                 if($result->num_rows>0){
                     while($row = $result->fetch_assoc()){
