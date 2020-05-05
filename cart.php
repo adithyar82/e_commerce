@@ -155,7 +155,7 @@
                         $item_price = $row['item_price']; 
                         $product_quantity = $row['product_quantity'];
                         $product_quantity_1 = $row['initial_quantity'];
-                        $item_id = $row['id'];
+                        // $item_id = $row['id'];
                         $total_price = $product_quantity * $item_price;
                         
                          echo'
