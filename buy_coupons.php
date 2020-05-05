@@ -1,6 +1,24 @@
 <?php
     include('connect_db.php');
-    session_start();
+	session_start();
+	if(isset($_POST['submit'])){
+		$referral_code = $_POST['referral_code'];
+		$sql = "SELECT * FROM Users where referral_code = '$referral_code';";
+		$result = $conn->query($sql);
+		if($result->num_rows>0){
+			echo '<script>
+			alert("Registered Successfully");
+			window.location = "cart.php?id=50";
+			</script>';
+		}
+		else {
+			echo '<script>
+			alert("Invalid Credentials");
+			window.location = "cart.php?";
+			</script>';
+		}
+
+	}
     $total_cost = $_REQUEST['id'];
 	$username = $_SESSION['username'];
     echo $_SESSION['username'];
@@ -13,7 +31,7 @@
 			$minimum_cost = $row['cost'];
 
         }
-    }
+	}
 	?>
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
