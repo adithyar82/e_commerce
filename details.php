@@ -201,7 +201,7 @@
             <!-- End Header Area -->
 		    <section>
 							<div class="row" style="margin-left:15%;">
-								<div class="col-lg-8" style="margin-top:5%;margin-bottom:5%">
+								<div style="margin-top:5%;margin-bottom:5%">
 									<?php 
 										include('connect_db.php');
 										//   session_start();
@@ -235,7 +235,7 @@
 										}
 									?>
 								</div>
-								<div class="col-lg-4" style="margin-bottom:5%; margin-left:5%;">
+								<div style="margin-bottom:5%; margin-left:5%;">
 									<?php
 										include('connect_db.php');
 										//   session_start();
@@ -352,7 +352,7 @@
 											}
 										}
 									?>
-							</div>
+								</div>
 						
 							<div class="container" style="margin-bottom:5%;margin-left:7%;">
 									<?php
