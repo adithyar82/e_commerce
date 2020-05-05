@@ -200,8 +200,8 @@
 			</header>
             <!-- End Header Area -->
 		    <section>
-							<div class="row">
-								<div class="col-lg-8" style="margin-left:10%;margin-top:5%;">
+							<div class="row" style="margin-left:15%;">
+								<div class="col-lg-8" style="margin-top:5%;margin-bottom:5%">
 									<?php 
 										include('connect_db.php');
 										//   session_start();
@@ -235,7 +235,7 @@
 										}
 									?>
 								</div>
-								<div class="col-lg-4" style="margin-left:10%;margin-bottom:5%;">
+								<div class="col-lg-4" style="margin-bottom:5%; margin-left:5%;">
 									<?php
 										include('connect_db.php');
 										//   session_start();
@@ -248,6 +248,20 @@
 												$average_ratings = $row['average_ratings'];
 											}
 										}
+										$sql3 = "SELECT COUNT(ratings) as total_ratings FROM product_ratings WHERE product_name = '$product_name';";
+										$result3 = $conn->query($sql3);
+										if($result3->num_rows>0){
+											while($row = $result3->fetch_assoc()){
+												$total_ratings = $row['total_ratings'];
+											}
+										}
+										$sql_3 = "SELECT COUNT(reviews) as total_reviews FROM product_reviews WHERE product_name = '$product_name';";
+										$result_3 = $conn->query($sql_3);
+										if($result_3->num_rows>0){
+											while($row = $result_3->fetch_assoc()){
+												$total_reviews = $row['total_reviews'];
+											}
+										}
 										if($result->num_rows>0){
 											while($row = $result->fetch_assoc()){
 												
@@ -256,17 +270,50 @@
 												$initial_cost = $row['initial_cost'];
 												$final_cost = $row['final_cost'];
 												$product_image = $row['product_image'];
+												$category = $row['category'];
 												$product_quantity = $row['product_quantity'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
-
+												$discount_price=($initial_cost-$final_cost);
 													echo '<div class="price">
-												
-														<h1 style="margin-bottom:3%;">'.$product_name.'</h1>
-															<h4 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h4>
-														<h3 style="margin-bottom:3%;">'.$final_cost.'</h3>
-														<h3 style="margin-bottom:3%;">You save '.$discount.'%</h3>
+														<div class="row" style="margin-left:1%;">
+															<h3 style="margin-bottom:3%;">'.$product_name.'	|	</h3>
+															<h5 style="margin-top:2%;">&emsp;'.$category.'</h5>
+														</div>
+														<div class="row" style="margin-left:1%;">
+															<h5 style="margin-top:2%;">Price :</h5>
+															<h5 style="margin-top:2%; margin-left:2%;" class="text-white"><del style = "color : black">'.$initial_cost.'</del>&emsp;</h5>
+															<h3 style="color:green;">'.$final_cost.'</h3>
+														</div>
+														<div class="row" style="margin-left:1%;">
+															<h6 style="margin-bottom:3%;margin-top:2%">Discount :&emsp;</h6>
+															<h4 style="margin-bottom:3%;color:red;">Rs.	'.$discount_price.'</h4>
+														</div>
+														<h6> (Inclusive of all taxes)</h6>
 														<br>
-														
+														<div class="row" style="margin-left:1%;">
+															<h5> Average Ratings: '.round($average_ratings,1).'</h5>
+															<div style="margin-top:10%;">
+															<form method = "POST" action = "product_ratings.php">
+																<span class="rating-star" style="margin-left:28%;">
+																	<input type="radio" name="rating" value="5"><span class="star"></span>
+																
+																		<input type="radio" name="rating" value="4"><span class="star"></span>
+																
+																		<input type="radio" name="rating" value="3"><span class="star"></span>
+																
+																		<input type="radio" name="rating" value="2"><span class="star"></span>
+																
+																	<input type="radio" name="rating" value="1"><span class="star"></span>
+																</span>  
+																<input type = "text" name = "product_name" value = "'.$product_name.'" hidden>  
+																<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-10"><span></span>
+																</form>
+															</div>
+														</div>
+														<div class="row" style="margin-left:3%;">
+															<h5>Ratings&nbsp;&nbsp;:&nbsp;'.$total_ratings.'</h5>
+															<h5>&emsp;Reviews&nbsp;&nbsp;:&nbsp;'.$total_reviews.'</h5>
+														</div>
 									
 														<a href=" favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "font-size: 20px; color:black"><span class="glyphicon glyphicon-heart" style="font-size:25px; color:black; margin-right:3%;"></span>Add to Favourites</a><br>
 														<br>
@@ -295,24 +342,9 @@
 														<br>
 														<br>
 														<h5>Location</h5><br>
-														<h5> Average Ratings: '.round($average_ratings,1).'</h5><br>
 														
 								
-														<form method = "POST" action = "product_ratings.php">
-														<span class="rating-star" style="margin-left:28%;">
-															<input type="radio" name="rating" value="5"><span class="star"></span>
 														
-																<input type="radio" name="rating" value="4"><span class="star"></span>
-														
-																<input type="radio" name="rating" value="3"><span class="star"></span>
-														
-																<input type="radio" name="rating" value="2"><span class="star"></span>
-														
-															<input type="radio" name="rating" value="1"><span class="star"></span>
-														</span>  
-														<input type = "text" name = "product_name" value = "'.$product_name.'" hidden>  
-														<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-10"><span></span>
-														</form>
 														
 												</div>
 												</div>
@@ -322,7 +354,7 @@
 									?>
 							</div>
 						
-							<div class="container" style="margin-bottom:5%;">
+							<div class="container" style="margin-bottom:5%;margin-left:7%;">
 									<?php
 										include('connect_db.php');
 										//session_start();
