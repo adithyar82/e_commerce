@@ -7,6 +7,8 @@ if(isset($_POST['submit'])){
     $phone_number = $_POST['phone_number'];
     $username = $_POST['username'];
     $password  = md5($_POST['pwd']);
+    $arr1 = rand(1000000,9999999);
+    $referral_code = $username.$arr1;
 }
 $sql_1 = "SELECT * FROM Users where email_address = '$email_address';";
 $registration_status = 0;
@@ -18,7 +20,7 @@ if($result_1->num_rows>0){
     </script>';
 }
 else{
-$sql = "INSERT INTO Users(user_id,fname,email_address,phone_number,username,password,registration_status) VALUES (Null, '$fname','$email_address','$phone_number','$username','$password','$registration_status')";
+$sql = "INSERT INTO Users(user_id,fname,email_address,phone_number,username,password,referral_code) VALUES (Null, '$fname','$email_address','$phone_number','$username','$password','$referral_code')";
 // if (($result = $conn->query($sql))!== False){
 //     echo "New record created successfully";
 // } else {

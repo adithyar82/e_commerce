@@ -2,8 +2,8 @@
     include('connect_db.php');
     session_start();
     // $username = $_SESSION['username'];
-    $username = "abc";
-    $sql = "SELECT * FROM Users where fname = '$username';";
+    $username = "harshi";
+    $sql = "SELECT * FROM Users where username = '$username';";
     $result = $conn->query($sql);
     if($result->num_rows>=0){
         while($row = $result->fetch_assoc()){
@@ -11,6 +11,7 @@
             $username = $row['username'];
             $phone_number = $row['phone_number'];
             $email_address = $row['email_address'];
+            $referral_code = $row['referral_code'];
         }
     }
     
@@ -48,6 +49,15 @@
             <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
             <link rel="stylesheet" href="css/bootstrap.css">
             <link rel="stylesheet" href="css/main.css">
+            <script>
+            function myFunction() {
+            var copyText = document.getElementById("myInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+            alert("Copied the text: " + copyText.value);
+            }
+            </script>
 
         </head>
         <body>
@@ -125,10 +135,17 @@
                             <div class="register-form">
                                 <h3 class="billing-title text-center"><span style="font-size:75px;" class="glyphicon glyphicon-user"></span></h3>
                                 <p class="text-center mt-40 mb-30"><?php echo $fname; ?></p>
+                                <p class="text-center mt-40 mb-30">Referral Code:</p>
+                                <input type="text" style = "margin-left:40%;" value="<?php echo $referral_code?>" id="myInput" disabled><br>
+                                <br>
+                                <button style = "margin-left:40%;"  onclick="myFunction()">Copy Referral Code</button>
+                                <br>
                                 <form>
                                     <h4 style="color:white;">Phone Number</h4><br>
+                                    <p> <?php echo $phone_number ?> </p>
                                     <br>
                                     <h4 style="color:white;">Email Address</h4><br>
+                                    <p> <?php echo $email_address ?> </p>
                                     <br>
                                     <h4 style="color:white;">Saved Address</h4><br>
                                     <br>
