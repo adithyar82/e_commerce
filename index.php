@@ -77,7 +77,7 @@ $result = $conn->query($sql);
 						
 						<div class="d-flex justify-content-between align-items-center">
 								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+								<!-- <li><i class="glyphicon glyphicon-map-marker"></i></li>								 -->
 						</div>
 					</div>	
 					<br>				
