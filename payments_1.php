@@ -47,10 +47,10 @@ echo $amount;
 	// PayPal settings. Change these to your account details and the relevant URLs
 	// for your site.
 	$paypalConfig = [
-		'email' => 'sb-ovOot1549898@business.example.com'
-		// 'return_url' => 'https://toihr.com/payment_successful_1.php',
+		'email' => 'sb-ovOot1549898@business.example.com',
+		'return_url' => 'https://loket.in/confermation.php',
 		// 'cancel_url' => 'https://example.com/payment-cancelled.html',
-		// 'notify_url' => 'https://toihr.com/payments_1.php'
+		'notify_url' => 'https://loket.in/confermation.php',
 	];
 
 	$paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
