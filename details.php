@@ -127,6 +127,19 @@
 				margin-top: 20px;
 				}
 			</style>
+			<style>
+				.content{
+					display:flex;
+					justify-content:center;
+					align-items:center;
+					overflow:hidden
+				}
+				.content img{
+					flex-shrink:0;
+					min-height:100%;
+					min-width:100%;
+				}
+			</style>
 			<script>
 				$('#row').pagination({
 				dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],
@@ -200,8 +213,9 @@
 			</header>
             <!-- End Header Area -->
 		    <section>
+
 							<div class="row" style="margin-left:15%;">
-								<div style="margin-top:5%;margin-bottom:5%">
+								<div class="col-lg-8" style="margin-top:5%;margin-bottom:5%">
 									<?php 
 										include('connect_db.php');
 										//   session_start();
@@ -216,10 +230,15 @@
 												$final_cost = $row['final_cost'];
 												$product_image = $row['product_image'];
 												$product_quantity = $row['product_quantity'];
+												$category = $row['category'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 												echo '<div class="col-md-6 single-product">
-												<a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-plus" style="float:right; font-size:25px"> </span></a>
-													<div class="content">
+													<div class="row" style="margin-left:1%;">
+														<h4>'.$product_name.'&emsp;&emsp;|	</h4>
+														<h5 style="margin-top:2%;">&emsp;'.$category.'</h5>
+													</div>
+													<br>
+													<div class="content" style="height:275px;">
 													<div class="content-overlay"></div>
 														<img class=" img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
 													<div class="content-details fadeIn-bottom">
@@ -229,13 +248,35 @@
 																<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
 															</div>
 													</div>
-												</div>';
+												</div>
+												<br>
+												<div>
+													<a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-plus" style="font-size:25px;"></span></a>
+													<a href=" favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color:black;"><span class="glyphicon glyphicon-heart" style="font-size:25px;margin-left:5%;"></span></a>
+													<button value="Copy Url" onclick="Copy();" style="margin-left:65%;"><span class="glyphicon glyphicon-share-alt" style="font-size:25px; color:black; margin-right:3%;"></span>
+												</div>
+												<div>';
+													if($product_quantity<5){
+														if($product_quantity==0){
+														echo'<p style = "color:red"> Out of Stock <p>';  
+														}
+														else{
+														echo '<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>';
+														echo'<p style = "color:red; margin-left:32%; margin-top:2%"> Only '.$product_quantity.' left in stock<p>';
+														}
+													}
+													else{
+													echo'<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>';
+													}
+													echo'
+												</div>
+												<h5>Shop Location</h5>';
 											}
 
 										}
 									?>
 								</div>
-								<div style="margin-bottom:5%; margin-left:5%;">
+								<div class="col-lg-4" style="margin-bottom:5%; margin-left:5%; margin-top:1.5%">
 									<?php
 										include('connect_db.php');
 										//   session_start();
@@ -274,25 +315,32 @@
 												$product_quantity = $row['product_quantity'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 												$discount_price=($initial_cost-$final_cost);
-													echo '<div class="price">
-														<div class="row" style="margin-left:1%;">
-															<h3 style="margin-bottom:3%;">'.$product_name.'	|	</h3>
-															<h5 style="margin-top:2%;">&emsp;'.$category.'</h5>
-														</div>
+													echo '<div class="price" style="margin-top:15%;">
+														<br>
+														<br>
 														<div class="row" style="margin-left:1%;">
 															<h5 style="margin-top:2%;">Price :</h5>
 															<h5 style="margin-top:2%; margin-left:2%;" class="text-white"><del style = "color : black">'.$initial_cost.'</del>&emsp;</h5>
 															<h3 style="color:green;">'.$final_cost.'</h3>
 														</div>
-														<div class="row" style="margin-left:1%;">
+														<div class="row" style="margin-left:15%;">
 															<h6 style="margin-bottom:3%;margin-top:2%">Discount :&emsp;</h6>
 															<h4 style="margin-bottom:3%;color:red;">Rs.	'.$discount_price.'</h4>
 														</div>
-														<h6> (Inclusive of all taxes)</h6>
+														<h6 style="margin-left:12%;"> (Inclusive of all taxes)</h6>
+														<br>
 														<br>
 														<div class="row" style="margin-left:1%;">
-															<h5> Average Ratings: '.round($average_ratings,1).'</h5>
-															<div style="margin-top:10%;">
+															<h5 style="margin-left:16%;"> Average Ratings: '.round($average_ratings,1).'</h5>
+														</div>
+														<br>
+														<div class="row" style="margin-left:3%;">
+															<h5>Ratings&nbsp;&nbsp;:&nbsp;'.$total_ratings.'&emsp;|</h5>
+															<h5>&emsp;Reviews&nbsp;&nbsp;:&nbsp;'.$total_reviews.'</h5>
+														</div>
+														<br>
+														<div>
+															<div style="margin-top:5%;">
 															<form method = "POST" action = "product_ratings.php">
 																<span class="rating-star" style="margin-left:28%;">
 																	<input type="radio" name="rating" value="5"><span class="star"></span>
@@ -306,49 +354,14 @@
 																	<input type="radio" name="rating" value="1"><span class="star"></span>
 																</span>  
 																<input type = "text" name = "product_name" value = "'.$product_name.'" hidden>  
-																<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-10"><span></span>
-																</form>
+																<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-70"><span></span>
+															</form>
 															</div>
 														</div>
-														<div class="row" style="margin-left:3%;">
-															<h5>Ratings&nbsp;&nbsp;:&nbsp;'.$total_ratings.'</h5>
-															<h5>&emsp;Reviews&nbsp;&nbsp;:&nbsp;'.$total_reviews.'</h5>
-														</div>
-									
-														<a href=" favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "font-size: 20px; color:black"><span class="glyphicon glyphicon-heart" style="font-size:25px; color:black; margin-right:3%;"></span>Add to Favourites</a><br>
 														<br>
-														<button value="Copy Url" onclick="Copy();" ><span class="glyphicon glyphicon-share-alt" style="font-size:25px; color:black; margin-right:3%;"> Share</span>
-														<div>
-
-															
-															
-
-														</div>
-														</div>
-														<br>';
-														if($product_quantity<5){
-															if($product_quantity==0){
-															  echo'<p style = "color:red"> Out of Stock <p>';  
-															}
-															else{
-															echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
-															echo '<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>';
-															}
-														}
-														else{
-														echo'<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>';
-														}
-														echo'
-														<br>
-														<br>
-														<h5>Location</h5><br>
-														
-								
-														
-														
-												</div>
-												</div>
-												<br>';
+													</div>		
+								</div>
+							</div>';
 											}
 										}
 									?>
