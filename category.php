@@ -637,6 +637,235 @@
 								  }
 							?>
 							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Gift' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Gifts </h3>
+								  <br>
+								  <a href="department.php?id1=Gift" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  
+												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+												  <h4>'.$final_cost.'</h4>
+												  <h5>You save '.$discount.'%</h5>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Hardware' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Hardware </h3>
+								  <br>
+								  <a href="department.php?id1=Hardware" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  
+												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+												  <h4>'.$final_cost.'</h4>
+												  <h5>You save '.$discount.'%</h5>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Fashion' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Fashion </h3>
+								  <br>
+								  <a href="department.php?id1=Fashion" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  
+												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+												  <h4>'.$final_cost.'</h4>
+												  <h5>You save '.$discount.'%</h5>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Medicines' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Medicines </h3>
+								  <br>
+								  <a href="department.php?id1=Medicines" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  
+												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+												  <h4>'.$final_cost.'</h4>
+												  <h5>You save '.$discount.'%</h5>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
 						</section>
 						<!-- End Best Seller -->
 						<!-- Start Filter Bar -->
