@@ -401,7 +401,7 @@
 							  <p> Company Logo </p>
 						  </a>
 						  
-						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
+						  <div class="search-form" style="margin-left:2%; margin-top:1.5%">
            					 <form action="#" method="get">
               					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
              					<button type="submit" class="d-none"></button>
