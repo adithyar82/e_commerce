@@ -224,6 +224,19 @@
 										//   session_start();
 										$sql = "SELECT * FROM products WHERE product_name = '$product_name';";
 										$result = $conn->query($sql);
+										$sql_3 = "SELECT * FROM shops;";
+										$result_3 = $conn->query($sql_3);
+										if($result_3->num_rows>0){
+											while($row=$result_3->fetch_assoc()){
+												$address_12 = $row['address_1'];
+												$city_12 = $row['city'];
+												$state_12 = $row['state'];
+												$zipcode_12 = $row['zipcode'];
+												$country_12 = $row['country'];
+											}
+										}
+										
+										$shop_address = $address_12.' '.$city_12.' '.$state_12.' '.$zipcode_12.' '.$country_12;
 										if($result->num_rows>0){
 											while($row = $result->fetch_assoc()){
 												
@@ -236,7 +249,7 @@
 												$category = $row['category'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 												echo '<div class="col-md-6 single-product">
-													<div class="row" style="margin-left:1%;">
+													<div class="row" style="margin-left:1%; margin-top:15%">
 														<h4>'.$product_name.'&emsp;&emsp;|	</h4>
 														<h5 style="margin-top:2%;">&emsp;'.$category.'</h5>
 													</div>
@@ -264,16 +277,18 @@
 														echo'<p style = "color:red"> Out of Stock <p>';  
 														}
 														else{
-														echo '<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>';
+														echo '<button onclick="location.href = "delivery_details_1.php" class="view-btn color-2 w-100 mt-10" ><span>Check In</span></button>';
 														echo'<p style = "color:red; margin-left:32%; margin-top:2%"> Only '.$product_quantity.' left in stock<p>';
 														}
 													}
+													
 													else{
-													echo'<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>';
+														$abc = "delivery_details_1.php";
+													echo'<button onclick="location.href = '.$abc.'" class="view-btn color-2 w-100 mt-10" ><span>Check In</span></button>';
 													}
 													echo'
 												</div>
-												<h5>Shop Location</h5>';
+												';
 											}
 
 										}
@@ -387,6 +402,10 @@
 												$product_image = $row['product_image'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 												echo'<div class="reviews" style="margin-left:10%;margin-right:15%">
+												<h5>Shop Location: <a href="http://maps.google.com/maps?q='.$shop_address.'" target="_blank">'.
+												$address_12.','.$city_12.','.$state_12.','.$zipcode_12.','.$country_12.'
+												</a></h5>
+												<br>
 														<h5>Description</h5>
 														<textarea type="text" name = "description" cols="10" rows="5" placeholder="Description*" onfocus="this.placeholder=" onblur="this.placeholder = Description*" required class="common-input mt-20"></textarea>
 														<br>
