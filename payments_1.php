@@ -71,7 +71,7 @@ echo $amount;
 
 		// Set the PayPal return addresses.
 		$data['return'] = stripslashes($paypalConfig['return_url']);
-		$data['cancel_return'] = stripslashes($paypalConfig['cancel_url']);
+		// $data['cancel_return'] = stripslashes($paypalConfig['cancel_url']);
 		$data['notify_url'] = stripslashes($paypalConfig['notify_url']);
 
 		// Set the details about the product being purchased, including the amount
@@ -87,7 +87,7 @@ echo $amount;
 		$queryString = http_build_query($data);
 
 		// Redirect to paypal IPN
-		header('location:' . $paypalUrl . '?' . $queryString);
+		// header('location:' . $paypalUrl . '?' . $queryString);
 		exit();
 
 	} else {
