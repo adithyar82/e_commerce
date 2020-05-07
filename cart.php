@@ -1,5 +1,8 @@
     <?php
     session_start();
+    if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+	}
     include('connect_db.php');
     $username = $_SESSION['username'];
     $product_id = $_SESSION['product_id'];

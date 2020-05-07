@@ -1,5 +1,8 @@
 <?php
-    session_start();
+	session_start();
+	if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+    }
 	$id1 = $_REQUEST['id1'];
 	$category = $id1;
 	$username = $_SESSION['username'];
