@@ -1,5 +1,8 @@
 <?php
 include('connect_db.php');
+if(!isset($_SESSION['uname'])){
+    header("location:index.php");
+}
 $sql1 = "SELECT COUNT(status) as ordered FROM order_status WHERE status != 'ordered';";
 	$result1 = $conn->query($sql1);
 	if($result1->num_rows>0){

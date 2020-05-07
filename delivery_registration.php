@@ -1,5 +1,9 @@
 <?php
 include('connect_db.php');
+session_start();
+if(!isset($_SESSION['uname'])){
+    header("location:index.php");
+}
 $registration_status = $_REQUEST['id1'];
 $encrypted = $_REQUEST['id2'];
 function my_simple_crypt( $string, $action = 'd') {

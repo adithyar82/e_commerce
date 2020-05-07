@@ -1,6 +1,9 @@
 <?php
     include('connect_db.php');
-    session_start();
+	session_start();
+	if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+	}
 	$username = $_SESSION['username'];
     echo $_SESSION['username'];
     $sql = "SELECT * FROM order_status WHERE fname = '$username';";
