@@ -33,9 +33,10 @@
     if($result_1->num_rows>=0){
         while($row = $result_1->fetch_assoc()){
             $product_image = $row['product_image'];
+            $shop_id = $row['shop_id'];
         }
     }
-    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, shipping_id, payment_id, product_quantity,status,product_image) VALUES (Null,'$order_id','$fname','$final_cost', '$name', '250', '450', '1','$status','$product_image');";
+    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, shipping_id, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$name', '250', '450', '1','$status','$product_image','$shop_id');";
     $result = $conn->query($sql);
     $sql1 = "SELECT * FROM products WHERE product_id = '$order_id';";
     $result1 = $conn->query($sql1);
