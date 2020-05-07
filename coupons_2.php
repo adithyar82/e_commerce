@@ -1,5 +1,8 @@
 <?php 
 include('connect_db.php');
+if(!isset($_SESSION['uname'])){
+    header("location:index.php");
+}
 if(isset($_POST['submit'])){
     $coupon_code = $_POST['coupon_code'];
     $value = $_POST['value'];
