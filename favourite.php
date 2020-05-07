@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+	}
     include('connect_db.php');
     $username = $_SESSION['username'];
     // $id1 = $_REQUEST['id1'];

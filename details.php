@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+	}
 	$uname = $_SESSION['uname'];
 	$product_name = $_REQUEST['id'];
 	echo $_SESSION['username'];
