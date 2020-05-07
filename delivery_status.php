@@ -4,6 +4,14 @@
 	if(!isset($_SESSION['uname'])){
 		header("location:index.php");
 	}
+	$uname = $_SESSION['uname'];
+	$sql_1 = "SELECT * FROM Users WHERE fname = '$uname';";
+	$result_1 = $conn->query($sql_1);
+	if($result_1->num_rows>0){
+		while($row = $result_1->fetch_assoc()){
+			$phone_number = $row['phone_number'];
+		}
+	}
 	$username = $_SESSION['username'];
     echo $_SESSION['username'];
     $sql = "SELECT * FROM order_status WHERE fname = '$username';";
@@ -53,6 +61,15 @@
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
 			<link href="style.css" rel="stylesheet">
+			<script> 
+			$("address").each(function(){
+					var address = $(this).text().replace(/\,/g, ' '); // get rid of commas
+					var url = address.replace(/\ /g, '%20'); // convert address into approprite URI for google maps
+					
+					$(this).wrap('<a href="http://maps.google.com/maps?q=' + url + '" target="_blank"></a>');
+			
+				});
+			</script>
         </head>
         <body>
 
@@ -104,18 +121,48 @@
 			$result = $conn->query($sql);
 			if($result->num_rows>0){
 				while($row = $result->fetch_assoc()){
+					$fname = $row['fname'];
 					$order_id = $row['order_id'];
 					$product_name = $row['product_name'];
 					$final_cost = $row['final_cost'];
 					$status = $row['status'];
 					$product_image = $row['product_image'];
+					$shop_id = $row['shop_id'];
+					$sql_2 = "SELECT * FROM shipping WHERE shipping_id = '$order_id';";
+					$result_2 = $conn->query($sql_2);
+					if($result_2->num_rows>0){
+						while($row=$result_2->fetch_assoc()){
+							$address_1 = $row['address_1'];
+							$city = $row['city'];
+							$state = $row['state'];
+							$zipcode = $row['zipcode'];
+							$country = $row['country'];
+						}
+					}
+					$sql_3 = "SELECT * FROM shops WHERE shop_id = '$shop_id';";
+					$result_3 = $conn->query($sql_3);
+					if($result_3->num_rows>0){
+						while($row=$result_3->fetch_assoc()){
+							$address_12 = $row['address_1'];
+							$city_12 = $row['city'];
+							$state_12 = $row['state'];
+							$zipcode_12 = $row['zipcode'];
+							$country_12 = $row['country'];
+						}
+					}
+					$delivery_address = $address_1.' '.$city.' '.$state.' '.$zipcode.' '.$country;
+					$shop_address = $address_12.' '.$city_12.' '.$state_12.' '.$zipcode_12.' '.$country_12;
 					echo '<div class="container">
 					<div class="row logo-wrap"><div class="row logo-wrap">
 					<div class="container">
 						<img class="content-image" src="'.$product_image.'" alt="">
 					</div>
 				</div>
-				<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Pick Up Location &nbsp;: <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location: <br><br> Delivery Time &emsp; &nbsp : <br><br> </h3>
+				<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Name &emsp; &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$fname.' <br><br> Phone Number &nbsp; &nbsp; &nbsp; : '.$phone_number.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Pick Up Location &nbsp;: <a href="http://maps.google.com/maps?q='.$shop_address.'" target="_blank">'.
+				$address_12.','.$city_12.','.$state_12.','.$zipcode_12.','.$country_12.'
+			</a> <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location:<a href="http://maps.google.com/maps?q='.$delivery_address.'" target="_blank">'.
+				$address_1.','.$city.','.$state.','.$zipcode.','.$country.'
+			</a> <br><br>Delivery Time &emsp; &nbsp : <br><br> </h3>
 				
 				
 				</div>';
