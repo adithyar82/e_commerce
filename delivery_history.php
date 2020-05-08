@@ -4,7 +4,7 @@
 	if(!isset($_SESSION['uname'])){
 		header("location:index.php");
 	}
-	$username = $_SESSION['username'];
+	$username = $_SESSION['uname'];
     echo $_SESSION['username'];
     $sql = "SELECT * FROM order_status WHERE fname = '$username';";
     $result = $conn->query($sql);
@@ -18,7 +18,7 @@
 	}
 	$order_id = $_REQUEST['id1'];
 	$status = $_REQUEST['id2'];
-	$sql1 = "UPDATE order_status SET status = '$status' WHERE order_id = '$order_id';";
+	$sql1 = "UPDATE order_status SET status = '$status', delivery_boy = '$username'  WHERE order_id = '$order_id';";
 	$result1 = $conn->query($sql1);
 	?>
 	<!DOCTYPE html>
