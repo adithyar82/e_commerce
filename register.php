@@ -61,10 +61,12 @@ if ($result->num_rows >= 0) {
     $mail->Port = 587;                                    // TCP port to connect to
     $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
     $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
-    $mail->Subject = 'E Commerce Website';
-    $mail->Body    = '<h1 align =center>Dear '.$fname.' Welcome to E Commmerce Portal</h1>
-                      <h2 align =center>Your username is '.$username.' Kindly use this for future reference </h2>
-                      <h3 aling = left><a href = "http://localhost:8888/shop/category.php?id1='.$registration_status.'&id2='.$email.'"> Login Using Your Credentials';
+    $mail->Subject = 'Loket.in-E Commerce Website';
+    $mail->Body    = '<h2 align =center>loket.in</h2>
+                      <h3 align =center>Dear '.$fname.' Welcome to Loket E Commerce Website </h3>
+                      <h4 align =center>Your email address is '.$email_address.', kindly use this for sigining in into the website.</h4>
+                      <h5 align =center><a href = "http://localhost:8888/shop/category.php?id1='.$registration_status.'&id2='.$email.'"> Login Using Your Credentials</h5>
+                      <h5 align =right>Help ?</h5>';               
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     $mail -> isHTML(true);
     if(!$mail->send()) {
