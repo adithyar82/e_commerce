@@ -18,7 +18,8 @@
 	}
 	$order_id = $_REQUEST['id1'];
 	$status = $_REQUEST['id2'];
-	$sql1 = "UPDATE order_status SET status = '$status', delivery_boy = '$username'  WHERE order_id = '$order_id';";
+	$total_distance = $_REQUEST['id3'];
+	$sql1 = "UPDATE order_status SET status = '$status', delivery_boy = '$username', total_distance = '$total_distance' WHERE order_id = '$order_id';";
 	$result1 = $conn->query($sql1);
 	?>
 	<!DOCTYPE html>
