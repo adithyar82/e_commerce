@@ -308,7 +308,7 @@
                 <form>
                 </div>
                 <div>
-                    <a href = "checkout_1.php"  button class="view-btn color-2 w-100 mt-20"><span>Buy Now</span></button>
+                    <a href = "abc_1.php"  button class="view-btn color-2 w-100 mt-20"><span>Check Delivery Boy Availability</span></button>
                 </div>
                 <div>
                     <a href = "buy_coupons.php?id=<?php echo $total_cost?>" button class="view-btn color-2 w-100 mt-20"><span>Apply Coupon</span></button>
