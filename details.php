@@ -251,7 +251,7 @@
 												echo '<div class="col-md-6 single-product">
 													<div class="row" style="margin-left:1%; margin-top:15%">
 														<h4>'.$product_name.'&emsp;&emsp;|	</h4>
-														<h5 style="margin-top:2%;">&emsp;'.$category.'</h5>
+														<h5 style="margin-top:1%;">&emsp;'.$category.'</h5>
 													</div>
 													<br>
 													<div class="content" style="height:275px;">
@@ -277,14 +277,14 @@
 														echo'<p style = "color:red"> Out of Stock <p>';  
 														}
 														else{
-														echo '<button onclick="location.href = "delivery_details_1.php" class="view-btn color-2 w-100 mt-10" ><span>Check In</span></button>';
+														echo '<button onclick="location.href = "delivery_details_1.php" class="view-btn color-2 w-100 mt-10" ><span>Buy Now</span></button>';
 														echo'<p style = "color:red; margin-left:32%; margin-top:2%"> Only '.$product_quantity.' left in stock<p>';
 														}
 													}
 													
 													else{
 														$abc = "delivery_details_1.php";
-													echo'<button onclick="location.href = '.$abc.'" class="view-btn color-2 w-100 mt-10" ><span>Check In</span></button>';
+													echo'<button onclick="location.href = '.$abc.'" class="view-btn color-2 w-100 mt-10" ><span>Buy Now</span></button>';
 													}
 													echo'
 												</div>
@@ -336,20 +336,19 @@
 													echo '<div class="price" style="margin-top:15%;">
 														<br>
 														<br>
-														<div class="row" style="margin-left:1%;">
+														<div class="row" style="margin-left:5%;">
 															<h5 style="margin-top:2%;">Price :</h5>
 															<h5 style="margin-top:2%; margin-left:2%;" class="text-white"><del style = "color : black">'.$initial_cost.'</del>&emsp;</h5>
 															<h3 style="color:green;">'.$final_cost.'</h3>
 														</div>
-														<div class="row" style="margin-left:15%;">
+														<div class="row" style="margin-left:20%;">
 															<h6 style="margin-bottom:3%;margin-top:2%">Discount :&emsp;</h6>
 															<h4 style="margin-bottom:3%;color:red;">Rs.	'.$discount_price.'</h4>
 														</div>
-														<h6 style="margin-left:12%;"> (Inclusive of all taxes)</h6>
-														<br>
+														<h6 style="margin-left:15%;"> (Inclusive of all taxes)</h6>
 														<br>
 														<div class="row" style="margin-left:1%;">
-															<h5 style="margin-left:16%;"> Average Ratings: '.round($average_ratings,1).'</h5>
+															<h5 style="margin-left:14%;"> Average Ratings: '.round($average_ratings,1).'</h5>
 														</div>
 														<br>
 														<div class="row" style="margin-left:3%;">
@@ -372,11 +371,15 @@
 																	<input type="radio" name="rating" value="1"><span class="star"></span>
 																</span>  
 																<input type = "text" name = "product_name" value = "'.$product_name.'" hidden>  
-																<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-70"><span></span>
+																<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-30"><span></span>
 															</form>
 															</div>
 														</div>
-														<br>
+														<div class="row" style="margin-left:2%;margin-top:15%;">
+															<h6> Delivered Within &emsp;&emsp; :</h6>
+															<h5 style="color:green;">&emsp;2 hrs </h5> 
+														</div>
+														<h6 style="margin-top:13%;">Cash on Delivery Not Available</h6>
 													</div>		
 								</div>
 							</div>';
