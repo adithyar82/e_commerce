@@ -6,7 +6,8 @@ if(isset($_POST['submit1'])){
     $phone_number = $_POST['phone_number'];
     $username = $_POST['username'];
     $password  = md5($_POST['pwd']);
-    $sql = "INSERT INTO delivery_details (id, first_name, email_address, phone_number, username, password,aadhar_number,driving_license_numebr,address) VALUES (Null,'$fname,'$email_address','$phone_number','$username','$password','','','');";
+    $role = "delivery";
+    $sql = "INSERT INTO Users(user_id,fname,email_address,phone_number,username,password,referral_code,role) VALUES (Null, '$fname','$email_address','$phone_number','$username','$password','$referral_code','$role')";
     $result = $conn->query($sql);
     echo $sql;
     echo $result;

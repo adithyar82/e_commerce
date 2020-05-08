@@ -1,32 +1,3 @@
-<?php
-session_start();
-include('connect_db.php');
-if(!isset($_SESSION['uname'])){
-    header("location:index.php");
-}
-$username = $_SESSION['uname'];
-$sql1 = "SELECT COUNT(status) as ordered FROM order_status WHERE status != 'ordered';";
-	$result1 = $conn->query($sql1);
-	if($result1->num_rows>0){
-		while($row = $result1->fetch_assoc()){
-			$ordered = $row['ordered'];
-		}
-	}
-$sql2 = "SELECT COUNT(status) as delivered FROM order_status WHERE status = 'delivered';";
-$result2 = $conn->query($sql2);
-if($result2->num_rows>0){
-    while($row = $result2->fetch_assoc()){
-        $delivered = $row['delivered'];
-    }
-}
-$sql_1 = "SELECT COUNT(status) as ordered_1 FROM order_status WHERE status != 'ordered' and delivery_boy = '$username';";
-	$result_1 = $conn->query($sql_1);
-	if($result_1->num_rows>0){
-		while($row = $result_1->fetch_assoc()){
-			$ordered_1 = $row['ordered_1'];
-		}
-	}
-?>
 <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
@@ -112,20 +83,18 @@ $sql_1 = "SELECT COUNT(status) as ordered_1 FROM order_status WHERE status != 'o
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="login-form" style="margin-bottom:-7%; margin-top-7%">
-						<h3 class="billing-title text-center"><span  style="font-size:50px;" class="glyphicon glyphicon-user"></span></h3>
-                        <h4 class="text-center mt-20 mb-40"><?php echo $username ?></h4>
-						<p class="text-center mt-10 mb-40">Welcome back !</p>
-                        <button onclick="location.href = 'delivery_details_1.php';" class="view-btn color-2 w-100 mt-10" ><span>Check In</span></button>
-                        <h4 class="text-center mt-20 mb-40">Activities Finished</h4>
+						<!-- <h3 class="billing-title text-center"><span  style="font-size:50px;" class="glyphicon glyphicon-user"></span></h3> -->
+                        <!-- <h4 class="text-center mt-20 mb-40">User Name</h4>
+						<p class="text-center mt-10 mb-40">Welcome back !</p> -->
+                        
+                        <h4 class="text-center mt-20 mb-40">Total Orders Delivered</h4>
                         <p class="text-center mt-20 mb-40"><?php echo $delivered ?></p>
-                        <h4 class="text-center mt-10 mb-40">Activities Pending</h4>
+                        <h4 class="text-center mt-10 mb-40">Total Distance Traveled</h4>
                         <p class="text-center mt-20 mb-40"><?php echo $ordered ?></p>
-                        <h4 class="text-center mt-10 mb-40">My Activities Pending</h4>
-                        <p class="text-center mt-20 mb-40"><?php echo $ordered_1 ?></p>
                         <h4 class="text-center mt-10 mb-40">Overall Rating</h4>
 						<form method = "POST" action = "login_1.php">
                             <h5 class="text-center mt-10 mb-40">Overall Review</h5>
-							<textarea type="text" name = "comment" cols="5" rows="2" placeholder="Comment*" onfocus="this.placeholder=" onblur="this.placeholder = Comment*" required class="common-input mt-10"></textarea>
+							<!-- <textarea type="text" name = "comment" cols="5" rows="2" placeholder="Comment*" onfocus="this.placeholder=" onblur="this.placeholder = Comment*" required class="common-input mt-10"></textarea> -->
 						</form>
 					</div>
 				</div>

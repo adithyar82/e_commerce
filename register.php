@@ -9,6 +9,7 @@ if(isset($_POST['submit'])){
     $password  = md5($_POST['pwd']);
     $arr1 = rand(1000000,9999999);
     $referral_code = $username.$arr1;
+    $role = "user";
 }
 $sql_1 = "SELECT * FROM Users where email_address = '$email_address';";
 $registration_status = 0;
@@ -20,7 +21,7 @@ if($result_1->num_rows>0){
     </script>';
 }
 else{
-$sql = "INSERT INTO Users(user_id,fname,email_address,phone_number,username,password,referral_code) VALUES (Null, '$fname','$email_address','$phone_number','$username','$password','$referral_code')";
+$sql = "INSERT INTO Users(user_id,fname,email_address,phone_number,username,password,referral_code,role) VALUES (Null, '$fname','$email_address','$phone_number','$username','$password','$referral_code','$role')";
 // if (($result = $conn->query($sql))!== False){
 //     echo "New record created successfully";
 // } else {
@@ -54,11 +55,11 @@ if ($result->num_rows >= 0) {
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail -> Username = 'noreplytasteofIndia@gmail.com';
-    $mail -> Password = 'India@2020';                          // SMTP password
+    $mail -> Username = 'contact.azeempatel@gmail.com';
+    $mail -> Password = 'AzeemPatel46#';                          // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                    // TCP port to connect to
-    $mail->setFrom('noreplytasteofIndia@gmail.com', 'no reply');
+    $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
     $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
     $mail->Subject = 'E Commerce Website';
     $mail->Body    = '<h1 align =center>Dear '.$fname.' Welcome to E Commmerce Portal</h1>
