@@ -154,6 +154,28 @@
 					}
 					$delivery_address = $address_1.' '.$city.' '.$state.' '.$zipcode.' '.$country;
 					$shop_address = $address_12.' '.$city_12.' '.$state_12.' '.$zipcode_12.' '.$country_12;
+					$searchVal = array(" ", ",", "#"); 
+  
+					// Array containing replace string from  search string 
+					$replaceVal = array("+", "+", "+"); 
+					
+					// Function to replace string 
+					$delivery_address_1 = str_replace($searchVal, $replaceVal, $delivery_address); 
+					$shop_address_1 = str_replace($searchVal, $replaceVal, $shop_address); 
+					
+					print_r($res);
+					$hmaps_request= "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=$shop_address_1&destinations=$delivery_address_1&key=AIzaSyDeb2feCGV_WQXXYX4Rk9GgApaS58jhU1g";
+						$data = file_get_contents($hmaps_request);
+						$data = json_decode($data);
+							$time = 0;
+							$distance = 0;
+							foreach($data->rows[0]->elements as $road) {
+								$time += $road->duration->text;
+								$distance += $road->distance->text;
+							}
+							$distance_1=$distance;
+							$table[1]=$time;
+							$distance_2 = $distance_1 * 1.609; 
 					echo '<div class="container">
 					<div class="row logo-wrap"><div class="row logo-wrap">
 					<div class="container">
@@ -165,7 +187,7 @@
 						if($status == "ordered"){
 							echo'<div class="container">
 							<div class="container">
-							<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted">Order Accepted <br></a><br></h5><br>
+							<h5><a href = "delivery_history.php?id1='.$order_id.'&id2=order accepted&id3='.$distance_2.'">Order Accepted <br></a><br></h5><br>
 							</div>
 							</div>
 							
@@ -253,7 +275,9 @@
 							</div>
 							</div>';
 						}
-					echo'
+						
+						;
+						echo'
 					</div>
 					</div>
 				
@@ -262,7 +286,8 @@
 				$address_12.','.$city_12.','.$state_12.','.$zipcode_12.','.$country_12.'
 			</a> <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location:<a href="http://maps.google.com/maps?q='.$delivery_address.'" target="_blank">'.
 				$address_1.','.$city.','.$state.','.$zipcode.','.$country.'
-			</a> <br><br>Delivery Time &emsp; &nbsp : <br><br> </h3>
+			</a> <br><br> Calculate Distance &nbsp;: <a href="https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='.$shop_address_1.'&destinations='.$delivery_address_1.'&key=AIzaSyDeb2feCGV_WQXXYX4Rk9GgApaS58jhU1g"> Calculate Distance
+		</a><br>Delivery Time &emsp; &nbsp : <br><br> </h3>
 				
 				
 				</div>';
@@ -270,9 +295,11 @@
 
 				</div>	
 			</section>';
+			
 					
 				}
 			}
+			
 			?>
                             
 			<!-- End brand Area -->
