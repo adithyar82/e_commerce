@@ -18,7 +18,8 @@ echo'<address>';
 echo' <a href="http://maps.google.com/maps?q='.$abc.'" target="_blank">'.
     $address_1.','.$city.','.$state.','.$zipcode.','.$country.'
    </a>
-</address>';
+</address>
+<a href = "abc_1.php"  button class="view-btn color-2 w-100 mt-20"><span>Buy Now</span></button>';
 ?>
 <script> 
 $("address").each(function(){
