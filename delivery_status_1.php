@@ -116,10 +116,10 @@
 			<!-- Start brand Area -->
 			<h3 style="margin-left:45%;margin-top:5%"> Current Orders </h3>
 			<button onclick="location.href = 'delivery_details_2.php';" class="view-btn color-2 w-20 mt-10" style = "margin-left:45%" ><span>Check Out</span></button>
-			<button onclick="location.href = 'delivery_status_1.php';" class="view-btn color-2 w-20 mt-10" style = "margin-left:45%" ><span>My Orders</span></button>
+            <button onclick="location.href = 'delivery_status.php';" class="view-btn color-2 w-20 mt-10" style = "margin-left:45%" ><span>All Orders</span></button>
 			<?php
 			include('connect_db.php');
-			$sql = "SELECT * FROM order_status where status = 'ordered'";
+			$sql = "SELECT * FROM order_status where delivery_boy = '$uname'";
 			$result = $conn->query($sql);
 			if($result->num_rows>0){
 				while($row = $result->fetch_assoc()){

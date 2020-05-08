@@ -24,9 +24,16 @@ if($result->num_rows>=0){
         // echo $email_address;
         // echo $pwd;
     }
-    echo '<script>
-    window.location = "category.php";
-    </script>';
+    if($role == "user"){
+        echo '<script>
+        window.location = "category.php";
+        </script>';
+    }
+    else if($role == "delivery"){
+        echo '<script>
+        window.location = "delivery_checkin.php";
+        </script>';   
+    }
    
 }
 else{
