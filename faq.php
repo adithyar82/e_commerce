@@ -35,16 +35,6 @@
 			<link rel="stylesheet" href="css/main.css">
 			<link href="style.css" rel="stylesheet">
 
-            <script>
-				function myFunction() {
-					var x = document.getElementById("myDIV");
-					if (x.style.display === "none") {
-						x.style.display = "block";
-					} else {
-						x.style.display = "none";
-					}
-				}
-			</script>
         </head>
         <body>
 
@@ -72,7 +62,7 @@
             <div class="container">
                 <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                     <div class="col-lg-12">
-                        <h1>HELP</h1>
+                        <h1>Help</h1>
                     </div>
                 </div>
             </div>
@@ -80,18 +70,91 @@
         <!-- End Banner Area -->
         
         <section class="brand-area pb-100">
-                <div class="container">
-                    <div class="row logo-wrap"><div class="row logo-wrap">
-                    <div class="container">
-                        <button onclick="myFunction()" class="view-btn color-2 w-20 mt-10">Login Problem</button>
-                            <div id="myDIV">
-                                <p>Please use the proper credentials to login</p> 
-                            </div>
+            <div class="container">
+                <div class="logo-wrap">
+                    <h4>1.&emsp;Do you have problem signing in into website ?</h4><br>
+                    <h6>&emsp;&emsp;Please provide proper Username and Password or Register yourself into website with your E-mail Id or Phone Number</h6>
+                </div>
+            </div>
+        </section>
+        <section class="brand-area pb-100">
+            <div class="container">
+                <div class="logo-wrap">
+                    <h4>2.&emsp;Do not remember your password ?</h4><br>
+                    <h6>&emsp;&emsp;Proceed to this link to<a href="forgot_password.php"> change the password</a></h6>
+                </div>
+            </div>
+        </section>
+        <section class="brand-area pb-100">
+            <div class="container">
+                <div class="logo-wrap">
+                    <h4>3.&emsp;Do you need set a new password ?</h4><br>
+                    <h6>&emsp;&emsp;Proceed to this link to<a href="Reset_password.php"> set the new password</a></h6>
+                </div>
+            </div>
+        </section>
+        <section class="brand-area pb-100">
+            <div class="container">
+                <div class="logo-wrap">
+                    <h4>4.&emsp;Why is my order not being placed ?</h4><br>
+                    <h6>&emsp;&emsp;a. Delivery boy may not available in your locality</h6><br>
+                    <h6>&emsp;&emsp;b. Product may not be available in the shop even though displayed avaiable</h6><br>
+                    <h6>&emsp;&emsp;c. Product may be out of stock</h6><br>
+                    <h6>&emsp;&emsp;d. There may be problem with payment of your order</h6>
+                </div>
+            </div>
+        </section>
+        <section class="brand-area pb-100">
+            <div class="container">
+                <div class="logo-wrap">
+                    <h4>5.&emsp;Do you need to update your profile ?</h4><br>
+                    <h6>&emsp;&emsp;Proceed to this link to<a href="profile.php"> update your profile</a></h6>
+                </div>
+            </div>
+        </section>
+        <section class="brand-area pb-100">
+            <div class="container">
+                <div class="logo-wrap">
+                    <h4>6.&emsp;What type of payments we provide ?</h4><br>
+                    <h6>&emsp;&emsp;We provide every type of digital payments   :</h6><br>
+                    <h6>&emsp;&emsp;&emsp;&emsp;Debit Cards</h6><br>
+                    <h6>&emsp;&emsp;&emsp;&emsp;Credit Cards</h6><br>
+                    <h6>&emsp;&emsp;&emsp;&emsp;UPI payments</h6><br>
+                    <h6>&emsp;&emsp;&emsp;&emsp;E-Wallets</h6><br>
+                    <div class="row">
+                        <h6 style="color:red">&emsp;&emsp;Cash on delivery is not available</h6>
+                        <h6>&nbsp;since webisite is currently not providing this feature</h6>
                     </div>
                 </div>
+            </div>
         </section>
-        
-
+        <section class="brand-area pb-100">
+            <div class="container">
+                <div class="logo-wrap">
+                    <h4>7.&emsp;What if you are not available in delivery location at delivery time ?</h4><br>
+                    <h6>&emsp;&emsp;a. Delivery Boy will be contacting you at the time of deliery</h6><br>
+                    <h6>&emsp;&emsp;b. Will try to reach and deliver the order within 2hrs</h6><br>
+                </div>
+            </div>
+        </section>
+        <section class="brand-area pb-100">
+            <div class="container">
+                <div class="logo-wrap">
+                    <h4>8.&emsp;Do you need track order status and track delivery boy ?</h4><br>
+                    <h6>&emsp;&emsp;a. Proceed to this link to <a href="order_status.php">track order status</a></h6><br>
+                    <h6>&emsp;&emsp;b. Proceed to this link to <a href="tracking.php">track delivery boy</a></h6><br>
+                </div>
+            </div>
+        </section>
+        <section class="brand-area pb-100">
+            <div class="container">
+                <div class="logo-wrap">
+                    <h4>9.&emsp;What is the maximum items can be ordered ?</h4><br>
+                    <h6>&emsp;&emsp;a. Rs.15,000 is maximum purchasing limit</h6><br>
+                    <h6>&emsp;&emsp;b. Maximum 5 items can be orderd</h6><br>
+                </div>
+            </div>
+        </section>
         <!-- start footer Area -->		
         <footer class="footer-area section-gap">
             <div class="container">

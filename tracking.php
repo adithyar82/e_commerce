@@ -1,4 +1,4 @@
-    <?php
+<?php
     include('connect_db.php');
     $order_id = $_REQUEST['id'];
     $sql = "SELECT * FROM order_status WHERE order_id = '$order_id';";
