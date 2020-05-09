@@ -221,7 +221,8 @@
 						
 					 </div>
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   support@azimpatel.com</a></li>
+							<ul>
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
 								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
 							</ul>
 							<?php
@@ -239,6 +240,9 @@
 							}
 							
 							?>
+							<ul class="list">
+								<li><a href="faq.php">Help ?</a></li>
+							</ul>
 							<ul class="list">
 								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:25px; margin-left:20px; font-size:20px"> </span><a href="logout.php">Logout</a></li>
 							</ul>
