@@ -8,7 +8,6 @@
             $status  = $row['status'];
             $delivery_time = $row['delivery_time'];
         }
-    $delivery_time = 19;
     }
     ?>
     <!DOCTYPE html>
