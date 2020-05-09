@@ -90,7 +90,7 @@
             // </script>';
         }
         echo '<script>
-        alert("Registered Successfully '.$sql.''.$result.'");
+        alert("Registered Successfully '.$sql.''.$result.''.$sql3.'");
         </script>';
     }
     
