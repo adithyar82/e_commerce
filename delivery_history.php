@@ -16,10 +16,11 @@
 
         }
 	}
-	$order_id = $_REQUEST['id1'];
-	$status = $_REQUEST['id2'];
-	$total_distance = $_REQUEST['id3'];
-	$sql1 = "UPDATE order_status SET status = '$status', delivery_boy = '$username', total_distance = '$total_distance' WHERE order_id = '$order_id';";
+	$order_id = $_REQUEST['id'];
+	$status = $_REQUEST['id1'];
+	$total_distance = $_REQUEST['id2'];
+	$delivery_time = $_REQUEST['id3'];
+	$sql1 = "UPDATE order_status SET status = '$status', delivery_boy = '$username', total_distance = '$total_distance', delivery_time = '$delivery_time' WHERE order_id = '$order_id';";
 	$result1 = $conn->query($sql1);
 	?>
 	<!DOCTYPE html>
