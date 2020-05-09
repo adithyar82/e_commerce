@@ -87,7 +87,7 @@ echo $amount;
 		$queryString = http_build_query($data);
 
 		// Redirect to paypal IPN
-		// header('location:' . $paypalUrl . '?' . $queryString);
+		header('location:' . $paypalUrl . '?' . $queryString);
 		exit();
 
 	} else {
