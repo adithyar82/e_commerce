@@ -6,6 +6,7 @@
     if($result->num_rows>0){
         while($row=$result->fetch_assoc()){
             $status  = $row['status'];
+            $delivery_status = $row['delivery_status'];
             $delivery_time = $row['delivery_time'];
         }
     }
@@ -394,6 +395,8 @@ function setCircleDasharray() {
           <br><br>
           <br><br>
           <div style = "margin-left:35%">Your Order Will be delivered in <span id="time">05:00</span> minutes!</div>
+          <a href = "<?php echo $delivery_status ?>"> View Delivery Status </a>
+          <p> <?php echo $delivery_status ?> </a>
           <br>
           <br>
           <br>

@@ -49,7 +49,7 @@ echo $amount;
 	$paypalConfig = [
 		'email' => 'sb-ovOot1549898@business.example.com',
 		'return_url' => 'https://loket.in/confermation.php',
-		// 'cancel_url' => 'https://example.com/payment-cancelled.html',
+		'cancel_url' => 'https://example.com/payment-cancelled.html',
 		'notify_url' => 'https://loket.in/confermation.php',
 	];
 
