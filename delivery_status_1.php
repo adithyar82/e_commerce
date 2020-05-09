@@ -286,6 +286,15 @@
 			</a> <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location:<a href="http://maps.google.com/maps?q='.$delivery_address.'" target="_blank">'.
 				$address_1.','.$city.','.$state.','.$zipcode.','.$country.'
 			</a> <br><br>Delivery Time &emsp; &nbsp : <br><br> </h3>
+			
+			<form method ="POST" action = "delivery_status_2.php">
+			<textarea type="text" name = "delivery_status" cols="25" rows="5" placeholder="Comment*" onfocus="this.placeholder=" onblur="this.placeholder = Comment*" required class="common-input mt-20"></textarea>
+            <input type="text" name = "order_id" placeholder="Full name*" value = "'.$order_id.'" class="common-input mt-20" hidden>             
+                            <span class="error error_red" id="spanEmail_at_registration"></span>
+							
+                            <br>
+							<input type = "submit" name = "submit1" class="view-btn color-2 w-100 mt-20"><span>Submit</span>
+			</form>
 				
 				
 				</div>';
