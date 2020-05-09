@@ -378,6 +378,9 @@
 							
 							?>
 							<ul class="list">
+								<li><a href="faq.php">Help ?</a></li>
+							</ul>
+							<ul class="list">
 								<span class="glyphicon glyphicon-log-out" style="font-size:20px;"></span>
 								<li><a href="logout.php">Logout</a></li>
 							</ul>

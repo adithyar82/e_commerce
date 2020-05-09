@@ -90,6 +90,9 @@ $sql_1 = "SELECT COUNT(status) as ordered_1 FROM order_status WHERE status != 'o
 							<ul class="list">
 								<li><a href="logout.php">Logout</a></li>
 							</ul>
+                            <ul class="list">
+                                <li><a href="faq.php">Help ?</a></li>
+                            </ul>
 						</div>
 					</div>					
 				</div>

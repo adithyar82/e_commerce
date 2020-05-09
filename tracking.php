@@ -311,8 +311,8 @@ function setCircleDasharray() {
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="contact_us.php">+91 8095566699   |   supporazeempatel@gmail.com</a></li>
-                                                            
+                                <li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+                                <li><a href="faq.php">Help ?</a></li>                            
                             </ul>
                             
                         </div>
