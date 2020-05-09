@@ -36,7 +36,7 @@
             $shop_id = $row['shop_id'];
         }
     }
-    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id,total_distance,timestamp) VALUES (Null,'$order_id','$fname','$final_cost', '$name', ' ','450', '1','$status','$product_image','$shop_id','',CURRENT_TIME());";
+    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$name', ' ','450', '1','$status','$product_image','$shop_id');";
     $result = $conn->query($sql);
     $sql1 = "SELECT * FROM products WHERE product_id = '$order_id';";
     $result1 = $conn->query($sql1);
