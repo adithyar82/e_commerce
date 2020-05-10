@@ -1,4 +1,4 @@
-    <?php
+<?php
     include('connect_db.php');
     $order_id = $_REQUEST['id'];
     $sql = "SELECT * FROM order_status WHERE order_id = '$order_id';";
@@ -6,6 +6,8 @@
     if($result->num_rows>0){
         while($row=$result->fetch_assoc()){
             $status  = $row['status'];
+            $delivery_status = $row['delivery_status'];
+            $delivery_time = $row['delivery_time'];
         }
     }
     ?>
@@ -18,7 +20,32 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    
+  <script>
+function startTimer(duration, display) {
+   
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var time = 60 * <?php echo $delivery_time?>,
+        display = document.querySelector('#time');
+    startTimer(time, display);
+};
+</script>
+
     
         <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -161,7 +188,7 @@
 
         </style>
 
-<script>
+<!-- <script>
 const FULL_DASH_ARRAY = 283;
 const WARNING_THRESHOLD = 10;
 const ALERT_THRESHOLD = 5;
@@ -275,7 +302,7 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
-</script>   
+</script>    -->
         </head>
         <body>
 
@@ -285,8 +312,8 @@ function setCircleDasharray() {
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="contact_us.php">+91 8095566699   |   supporazeempatel@gmail.com</a></li>
-                                                            
+                                <li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+                                <li><a href="faq.php">Help ?</a></li>                            
                             </ul>
                             
                         </div>
@@ -344,12 +371,12 @@ function setCircleDasharray() {
                     <li> Out for Delivery </li>
                     <li> Order Delivered </li>';
                 }
-                else if($status == "order_collected"){
+                else if($status == "order collected"){
                     echo'<li class = "active_1"> Order Placed </li>
                     <li class = "active_1"> Out for Delivery </li>
                     <li> Order Delivered </li>';
                 }
-                else if($status == "order_accepted"){
+                else if($status == "order accepted"){
                   echo'<li class = "active_1"> Order Placed </li>
                   <li> Out for Delivery </li>
                   <li> Order Delivered </li>';
@@ -365,6 +392,11 @@ function setCircleDasharray() {
           </div>
           <div id="app" style="height:100px", >
           </div>
+          <br><br>
+          <br><br>
+          <div style = "margin-left:35%">Your Order Will be delivered in <span id="time">05:00</span> minutes!</div>
+          <a href = "<?php echo $delivery_status ?>"> View Delivery Status </a>
+          <p> <?php echo $delivery_status ?> </a>
           <br>
           <br>
           <br>

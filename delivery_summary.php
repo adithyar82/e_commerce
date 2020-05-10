@@ -1,97 +1,109 @@
-<?php
-include('connect_db.php');
-if(isset($_POST['submit'])){
-$pwd = md5($_POST['pwd']);
-$email_address = $_POST['email_address'];
-$sql = "UPDATE Users SET password = '$pwd' WHERE email_address = '$email_address';";
-$result = $conn->query($sql);
-if($result->num_rows>=0){
-    echo '<script>
-    alert("Registered Successfully");
-    </script>';
-}
-}
-?>
 <!DOCTYPE html>
-    <html lang="zxx" class="no-js">
-    <head>
-        <!-- Mobile Specific Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Favicon-->
-        <link rel="shortcut icon" href="img/fav.png">
-        <!-- Author Meta -->
-        <meta name="author" content="CodePixar">
-        <!-- Meta Description -->
-         <meta name="description" content="">
-        <!-- Meta Keyword -->
-        <meta name="keywords" content="">
-        <!-- meta character set -->
-        <meta charset="UTF-8">
-        <!-- Site Title -->
-        <title>Shop</title>
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-            <!--
-            CSS
-            ============================================= -->
-            <link rel="stylesheet" href="css/linearicons.css">
-            <link rel="stylesheet" href="css/owl.carousel.css">            
-            <link rel="stylesheet" href="css/font-awesome.min.css">
-            <link rel="stylesheet" href="css/nice-select.css">
-            <link rel="stylesheet" href="css/ion.rangeSlider.css" />
-            <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
-            <link rel="stylesheet" href="css/bootstrap.css">
+	<html lang="zxx" class="no-js">
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="CodePixar">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Shop</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/nice-select.css">
+		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+			<link rel="stylesheet" href="css/bootstrap.css">
             <link rel="stylesheet" href="css/main.css">
-        </head>
-        <body>
-        <header class="default-header">
-                <div class="menutop-wrap">
-                    <div class="menu-top container">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="list">
-                                <li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-                                <li><a href="faq.php">Help ?</a></li>                            
-                            </ul>
-                            
-                        </div>
-                    </div>                  
-                </div>
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="container">
-                          <a class="navbar-brand" href="category.php">
-                            <img src="img/logo.png" alt="">
-                          </a>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li><a href="#home">Home</a></li>
-                                
-                            </ul>
-                          </div>                        
-                    </div>
-                </nav>
-            </header>
-           
-            <!-- reset password-->
-            <div class="container" style="margin-top:10%;margin-bottom:5%;margin-left:27%">
-				<div class="col-md-6">
-					<div class="login-form">
-						<h3 class="billing-title text-center">Reset Password</h3>
-						<p class="text-center mt-80 mb-40">Set New Password </p>
-						<form method = "POST" action = "">
-                            <input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20"> 
-							<input type="password" name = "pwd" placeholder="New Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" required class="common-input mt-20">
-							<input type="password" name = "confirm_new_password" placeholder="Confirm New Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Confirm New Password*'" required class="common-input mt-20">
-							<div class="mt-20 d-flex align-items-center justify-content-between">
-								<div class="d-flex align-items-center">
-                                <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
-							</div>
-                            <button name = "submit" type = "submit"><span>Reset Password</span></button>
+            <script src="js/register.js"></script>
+		</head>
+		<body>
+
+			<!-- Start Header Area -->
+			<header class="default-header">
+				<div class="menutop-wrap">
+					<div class="menu-top container">
+						<div class="d-flex justify-content-between align-items-center">
+							<ul class="list">
+								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+															
+							</ul>
+							<?php
+							if($username == ""){
+								echo '<ul class="list">
+								<span class="glyphicon glyphicon-user"> </span>
+								<li><a href="#"> Welcome </a></li>
+							</ul>';
+							}
+							else{
+                                echo '<ul class="list">
+                                <span class="glyphicon glyphicon-user"> </span>
+								<li><a href="#">Welcome '.$username.' </a></li>
+							</ul>';
+                            }
+                            ?>
+							<ul class="list">
+								<li><a href="logout.php">Logout</a></li>
+							</ul>
+						</div>
+					</div>					
+				</div>
+				<nav class="navbar navbar-expand-lg  navbar-light">
+					<div class="container">
+						  <a class="navbar-brand" href="#">
+							  <img style="margin-left:25%;"src="img/logo.png" alt="">
+							  <p> Company Logo </p>
+						  </a>
+						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						    <span class="navbar-toggler-icon"></span>
+						  </button>
+					</div>
+				</nav>
+			</header>
+            <!-- End Header Area -->
+            <!-- End Banner Area -->
+		<!-- Start My Account -->
+		<div class="container" style="margin-left:30%; margin-bottom:7%; margin-top:7%">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login-form" style="margin-bottom:-7%; margin-top-7%">
+						<!-- <h3 class="billing-title text-center"><span  style="font-size:50px;" class="glyphicon glyphicon-user"></span></h3> -->
+                        <!-- <h4 class="text-center mt-20 mb-40">User Name</h4>
+						<p class="text-center mt-10 mb-40">Welcome back !</p> -->
+                        
+                        <h4 class="text-center mt-20 mb-40">Total Orders Delivered</h4>
+                        <p class="text-center mt-20 mb-40"><?php echo $delivered ?></p>
+                        <h4 class="text-center mt-10 mb-40">Total Distance Traveled</h4>
+                        <p class="text-center mt-20 mb-40"><?php echo $ordered ?></p>
+                        <h4 class="text-center mt-10 mb-40">Overall Rating</h4>
+						<form method = "POST" action = "login_1.php">
+                            <h5 class="text-center mt-10 mb-40">Overall Review</h5>
+							<!-- <textarea type="text" name = "comment" cols="5" rows="2" placeholder="Comment*" onfocus="this.placeholder=" onblur="this.placeholder = Comment*" required class="common-input mt-10"></textarea> -->
 						</form>
 					</div>
 				</div>
-            </div>              
+			</div>
+		</div>
+		<!-- End My Account -->
+		
+            
+            <!-- End Most Search Product Area -->
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
                 <div class="container">
@@ -109,14 +121,9 @@ if($result->num_rows>=0){
                                 <h6>Newsletter</h6>
                                 <p>Stay update with our latest</p>
                                 <div class="" id="mc_embed_signup">
-
                                         <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-
                                         <div class="d-flex flex-row">
-
                                             <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
-
-
                                                 <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
                                                 <div style="position: absolute; left: -5000px;">
                                                     <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
@@ -161,7 +168,7 @@ if($result->num_rows>=0){
                     </div>
                     <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p class="footer-text m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </p>
+                        <p class="footer-text m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                 </div>
@@ -177,6 +184,6 @@ if($result->num_rows>=0){
             <script src="js/jquery.magnific-popup.min.js"></script>
             <script src="js/owl.carousel.min.js"></script>            
             <script src="js/main.js"></script>  
-
+           
         </body>
     </html>

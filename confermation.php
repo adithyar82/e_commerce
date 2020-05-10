@@ -36,7 +36,7 @@
             $shop_id = $row['shop_id'];
         }
     }
-    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, shipping_id, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$name', '250', '450', '1','$status','$product_image','$shop_id');";
+    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$name', ' ','450', '1','$status','$product_image','$shop_id');";
     $result = $conn->query($sql);
     $sql1 = "SELECT * FROM products WHERE product_id = '$order_id';";
     $result1 = $conn->query($sql1);
@@ -76,7 +76,7 @@
                             <h2 align =center>Your Order Details are as follows :</h2>
                             <h2 align =center>Order Id : '.$order_id.'</h2>
                             <h2 align =center>Product name : '.$name.'</h2>
-                            <h2 align =center>Total Cost: '.total_cost.'</h2>
+                            <h2 align =center>Total Cost: '.$total_cost.'</h2>
                             <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
         $mail -> isHTML(true);
@@ -90,7 +90,7 @@
             // </script>';
         }
         echo '<script>
-        alert("Registered Successfully '.$sql.''.$result.'");
+        alert("Registered Successfully '.$sql.''.$result.''.$sql3.'");
         </script>';
     }
     
@@ -147,7 +147,8 @@
 						
 						<div class="d-flex justify-content-between align-items-center">
 								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>
+                                <li><a href="faq.php">Help ?</a></li>								
 						</div>
 					</div>	
 					<br>				
