@@ -38,70 +38,55 @@
         <body>
 
             <!-- Start Header Area -->
+            <section>
             <header class="default-header">
 				<div class="menutop-wrap">
-					<div class="menu-top container" style="margin-left:3%;">
-						<div class="form-group has-feedback has-feedback-left">
-							<!-- <label>Pickup Location</label> -->
-							<!-- \\] -->
-							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
-							
-						</div>
-						
+					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+                        <ul>
+                            <li><a href="contact_us.php">+91 8095566699</a></li>
+                            <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>
+                        </ul>							
 						</div>
-					</div>	
-					<br>				
+					</div>					
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
-					<div class="container" style="width:1500px;">
-
-						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
-							  <img style="margin-left:25px;" src="img/logo.png" alt="">
-							  <p> Company Logo </p>
-						  </a>
-	
-						  <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
-						    <ul class="navbar-nav" style="width:1500px;">
-								<li><a href="D_homepage.php">Home</a></li>					
-						    </ul>
-						  </div>						
+				<nav class="navbar navbar-expand-lg  navbar-light">
+					<div class="container">
+                        <a class="navbar-brand" href="category.php">
+                            <img src="img/logo.png" alt="">
+                            <p> Company Logo </p>
+                        </a>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li><a href="admin_home.php">Home</a></li>					
+                            </ul>
+                        </div>						
 					</div>
 				</nav>
-			</header>
+            </header>
+            </section>
+            <br>
+            <br>
+            <br>
             <!-- reset password-->
-            <div class="container" style="margin-top:10%;margin-bottom:5%;margin-left:27%">
+            <div class="container">
 				<div class="col-md-6">
 					<div class="login-form">
 						<h3 class="billing-title text-center">User Details</h3>
-						<p class="text-center mt-80 mb-40"> </p>
-						<!-- <form method = "POST" action = "login_1.php">
-                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "First Name" class="common-input mt-20" disabled>
-                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Phone Number" class="common-input mt-20" disabled>
-                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Aadhar Card Number" class="common-input mt-20" disabled>
-                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Driving License Number" class="common-input mt-20" disabled> 
-                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Address" class="common-input mt-20" disabled>      -->
-                        
                         <div class="mt-20 d-flex align-items-center justify-content-between">
-                        <form>
-								<div class="d-flex align-items-center">
-                                <!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label--></div>
-							</div>
-                            
-                            <button onclick="location.href = 'profile.php';" class="view-btn color-2 w-100 mt-20"><span>Profile</span></button>
-                            <button onclick="location.href = 'order_status.php';" class="view-btn color-2 w-100 mt-20"><span>Order Status</span></button> 
-                            <button onclick="location.href = 'order.php';" class="view-btn color-2 w-100 mt-20"><span>Order History</span></button>
-                            <button onclick="location.href = 'confermation.php';" class="view-btn color-2 w-100 mt-20"><span>Confirmation</span></button>    
-                            <button onclick="location.href = 'checkout.php';" class="view-btn color-2 w-100 mt-20"><span>Checkout</span></button>  
-                            <button onclick="location.href = 'cart.php';" class="view-btn color-2 w-100 mt-20"><span>Cart</span></button>  
-                            <button onclick="location.href = 'favourite.php';" class="view-btn color-2 w-100 mt-20"><span>Favourites</span></button>  
-                            <button onclick="location.href = 'tracking.php';" class="view-btn color-2 w-100 mt-20"><span>Tracking</span></button> 
-                            <!-- <button class="view-btn color-2 w-30 mt-20"><span>Delivery Details</span></button> -->
-						
-					</div>
-				</div>
+                            <form>
+                                <button onclick="location.href = 'profile.php';" class="view-btn color-2 w-100 mt-20"><span>Profile</span></button>
+                                <button onclick="location.href = 'order_status.php';" class="view-btn color-2 w-100 mt-20"><span>Order Status</span></button> 
+                                <button onclick="location.href = 'order.php';" class="view-btn color-2 w-100 mt-20"><span>Order History</span></button>
+                                <button onclick="location.href = 'confermation.php';" class="view-btn color-2 w-100 mt-20"><span>Confirmation</span></button>    
+                                <button onclick="location.href = 'checkout.php';" class="view-btn color-2 w-100 mt-20"><span>Checkout</span></button>  
+                                <button onclick="location.href = 'cart.php';" class="view-btn color-2 w-100 mt-20"><span>Cart</span></button>  
+                                <button onclick="location.href = 'favourite.php';" class="view-btn color-2 w-100 mt-20"><span>Favourites</span></button>  
+                                <button onclick="location.href = 'tracking.php';" class="view-btn color-2 w-100 mt-20"><span>Tracking</span></button> 
+                            </form>    	
+                        </div>
+				    </div>
+                </div>
             </div>              
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">
