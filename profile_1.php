@@ -14,6 +14,30 @@
             $referral_code = $row['referral_code'];
         }
     }
+    session_start();
+	if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+	}
+	$uname = $_SESSION['uname'];
+	$sql_1 = "SELECT * FROM Users WHERE fname = '$uname';";
+	$result_1 = $conn->query($sql_1);
+	if($result_1->num_rows>0){
+		while($row = $result_1->fetch_assoc()){
+			$phone_number = $row['phone_number'];
+		}
+	}
+	$username = $_SESSION['username'];
+    echo $_SESSION['username'];
+    $sql = "SELECT * FROM order_status WHERE fname = '$username';";
+    $result = $conn->query($sql);
+    if($result->num_rows>0){
+        while($row = $result->fetch_assoc()){
+            $final_cost = $row['final_cost'];
+            $product_name = $row['product_name'];
+            $order_id = $row['order_id'];
+
+        }
+    }
     
     ?>
     <!DOCTYPE html>
@@ -92,60 +116,194 @@
 
 
             <!-- Start Banner Area -->
-            <section class="banner-area organic-breadcrumb">
-                <div class="container">
-                    <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
-                        <div class="col-first">
-                            <h1>Profile Page</h1>
-                             <nav class="d-flex align-items-center justify-content-start">
-                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="profile.php">Profile Page</a>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Banner Area -->
-            
+            <h3 style="margin-left:45%;margin-top:5%"> Current Orders </h3>
+			<button onclick="location.href = 'delivery_details_2.php';" class="view-btn color-2 w-20 mt-10" style = "margin-left:45%" ><span>Check Out</span></button>
+			<button onclick="location.href = 'delivery_status_1.php';" class="view-btn color-2 w-20 mt-10" style = "margin-left:45%" ><span>My Orders</span></button>
+			<?php
+			include('connect_db.php');
+			$sql = "SELECT * FROM order_status where status = 'ordered'";
+			$result = $conn->query($sql);
+			if($result->num_rows>0){
+				while($row = $result->fetch_assoc()){
+					$fname = $row['fname'];
+					$order_id = $row['order_id'];
+					$product_name = $row['product_name'];
+					$final_cost = $row['final_cost'];
+					$status = $row['status'];
+					$product_image = $row['product_image'];
+					$shop_id = $row['shop_id'];
+					$sql_2 = "SELECT * FROM shipping WHERE shipping_id = '$order_id';";
+					$result_2 = $conn->query($sql_2);
+					if($result_2->num_rows>0){
+						while($row=$result_2->fetch_assoc()){
+							$address_1 = $row['address_1'];
+							$city = $row['city'];
+							$state = $row['state'];
+							$zipcode = $row['zipcode'];
+							$country = $row['country'];
+						}
+					}
+					$sql_3 = "SELECT * FROM shops WHERE shop_id = '$shop_id';";
+					$result_3 = $conn->query($sql_3);
+					if($result_3->num_rows>0){
+						while($row=$result_3->fetch_assoc()){
+							$address_12 = $row['address_1'];
+							$city_12 = $row['city'];
+							$state_12 = $row['state'];
+							$zipcode_12 = $row['zipcode'];
+							$country_12 = $row['country'];
+						}
+					}
+					$delivery_address = $address_1.' '.$city.' '.$state.' '.$zipcode.' '.$country;
+					$shop_address = $address_12.' '.$city_12.' '.$state_12.' '.$zipcode_12.' '.$country_12;
+					$searchVal = array(" ", ",", "#"); 
+  
+					// Array containing replace string from  search string 
+					$replaceVal = array("+", "+", "+"); 
+					
+					// Function to replace string 
+					$delivery_address_1 = str_replace($searchVal, $replaceVal, $delivery_address); 
+					$shop_address_1 = str_replace($searchVal, $replaceVal, $shop_address); 
+					
+					print_r($res);
+					$hmaps_request= "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=$shop_address_1&destinations=$delivery_address_1&key=AIzaSyDeb2feCGV_WQXXYX4Rk9GgApaS58jhU1g";
+						$data = file_get_contents($hmaps_request);
+						$data = json_decode($data);
+							$time = 0;
+							$distance = 0;
+							foreach($data->rows[0]->elements as $road) {
+								$time += $road->duration->text;
+								$distance += $road->distance->text;
+							}
+							$distance_1=$distance;
+							$table[1]=$time;
+							$distance_2 = $distance_1 * 1.609; 
+							$time_1 = $time + 15;
+					echo '<div class="container">
+					<div class="row logo-wrap"><div class="row logo-wrap">
+					<div class="container">
+					<div class = "col-md-8">
+						<img class="content-image" src="'.$product_image.'" alt="">
+					</div>
+					<div class = "col-md-4">';
+					    
+						if($status == "ordered"){
+							echo'<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted&id2='.$distance_1.'">Order Accepted <br></a><br></h5><br>
+							</div>
+							</div>
+							
+							
+							
+							<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"> Order Collected <br></a><br></h5><br>
+							</div>
+							</div>
+							
+							<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Delivered <br></a><br></h5><br>
+							</div>
+							</div>';
+						}
+						else if($status == "order cancelled"){
+							echo'<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order cancelled"><span class="glyphicon glyphicon-check"></span> Order Cancelled <br></a><br></h5><br>
+							</div>
+							</div>';
+						}
+						else if($status == "order accepted"){
+							echo'<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted <br></a><br></h5><br>
+							</div>
+							</div>
+							
+							
+							
+							<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected&id3='.$time_1.'"> Order Collected <br></a><br></h5><br>
+							</div>
+							</div>
+							
+							<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Delivered <br></a><br></h5><br>
+							</div>
+							</div>';
+						}
+						else if($status == "order collected"){
+							echo'<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted"><span class="glyphicon glyphicon-check"></span>Order Accepted <br></a><br></h5><br>
+							</div>
+							</div>
+							
+							
+							
+							<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"><span class="glyphicon glyphicon-check"></span> Order Collected <br></a><br></h5><br>
+							</div>
+							</div>
+							
+							<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Delivered <br></a><br></h5><br>
+							</div>
+							</div>';
+						}
+						else{
+							echo'<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted <br></a><br></h5><br>
+							</div>
+							</div>
+							
+							
+							
+							<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"><span class="glyphicon glyphicon-check"></span> Order Collected <br></a><br></h5><br>
+							</div>
+							</div>
+							
+							<div class="container">
+							<div class="container">
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"><span class="glyphicon glyphicon-check"> </span>Delivered <br></a><br></h5><br>
+							</div>
+							</div>';
+						}
+						
+						;
+						echo'
+					</div>
+					</div>
+				
+				</div>
+				<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Name &emsp; &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$fname.' <br><br> Phone Number &nbsp; &nbsp; &nbsp; : '.$phone_number.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Pick Up Location &nbsp;: <a href="http://maps.google.com/maps?q='.$shop_address.'" target="_blank">'.
+				$address_12.','.$city_12.','.$state_12.','.$zipcode_12.','.$country_12.'
+			</a> <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location:<a href="http://maps.google.com/maps?q='.$delivery_address.'" target="_blank">'.
+				$address_1.','.$city.','.$state.','.$zipcode.','.$country.'
+			</a> <br><br> Calculate Distance &nbsp;: <a href="https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='.$shop_address_1.'&destinations='.$delivery_address_1.'&key=AIzaSyDeb2feCGV_WQXXYX4Rk9GgApaS58jhU1g"> Calculate Distance
+		</a><br>Delivery Time &emsp; &nbsp : <br><br> </h3>
+				
+				
+				</div>';
+					echo'
 
-		    <!-- Start My Account -->
-            <section>
-                <div class="container">
-                    <!-- <div class="row"> -->
-                        <div class="col-md-8">
-                            <div class="register-form">
-                                <h3 class="billing-title text-center"><span style="font-size:75px;" class="glyphicon glyphicon-user"></span></h3>
-                                <p class="text-center mt-40 mb-30"><?php echo $fname; ?> </p>
-                                <p class="text-center mt-40 mb-30">Referral Code:</p>
-                                <p class="text-center mt-40 mb-30"><input type="text"  value="<?php echo $referral_code?>" id="myInput" disabled><br></p>
-                                <p class="text-center mt-40 mb-30"> <button onclick="myFunction()">Copy Referral Code</button></p>
-                    
-
-                                <form>
-                                    <h4 style="color:white;">Phone Number</h4><br>
-                                    <p> <?php echo $phone_number ?> </p>
-                                    <br>
-                                    <h4 style="color:white;">Email Address</h4><br>
-                                    <p> <?php echo $email_address ?> </p>
-                                    <br>
-                                    <h4 style="color:white;">Saved Address</h4><br>
-                                    <br>
-                                    <h4><a style="color:white;" href = "edit_address.php">Edit Address</a></h4><br>
-                                    <br>
-                                    <h4><a style="color:white;" href = "favourite.php">Favourites</a></h4><br>
-                                    <br>
-                                    <h4><a style="color:white;" href="order.php">View Orders</a></h4><br>
-                                    <br>
-                                    <button href="update_profile.php" class="view-btn color-2 w-100 mt-20"><span>Update Profile</span></button><br>
-                                    <br>
-                                    <br>
-                                    <h4><a style="color:white; float:right; margin-right:5%" href = "contact_us.php" >Help ?</a></h4><br>
-                                </form>
-                            </div>
-                        </div>
-                    <!-- </div> -->
-                </div>
-            </section>
+				</div>	
+			</section>';
+			
+					
+				}
+			}
+			
+			?>
 
 		    <!-- End My Account -->
 

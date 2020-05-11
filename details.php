@@ -43,53 +43,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<style>
-	.main {
-		margin-left: 10%;
-		margin-top: 15%;
-	}
-	.rating-star {
-		direction: rtl;
-		font-size: 40px;
-		unicode-bidi: bidi-override;
-		display: inline-block;
-	}
-	.rating-star input {
-		opacity: 0;
-		position: relative;
-		left: -30px;
-		z-index: 2;
-		cursor: pointer;
-	}
-	.rating-star span.star:before {
-		color: #777777;
-	}
-	.rating-star span.star {
-		display: inline-block;
-		font-family: FontAwesome;
-		font-style: normal;
-		font-weight: normal;
-		position: relative;
-		z-index: 1;
-	}
-	.rating-star span {
-		margin-left: -30px;
-	}
-	.rating-star span.star:before {
-		color: #777777;
-		content:"\f006";
-	}
-	.rating-star input:hover + span.star:before, .rating-star input:hover + span.star ~ span.star:before, .rating-star input:checked + span.star:before, .rating-star input:checked + span.star ~ span.star:before {
-		color: #ffd100;
-		content:"\f005";
-	}
-	
-	.selected-rating{
-		color: #ffd100;
-		font-weight: bold;
-		font-size: 42px;
-	}
-	</style>
+
 	<script>
 		$('#rating-form').on('change','[name="rating"]',function(){
 		$('#selected-rating').text($('[name="rating"]:checked').val());
@@ -122,27 +76,7 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
-			<style>
-				#myDIV {
-				width: 100%;
-				padding: 50px 0;
-				text-align: center;
-				margin-top: 20px;
-				}
-			</style>
-			<style>
-				.content{
-					display:flex;
-					justify-content:center;
-					align-items:center;
-					overflow:hidden
-				}
-				.content img{
-					flex-shrink:0;
-					min-height:100%;
-					min-width:100%;
-				}
-			</style>
+			<link rel="stylesheet" href="css/styles.css">
 			<script>
 				$('#row').pagination({
 				dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],

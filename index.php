@@ -28,7 +28,8 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -82,7 +83,7 @@ $result = $conn->query($sql);
 					</div>	
 					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
+				<nav class="navbar navbar-expand-lg navbar-light" style="margin-right:20%">
 					<div class="container" style="width:1500px;">
 
 						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
@@ -104,10 +105,10 @@ $result = $conn->query($sql);
 
             <!-- End Banner Area -->
             <!-- Start My Account -->
-            <div class="container" style="margin-left:16%; margin-bottom:7%; margin-top:7%">
+            <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="login-form" style="margin-bottom:-7%; margin-top-7%">
+                    <div class="col-md-6">
+                        <div class="login-form">
                             <h3 class="billing-title text-center">Login</h3>
                             <p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
                             <form method = "POST" action = "login_1.php">
@@ -124,7 +125,7 @@ $result = $conn->query($sql);
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-md-6">
                         <div class="register-form">
                             <h3 class="billing-title text-center">Register</h3>
                             <p class="text-center mt-40 mb-30">Create your very own account </p>
