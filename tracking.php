@@ -77,6 +77,7 @@ window.onload = function () {
             <link rel="stylesheet" href="css/styles.css">
             
                 <style type = "text/css"> 
+                </style>
        
 
 <!-- <script>
