@@ -67,9 +67,6 @@
                             <ul class="list">
 								<li><a href="logout.php" style = "margin-rigth:15px;">Logout</a></li>
                             </ul>
-                            <ul class="list">
-								<li><a href="category.php" style = "margin-rigth:15px;">Home</a></li>
-							</ul>
                         </div>
                     </div>                  
                 </div>
@@ -117,7 +114,7 @@
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Current Orders</h1>
+                            <h1>Order History</h1>
                              <!-- <nav class="d-flex align-items-center justify-content-start">
                                 <a href="index.html">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="single.html">Single Product Page</a>
