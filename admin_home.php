@@ -67,6 +67,7 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
+			<link rel="stylesheet" href="css/styles.css">
 			
 			<script>
 				$('#row').pagination({
@@ -125,88 +126,6 @@
 				}
 				}
 			</script>
-
-			<style>
-			.dropbtn {
-			background-color: #FFFFFF;
-			color: black;
-			padding: 16px;
-			font-size: 20px;
-			border: none;
-			cursor: pointer;
-			}
-
-			.dropbtn:hover, .dropbtn:focus {
-			background-color: #2980B9;
-			}
-
-			.dropdown {
-			position: relative;
-			display: inline-block;
-			}
-
-			.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: #f1f1f1;
-			min-width: 160px;
-			overflow: auto;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-			}
-
-			.dropdown-content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-			}
-
-			.dropdown a:hover {background-color: #ddd;}
-
-			.show {display: block;}
-			</style>
-
-			<style>
-			.btn {
-			background-color: #FFFFFF;
-			color: black;
-			padding: 16px;
-			font-size: 20px;
-			border: none;
-			cursor: pointer;
-			}
-
-			.btn:hover, .btn:focus {
-			background-color: #2980B9;
-			}
-
-			.dropdown {
-			position: relative;
-			display: inline-block;
-			}
-
-			.dropdown_content {
-			display: none;
-			position: absolute;
-			background-color: #f1f1f1;
-			min-width: 160px;
-			overflow: auto;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-			}
-
-			.dropdown_content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-			}
-
-			.dropdown a:hover {background-color: #ddd;}
-
-			.show {display: block;}
-			</style>
 		</head>
 		<body>
 
@@ -306,7 +225,7 @@
 			
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12" style="margin-top:2%; margin-bottom:2%;">
+					<div class="col-lg-12 col-xs-6 col-sm-12" style="margin-top:2%; margin-bottom:2%;">
 					<div class="dropdown" style="margin-left:50%;">
 							<button onclick="dropFunction()" class="btn"><span class="glyphicon glyphicon-th-large" style="color:black;font-size:25px"></span></span></button>
 							<div id="Dropdown" class="dropdown_content">
@@ -351,7 +270,7 @@
 						<br>
 						<div class="container" style="margin-bottom:7%; margin-top:7%">
 							<div class="row">
-								<div class="col-lg-6">
+								<div class="col-lg-3 col-md-3 col-xs-3 col-sm-3">
 									<div class="login-form">
 										<h3 class="billing-title text-center">User</h3>
 										<p class="text-center mt-10 mb-10"> </p>
@@ -380,7 +299,7 @@
 										
 									</div>
 								</div>
-								<div class="col-lg-6">
+								<div class="col-lg-3 col-md-3 col-xs-3 col-sm-3">
 									<div class="login-form">
 										<h3 class="billing-title text-center">Delivery Boy</h3>
 										<p class="text-center mt-10 mb-10"> </p>

@@ -70,29 +70,15 @@ $sql_1 = "SELECT COUNT(status) as ordered_1 FROM order_status WHERE status != 'o
 					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-															
+								<li><a href="contact_us.php">+91 8095566699 | contact.azeempatel@gmail.com</a></li>								
 							</ul>
-							<?php
-							if($username == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
-							</ul>';
-							}
-							else{
-                                echo '<ul class="list">
-                                <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#">Welcome '.$username.' </a></li>
-							</ul>';
-                            }
-                            ?>
+    
 							<ul class="list">
-								<li><a href="logout.php">Logout</a></li>
+                                <li><a href="logout.php"><?php echo $_SESSION['uname']?></a> &nbsp; &nbsp;
+                                <a href="faq.php">Help ?</a> &nbsp;
+                                <a href="logout.php">Logout</a></li>
 							</ul>
-                            <ul class="list">
-                                <li><a href="faq.php">Help ?</a></li>
-                            </ul>
+                            
 						</div>
 					</div>					
 				</div>
@@ -111,10 +97,10 @@ $sql_1 = "SELECT COUNT(status) as ordered_1 FROM order_status WHERE status != 'o
             <!-- End Header Area -->
             <!-- End Banner Area -->
 		<!-- Start My Account -->
-		<div class="container" style="margin-left:30%; margin-bottom:7%; margin-top:7%">
+		<div class="container">
 			<div class="row">
-				<div class="col-lg-6">
-					<div class="login-form" style="margin-bottom:-7%; margin-top-7%">
+				<div class="col-md-12">
+					<div class="login-form">
 						<h3 class="billing-title text-center"><span  style="font-size:50px;" class="glyphicon glyphicon-user"></span></h3>
                         <h4 class="text-center mt-20 mb-40"><?php echo $username ?></h4>
 						<p class="text-center mt-10 mb-40">Welcome back !</p>
