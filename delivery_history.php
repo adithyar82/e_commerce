@@ -70,9 +70,6 @@
                             <ul class="list">
 								<li><a href="logout.php" style = "margin-rigth:15px;">Logout</a></li>
                             </ul>
-                            <ul class="list">
-								<li><a href="category.php" style = "margin-rigth:15px;">Home</a></li>
-							</ul>
                         </div>
                     </div>                  
                 </div>
@@ -120,7 +117,7 @@
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Current Orders</h1>
+                            <h1>Order History</h1>
                              <!-- <nav class="d-flex align-items-center justify-content-start">
                                 <a href="index.html">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="single.html">Single Product Page</a>
@@ -182,14 +179,14 @@ if($result->num_rows>0){
                                 <div class="top">
                                     <h3 class="head">Order Id: '.$order_id.'<h3>
                                     <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span> <span class="ml-10">Rs '.$final_cost.'</span></div>
-                                    <div class="category">Name: '.$fname.' <span></span></div><br>
-									<div class="available">Phone Number: '.$phone_number.' <span></span></div><br>
-									<div class="available">Product Name: '.$product_name.'<span></span></div><br>
-									<div class="available">Order Status:'.$status.' <span></span></div><br>
-									<div class="available">Pickup Location: <a href="http://maps.google.com/maps?q='.$shop_address.'" target="_blank">'.
+                                    <div class="category">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '.$fname.' <span></span></div><br>
+									<div class="available">Phone Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '.$phone_number.' <span></span></div><br>
+									<div class="available">Product Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '.$product_name.'<span></span></div><br>
+									<div class="available">Order Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'.$status.' <span></span></div><br>
+									<div class="available">Pickup Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <a href="http://maps.google.com/maps?q='.$shop_address.'" target="_blank">'.
 									$address_12.','.$city_12.','.$state_12.','.$zipcode_12.','.$country_12.'
 								</a><span></span></div><br>
-									<div class="available">Delivery Location: <a href="http://maps.google.com/maps?q='.$delivery_address.'" target="_blank">'.
+									<div class="available">Delivery Location&nbsp;: <a href="http://maps.google.com/maps?q='.$delivery_address.'" target="_blank">'.
 									$address_1.','.$city.','.$state.','.$zipcode.','.$country.'
 								</a><span></span></div><br>
                                 </div>
@@ -200,7 +197,6 @@ if($result->num_rows>0){
                     </div>
                 </div>
             </div>
-
             <div class="container">
                 <div class="details-tab-navigation d-flex justify-content-center mt-30">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
