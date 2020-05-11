@@ -73,7 +73,7 @@
 								<li><a href="logout.php" style = "margin-rigth:15px;">Logout</a></li>
                             </ul>
                             <ul class="list">
-								<li><a href="category.php" style = "margin-rigth:15px;">Home</a></li>
+								<li><a href="category.php" style = "margin-rigth:15px;"><span class="glyphicon glyphicon-home"></span></a></li>
 							</ul>
                         </div>
                     </div>                  
