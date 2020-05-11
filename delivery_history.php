@@ -4,27 +4,24 @@
 	if(!isset($_SESSION['uname'])){
 		header("location:index.php");
 	}
-	$uname = $_SESSION['uname'];
-	$sql_1 = "SELECT * FROM Users WHERE fname = '$uname';";
-	$result_1 = $conn->query($sql_1);
-	if($result_1->num_rows>0){
-		while($row = $result_1->fetch_assoc()){
-			$phone_number = $row['phone_number'];
-			$fname = $row['fname'];
-		}
-	}
-	$username = $_SESSION['username'];
+	$username = $_SESSION['uname'];
     echo $_SESSION['username'];
-    // $sql = "SELECT * FROM order_status WHERE fname = 'Adithya';";
-    // $result = $conn->query($sql);
-    // if($result->num_rows>0){
-    //     while($row = $result->fetch_assoc()){
-    //         $final_cost = $row['final_cost'];
-    //         $product_name = $row['product_name'];
-    //         $order_id = $row['order_id'];
+    $sql = "SELECT * FROM order_status WHERE fname = '$username';";
+    $result = $conn->query($sql);
+    if($result->num_rows>0){
+        while($row = $result->fetch_assoc()){
+            $final_cost = $row['final_cost'];
+            $product_name = $row['product_name'];
+            $order_id = $row['order_id'];
 
-    //     }
-    // }
+        }
+	}
+	$order_id = $_REQUEST['id'];
+	$status = $_REQUEST['id1'];
+	$total_distance = $_REQUEST['id2'];
+	$delivery_time = $_REQUEST['id3'];
+	$sql1 = "UPDATE order_status SET status = '$status', delivery_boy = '$username', total_distance = '$total_distance', delivery_time = '$delivery_time' WHERE order_id = '$order_id';";
+	$result1 = $conn->query($sql1);
 	?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
@@ -179,40 +176,19 @@ if($result->num_rows>0){
                                 <div class="top">
                                     <h3 class="head">Order Id: '.$order_id.'<h3>
                                     <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span> <span class="ml-10">Rs '.$final_cost.'</span></div>
-                                    <div class="category">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '.$fname.' <span></span></div><br>
-									<div class="available">Phone Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '.$phone_number.' <span></span></div><br>
-									<div class="available">Product Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '.$product_name.'<span></span></div><br>
-									<div class="available">Order Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'.$status.' <span></span></div><br>
-									<div class="available">Pickup Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <a href="http://maps.google.com/maps?q='.$shop_address.'" target="_blank">'.
+                                    <div class="category">Name: '.$fname.' <span></span></div><br>
+									<div class="available">Phone Number: '.$phone_number.' <span></span></div><br>
+									<div class="available">Product Name: '.$product_name.'<span></span></div><br>
+									<div class="available">Order Status:'.$status.' <span></span></div><br>
+									<div class="available">Pickup Location: '.
 									$address_12.','.$city_12.','.$state_12.','.$zipcode_12.','.$country_12.'
-								</a><span></span></div><br>
-									<div class="available">Delivery Location&nbsp;: <a href="http://maps.google.com/maps?q='.$delivery_address.'" target="_blank">'.
+								<span></span></div><br>
+									<div class="available">Delivery Location: '.
 									$address_1.','.$city.','.$state.','.$zipcode.','.$country.'
-								</a><span></span></div><br>
+								<span></span></div><br>
                                 </div>
                                
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="details-tab-navigation d-flex justify-content-center mt-30">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li>
-                            <a class="nav-link" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-expanded="true">Accepted</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" id="specification-tab" data-toggle="tab" href="#specification" role="tab" aria-controls="specification">Collected</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="comments">Delivered</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-                
                             </div>
                         </div>
                     </div>
