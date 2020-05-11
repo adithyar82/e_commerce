@@ -104,7 +104,7 @@ $sql_1 = "SELECT COUNT(status) as ordered_1 FROM order_status WHERE status != 'o
 						<h3 class="billing-title text-center"><span  style="font-size:50px;" class="glyphicon glyphicon-user"></span></h3>
                         <h4 class="text-center mt-20 mb-40"><?php echo $username ?></h4>
 						<p class="text-center mt-10 mb-40">Welcome back !</p>
-                        <button onclick="location.href = 'delivery_details_1.php';" class="view-btn color-2 w-100 mt-10" ><span>Check In</span></button>
+                        <button onclick="location.href = 'delivery_status.php';" class="view-btn color-2 w-100 mt-10" ><span>Check In</span></button>
                         <h4 class="text-center mt-20 mb-40">Activities Finished</h4>
                         <p class="text-center mt-20 mb-40"><?php echo $delivered ?></p>
                         <h4 class="text-center mt-10 mb-40">Activities Pending</h4>
