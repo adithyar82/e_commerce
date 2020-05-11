@@ -30,32 +30,39 @@
     <html lang="zxx" class="no-js">
     <head>
         <!-- Mobile Specific Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Favicon-->
-        <link rel="shortcut icon" href="img/fav.png">
-        <!-- Author Meta -->
-        <meta name="author" content="CodePixar">
-        <!-- Meta Description -->
-        <meta name="description" content="">
-        <!-- Meta Keyword -->
-        <meta name="keywords" content="">
-        <!-- meta character set -->
-        <meta charset="UTF-8">
-        <!-- Site Title -->
-        <title>Shop</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-            <!--
-            CSS
-            ============================================= -->
-            <link rel="stylesheet" href="css/linearicons.css">
-            <link rel="stylesheet" href="css/owl.carousel.css">            
-            <link rel="stylesheet" href="css/font-awesome.min.css">
-            <link rel="stylesheet" href="css/nice-select.css">
-            <link rel="stylesheet" href="css/ion.rangeSlider.css" />
-            <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
-            <link rel="stylesheet" href="css/bootstrap.css">
-            <link rel="stylesheet" href="css/main.css">
+
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="CodePixar">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Shop</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/nice-select.css">
+		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/main.css">
+			<link href="style.css" rel="stylesheet">
         </head>
         <body>
 
@@ -199,19 +206,22 @@ if($result->num_rows>0){
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div>';
+            if($status == "ordered"){
+			echo'
             <div class="container">
                 <div class="details-tab-navigation d-flex justify-content-center mt-30">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li>
-                            <a class="nav-link" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-expanded="true">Accepted</a>
-                        </li>
+						<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
+						</li>
+						
                         <li>
-                            <a class="nav-link" id="specification-tab" data-toggle="tab" href="#specification" role="tab" aria-controls="specification">Collected</a>
-                        </li>
+						<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
+						</li>
+						<br>
                         <li>
-                            <a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="comments">Delivered</a>
+						<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Delivered <br></a><br></h5><br>
                         </li>
                         
                     </ul>
@@ -221,8 +231,87 @@ if($result->num_rows>0){
                         </div>
                     </div>
                 </div>
-            </div>
-                ';
+			</div>';
+			}
+			else if($status == "order accepted"){
+				echo'
+				<div class="container">
+					<div class="details-tab-navigation d-flex justify-content-center mt-30">
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+							<li>
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
+							</li>
+							
+							<li>
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
+							</li>
+							<br>
+							<li>
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Delivered <br></a><br></h5><br>
+							</li>
+							
+						</ul>
+					</div>
+					
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>';
+				}
+				else if($status == "order collected"){
+					echo'
+					<div class="container">
+						<div class="details-tab-navigation d-flex justify-content-center mt-30">
+							<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<li>
+								<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
+								</li>
+								
+								<li>
+								<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
+								</li>
+								<br>
+								<li>
+								<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Order Accepted <br></a><br></h5><br>
+								</li>
+								
+							</ul>
+						</div>
+						
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>';
+					}
+					else if($status == "delivered"){
+						echo'
+						<div class="container">
+							<div class="details-tab-navigation d-flex justify-content-center mt-30">
+								<ul class="nav nav-tabs" id="myTab" role="tablist">
+									<li>
+									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
+									</li>
+									
+									<li>
+									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"><span class="glyphicon glyphicon-check"></span> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
+									</li>
+									<br>
+									<li>
+									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order delivered"><span class="glyphicon glyphicon-check"></span> Delivered <br></a><br></h5><br>
+									</li>
+									
+								</ul>
+							</div>
+							
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>';
+						}
+            
 				}
 			}
 			?>
