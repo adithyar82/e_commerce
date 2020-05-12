@@ -82,55 +82,34 @@
 					dataContainer.html(html);
 				}
 			})
-			</script>
 			
-			<script>
-				/* When the user clicks on the button, 
-				toggle between hiding and showing the dropdown content */
-				function myFunction() {
-				document.getElementById("myDropdown").classList.toggle("show");
-				}
-
-				// Close the dropdown if the user clicks outside of it
-				window.onclick = function(event) {
-				if (!event.target.matches('.dropbtn')) {
-					var dropdowns = document.getElementsByClassName("dropdown-content");
-					var i;
-					for (i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-					}
-				}
-				}
 			</script>
-
-			<script>
-				/* When the user clicks on the button, 
-				toggle between hiding and showing the dropdown content */
-				function dropFunction() {
-				document.getElementById("Dropdown").classList.toggle("show");
-				}
-
-				// Close the dropdown if the user clicks outside of it
-				window.onclick = function(event) {
-				if (!event.target.matches('.btn')) {
-					var dropdowns = document.getElementsByClassName("dropdown_content");
-					var i;
-					for (i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-					}
-				}
-				}
-			</script>
+			<script type = "text/javascript">
+			function displayNextImage() {
+				x = (x === images.length - 1) ? 0 : x + 1;
+				document.getElementById("img").src = images[x];
+			}
+  
+			function displayPreviousImage() {
+				x = (x <= 0) ? images.length - 1 : x - 1;
+				document.getElementById("img").src = images[x];
+			}
+  
+			function startTimer() {
+				setInterval(displayNextImage, 3000);
+			}
+  
+			var images = [], x = -1;
+			images[0] = "img/E.png";
+			images[1] = "img/G.png";
+			images[2] = "img/H.png";
+		</script>
+			
+		
 
 
 		</head>
-		<body>
+		<body onload = "startTimer()">>
 
 			<!-- Start Header Area -->
 			<header class="default-header">
@@ -240,19 +219,19 @@
             <!-- End Header Area -->
 
             <!-- Start Banner Area -->
-			<section class="banner-area relative" id="home">
+			<!-- <section class="banner-area relative" id="home">
 				<div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
 						<div class="col-lg-6 col-md-12 d-flex align-self-end img-right no-padding">
-							<div class="slide-holder">
+							<div class="col-lg-6 col-md-6 slide-holder">
 									<span id="slide-1"></span>
 									<span id="slide-2"></span>
 									<span id="slide-3"></span>
 									<span id="slide-4"></span>
-								<div class="slide-group">
+								<div class="col-lg-6 col-md-12  slide-group">
 									<img src="img/E.png" class="slide-image" id="slide-1" /><img src="img/G.png" class="slide-image" id="slide-2"/><img src="img/H.png" class="slide-image" id="slide-3"/><img src="img/P.png" class="slide-image" id="slide-4" />
 								</div>
-								<div class="slide-button-holder">
+								<div class="col-lg-6 col-md-12 slide-button-holder">
 									<a href="#slide-1" class="slider-button"></a>
 									<a href="#slide-2" class="slider-button"></a>
 									<a href="#slide-3" class="slider-button"></a>
@@ -260,13 +239,33 @@
 								</div>
 							</div>
 						</div>
-						<div class="banner-content col-lg-6 col-md-12">
+						<div class="banner-content col-lg-6 col-md-6">
 							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
 							<h1 class="text-uppercase">
 								On Your <br>
 								First Order
 							</h1>
 							<button class="primary-btn text-uppercase"><a href="#">Order Here</a></button>
+						</div>							
+					</div>
+				</div>
+			</section> -->
+			<br>
+			<br>
+			<section class="banner-area relative" id="home">
+				<div class="container-fluid">
+					<div class="row fullscreen align-items-center justify-content-center">
+						<div class="topstrip col-lg-8 col-md-12 d-flex align-self-end img-right no-padding" style = "float:left;">
+							
+									<img id="img" src="img/E.png"/>
+						</div>
+						<div class="banner-content col-lg-4 col-md-12">
+							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
+							<h1 class="text-uppercase">
+								On Your <br>
+								First Order
+							</h1>
+							
 						</div>							
 					</div>
 				</div>
