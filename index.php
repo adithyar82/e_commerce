@@ -88,7 +88,7 @@ $result = $conn->query($sql);
 	
 						  <div class="collapse navbar-collapse"  id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
-								<li><a href="D_homepage.php">Home</a></li>					
+								<!-- <li><a href="D_homepage.php">Home</a></li>					 -->
 						    </ul>
 						  </div>						
 					</div>
@@ -104,6 +104,11 @@ $result = $conn->query($sql);
                 <div class="row">
                     <div class="col-md-6">
                         <div class="login-form">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                             <h3 class="billing-title text-center">Login</h3>
                             <p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
                             <form method = "POST" action = "login_1.php">
@@ -122,6 +127,11 @@ $result = $conn->query($sql);
                     </div>
                     <div class="col-md-6">
                         <div class="register-form">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                             <h3 class="billing-title text-center">Register</h3>
                             <p class="text-center mt-40 mb-30">Create your very own account </p>
                             <form method ="POST" action = "register.php">
