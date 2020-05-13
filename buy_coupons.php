@@ -8,13 +8,13 @@
 		if($result->num_rows>0){
 			echo '<script>
 			alert("Registered Successfully");
-			window.location = "cart.php?id=50";
+			window.location = "updated_cart.php?id=50";
 			</script>';
 		}
 		else {
 			echo '<script>
 			alert("Invalid Credentials");
-			window.location = "cart.php?";
+			window.location = "updated_cart.php?";
 			</script>';
 		}
 
@@ -370,7 +370,7 @@
 										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5><br>
 										</div>
 									<div class="container">
-										<h5><a href = "cart.php?id='.$value.'">Apply Coupon<br></a><br></h5><br>
+										<h5><a href = "updated_cart.php?id='.$value.'">Apply Coupon<br></a><br></h5><br>
 										</div>
                                     </div>';
                                     }

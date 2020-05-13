@@ -85,7 +85,7 @@
 								      <div class="dropdown-menu">
 								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
 								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+								        <!-- <a class="dropdown-item" href="updated_cart.php">Cart</a> -->
 								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
 								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
 								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
@@ -93,7 +93,7 @@
 								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
 								        <a class="dropdown-item" href="elements.php">Elements</a> -->
 									  </div>
-									  <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
+									  <li><a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
 									  <li><a href="favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
 								    </li>
 								<!-- <li><a href="#men">Product</a></li> -->
@@ -306,7 +306,7 @@
                             if($total_cost >= 15000){
                                 echo '<script>
                                 alert("Total Amount Should Not Exceed 15000")
-                                window.location = "cart.php";
+                                window.location = "updated_cart.php";
                                 </script>';
                             }
                             

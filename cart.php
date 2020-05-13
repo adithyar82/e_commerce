@@ -121,7 +121,7 @@
                             <h1>Shopping Cart</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="cart.php">Shopping Cart</a>
+                                <a href="updated_cart.php">Shopping Cart</a>
                             </nav>
                         </div>
                     </div>
@@ -187,7 +187,7 @@
                             echo '<div class="dropdown-menu">
                             <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
                             <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                            <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                            <!-- <a class="dropdown-item" href="updated_cart.php">Cart</a> -->
                             <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
                             <a class="dropdown-item" href="confermation.php">Confirmation</a>
                             <a class="dropdown-item" href="login.php">Login</a>
@@ -202,7 +202,7 @@
                                 <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
                                 <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
                                 <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
-                                <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                                <!-- <a class="dropdown-item" href="updated_cart.php">Cart</a> -->
                                 <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
                                 <a class="dropdown-item" href="confermation.php">Confirmation</a>
                                 <a class="dropdown-item" href="login.php">Login</a>
@@ -217,7 +217,7 @@
                             <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
                             <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
                             <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
-                            <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                            <!-- <a class="dropdown-item" href="updated_cart.php">Cart</a> -->
                             <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
                             <a class="dropdown-item" href="confermation.php">Confirmation</a>
                             <a class="dropdown-item" href="login.php">Login</a>
@@ -233,7 +233,7 @@
                             <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
                             <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
                             <a class="dropdown-item" href="quantity.php?id1=4&id2='.$item_id.'">4</a>
-                            <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                            <!-- <a class="dropdown-item" href="updated_cart.php">Cart</a> -->
                             <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
                             <a class="dropdown-item" href="confermation.php">Confirmation</a>
                             <a class="dropdown-item" href="login.php">Login</a>
@@ -250,7 +250,7 @@
                             <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
                             <a class="dropdown-item" href="quantity.php?id1=4&id2='.$item_id.'">4</a>
                             <a class="dropdown-item" href="quantity.php?id1=5&id2='.$item_id.'">5</a>
-                            <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                            <!-- <a class="dropdown-item" href="updated_cart.php">Cart</a> -->
                             <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
                             <a class="dropdown-item" href="confermation.php">Confirmation</a>
                             <a class="dropdown-item" href="login.php">Login</a>
@@ -269,7 +269,7 @@
                                 <a class="dropdown-item" href="quantity.php?id1=4&id2='.$item_id.'">4</a>
                                 <a class="dropdown-item" href="quantity.php?id1=5&id2='.$item_id.'">5</a>
                                 <a class="dropdown-item" href="quantity.php?id1=6&id2='.$item_id.'">6</a>
-                                <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                                <!-- <a class="dropdown-item" href="updated_cart.php">Cart</a> -->
                                 <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
                                 <a class="dropdown-item" href="confermation.php">Confirmation</a>
                                 <a class="dropdown-item" href="login.php">Login</a>

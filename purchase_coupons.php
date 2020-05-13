@@ -345,7 +345,7 @@
 										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5><br>
 										</div>
 									<div class="container">
-										<h5><a href = "cart.php?id='.$value.'">Apply Coupon<br></a><br></h5><br>
+										<h5><a href = "updated_cart.php?id='.$value.'">Apply Coupon<br></a><br></h5><br>
 										</div>
 									</div>
 								

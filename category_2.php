@@ -98,7 +98,7 @@
 								      <div class="dropdown-menu">
 								        <a class="dropdown-item" href="category.php">Category</a>
 								        <a class="dropdown-item" href="single.php">Single</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+								        <!-- <a class="dropdown-item" href="updated_cart.php">Cart</a> -->
 								        <a class="dropdown-item" href="checkout.php">Checkout</a>
 								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
 								        <a class="dropdown-item" href="login.php">Login</a>
@@ -167,7 +167,7 @@
                             <div class="dropdown-menu">
 								        <a class="dropdown-item" href="category_1.php">Price : Low to High</a>
 								        <!-- <a class="dropdown-item" href="category_2.php">Price : High to Low</a> -->
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+								        <!-- <a class="dropdown-item" href="updated_cart.php">Cart</a> -->
 								        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
 								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
 								        <a class="dropdown-item" href="login.php">Login</a>

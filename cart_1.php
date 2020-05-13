@@ -32,7 +32,7 @@ echo $sql;
 echo $result;
 if ($result->num_rows >= 0){
     echo '<script>
-    window.location ="cart.php";
+    window.location ="updated_updated_cart.php";
     </script>';
 } 
 }  

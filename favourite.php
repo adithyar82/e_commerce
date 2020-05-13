@@ -93,7 +93,7 @@
                             <h1>Favourites</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="cart.php">Your Favourites</a>
+                                <a href="updated_cart.php">Your Favourites</a>
                             </nav>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                                 <a class="dropdown-item" href="quantity.php?id1=4&id2='.$item_id.'">4</a>
                                 <a class="dropdown-item" href="quantity.php?id1=5&id2='.$item_id.'">5</a>
                                 <a class="dropdown-item" href="quantity.php?id1=6&id2='.$item_id.'">6</a>
-                                <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+                                <!-- <a class="dropdown-item" href="updated_cart.php">Cart</a> -->
                                 <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
                                 <a class="dropdown-item" href="confermation.php">Confirmation</a>
                                 <a class="dropdown-item" href="login.php">Login</a>
@@ -293,7 +293,7 @@
 
                 </div>
                 <div style="margin-bottom:10%;">
-                    <button onclick="location.href = 'cart.php';" class="view-btn color-2 w-100 mt-20"><span>Add To Cart</span></button>
+                    <button onclick="location.href = 'updated_cart.php';" class="view-btn color-2 w-100 mt-20"><span>Add To Cart</span></button>
                 </div>
             </div>
             <!-- End Cart Area -->

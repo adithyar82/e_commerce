@@ -113,7 +113,7 @@
 								        <a class="dropdown-item" href="delivery.php">Home</a>
 									<a class="dropdown-item" href="delivery.php">Login</a>
 									<a class="dropdown-item" href="delivery_status.php">History</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
+								        <!-- <a class="dropdown-item" href="updated_cart.php">Cart</a> -->
 								        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
 								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
 								        <a class="dropdown-item" href="login.php">Login</a>

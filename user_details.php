@@ -80,7 +80,7 @@
                                 <button onclick="location.href = 'order.php';" class="view-btn color-2 w-100 mt-20"><span>Order History</span></button>
                                 <button onclick="location.href = 'confermation.php';" class="view-btn color-2 w-100 mt-20"><span>Confirmation</span></button>    
                                 <button onclick="location.href = 'checkout.php';" class="view-btn color-2 w-100 mt-20"><span>Checkout</span></button>  
-                                <button onclick="location.href = 'cart.php';" class="view-btn color-2 w-100 mt-20"><span>Cart</span></button>  
+                                <button onclick="location.href = 'updated_cart.php';" class="view-btn color-2 w-100 mt-20"><span>Cart</span></button>  
                                 <button onclick="location.href = 'favourite.php';" class="view-btn color-2 w-100 mt-20"><span>Favourites</span></button>  
                                 <button onclick="location.href = 'tracking.php';" class="view-btn color-2 w-100 mt-20"><span>Tracking</span></button> 
                             </form>    	
