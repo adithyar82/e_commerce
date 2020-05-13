@@ -272,7 +272,7 @@
 								On Your <br>
 								First Order
 							</h1>
-							<button class="primary-btn text-uppercase"><a href="#">Purchase Now</a></button>
+							
 						</div>							
 					</div>
 				</div>
