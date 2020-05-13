@@ -142,7 +142,7 @@
 							if($username == ""){
 								echo '<ul class="list">
 								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
+								<li> Welcome </li>
 							</ul>';
 							}
 							else{
