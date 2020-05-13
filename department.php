@@ -56,14 +56,6 @@
 				}
 			})
 			</script>
-			<script>
-				function myFunction() {
-				alert("Item added to cart");
-				}
-				function myFunction_1() {
-				alert("Item added to favourites");
-				}
-			</script>
 		</head>
 		<body>
 
@@ -256,7 +248,7 @@
 										  $product_image = $row['product_image'];
 										  $product_quantity = $row['product_quantity'];
 										  echo '<div class="col-md-3 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" onclick="myFunction()" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" onclick="myFunction()_1" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
 										      <div class="content">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
