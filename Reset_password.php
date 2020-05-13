@@ -41,6 +41,12 @@ if($result->num_rows>=0){
             <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
             <link rel="stylesheet" href="css/bootstrap.css">
             <link rel="stylesheet" href="css/main.css">
+
+            <script>
+				function myFunction() {
+				alert("Password reset is successful");
+                }
+            </script>    
         </head>
         <body>
         <header class="default-header">
@@ -81,13 +87,13 @@ if($result->num_rows>=0){
 						<p class="text-center mt-80 mb-40">Set New Password </p>
 						<form method = "POST" action = "">
                             <input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20"> 
-							<input type="password" name = "pwd" placeholder="New Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" required class="common-input mt-20">
-							<input type="password" name = "confirm_new_password" placeholder="Confirm New Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Confirm New Password*'" required class="common-input mt-20">
+							<input type="password" pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least and one uppercase and lowercase letter, and at least 8 or more characters" name = "pwd" placeholder="New Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" required class="common-input mt-20">
+							<input type="password" pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least and one uppercase and lowercase letter, and at least 8 or more characters" name = "confirm_new_password" placeholder="Confirm New Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Confirm New Password*'" required class="common-input mt-20">
 							<div class="mt-20 d-flex align-items-center justify-content-between">
 								<div class="d-flex align-items-center">
                                 <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
 							</div>
-                            <button name = "submit" type = "submit"><span>Reset Password</span></button>
+                            <button name = "submit" onclick="myFunction()" type = "submit"><span>Reset Password</span></button>
 						</form>
 					</div>
 				</div>
