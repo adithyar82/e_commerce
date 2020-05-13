@@ -73,7 +73,7 @@
 			</header>
            
             <!-- reset password-->
-            <div class="container">
+            <div class="container" style="margin-top:10%;margin-bottom:5%;margin-left:27%">
 				<div class="col-md-6">
 					<div class="login-form">
 						<h3 class="billing-title text-center">User Home Page</h3>
