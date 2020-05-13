@@ -110,9 +110,9 @@ $result = $conn->query($sql);
             <!-- End Header Area -->
            
 		<!-- Start My Account -->
-		<div class="container" style="margin-left:7%; margin-bottom:7%; margin-top:7%">
+		<div class="container">
 			<div class="row">
-				<div class="col-md-6" style="margin-left:27%;">
+				<div class="col-md-6">
 					<div class="register-form">
 						<h3 class="billing-title text-center">Register</h3>
 						<p class="text-center mt-40 mb-30">Create your very own account </p>
