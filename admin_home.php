@@ -225,14 +225,21 @@
 					</div>
 				</div>
 			</section>
-
+			
 			<!--Start Body Area-->
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="login-form">
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
 							<h3 class="billing-title text-center">User</h3>
-							<p class="text-center mt-10 mb-10"> </p>
+							<p class="text-center"> </p>
 							
 								<h5> Total Users: </h5>
 								<br>
@@ -260,6 +267,13 @@
 					</div>
 					<div class="col-md-6">
 						<div class="login-form">
+						<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
 							<h3 class="billing-title text-center">Delivery Boy</h3>
 							<p class="text-center mt-10 mb-10"> </p>
 

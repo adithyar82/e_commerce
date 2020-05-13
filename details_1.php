@@ -272,9 +272,11 @@
                                 <div class="available">Delivery Within: <span>2 hrs</span></div>
                                 <div class="available">Cash on Delivery Not Available<span></span></div>
                                     <div class="d-flex mt-20">
-                                        <a href="cart.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Add to Cart</span></a><br>
-                                        <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Buy Now</span></a>
-                                        <a href="#" class="like-btn"><span class="lnr lnr-layers"></span></a>
+                                        <a href="cart_3.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Add to Cart</span></a><br>';
+                                        if($product_quantity>0){
+                                        echo '<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Buy Now</span></a>';
+                                        }
+                                        echo'<a href="#" class="like-btn"><span class="lnr lnr-layers"></span></a>
                                         <a href="favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="like-btn"><span class="lnr lnr-heart"></span></a>
                                     </div>
                                 </div>
