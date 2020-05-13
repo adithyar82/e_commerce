@@ -64,12 +64,7 @@ $result = $conn->query($sql);
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
-            <link href="style.css" rel="stylesheet">
-            <script>
-                function myFunction() {
-                alert("Delivery Boy registration is successful");
-                }
-            </script>
+			<link href="style.css" rel="stylesheet">
         </head>
         <body>
 
@@ -117,14 +112,14 @@ $result = $conn->query($sql);
 						<h3 class="billing-title text-center">Register</h3>
 						<p class="text-center mt-40 mb-30">Create your very own account </p>
 						<form method ="POST" action = "register_1.php">
-							<input type="text"  pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter alphabets only. ')" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
+							<input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
                             <input type="email" name = "email_address" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address'" required class="common-input mt-20">
                             <span class="error error_red" id="spanEmail_at_registration"></span>
-							<input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Must contain 10 digit number" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
+							<input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
 							<input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
-							<input type="password" type="password" pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least and one uppercase and lowercase letter, and at least 8 or more characters" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
+							<input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
                             <br>
-							<input type = "submit" onclick="myFunction()" name = "submit1" class="view-btn color-2 w-100 mt-20"><span>Submit</span>
+							<input type = "submit" name = "submit1" class="view-btn color-2 w-100 mt-20"><span>Submit</span>
 						</form>
 					</div>
 				</div>
