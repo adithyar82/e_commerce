@@ -39,7 +39,14 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
-			<link href="style.css" rel="stylesheet">
+            <link href="style.css" rel="stylesheet">
+
+            <script>
+				function myFunction() {
+				alert("Link has been sent to your E-mail Address to reset password");
+                }
+            </script>    
+
         </head>
         <body>
 
@@ -104,7 +111,7 @@
 						<form method = "POST" action = "login_1.php">
 							<input type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
 							<input type="text" name = "pwd" placeholder="Phone Number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone Number*'" required class="common-input mt-20">
-							<input style="margin-left:43%; margin-top:4%" type = "submit" name = "submit"> 
+							<input style="margin-left:43%; margin-top:4%" onclick="myFunction()" type = "submit" name = "submit"> 
 							
 						</form>
 					</div>
