@@ -117,8 +117,8 @@
                                 <h3 class="billing-title text-center"><span style="font-size:75px;" class="glyphicon glyphicon-user"></span></h3>
                                 <p class="text-center mt-40 mb-30"><?php echo $fname; ?> </p>
                                 <p class="text-center mt-40 mb-30">Referral Code:</p>
-                                <p class="text-center mt-40 mb-30"><input type="text"  value="<?php echo $referral_code?>" id="myInput" disabled><br></p>
-                                <p class="text-center mt-40 mb-30"> <button onclick="myFunction()">Copy Referral Code</button></p>
+                                <p class="text-center mt-40 mb-30"><input type="text" style = "color:black"  value="<?php echo $referral_code?>" id="myInput" disabled><br></p>
+                                <p class="text-center mt-40 mb-30"> <button style = "color:black"  onclick="myFunction()">Copy Referral Code</button></p>
                     
 
                                 <form>

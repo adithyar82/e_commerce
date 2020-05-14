@@ -102,9 +102,9 @@
 					<div class="login-form">
 						<h3 class="billing-title text-center">Forgot Password</h3>
 						<p class="text-center mt-80 mb-40">Enter your E-mail and Phone Number</p>
-						<form method = "POST" action = "login_1.php">
+						<form method = "POST" action = "index_1.php">
 							<input type="text" name = "email_address" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
-							<input type="text" name = "pwd" placeholder="Phone Number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone Number*'" required class="common-input mt-20">
+							<input type="text" name = "phone_number" placeholder="Phone Number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone Number*'" required class="common-input mt-20">
 							<input style="margin-left:43%; margin-top:4%" type = "submit" name = "submit"> 
 							
 						</form>
