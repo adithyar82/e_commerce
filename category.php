@@ -71,6 +71,8 @@
 			<link href="style.css" rel="stylesheet">
 
 			<script>
+				
+
 				$('#row').pagination({
 				dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],
 				pageSize: 5,
@@ -103,6 +105,12 @@
 			images[0] = "img/E.png";
 			images[1] = "img/G.png";
 			images[2] = "img/H.png";
+			function myFunction() {
+				document.getElementById("myDropdown").classList.toggle("show");
+				}
+			function dropFunction() {
+			document.getElementById("Dropdown").classList.toggle("show");
+			}
 		</script>
 			
 		
