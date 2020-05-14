@@ -160,8 +160,8 @@
 									<a href="profile.php"><span class="glyphicon glyphicon-user"> </span> Profile</a>
 									<a href="order_status.php">Order Status</a>
 									<a href="order_history.php">Order History</a>
-									<a href="favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
-									<a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+									<a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
+									<a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
 									<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
 									<a href="contact_us.php"><span class="glyphicon glyphicon-question-sign"></span> Help...?</a>
 							  </div>
@@ -183,7 +183,7 @@
 						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
 								<li><a href="category.php">Home</a></li>
-								<li><a href="#latest">Recommendations</a></li>
+								<!-- <li><a href="#latest">Recommendations</a></li> -->
 									<!-- Dropdown -->
 								    <li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -208,8 +208,8 @@
 								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
 								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
 									  </div>
-									  <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
-									  <li><a href="favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
+									  <li><a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
+									  <li><a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
 								    </li>									
 						    </ul>
 						  </div>						
@@ -265,7 +265,7 @@
 								On Your <br>
 								First Order
 							</h1>
-							<button class="primary-btn text-uppercase"><a href="#">Purchase Now</a></button>
+							
 						</div>							
 					</div>
 				</div>

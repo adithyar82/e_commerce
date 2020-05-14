@@ -81,7 +81,7 @@
 	
 						  <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
-								<li><a href="D_homepage.php">Home</a></li>					
+								<li><a href="category.php">Home</a></li>					
 						    </ul>
 						  </div>						
 					</div>

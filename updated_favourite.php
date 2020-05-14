@@ -44,12 +44,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-	<script>
-		$('#rating-form').on('change','[name="rating"]',function(){
-		$('#selected-rating').text($('[name="rating"]:checked').val());
-	});
-	</script>
-
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
@@ -177,8 +171,11 @@
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Cart</h1>
-                            
+                            <h1>Favourites</h1>
+                             <nav class="d-flex align-items-center justify-content-start">
+                                <a href="index.html">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="single.html">Favourites</a>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -186,194 +183,130 @@
             <!-- End Banner Area -->
 
             <!-- Start Product Details -->
-            
+            <div class="container">
+                <div class="product-quick-view">
+                    <div class="row align-items-center">
                     <?php 
 										include('connect_db.php');
 										//   session_start();
-										$sql = "SELECT * FROM items;";
+										$sql = "SELECT * FROM products WHERE product_name = '$product_name';";
 										$result = $conn->query($sql);
+										$sql_3 = "SELECT * FROM shops;";
+										$result_3 = $conn->query($sql_3);
+										if($result_3->num_rows>0){
+											while($row=$result_3->fetch_assoc()){
+												$address_12 = $row['address_1'];
+												$city_12 = $row['city'];
+												$state_12 = $row['state'];
+												$zipcode_12 = $row['zipcode'];
+												$country_12 = $row['country'];
+											}
+                                        }
+                                        $sql_2 = "SELECT AVG(ratings) as average_ratings FROM product_ratings WHERE product_name = '$product_name';";
+										$result_2 = $conn->query($sql_2);
+										if($result_2->num_rows>0){
+											while($row = $result_2->fetch_assoc()){
+												$average_ratings = $row['average_ratings'];
+											}
+										}
+
+                                        $sql3 = "SELECT COUNT(ratings) as total_ratings FROM product_ratings WHERE product_name = '$product_name';";
+										$result3 = $conn->query($sql3);
+										if($result3->num_rows>0){
+											while($row = $result3->fetch_assoc()){
+												$total_ratings = $row['total_ratings'];
+											}
+										}
+										$sql_2 = "SELECT COUNT(reviews) as total_reviews FROM product_reviews WHERE product_name = '$product_name';";
+										$result_2 = $conn->query($sql_2);
+										if($result_2->num_rows>0){
+											while($row = $result_2->fetch_assoc()){
+												$total_reviews = $row['total_reviews'];
+											}
+										}
+										
+										$shop_address = $address_12.' '.$city_12.' '.$state_12.' '.$zipcode_12.' '.$country_12;
 										if($result->num_rows>0){
 											while($row = $result->fetch_assoc()){
-												$item_id = $row['id'];
-												$item_price = $row['item_price'];
-												$item_name = $row['item_name'];
+												
+												$product_id = $row['product_id'];
+												$product_name = $row['product_name'];
 												$initial_cost = $row['initial_cost'];
 												$final_cost = $row['final_cost'];
 												$product_image = $row['product_image'];
-                                                $product_quantity = $row['product_quantity'];
-                                                $product_quantity_1 = $row['initial_quantity'];
-
-                                                
+												$product_quantity = $row['product_quantity'];
+												$category = $row['category'];
+                                                $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+                                                $discount_price = $initial_cost - $final_cost;
+                    
                         echo' 
-                        <div class="container">
-                            <div>
-                                <div>
-                        <div class="col-lg-3">
-                            <img class="content-image" src="'.$product_image.'" alt="">
+                        <div class="col-lg-6">
+						<img class="content-image" src="'.$product_image.'" alt="">
                         </div>
                             
                         
-                        <div class="col-lg-3">
+                        <div class="col-lg-6">
                             <div class="quick-view-content">
                                 <div class="top">
-                                    <h3 class="head">'.$item_name.' &nbsp; <a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a></h3>
+                                    <h3 class="head">'.$product_name.'</h3>
 
-                                    <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span><span class="ml-10">Rs '.$initial_cost.'</span>  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"> </span&nbsp; &nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"></div> 
-                                    
-                                    
-                                    
-                                </div>
-                                <div class="category">Category: <span>'.$category.'</span>';
-                                if($product_quantity>0){
-                                    echo'<div class="available">Availibility: <span style="color:green">In Stock</span></div>';
-                                }
-                                else{
-                                echo '<div class="available">Availibility: <span style="color:red">Out of Stock</span></div>';
-                                }
+                                    <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span><h5 style="margin-top:2%; margin-left:2%;" class="text-white"><del style = "color : black">'.$initial_cost.'</del>&emsp;</h5> <span class="ml-10">Rs '.$final_cost.'</span></div>
+                                    <h4 style="margin-bottom:3%;margin-top:2%">Discount :&emsp; Rs.	'.$discount_price.' &nbsp; '.$discount.'% off</h4>
+                                    <h6 style="margin-left:15%;"> (Inclusive of all taxes)</h6><br>
+                                    <div class="category">Category: <span>'.$category.'</span></div>';
+                                    if($product_quantity>0){
+                                        echo'<div class="available">Availibility: <span style="color:green">In Stock</span></div>';
+                                    }
+                                    else{
+                                    echo '<div class="available">Availibility: <span style="color:red">Out of Stock</span></div>';
+                                    }
                                 echo'
                                 </div>
-                               
-                                    
-                                    <div class="quantity-container d-flex align-items-center">
-                                    Quantity: &nbsp; &nbsp; <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">'.$product_quantity.' </a>';
-                                    if($product_quantity_1 == 0){
-                                        echo '<p> Out of Stock</p>';
-                                }
-                                else if($product_quantity_1 == 1){
-                                    echo '<div class="dropdown-menu">
-                                    <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                    <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-                                    <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-                                    <a class="dropdown-item" href="confermation.php">Confirmation</a>
-                                    <a class="dropdown-item" href="login.php">Login</a>
-                                    <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-                                    <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-                                    <a class="dropdown-item" href="elements.php">Elements</a> -->
-                                </div>';
-                                }
-                                else if($product_quantity_1 == 2){
-                                echo'
-                                <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                        <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                        <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
-                                        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-                                        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-                                        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-                                        <a class="dropdown-item" href="login.php">Login</a>
-                                        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-                                        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-                                        <a class="dropdown-item" href="elements.php">Elements</a> -->
-                                </div>';
-                                }
-                                else if($product_quantity_1 == 3){
-                                    echo'<div class="dropdown-menu">
-                                    <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
-                                    <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-                                    <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-                                    <a class="dropdown-item" href="confermation.php">Confirmation</a>
-                                    <a class="dropdown-item" href="login.php">Login</a>
-                                    <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-                                    <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-                                    <a class="dropdown-item" href="elements.php">Elements</a> -->
-                                </div>';
-                                }
-                                else if($product_quantity_1 == 4){
-                                    echo '<div class="dropdown-menu">
-                                    <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=4&id2='.$item_id.'">4</a>
-                                    <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-                                    <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-                                    <a class="dropdown-item" href="confermation.php">Confirmation</a>
-                                    <a class="dropdown-item" href="login.php">Login</a>
-                                    <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-                                    <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-                                    <a class="dropdown-item" href="elements.php">Elements</a> -->
-                                 </div>';
-                                }
-                                else if($product_quantity_1 == 5){
-                                    echo '<div class="dropdown-menu">
-                                    <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=4&id2='.$item_id.'">4</a>
-                                    <a class="dropdown-item" href="quantity.php?id1=5&id2='.$item_id.'">5</a>
-                                    <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-                                    <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-                                    <a class="dropdown-item" href="confermation.php">Confirmation</a>
-                                    <a class="dropdown-item" href="login.php">Login</a>
-                                    <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-                                    <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-                                    <a class="dropdown-item" href="elements.php">Elements</a> -->
-                                 </div>';
-                                }
-                                else{
-                                echo'
-                                <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                        <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                        <a class="dropdown-item" href="quantity.php?id1=2&id2='.$item_id.'">2</a>
-                                        <a class="dropdown-item" href="quantity.php?id1=3&id2='.$item_id.'">3</a>
-                                        <a class="dropdown-item" href="quantity.php?id1=4&id2='.$item_id.'">4</a>
-                                        <a class="dropdown-item" href="quantity.php?id1=5&id2='.$item_id.'">5</a>
-                                        <a class="dropdown-item" href="quantity.php?id1=6&id2='.$item_id.'">6</a>
-                                        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-                                        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-                                        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-                                        <a class="dropdown-item" href="login.php">Login</a>
-                                        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-                                        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-                                        <a class="dropdown-item" href="elements.php">Elements</a> -->
-                                </div>';
-                                }
-                                echo'
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                        <a class="dropdown-item" href="quantity.php?id1=1&id2='.$item_id.'">1</a>
-                                        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-                                        <!-- <a class="dropdown-item" href="checkout.php">Checkout</a>
-                                        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-                                        <a class="dropdown-item" href="login.php">Login</a>
-                                        <a class="dropdown-item" href="tracking.php">Tracking</a> -->
-                                        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-                                        <a class="dropdown-item" href="elements.php">Elements</a> -->
+                                
+                                <div class="available">Delivery Within: <span>2 hrs</span></div>
+                                <div class="available">Cash on Delivery Not Available<span></span></div>
+                                    <div class="d-flex mt-20">
+                                        <a href="cart_3.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Add to Cart</span></a><br>';
+                                        // if($product_quantity>0){
+                                        // echo '<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Buy Now</span></a>';
+                                        // }
+                                        echo'<a href="#" class="like-btn"><span class="lnr lnr-layers"></span></a>
+                                        <a href="favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="like-btn"><span class="lnr lnr-heart"></span></a>
                                     </div>
-                                    
-
-                                </div>
-                                </div>
-                                <h3> Sub Total : '.$final_cost.' </h3>
-                                <br>
-                                <br>
-                                
-                                <div class="d-flex mt-30">
-                                        <a href=" cart_2.php?id1='.$item_id.'" class="view-btn color-2"><span>Remove Item</span></a>
-                                
-                                        
-                                        <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Buy Now<br></span></a><br>
                                 </div>
                             </div>
-                        </div>
-                    
-                        </div>
-                        </div>
-                    </div>
-                    <br>
-                    <hr style="height:25px; background-color:#F0F0F0; z-index:-1">
-                    <br>';
+                        </div>';
                                             }
                                         }
                                     ?>
-                   
+                    </div>
+                </div>
+            </div>
 
+            <!-- <div class="container">
+                <div class="details-tab-navigation d-flex justify-content-center mt-30">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li>
+                            <a class="nav-link" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-expanded="true">Description</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" id="specification-tab" data-toggle="tab" href="#specification" role="tab" aria-controls="specification">Specification</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="comments">Comments</a>
+                        </li>
+                        <li>
+                            <a class="nav-link active" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">Reviews</a>
+                        </li>
+                    </ul>
+                </div> -->
+                <br>
+                <?php 
+                echo'<div class="available">Shop Address: <span> <a href="http://maps.google.com/maps?q='.$shop_address.'" target="_blank">'.
+                                $address_12.','.$city_12.','.$state_12.','.$zipcode_12.','.$country_12.'
+                                </a></span></div>';
+                ?>
+                <!--  -->
             <!-- End Product Details -->
                     
             <!-- Start Most Search Product Area -->
