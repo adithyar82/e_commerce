@@ -1,4 +1,7 @@
 <?php
+echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
 include('connect_db.php');
 session_start();
 if(isset($_POST['submit'])){
@@ -26,22 +29,53 @@ if($result->num_rows>0){
     }
     if($role == "user"){
         echo '<script>
-        window.location = "category.php";
+        setTimeout(function () { 
+            swal({
+            title: "Login",
+            text: "Sign-In successful",
+            type: "success",
+            confirmButtonText: "OK"
+            },
+            function(isConfirm){
+            if (isConfirm) {
+                window.location.href = "category.php";
+            }
+            }); }, 1000);
         </script>';
     }
     else if($role == "delivery"){
         echo '<script>
-        window.location = "delivery_checkin.php";
-        </script>';   
+        setTimeout(function () { 
+            swal({
+            title: "Login",
+            text: "Sign-In successful",
+            type: "success",
+            confirmButtonText: "OK"
+            },
+            function(isConfirm){
+            if (isConfirm) {
+                window.location.href = "delivery_checkin.php";
+            }
+            }); }, 1000);
+        </script>';
     }
    
 }
 else{
     echo '<script>
-    alert("Incorrect Credentials")
-    window.location = "index.php";
+    setTimeout(function () { 
+        swal({
+          title: "Login",
+          text: "Incorrect Credentials",
+          type: "error",
+          confirmButtonText: "OK"
+        },
+        function(isConfirm){
+          if (isConfirm) {
+            window.location.href = "index.php";
+          }
+        }); }, 1000);
     </script>';
-}
 
 }
 
