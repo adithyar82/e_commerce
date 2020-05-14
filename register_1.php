@@ -1,4 +1,5 @@
 <?php
+echo'<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
 include('connect_db.php');
 if(isset($_POST['submit1'])){
     $fname = $_POST['fname'];
@@ -12,10 +13,9 @@ if(isset($_POST['submit1'])){
     echo $sql;
     echo $result;
     if($result->num_rows>=0){
-    echo '<script>
-    alert("Registered Successfully");
-    window.location = "index.php";
-    </script>';
+        echo '<script type="text/javascript">';
+        echo 'setTimeout(function () { swal("WOW!","Message!","success");';
+        echo '}, 1000);</script>';
 }
 }
 

@@ -1,6 +1,10 @@
 <?php
+
 include('connect_db.php');
-include("./php/class.phpmailer.php");  
+include("./php/class.phpmailer.php");
+echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';  
 if(isset($_POST['submit'])){
     $fname = $_POST['fname'];
     $email_address = $_POST['email_address'];
@@ -16,8 +20,18 @@ $registration_status = 0;
 $result_1 = $conn->query($sql_1);
 if($result_1->num_rows>0){
     echo '<script>
-    alert("Email address has already been Registered")
-    window.location = "index.php";
+    setTimeout(function () { 
+        swal({
+          title: "Registration",
+          text: "The email address has already been registered",
+          type: "error",
+          confirmButtonText: "OK"
+        },
+        function(isConfirm){
+          if (isConfirm) {
+            window.location.href = "index.php";
+          }
+        }); }, 1000);
     </script>';
 }
 else{
@@ -81,12 +95,22 @@ if ($result->num_rows >= 0) {
   
   
 
-    echo '<script>
-    alert("Successfully Registered");
-    window.location="index.php";
+    echo'<script type="text/javascript">
+    setTimeout(function () { 
+        swal({
+          title: "Registration",
+          text: "Sucessfully Registered",
+          type: "success",
+          confirmButtonText: "OK"
+        },
+        function(isConfirm){
+          if (isConfirm) {
+            window.location.href = "index.php";
+          }
+        }); }, 1000);
     
     </script>';
-    echo "done";
+    
     }
     else if($result->num_rows == 0) {
   
