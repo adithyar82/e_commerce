@@ -52,7 +52,7 @@
 					<div class="register-form">
 						<h3 class="billing-title text-center">Contact Us</h3>
 						<p class="text-center mt-40 mb-30">Enter the details</p>
-						<form method ="POST" action = "register.php">
+						<form method ="POST" action = "register_1.php">
 							<input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
 							<input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
 							<input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
