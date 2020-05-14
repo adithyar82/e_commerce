@@ -145,7 +145,7 @@
                             <ul class="navbar-nav">
                                 <li><a href="category.php">Home</a></li>
                                 <!-- <li><a href="delivery_status_1.php">My Orders</a></li> -->
-                                <!-- <li><a href="#men">Men</a></li>
+                                <!-- <li><a href="#men">Men<a/a></li>
                                 <li><a href="#women">Women</a></li>
                                 <li><a href="#latest">latest</a></li> -->
                                     <!-- Dropdown -->
