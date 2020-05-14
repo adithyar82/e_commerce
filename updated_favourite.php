@@ -177,7 +177,7 @@
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Cart</h1>
+                            <h1>Favourite</h1>
                             
                         </div>
                     </div>
@@ -238,7 +238,7 @@
                                 <br>
                                 
                                 <div class="d-flex mt-30">
-                                        <a href=" cart_2.php?id1='.$item_id.'" class="view-btn color-2"><span>Remove Item</span></a>
+                                        <a href=" favourite_2.php?id1='.$item_id.'" class="view-btn color-2"><span>Remove Item</span></a>
                                 
                                         
                                         <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Cart<br></span></a><br>

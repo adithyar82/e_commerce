@@ -1,4 +1,7 @@
 <?php
+echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
 include('connect_db.php');
 include("./php/class.phpmailer.php"); 
 $email_address = $_POST['email_address'];
@@ -14,19 +17,30 @@ $phone_number = $_POST['phone_number'];
     $mail->Port = 587;                                    // TCP port to connect to
     $mail->setFrom('noreplytasteofIndia@gmail.com', 'no reply');
     $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
-    $mail->Subject = 'E Commerce Website';
-    $mail->Body    = '<h1 align =center>Dear '.$fname.' Welcome to E Commmerce Portal</h1>
-                      <h2 align =center>This is to inform you that your password has been reset</h2>
-                      <h3 aling = left><a href = "http://localhost:8888/shop/reset_password.php"> Login Using Your Credentials';
+    $mail->Subject = 'Loket.in-E Commerce Website';
+    $mail->Body    = '<h2 align =center>loket.in</h2>
+                      <h3 align =center>Dear '.$fname.' Welcome to E Commmerce Website</h3>
+                      <h4 align =center>This is to inform you that your password has been successfully Reset or Changed</h4>
+                      <h3 aling = left><a href = "http://localhost:8888/shop/index.php"> Login Using Your New Password / Credential';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     $mail -> isHTML(true);
     if(!$mail->send()) {
         echo 'Message could not be sent.';
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
-        echo'<script>
-        alert("Email has been sent successfully");
-        window.location= "index.php";
+        echo '<script>
+        setTimeout(function () { 
+            swal({
+            title: "Forgot Password",
+            text: "Please find the link to reset your password in the mail box<br> E-mail has been sent successfully to your email adderss",
+            type: "success",
+            confirmButtonText: "OK"
+            },
+            function(isConfirm){
+            if (isConfirm) {
+                window.location.href = "forgot_password.php";
+            }
+            }); }, 1000);
         </script>';
     }
   
