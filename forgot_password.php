@@ -1,4 +1,5 @@
 <?php
+      
 	session_start();
 	if(!isset($_SESSION['uname'])){
 		header("location:index.php");
@@ -86,7 +87,7 @@
                             <h1>Forgot Password</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="forgot_password.php.php">Forgot Password</a>
+                                <a href="forgot_password.php">Forgot Password</a>
                             </nav>
                         </div>
                     </div>
