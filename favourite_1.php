@@ -12,7 +12,7 @@ echo $sql;
 echo $result;
 if ($result->num_rows >= 0){
     echo '<script>
-    window.location ="favourite.php";
+    window.location ="updated_favourite.php";
     </script>';
 }   
 ?>
