@@ -143,13 +143,13 @@
                           </button>
                           <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <!-- <li><a href="delivery_checkout.php">Checkout</a></li>
-                                <li><a href="delivery_status_1.php">My Orders</a></li> -->
-                                <!-- <li><a href="#men">Men</a></li>
+                                <li><a href="category.php">Home</a></li>
+                                <!-- <li><a href="delivery_status_1.php">My Orders</a></li> -->
+                                <!-- <li><a href="#men">Men<a/a></li>
                                 <li><a href="#women">Women</a></li>
                                 <li><a href="#latest">latest</a></li> -->
                                     <!-- Dropdown -->
-                                    <!-- <li class="dropdown">
+                                    <!-- <li clas os="dropdown">
                                       <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                         Pages
                                       </a>
@@ -272,10 +272,12 @@
                                 <div class="available">Delivery Within: <span>2 hrs</span></div>
                                 <div class="available">Cash on Delivery Not Available<span></span></div>
                                     <div class="d-flex mt-20">
-                                        <a href="cart.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Add to Cart</span></a><br>
-                                        <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Buy Now</span></a>
-                                        <a href="#" class="like-btn"><span class="lnr lnr-layers"></span></a>
-                                        <a href="favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="like-btn"><span class="lnr lnr-heart"></span></a>
+                                        <a href="cart_3.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Add to Cart</span></a><br>';
+                                        if($product_quantity>0){
+                                        echo '<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="view-btn color-2"><span>Buy Now</span></a>';
+                                        }
+                                        echo'<a href="#" class="like-btn"><span class="lnr lnr-layers"></span></a>
+                                        <a href="updated_favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" class="like-btn"><span class="lnr lnr-heart"></span></a>
                                     </div>
                                 </div>
                             </div>
