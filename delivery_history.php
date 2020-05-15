@@ -62,7 +62,8 @@
                     <div class="menu-top container">
 					<div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com.com</a></li>                             
+                                <li><a href="contact_us.php">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>                            
                             </ul>
                             <ul class="list">
 								<li><a href="logout.php" style = "margin-rigth:15px;">Logout</a></li>
@@ -80,6 +81,7 @@
                           </button>
                           <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
+                                <li><a href="delivery_checkin.php">Home</a></li>
                                 <li><a href="delivery_checkout.php">Checkout</a></li>
                                 <li><a href="delivery_status_1.php">My Orders</a></li>
                                 <!-- <li><a href="#men">Men</a></li>
