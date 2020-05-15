@@ -88,8 +88,8 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>
+                                <li><a href="contact_us.php">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>
                                 <li><a href="faq.php">Help ?</a></li>								
 						</div>
 					</div>	

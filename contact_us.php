@@ -47,6 +47,32 @@
 				</div>
 			</section>
 			<section>
+			<!-- Start Header Area -->
+            <header class="default-header">
+				<div class="menutop-wrap">
+					<div class="menu-top container">
+				        <div class="d-flex justify-content-between align-items-center">
+                            <ul class="list">
+                                <li><a href="contact_us.php">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>                             
+                            </ul>							
+						</div>
+					</div>	
+					<br>				
+				</div>
+				<nav class="navbar navbar-expand-lg navbar-light">
+					<div class="container" style="width:1500px;">
+
+						<a class="navbar-brand" href="category.php">
+							<img style="margin-left:25px;" src="img/logo.png" alt="">
+							<p> Company Logo </p>
+						</a>
+						<ul class="navbar-nav" style="width:1500px;">
+							<li><a href="category.php">Home</a></li>
+						</ul>						
+					</div>
+				</nav>
+			</header>
 			<div class="container">
 				<div class="col-md-6">
 					<div class="register-form">
