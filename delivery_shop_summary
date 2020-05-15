@@ -74,9 +74,15 @@
                             <ul class="list">
                                 <li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com.com</a></li>                             
                             </ul>
+							<ul class="list">
+								<li><a href="logout.php" style = "margin-rigth:15px;"><?php echo $uname?></a></li>
+                            </ul>
                             <ul class="list">
 								<li><a href="logout.php" style = "margin-rigth:15px;">Logout</a></li>
                             </ul>
+                            <ul class="list">
+								<li><a href="category.php" style = "margin-rigth:15px;">Home</a></li>
+							</ul>
                         </div>
                     </div>                  
                 </div>
@@ -90,8 +96,8 @@
                           </button>
                           <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li><a href="delivery_details_2.php">Checkout</a></li>
-                                <li><a href="delivery_status_1.php">My Orders</a></li>
+                                <li><a href="delivery_checkout.php">Checkout</a></li>
+                                <li><a href="delivery_status.php">All Orders</a></li>
                                 <!-- <li><a href="#men">Men</a></li>
                                 <li><a href="#women">Women</a></li>
                                 <li><a href="#latest">latest</a></li> -->
@@ -138,7 +144,7 @@
 			<!-- Start Product Details -->
 			<?php
 include('connect_db.php');
-$sql = "SELECT * FROM order_status where status = 'ordered'";
+$sql = "SELECT * FROM order_status where delivery_boy = '$uname' and status != 'delivered'";
 $result = $conn->query($sql);
 if($result->num_rows>0){
 	while($row = $result->fetch_assoc()){
@@ -184,16 +190,16 @@ if($result->num_rows>0){
                         <div class="col-lg-6">
                             <div class="quick-view-content">
                                 <div class="top">
-                                    <h2 class="head">Order Id: '.$order_id.'<h2>
+                                    <h3 class="head">Order Id: '.$order_id.'<h3>
                                     <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span> <span class="ml-10">Rs '.$final_cost.'</span></div>
-                                    <div class="category">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '.$fname.' <span></span></div><br>
-									<div class="available">Phone Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '.$phone_number.' <span></span></div><br>
-									<div class="available">Product Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '.$product_name.'<span></span></div><br>
-									<div class="available">Order Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'.$status.' <span></span></div><br>
-									<div class="available">Pickup Location&nbsp;&nbsp;&nbsp;&nbsp;: <a href="http://maps.google.com/maps?q='.$shop_address.'" target="_blank">'.
+                                    <div class="category">Name: '.$fname.' <span></span></div><br>
+									<div class="available">Phone Number: '.$phone_number.' <span></span></div><br>
+									<div class="available">Product Name: '.$product_name.'<span></span></div><br>
+									<div class="available">Order Status:'.$status.' <span></span></div><br>
+									<div class="available">Pickup Location: <a href="http://maps.google.com/maps?q='.$shop_address.'" target="_blank">'.
 									$address_12.','.$city_12.','.$state_12.','.$zipcode_12.','.$country_12.'
 								</a><span></span></div><br>
-									<div class="available">Delivery Location&nbsp;: <a href="http://maps.google.com/maps?q='.$delivery_address.'" target="_blank">'.
+									<div class="available">Delivery Location: <a href="http://maps.google.com/maps?q='.$delivery_address.'" target="_blank">'.
 									$address_1.','.$city.','.$state.','.$zipcode.','.$country.'
 								</a><span></span></div><br>
                                 </div>
@@ -204,33 +210,7 @@ if($result->num_rows>0){
                     </div>
                 </div>
             </div>';
-            if($status == "ordered"){
-			echo'
-            <div class="container">
-                <div class="details-tab-navigation d-flex justify-content-center mt-30">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li>
-						<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
-						</li>
-						
-                        <li>
-						<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
-						</li>
-						<br>
-                        <li>
-						<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Delivered <br></a><br></h5><br>
-                        </li>
-                        
-                    </ul>
-                </div>
-                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-			</div>';
-			}
-			else if($status == "order accepted"){
+			if($status == "ordered"){
 				echo'
 				<div class="container">
 					<div class="details-tab-navigation d-flex justify-content-center mt-30">
@@ -256,7 +236,7 @@ if($result->num_rows>0){
 					</div>
 				</div>';
 				}
-				else if($status == "order collected"){
+				else if($status == "order accepted"){
 					echo'
 					<div class="container">
 						<div class="details-tab-navigation d-flex justify-content-center mt-30">
@@ -266,11 +246,11 @@ if($result->num_rows>0){
 								</li>
 								
 								<li>
-								<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
+								<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
 								</li>
 								<br>
 								<li>
-								<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Order Accepted <br></a><br></h5><br>
+								<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Delivered <br></a><br></h5><br>
 								</li>
 								
 							</ul>
@@ -282,7 +262,7 @@ if($result->num_rows>0){
 						</div>
 					</div>';
 					}
-					else if($status == "delivered"){
+					else if($status == "order collected"){
 						echo'
 						<div class="container">
 							<div class="details-tab-navigation d-flex justify-content-center mt-30">
@@ -292,11 +272,11 @@ if($result->num_rows>0){
 									</li>
 									
 									<li>
-									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"><span class="glyphicon glyphicon-check"></span> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
+									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
 									</li>
 									<br>
 									<li>
-									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order delivered"><span class="glyphicon glyphicon-check"></span> Delivered <br></a><br></h5><br>
+									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Order Accepted <br></a><br></h5><br>
 									</li>
 									
 								</ul>
@@ -308,7 +288,32 @@ if($result->num_rows>0){
 							</div>
 						</div>';
 						}
-            
+						else if($status == "delivered"){
+							echo'
+							<div class="container">
+								<div class="details-tab-navigation d-flex justify-content-center mt-30">
+									<ul class="nav nav-tabs" id="myTab" role="tablist">
+										<li>
+										<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
+										</li>
+										
+										<li>
+										<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"><span class="glyphicon glyphicon-check"></span> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
+										</li>
+										<br>
+										<li>
+										<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order delivered"><span class="glyphicon glyphicon-check"></span> Delivered <br></a><br></h5><br>
+										</li>
+										
+									</ul>
+								</div>
+								
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>';
+							}
 				}
 			}
 			?>
