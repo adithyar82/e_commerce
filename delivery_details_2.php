@@ -5,6 +5,8 @@ echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 include('connect_db.php');
 $sql = "INSERT INTO delivery_log (id, checkin_time, checkout_time) VALUE (Null, '', CURRENT_TIME());";
 $result = $conn->query($sql);
+$sql1 = "UPDATE delivery_log SET status = 0;";
+$result1 = $conn->query($sql1);
 if($result->num_rows>=0){
     echo '<script>
     setTimeout(function () { 
