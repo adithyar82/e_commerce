@@ -22,7 +22,7 @@ $product_quantity = 1;
 $final_cost = $initial_cost * $product_quantity;
 $sql_1 = "SELECT * FROM favourites WHERE product_id = '$product_id';";
 $result_1 = $conn->query($sql_1);
-if($result_1->num_rows>=0){
+if($result_1->num_rows>0){
     echo '<script>
     setTimeout(function () { 
         swal({
@@ -39,7 +39,7 @@ if($result_1->num_rows>=0){
     </script>';
 }
 else{
-$sql = "INSERT INTO favourites (id, username, item_name, item_price, product_quantity,product_id,initial_cost, final_cost,initial_quantity,product_image) VALUES (Null, '$username', '$id3', '$id1', '$product_quantity', '$initial_cost', '$final_cost', '$product_quantity_1','$product_id','$product_image');";
+  $sql = "INSERT INTO favourites (id, username, item_name, item_price, product_quantity, initial_cost, final_cost,initial_quantity, product_id, product_image) VALUES (Null, '$username', '$id3', '$id1', '$product_quantity', '$initial_cost', '$final_cost', '$product_quantity_1','$product_id','$product_image');";
 $result = $conn->query($sql);
 // echo $sql;
 // echo $result;

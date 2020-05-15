@@ -350,7 +350,7 @@
 												  <h5>'.$product_name.'</h5>
 													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
 												  <h3>'.$final_cost.'</h3>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
+												  <a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>
 												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
 										   </div>
 										</div>';
