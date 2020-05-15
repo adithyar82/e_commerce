@@ -7,19 +7,19 @@ session_start();
 if(isset($_POST['submit'])){
     $email_address = $_POST['email_address'];
     $pwd = md5($_POST['pwd']);
-    echo $email_address;
-    echo $pwd;
+    // echo $email_address;
+    // echo $pwd;
     $sql = "SELECT * FROM Users where email_address = '$email_address' AND password = '$pwd'";
    $result = $conn->query($sql);
 if($result->num_rows>0){
-    echo "done";
+    // echo "done";
     while($row = $result->fetch_assoc()){
         $_SESSION['uname'] = $row['fname'];
         $role = $row['role'];
-        echo $username;
+        // echo $username;
         $_SESSION['email_address'] = $email_address;
         $registration_status = $row['registration_status'];
-        echo $registration_status;
+        // echo $registration_status;
        
         // echo $_SESSION['username'];
        
@@ -59,6 +59,22 @@ if($result->num_rows>0){
             }); }, 1000);
         </script>';
     }
+    else if($role == "delivery_shop"){
+        echo '<script>
+        setTimeout(function () { 
+            swal({
+            title: "Login",
+            text: "Sign-In successful",
+            type: "success",
+            confirmButtonText: "OK"
+            },
+            function(isConfirm){
+            if (isConfirm) {
+                window.location.href = "delivery_shop_status.php";
+            }
+            }); }, 1000);
+        </script>';
+    }
    
 }
 else{
@@ -78,5 +94,5 @@ else{
     </script>';
 
 }
-
+}
 ?>

@@ -3,6 +3,21 @@
     include('connect_db.php');
     $uname = $_SESSION['uname'];
     echo $uname;
+    $value = $_REQUEST['id1'];
+    $coupon_code = $_REQUEST['id2'];
+    $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
+    $result_2 = $conn->query($sql_2);
+    if($result_2->num_rows>0){
+        while($row = $result_2->fetch_assoc()){
+            $delivery_status = $row['delivery_status'];
+            if($delivery_status == 0){
+                echo'<script>
+                alert("Currently there are no delivery boys available in your locality");
+                window.location = "details_1.php?id='.$product_name.'";
+                </script>';
+            }
+        }
+    }
     ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
@@ -309,7 +324,7 @@
                                 window.location = "cart.php";
                                 </script>';
                             }
-								
+							$total_cost_1 = $total_cost - $value;	
                             ?>
 							
 							<div class="list-row d-flex justify-content-between">
@@ -320,9 +335,28 @@
 								<h6>Shipping</h6>
 								<div>Flat rate: Rs50.00</div>
 							</div>
-							<div class="list-row border-bottom-0 d-flex justify-content-between">
+                            <?php	
+                            if($value>0){
+                                echo'<div class="list-row d-flex justify-content-between">
+								<h6>Coupon Code</h6>
+								<div>'.$coupon_code.'</div>
+							</div>
+							<div class="list-row d-flex justify-content-between">
+								<h6>Value</h6>
+								<div>'.$value.'</div>
+                            </div>
+                            ';
+                            echo'<a href = "buy_coupons.php?id='.$total_cost.'" button class="view-btn color-2 w-100 mt-20"><span>Change Coupon</span></button></a>';
+                            }
+                            else{
+                                echo'<a href = "buy_coupons.php?id='.$total_cost.'" button class="view-btn color-2 w-100 mt-20"><span>Apply Coupon</span></button></a>';
+                            }
+                            ?>
+                            <div class="list-row d-flex justify-content-between">
 								<h6>Total</h6>
-								<div class="total"><?php echo $id4?></div>
+								<div><?php echo $total_cost_1?></div>
+							</div>
+                            <div class="list-row border-bottom-0 d-flex justify-content-between">
 							</div>
                                     </div>
                                     <div class="d-flex align-items-center mt-10">

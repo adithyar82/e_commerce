@@ -4,7 +4,8 @@
 		header("location:index.php");
 	}
 	$uname = $_SESSION['uname'];
-	$product_name = $_REQUEST['id'];
+    $product_name = $_REQUEST['id'];
+    
 	echo $_SESSION['username'];
 	include('connect_db.php');
 	$registration_status = $_REQUEST['id1'];
@@ -373,7 +374,9 @@
                    
 
             <!-- End Product Details -->
-                    
+            <div>
+                    <a href = "checkout_1.php"  button class="view-btn color-2 w-100 mt-20"><span>Buy Now</span></button>
+                </div>     
             <!-- Start Most Search Product Area -->
             <section class="pt-100 pb-100">
                 <div class="container">

@@ -4,15 +4,10 @@
     session_start();
     if(!isset($_SESSION['uname'])){
 		header("location:index.php");
-	}
-    $id1 = $_REQUEST['id1'];
-    $id2 = $_REQUEST['id2'];
-    $id3 = $_REQUEST['id3'];
-    $id4 = $id1 + 50;
-    $_SESSION['id1'] = $id1;
-    $_SESSION['id2'] = $id2;
-    $_SESSION['id3'] = $id3;
-    $_SESSION['id4'] = $id4;
+    }
+    $uname = $_SESSION['uname'];
+    $product_id = $_REQUEST['id1'];
+    $coupon_code = $_REQUEST['id2'];
     $sql = "SELECT * FROM shipping;";
     $result = $conn->query($sql);
     if($result->num_rows>0){
@@ -26,7 +21,7 @@
 
         }
     }
-    $sql1 = "SELECT * FROM Users WHERE username  = 'abc';";
+    $sql1 = "SELECT * FROM Users WHERE username  = '$uname';";
     $result1= $conn->query($sql1);
     if($result1->num_rows>0){
         while ($row = $result1->fetch_assoc()){
@@ -36,6 +31,37 @@
 
         }
     }
+    $sql2 = "SELECT * FROM products WHERE product_id = '$product_id';";
+    $result2 = $conn->query($sql2);
+    if($result2->num_rows>0){
+        while($row = $result2->fetch_assoc()){
+            $product_name = $row['product_name'];
+            $final_cost = $row['final_cost'];
+            $product_quantity = $row['product_quantity'];
+        }
+    }
+    $sql_1 = "SELECT * FROM coupons WHERE coupon_code = '$coupon_code';";
+    $result_1 = $conn->query($sql_1);
+    if($result_1->num_rows>0){
+        while($row = $result_1->fetch_assoc()){
+            $value = $row['value'];
+        }
+    }
+    $total_cost = $final_cost - $value;
+    $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
+    $result_2 = $conn->query($sql_2);
+    if($result_2->num_rows>0){
+        while($row = $result_2->fetch_assoc()){
+            $delivery_status = $row['delivery_status'];
+            if($delivery_status == 0){
+                echo'<script>
+                alert("Currently there are no delivery boys available in your locality");
+                window.location = "category.php"
+                </script>';
+            }
+        }
+    }
+    
     ?>
     <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -307,21 +333,41 @@
 									<div>Total</div>
 								</div>
 							<div class="list-row d-flex justify-content-between">
-								<div><?php echo $id3?></div>
-								<div>x 02</div>
-								<div><?php echo $id1?></div>
+								<div><?php echo $product_name?></div>
+								<div>x 01</div>
+								<div><?php echo $final_cost?></div>
 							</div>
 							<div class="list-row d-flex justify-content-between">
 								<h6>Subtotal</h6>
-								<div><?php echo $id1?></div>
+								<div><?php echo $final_cost?></div>
 							</div>
 							<div class="list-row d-flex justify-content-between">
 								<h6>Shipping</h6>
 								<div>Flat rate: Rs50.00</div>
 							</div>
+                            <?php	
+                            if($value>0){
+                                echo'<div class="list-row d-flex justify-content-between">
+								<h6>Coupon Code</h6>
+								<div>'.$coupon_code.'</div>
+							</div>
+							<div class="list-row d-flex justify-content-between">
+								<h6>Value</h6>
+								<div>'.$value.'</div>
+                            </div>';
+                            echo'<a href = "buy_coupons_1.php?id1='.$product_id.'" button class="view-btn color-2 w-100 mt-20"><span>Change Coupon</span></button></a>';
+                            }
+                            else{
+                                echo'<a href = "buy_coupons_1.php?id1='.$product_id.'" button class="view-btn color-2 w-100 mt-20"><span>Apply Coupon</span></button></a>';
+                            }
+                            ?>
+                            <div class="list-row border-bottom-0 d-flex justify-content-between">
+                            
+                                
+							</div>
 							<div class="list-row border-bottom-0 d-flex justify-content-between">
 								<h6>Total</h6>
-								<div class="total"><?php echo $id4?></div>
+								<div class="total"><?php echo $total_cost?></div>
 							</div>
                                     </div>
                                     <div class="d-flex align-items-center mt-10">
