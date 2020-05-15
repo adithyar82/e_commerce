@@ -19,7 +19,7 @@
 		}
 
 	}
-    $total_cost = $_REQUEST['id'];
+    $product_id = $_REQUEST['id1'];
 	$username = $_SESSION['username'];
     echo $_SESSION['username'];
     $sql = "SELECT * FROM coupons";
@@ -32,6 +32,15 @@
 
         }
 	}
+	$sql2 = "SELECT * FROM products WHERE product_id = '$product_id';";
+    $result2 = $conn->query($sql2);
+    if($result2->num_rows>0){
+        while($row = $result2->fetch_assoc()){
+            $product_name = $row['product_name'];
+            $final_cost = $row['final_cost'];
+            $product_quantity = $row['product_quantity'];
+        }
+	}
 	$sql3 = "SELECT MIN(cost) as minimum_cost FROM coupons";
     $result3 = $conn->query($sql3);
     if($result3->num_rows>0){
@@ -39,6 +48,7 @@
            $minimum_cost_1 = $row['minimum_cost'];
         }
 	}
+	
 	?>
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -347,10 +357,10 @@
 							<?php
 							include('connect_db.php');
 							$sql = "SELECT * FROM coupons";
-							if($total_cost <= $minimum_cost_1){
+							if($final_cost <= $minimum_cost_1){
 								echo'<script>
 								alert("Coupons applicable for a minimum order of '.$minimum_cost_1.'");
-								window.location = "checkout_1.php?id1='.$product_id.'";
+								window.location = "checkout.php?id1='.$product_id.'";
 								</script>';
 							}
 							$result = $conn->query($sql);
@@ -361,8 +371,9 @@
 									$minimum_cost = $row['cost'];
 									// $status = $row['status'];
 									// $product_image = $row['product_image'];
+									echo $minimum_cost_1;
                                     echo '<section class="brand-area pb-100">';
-                                    if($total_cost >= $minimum_cost){
+                                    if($final_cost >= $minimum_cost){
                                     echo'
                                     <div class="container">
                                     <div class="container">
@@ -383,7 +394,7 @@
 										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5><br>
 										</div>
 									<div class="container">
-										<h5><a href = "checkout_1.php?id1='.$value.'&id2='.$coupon_code.'">Apply Coupon<br></a><br></h5><br>
+										<h5><a href = "checkout.php?id1='.$product_id.'&id2='.$coupon_code.'">Apply Coupon<br></a><br></h5><br>
 										</div>
                                     </div>';
                                     }

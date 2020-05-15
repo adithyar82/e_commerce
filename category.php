@@ -369,7 +369,7 @@
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
 												  }
 												  
 												  
@@ -426,7 +426,7 @@
 												}
 												
 												if($product_quantity>0){
-												  echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
 												}
 										   echo' </div>
 										</div>
@@ -481,7 +481,7 @@
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
 												  }
 												  
 												  
@@ -538,7 +538,7 @@
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
 												  }
 												  
 												  
@@ -595,7 +595,7 @@
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
 												  }
 												  
 												  
@@ -652,7 +652,7 @@
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
 												  }
 												  
 												  
