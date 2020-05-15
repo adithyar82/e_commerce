@@ -32,7 +32,7 @@ if($result->num_rows>0){
         setTimeout(function () { 
             swal({
             title: "Login",
-            text: "Sign-In successful",
+            text: "",
             type: "success",
             confirmButtonText: "OK"
             },

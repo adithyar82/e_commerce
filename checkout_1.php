@@ -1,4 +1,7 @@
     <?php
+    echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
     session_start();
     include('connect_db.php');
     $uname = $_SESSION['uname'];
@@ -11,9 +14,19 @@
         while($row = $result_2->fetch_assoc()){
             $delivery_status = $row['delivery_status'];
             if($delivery_status == 0){
-                echo'<script>
-                alert("Currently there are no delivery boys available in your locality");
-                window.location = "details_1.php?id='.$product_name.'";
+                echo '<script>
+                setTimeout(function () { 
+                    swal({
+                    title: "Availability",
+                    text: "Currently there are no delivery boys available in your locality",
+                    type: "",
+                    confirmButtonText: "OK"
+                    },
+                    function(isConfirm){
+                    if (isConfirm) {
+                        window.location.href = "details_1.php?id='.$product_name.'";;
+                    }
+                    }); }, 1000);
                 </script>';
             }
         }
@@ -320,9 +333,19 @@
                             }
                             if($total_cost >= 15000){
                                 echo '<script>
-                                alert("Total Amount Should Not Exceed 15000")
-                                window.location = "cart.php";
-                                </script>';
+                                setTimeout(function () { 
+                                    swal({
+                                    title: "Cart",
+                                    text: "Total Amount Should Not Exceed 15000",
+                                    type: "",
+                                    confirmButtonText: "OK"
+                                    },
+                                    function(isConfirm){
+                                    if (isConfirm) {
+                                        window.location.href = "cart.php";
+                                    }
+                                    }); }, 1000);
+                                </script>';   
                             }
 							$total_cost_1 = $total_cost - $value;	
                             ?>

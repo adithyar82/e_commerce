@@ -120,10 +120,21 @@ if ($result->num_rows >= 0) {
       // // 
       
       // </script>';
-      echo  '<script>
-      alert("Incorrect Credentials");
-      window.location="category.php";
-      </script>';
+      echo'<script type="text/javascript">
+        setTimeout(function () { 
+            swal({
+              title: "Registration",
+              text: "Invalid Credentials",
+              type: "error",
+              confirmButtonText: "OK"
+            },
+            function(isConfirm){
+              if (isConfirm) {
+                window.location.href = "index.php";
+              }
+            }); }, 1000);
+        
+        </script>';
       }
     }
 ?>

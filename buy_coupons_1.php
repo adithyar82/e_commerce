@@ -1,4 +1,7 @@
 <?php
+	echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
     include('connect_db.php');
 	session_start();
 	if(isset($_POST['submit'])){
@@ -7,14 +10,34 @@
 		$result = $conn->query($sql);
 		if($result->num_rows>0){
 			echo '<script>
-			alert("Registered Successfully");
-			window.location = "cart.php?id=50";
+			setTimeout(function () { 
+				swal({
+				title: "Coupons",
+				text: "Coupon Valid",
+				type: "success",
+				confirmButtonText: "OK"
+				},
+				function(isConfirm){
+				if (isConfirm) {
+					window.location.href = "checkout.php";
+				}
+				}); }, 1000);
 			</script>';
 		}
 		else {
 			echo '<script>
-			alert("Invalid Credentials");
-			window.location = "cart.php?";
+			setTimeout(function () { 
+				swal({
+				title: "Coupons",
+				text: "Coupon Invalid",
+				type: "error",
+				confirmButtonText: "OK"
+				},
+				function(isConfirm){
+				if (isConfirm) {
+					window.location.href = "checkout.php";
+				}
+				}); }, 1000);
 			</script>';
 		}
 
@@ -353,7 +376,7 @@
 								<img class="d-block mx-auto" src="img/br5.png" alt="">
 							</a> -->
 							<br>
-							<h3 style="margin-left:45%"> Current Orders </h3>
+							<h3 style="text-align:center;"> Coupons </h3>
 							<?php
 							include('connect_db.php');
 							$sql = "SELECT * FROM coupons";
@@ -376,27 +399,25 @@
                                     if($final_cost >= $minimum_cost){
                                     echo'
                                     <div class="container">
-                                    <div class="container">
-                                    <div class="row logo-wrap"><div class="row logo-wrap">
-                                    <div class="container">
-                                    
-                                    
-                                    <h3><br> Coupon Code &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$coupon_code.' <br><br> Value &nbsp; &nbsp; &nbsp;: '.$value.'<br><br>Cost &emsp; &nbsp; &nbsp;: '.$minimum_cost.'<br><br>
+                                    <div class="container d-flex justify-content-center">
+                                    <div class="row logo-wrap" style="background-color:#777777;"><div class="row logo-wrap" style="background-color: #f41068;">
+									<div class="container">
+									
+									<h4 style="color: #fff;"> Coupon Code &emsp; &emsp;: &emsp; &emsp;'.$coupon_code.' <br><br> Value &emsp; &emsp; &emsp; &emsp; &emsp; &nbsp;: &emsp; &emsp;Rs.'.$value.'<br><br>Minimum Order &nbsp;&emsp;: &emsp; &emsp;Rs.'.$minimum_cost.'</h4>
+
+									<div class="container">
+										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5>
+									</div>
+									<div class="container">
+										<h3 style="text-align: center;"><a href = "checkout.php?id1='.$product_id.'&id2='.$coupon_code.'" style="color: #fff;">Apply Coupon<br></a></h3>
+									</div>
+
+                                    </div>
                                     </div>
                                 
                                 
                                 </div>
 									</div>';
-	
-									
-									echo'
-									<div class="container">
-										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5><br>
-										</div>
-									<div class="container">
-										<h5><a href = "checkout.php?id1='.$product_id.'&id2='.$coupon_code.'">Apply Coupon<br></a><br></h5><br>
-										</div>
-                                    </div>';
                                     }
 								echo'
 								
