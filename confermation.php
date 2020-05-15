@@ -1,4 +1,7 @@
     <?php
+    echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
     session_start();
     if(!isset($_SESSION['uname'])){
 		header("location:index.php");
@@ -90,7 +93,18 @@
             // </script>';
         }
         echo '<script>
-        alert("Registered Successfully '.$sql.''.$result.''.$sql3.'");
+        setTimeout(function () { 
+            swal({
+            title: "Confermation",
+            text: "Your order has been placed successfully",
+            type: "success",
+            confirmButtonText: "OK"
+            },
+            function(isConfirm){
+            if (isConfirm) {
+                window.location.href = "confermation.php";;
+            }
+            }); }, 1000);
         </script>';
     }
     
