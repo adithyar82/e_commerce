@@ -408,7 +408,7 @@
 										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5>
 									</div>
 									<div class="container">
-										<h5><a href = "checkout.php?id1='.$product_id.'&id2='.$coupon_code.'" style="color: #fff;">Apply Coupon<br></a></h5>
+									<h5><a href = "checkout_1.php?id1='.$value.'&id2='.$coupon_code.'">Apply Coupon<br></a><br></h5><br>
 									</div>
 									
                                     </div>

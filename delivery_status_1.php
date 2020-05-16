@@ -213,7 +213,7 @@ if($result->num_rows>0){
                         <div class="col-lg-6">
                             <div class="quick-view-content">
                                 <div class="top">
-                                    <h3 class="head">Order Id: '.$distance_2.'<h3>
+                                    <h3 class="head">Order Id: '.$order_id.'<h3>
                                     <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span> <span class="ml-10">Rs '.$final_cost.'</span></div>
                                     <div class="category">Name: '.$fname.' <span></span></div><br>
 									<div class="available">Phone Number: '.$phone_number.' <span></span></div><br>
