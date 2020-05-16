@@ -37,10 +37,25 @@
         while($row = $result_1->fetch_assoc()){
             $product_image = $row['product_image'];
             $shop_id = $row['shop_id'];
+            $final_cost = $row['final_cost'];
         }
     }
     $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$name', ' ','450', '1','$status','$product_image','$shop_id');";
     $result = $conn->query($sql);
+    if($result->num_rows>=0){
+        echo '<script>
+        setTimeout(function () { 
+            swal({
+            title: "Confermation",
+            text: "Your order has been placed successfully",
+            type: "success",
+            confirmButtonText: "OK"
+            },
+            function(isConfirm){
+            }); }, 1000);
+        </script>';
+
+    }
     $sql1 = "SELECT * FROM products WHERE product_id = '$order_id';";
     $result1 = $conn->query($sql1);
     if($result1->num_rows>0){
@@ -68,18 +83,18 @@
         $mail->isSMTP();                                      // Set mailer to use SMTP
         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail -> Username = 'noreplytasteofIndia@gmail.com';
-        $mail -> Password = 'India@2020';                          // SMTP password
+        $mail -> Username = 'contact.azeempatel@gmail.com';
+        $mail -> Password = 'AzeemPatel46#';                          // SMTP password
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587;                                    // TCP port to connect to
-        $mail->setFrom('noreplytasteofIndia@gmail.com', 'no reply');
+        $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
         $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
         $mail->Subject = 'E Commerce Website';
         $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
                             <h2 align =center>Your Order Details are as follows :</h2>
                             <h2 align =center>Order Id : '.$order_id.'</h2>
                             <h2 align =center>Product name : '.$name.'</h2>
-                            <h2 align =center>Total Cost: '.$total_cost.'</h2>
+                            <h2 align =center>Total Cost: '.$final_cost.'</h2>
                             <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
         $mail -> isHTML(true);
@@ -92,22 +107,9 @@
             // window.location= "cashier.php";
             // </script>';
         }
-        echo '<script>
-        setTimeout(function () { 
-            swal({
-            title: "Confermation",
-            text: "Your order has been placed successfully",
-            type: "success",
-            confirmButtonText: "OK"
-            },
-            function(isConfirm){
-            if (isConfirm) {
-                window.location.href = "confermation.php";;
-            }
-            }); }, 1000);
-        </script>';
+        
     }
-    
+   
     ?>
     <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -239,7 +241,7 @@
 						</tr>
 						<tr>
 							<td>Total</td>
-							<td>: <?php echo $total_cost ?> </td>
+							<td>: <?php echo $final_cost ?> </td>
 						</tr>
 						<tr>
 							<td>Payment method</td>
