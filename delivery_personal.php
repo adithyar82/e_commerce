@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+    }
+?>
 <!DOCTYPE html>
     <html lang="zxx" class="no-js">
     <head>
@@ -34,10 +40,9 @@
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="contact_us.php">+91 8095566699   |   supporazeempatel@gmail.com</a></li>
-                                                            
+                                <li><a href="contact_us.php">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>                            
                             </ul>
-                            
                         </div>
                     </div>                  
                 </div>
@@ -51,8 +56,7 @@
                           </button>
                           <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li><a href="admin_home.php">Home</a></li>
-                                
+                                <li><a href="admin_home.php">Home</a></li>   
                             </ul>
                           </div>                        
                     </div>
@@ -66,16 +70,11 @@
 						<h3 class="billing-title text-center">Personal Details</h3>
 						<p class="text-center mt-80 mb-40"> </p>
 						<form method = "POST" action = "login_1.php">
-                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "First Name" class="common-input mt-20" disabled>
-                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Phone Number" class="common-input mt-20" disabled>
-                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Aadhar Card Number" class="common-input mt-20" disabled>
-                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Driving License Number" class="common-input mt-20" disabled> 
-                        <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Address" class="common-input mt-20" disabled>     
-                        
-							<div class="mt-20 d-flex align-items-center justify-content-between">
-								<div class="d-flex align-items-center">
-                                <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label></div>
-							</div>
+                            <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "First Name" class="common-input mt-20" disabled>
+                            <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Phone Number" class="common-input mt-20" disabled>
+                            <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Aadhar Card Number" class="common-input mt-20" disabled>
+                            <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Driving License Number" class="common-input mt-20" disabled> 
+                            <input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Address" class="common-input mt-20" disabled>     	
                             <button class="view-btn color-2 w-100 mt-20"><span>Update</span></button> 
                             <!-- <button class="view-btn color-2 w-30 mt-20"><span>Delivery Details</span></button> -->
 						</form>

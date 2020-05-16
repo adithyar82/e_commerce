@@ -1,4 +1,4 @@
-    <?php
+<?php
     include('connect_db.php');
     $order_id = $_REQUEST['id'];
     $sql = "SELECT * FROM order_status WHERE order_id = '$order_id';";
@@ -6,6 +6,8 @@
     if($result->num_rows>0){
         while($row=$result->fetch_assoc()){
             $status  = $row['status'];
+            $delivery_status = $row['delivery_status'];
+            $delivery_time = $row['delivery_time'];
         }
     }
     ?>
@@ -18,7 +20,32 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    
+  <script>
+function startTimer(duration, display) {
+   
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var time = 60 * <?php echo $delivery_time?>,
+        display = document.querySelector('#time');
+    startTimer(time, display);
+};
+</script>
+
     
         <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,121 +74,13 @@
             <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
             <link rel="stylesheet" href="css/bootstrap.css">
             <link rel="stylesheet" href="css/main.css">
+            <link rel="stylesheet" href="css/styles.css">
             
                 <style type = "text/css"> 
-        body_1 {
-  font-family: sans-serif;
-  display: grid;
-  height: 100vh;
-  place-items: center;
-}
+                </style>
+       
 
-        .my-class{
-            width : 100%;
-            background-color: white;
-        }
-        .progressbar{
-            counter-reset: step;
-        }
-        .progressbar li{
-            list-style-type: none;
-            float : left;
-            width : 33.33%;
-            position : relative;
-            text-align: center;
-        }
-        .progressbar li:before{
-            content: counter(step);
-            counter-increment: step;
-            width:30px;
-            height:30px;
-            line-height:30px; 
-            border: 1px solid #ddd;
-            display: block;
-            text-align: center;
-            margin: 0 auto 10px auto;
-            border-radius: 50%;
-            background-color: white;
-        }
-        .progressbar li:after{
-            content: '';
-            position : absolute;
-            width : 100%;
-            height: 1px;
-            background-color: #ddd;
-            top: 15px;
-            left: -50%;
-            z-index : -1;
-
-        }
-        .progressbar li:first-child:after{
-            content : none;
-        }
-        .progressbar li.active_1{
-            color :green;
-        }
-        .progressbar li.active_1:before{
-            border-color: green;
-        }
-        .progressbar li.active_1 + li:after{
-            background-color: green;
-        }
-        .base-timer {
-  position: relative;
-  width: 300px;
-  height: 300px;
-}
-
-.base-timer__svg {
-  transform: scaleX(-1);
-}
-
-.base-timer__circle {
-  fill: none;
-  stroke: none;
-}
-
-.base-timer__path-elapsed {
-  stroke-width: 7px;
-  stroke: grey;
-}
-
-.base-timer__path-remaining {
-  stroke-width: 7px;
-  stroke-linecap: round;
-  transform: rotate(90deg);
-  transform-origin: center;
-  transition: 1s linear all;
-  fill-rule: nonzero;
-  stroke: currentColor;
-}
-
-.base-timer__path-remaining.green {
-  color: rgb(65, 184, 131);
-}
-
-.base-timer__path-remaining.orange {
-  color: orange;
-}
-
-.base-timer__path-remaining.red {
-  color: red;
-}
-
-.base-timer__label {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-}
-
-        </style>
-
-<script>
+<!-- <script>
 const FULL_DASH_ARRAY = 283;
 const WARNING_THRESHOLD = 10;
 const ALERT_THRESHOLD = 5;
@@ -275,7 +194,7 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
-</script>   
+</script>    -->
         </head>
         <body>
 
@@ -285,8 +204,8 @@ function setCircleDasharray() {
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="contact_us.php">+91 8095566699   |   supporazeempatel@gmail.com</a></li>
-                                                            
+                                <li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
+                                <li><a href="faq.php">Help ?</a></li>                            
                             </ul>
                             
                         </div>
@@ -344,12 +263,12 @@ function setCircleDasharray() {
                     <li> Out for Delivery </li>
                     <li> Order Delivered </li>';
                 }
-                else if($status == "order_collected"){
+                else if($status == "order collected"){
                     echo'<li class = "active_1"> Order Placed </li>
                     <li class = "active_1"> Out for Delivery </li>
                     <li> Order Delivered </li>';
                 }
-                else if($status == "order_accepted"){
+                else if($status == "order accepted"){
                   echo'<li class = "active_1"> Order Placed </li>
                   <li> Out for Delivery </li>
                   <li> Order Delivered </li>';
@@ -365,6 +284,11 @@ function setCircleDasharray() {
           </div>
           <div id="app" style="height:100px", >
           </div>
+          <br><br>
+          <br><br>
+          <div style = "margin-left:35%">Your Order Will be delivered in <span id="time">05:00</span> minutes!</div>
+          <a href = "<?php echo $delivery_status ?>"> View Delivery Status </a>
+          <p> <?php echo $delivery_status ?> </a>
           <br>
           <br>
           <br>

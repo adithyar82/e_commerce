@@ -1,6 +1,9 @@
 <?php
 include('connect_db.php');
     session_start();
+    if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+    }
     $id1 = $_REQUEST['id1'];
     $id2 = $_REQUEST['id2'];
     $id3 = $_REQUEST['id3'];
