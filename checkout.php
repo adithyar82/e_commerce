@@ -48,6 +48,9 @@
         }
     }
     $total_cost = $final_cost - $value;
+    $_SESSION['id4'] = $total_cost;
+    $_SESSION['id2'] = $product_id;
+    $_SESSION['id3'] = $product_name;
     $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
     $result_2 = $conn->query($sql_2);
     if($result_2->num_rows>0){

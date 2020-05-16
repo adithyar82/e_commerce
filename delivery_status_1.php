@@ -177,8 +177,31 @@ if($result->num_rows>0){
 				$country_12 = $row['country'];
 			}
 		}
-		$delivery_address = $address_1.' '.$city.' '.$state.' '.$zipcode.' '.$country;
-		$shop_address = $address_12.' '.$city_12.' '.$state_12.' '.$zipcode_12.' '.$country_12;
+		        $delivery_address = $address_1.' '.$city.' '.$state.' '.$zipcode.' '.$country;
+					$shop_address = $address_12.' '.$city_12.' '.$state_12.' '.$zipcode_12.' '.$country_12;
+					$searchVal = array(" ", ",", "#"); 
+  
+					// Array containing replace string from  search string 
+					$replaceVal = array("+", "+", "+"); 
+					
+					// Function to replace string 
+					$delivery_address_1 = str_replace($searchVal, $replaceVal, $delivery_address); 
+					$shop_address_1 = str_replace($searchVal, $replaceVal, $shop_address); 
+					
+					print_r($res);
+					$hmaps_request= "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=$shop_address_1&destinations=$delivery_address_1&key=AIzaSyDeb2feCGV_WQXXYX4Rk9GgApaS58jhU1g";
+						$data = file_get_contents($hmaps_request);
+						$data = json_decode($data);
+							$time = 0;
+							$distance = 0;
+							foreach($data->rows[0]->elements as $road) {
+								$time += $road->duration->text;
+								$distance += $road->distance->text;
+							}
+							$distance_1=$distance;
+							$table[1]=$time;
+							$distance_2 = $distance_1 * 1.609; 
+							$time_1 = $time + 15;
 			echo'
 			
             <div class="container">
@@ -220,7 +243,7 @@ if($result->num_rows>0){
 							</li>
 							
 							<li>
-							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
+							<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted&id2='.$distance_2.'&id3='.$time_1.'&id1=order collected"> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
 							</li>
 							<br>
 							<li>
@@ -242,11 +265,11 @@ if($result->num_rows>0){
 						<div class="details-tab-navigation d-flex justify-content-center mt-30">
 							<ul class="nav nav-tabs" id="myTab" role="tablist">
 								<li>
-								<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
+								<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted&id2='.$distance_1.'&id3='.$time_1.'><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
 								</li>
 								
 								<li>
-								<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
+								<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected&id2='.$distance_2.'&id3='.$time_1.'"> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
 								</li>
 								<br>
 								<li>
@@ -266,21 +289,33 @@ if($result->num_rows>0){
 						echo'
 						<div class="container">
 							<div class="details-tab-navigation d-flex justify-content-center mt-30">
-								<ul class="nav nav-tabs" id="myTab" role="tablist">
+                            
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                
 									<li>
 									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order accepted"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
 									</li>
 									
 									<li>
-									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected"><span class="glyphicon glyphicon-check"></span> Order Accepted &nbsp; &nbsp;<br></a><br></h5><br>
+									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=order collected&id2='.$distance_2.'&id3='.$time_1.'"><span class="glyphicon glyphicon-check"></span> Order Collected &nbsp; &nbsp;<br></a><br></h5><br>
 									</li>
 									<br>
 									<li>
-									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Order Accepted <br></a><br></h5><br>
+									<h5><a href = "delivery_history.php?id='.$order_id.'&id1=delivered"> Delivered <br></a><br></h5><br>
 									</li>
 									
-								</ul>
-							</div>
+                                </ul>
+
+                                
+                                
+                            </div>
+                            <form method = "POST" action = "delivery_status_2.php">
+                            <input type = "text" name = "order_id" value = "'.$order_id.'" hidden>
+                            <textarea type="text" name = "delivery_status" cols="10" rows="5" placeholder="Comment*" onfocus="this.placeholder=" onblur="this.placeholder = Comment*" required class="common-input mt-20"></textarea>
+                            <button type = "submit" name = "submit" >Submit</button>    
+                            </form>
+                            
+                            
 							
 										</div>
 									</div>
