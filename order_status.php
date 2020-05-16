@@ -67,7 +67,8 @@
 						
 						<div class="d-flex justify-content-between align-items-center">
 								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>
+								<li><a href="faq.php">Help ?</a></li>								
 						</div>
 					</div>	
 					<br>				
@@ -82,7 +83,7 @@
 	
 						  <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
-								<li><a href="D_homepage.php">Home</a></li>					
+								<li><a href="category.php">Home</a></li>					
 						    </ul>
 						  </div>						
 					</div>
@@ -135,7 +136,7 @@
 											<img class="content-image" src="'.$product_image.'" alt="">
 										</div>
 									</div>
-									<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Pick Up Location &nbsp;: <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location: <br><br> Delivery &emsp; &emsp; &nbsp; &emsp; &nbsp : Delivered by today <br><br> </h3>';
+									<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location: <br><br> Delivery &emsp; &emsp; &nbsp; &emsp; &nbsp : Delivered by today <br><br> </h3>';
 									if(($status == "ordered") || ($status == "order accepted")){
 										echo '<div class="container">
 										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5><br>

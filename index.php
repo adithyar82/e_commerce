@@ -28,7 +28,8 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -67,32 +68,27 @@ $result = $conn->query($sql);
             <!-- Start Header Area -->
             <header class="default-header">
 				<div class="menutop-wrap">
-					<div class="menu-top container" style="margin-left:3%;">
-						<div class="form-group has-feedback has-feedback-left">
-							<!-- <label>Pickup Location</label> -->
-							<!-- \\] -->
-							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
-							
-						</div>
-						
-						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+					<div class="menu-top container">
+				        <div class="d-flex justify-content-between align-items-center">
+                            <ul class="list">
+                                <li><a href="contact_us.php">+91 8971966482</a></li>
+                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>                             
+                            </ul>							
 						</div>
 					</div>	
 					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
+				<nav class="navbar navbar-expand-lg navbar-light">
 					<div class="container" style="width:1500px;">
 
-						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
+						  <a class="navbar-brand" href="category.php">
 							  <img style="margin-left:25px;" src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
 	
-						  <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
+						  <div class="collapse navbar-collapse"  id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
-								<li><a href="D_homepage.php">Home</a></li>					
+								<!-- <li><a href="D_homepage.php">Home</a></li>					 -->
 						    </ul>
 						  </div>						
 					</div>
@@ -104,10 +100,15 @@ $result = $conn->query($sql);
 
             <!-- End Banner Area -->
             <!-- Start My Account -->
-            <div class="container" style="margin-left:16%; margin-bottom:7%; margin-top:7%">
+            <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="login-form" style="margin-bottom:-7%; margin-top-7%">
+                    <div class="col-md-6">
+                        <div class="login-form">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                             <h3 class="billing-title text-center">Login</h3>
                             <p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
                             <form method = "POST" action = "login_1.php">
@@ -124,17 +125,22 @@ $result = $conn->query($sql);
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-md-6">
                         <div class="register-form">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                             <h3 class="billing-title text-center">Register</h3>
                             <p class="text-center mt-40 mb-30">Create your very own account </p>
                             <form method ="POST" action = "register.php">
-                                <input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
+                                <input type="text" pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter salphabets only. ')" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
                                 <input type="email" name = "email_address" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address'" required class="common-input mt-20">
                                 <span class="error error_red" id="spanEmail_at_registration"></span>
-                                <input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
+                                <input type="tel" pattern="[0-9]{10}" title="Must contain 10 digit number" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
                                 <input type="text" name = "username" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
-                                <input type="password" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
+                                <input type="password" pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least and one uppercase and lowercase letter, and at least 6 or more characters" name = "pwd" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
                                 <br>
                                 <input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-20"><span>Submit</span>
                             </form>

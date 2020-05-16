@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+	}
 	$uname = $_SESSION['uname'];
 	echo $_SESSION['username'];
 	include('connect_db.php');
@@ -64,9 +67,12 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
+			<link rel="stylesheet" href="css/styles.css">
 			<link href="style.css" rel="stylesheet">
 
 			<script>
+				
+
 				$('#row').pagination({
 				dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],
 				pageSize: 5,
@@ -78,271 +84,40 @@
 					dataContainer.html(html);
 				}
 			})
-			</script>
 			
-			<script>
-				/* When the user clicks on the button, 
-				toggle between hiding and showing the dropdown content */
-				function myFunction() {
+			</script>
+			<script type = "text/javascript">
+			function displayNextImage() {
+				x = (x === images.length - 1) ? 0 : x + 1;
+				document.getElementById("img").src = images[x];
+			}
+  
+			function displayPreviousImage() {
+				x = (x <= 0) ? images.length - 1 : x - 1;
+				document.getElementById("img").src = images[x];
+			}
+  
+			function startTimer() {
+				setInterval(displayNextImage, 3000);
+			}
+  
+			var images = [], x = -1;
+			images[0] = "img/E.png";
+			images[1] = "img/G.png";
+			images[2] = "img/H.png";
+			function myFunction() {
 				document.getElementById("myDropdown").classList.toggle("show");
 				}
-
-				// Close the dropdown if the user clicks outside of it
-				window.onclick = function(event) {
-				if (!event.target.matches('.dropbtn')) {
-					var dropdowns = document.getElementsByClassName("dropdown-content");
-					var i;
-					for (i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-					}
-				}
-				}
-			</script>
-
-			<script>
-				/* When the user clicks on the button, 
-				toggle between hiding and showing the dropdown content */
-				function dropFunction() {
-				document.getElementById("Dropdown").classList.toggle("show");
-				}
-
-				// Close the dropdown if the user clicks outside of it
-				window.onclick = function(event) {
-				if (!event.target.matches('.btn')) {
-					var dropdowns = document.getElementsByClassName("dropdown_content");
-					var i;
-					for (i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-					}
-				}
-				}
-			</script>
-
-			<style>
-			.dropbtn {
-			background-color: #FFFFFF;
-			color: black;
-			padding: 16px;
-			font-size: 20px;
-			border: none;
-			cursor: pointer;
+			function dropFunction() {
+			document.getElementById("Dropdown").classList.toggle("show");
 			}
+		</script>
+			
+		
 
-			.dropbtn:hover, .dropbtn:focus {
-			background-color: #2980B9;
-			}
-
-			.dropdown {
-			position: relative;
-			display: inline-block;
-			}
-
-			.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: #f1f1f1;
-			min-width: 160px;
-			overflow: auto;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-			}
-
-			.dropdown-content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-			}
-
-			.dropdown a:hover {background-color: #ddd;}
-
-			.show {display: block;}
-			</style>
-
-			<style>
-			.btn {
-			background-color: #FFFFFF;
-			color: black;
-			padding: 16px;
-			font-size: 20px;
-			border: none;
-			cursor: pointer;
-			}
-
-			.btn:hover, .btn:focus {
-			background-color: #2980B9;
-			}
-
-			.dropdown {
-			position: relative;
-			display: inline-block;
-			}
-
-			.dropdown_content {
-			display: none;
-			position: absolute;
-			background-color: #f1f1f1;
-			min-width: 160px;
-			overflow: auto;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-			}
-
-			.dropdown_content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-			}
-
-			.dropdown a:hover {background-color: #ddd;}
-
-			.show {display: block;}
-			</style>
-
-			<style>
-			.slide-holder
-			{
-				width:971px;  /*set the size of our slide holder*/
-				height:921px;
-				background-color:black;
-				margin:auto;
-				overflow:hidden;  /*overflow set to hidden*/
-			}
-
-			.slide-group {
-				width:3884px; /*width of our images combined*/
-				height:1842px;
-				position:relative; /*position relative to parent*/
-				clear:both;
-				z-index:0; /*set the z-index */
-				left: 0px; /*position the slide-group to the first image */
-			}
-
-			.slide-image { /*setup our individual images*/
-				float:left;
-				margin:0px; 
-				padding:0px;
-				position:relative; 
-				z-index:1; 
-			}
-			.slide-button-holder {
-				position: relative;
-				z-index:2;
-				text-align:center;
-				top:-220px;
-				background: rgba(0, 0, 0, 0.7);
-			}
-
-			.slider-button {
-				display:inline-block;
-				height:10px;
-				width:10px;
-				background-color:#fff;
-				border-radius:10px;
-			}
-
-			.slider-button:hover {
-				background-color:#ccc;
-			}
-			/*use the :target selector to set the left position of our .slide-group  */
-			#slide-1:target ~ .slide-group{ /*first button moves it to initial position*/
-				left:0px; 
-			}
-			#slide-2:target ~ .slide-group{ /*second image starts at 400px */
-				left:-1942px;
-
-			}
-			#slide-3:target ~ .slide-group{ /*third image starts at 800px */
-				left:-2913px;
-
-			}
-			#slide-4:target ~ .slide-group{ /*third image starts at 800px */
-				left:-3884px;
-
-			}
-			.slide-group {
-				width:3884px;
-				height:1842px;
-				position:relative;
-				clear:both;
-				z-index:0;
-				left:0px;
-
-					/*set transition property for all browsers */
-					-webkit-transition: left 2s;
-					-moz-transition: left 2s;
-					-o-transition: left 2s;
-					transition: left 2s;
-			}
-			/*slide-group CSS animation property*/
-			.slide-group {
-				width:3884px;
-				height:1842px;
-				position:relative;
-				clear:both;
-				z-index:0;
-				left:0px;
-
-				/* add following CSS animation properties */
-					animation-direction: alternate;  /*go forwards and backwards*/
-				animation:animate 12s infinite;   /*call keyframe "animate" (see below)
-			- total animation length 12 seconds*/
-
-				-webkit-animation-direction: alternate; /* chrome support */
-				-webkit-animation:animate 12s infinite;
-
-					/*   commented out transition properties
-					-webkit-transition: left 2s;
-						-moz-transition: left 2s;
-						-o-transition: left 2s;
-						transition: left 2s;   */
-			}
-
-			/*Add keyframes to animate the images*/
-
-			@keyframes animate {
-				0% {left:0px;}   /*first image */
-				6% {left:0px;}
-				15% {left:-971px;}  /*second image */
-				21% {left:-971px;}
-				30% {left:-1942px;}  /*third image */
-				36% {left:-1942px;}
-				45% {left:-2913px;}   /*forth image */
-				51% {left:-2913px;}
-				66% {left:-1942px;}  /*third image */
-				65% {left:-1942px;}
-				76% {left:-971px;}  /*second image*/
-				80% {left:-971px;}
-				100% {left:0px;}  /*first image*/
-			}
-
-			/* chrome support */
-			@-webkit-keyframes animate {
-				0% {left:0px;}   /*first image */
-				6% {left:0px;}
-				15% {left:-971px;}  /*second image */
-				21% {left:-971px;}
-				30% {left:-1942px;}  /*third image */
-				36% {left:-1942px;}
-				45% {left:-2913px;}   /*forth image */
-				51% {left:-2913px;}
-				66% {left:-1942px;}  /*third image */
-				65% {left:-1942px;}
-				76% {left:-971px;}  /*second image*/
-				80% {left:-971px;}
-				100% {left:0px;}  /*first image*/
-			}
-			</style>
 
 		</head>
-		<body>
+		<body onload = "startTimer()">>
 
 			<!-- Start Header Area -->
 			<header class="default-header">
@@ -356,8 +131,9 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+							</ul>
+								<li><a href="contact_us.php">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li> 								
 							</ul>
 							<?php
 							if($uname == ""){
@@ -375,6 +151,9 @@
 							
 							?>
 							<ul class="list">
+								<li><a href="faq.php">Help ?</a></li>
+							</ul>
+							<ul class="list">
 								<span class="glyphicon glyphicon-log-out" style="font-size:20px;"></span>
 								<li><a href="logout.php">Logout</a></li>
 							</ul>
@@ -390,8 +169,8 @@
 									<a href="profile.php"><span class="glyphicon glyphicon-user"> </span> Profile</a>
 									<a href="order_status.php">Order Status</a>
 									<a href="order_history.php">Order History</a>
-									<a href="favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
-									<a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+									<a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
+									<a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
 									<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
 									<a href="contact_us.php"><span class="glyphicon glyphicon-question-sign"></span> Help...?</a>
 							  </div>
@@ -401,7 +180,7 @@
 							  <p> Company Logo </p>
 						  </a>
 						  
-						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
+						  <div class="search-form" style="margin-left:2%; margin-top:1.5%">
            					 <form action="#" method="get">
               					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
              					<button type="submit" class="d-none"></button>
@@ -413,7 +192,7 @@
 						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
 								<li><a href="category.php">Home</a></li>
-								<li><a href="#latest">Recommendations</a></li>
+								<!-- <li><a href="#latest">Recommendations</a></li> -->
 									<!-- Dropdown -->
 								    <li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -438,8 +217,8 @@
 								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
 								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
 									  </div>
-									  <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
-									  <li><a href="favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
+									  <li><a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
+									  <li><a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
 								    </li>									
 						    </ul>
 						  </div>						
@@ -449,19 +228,19 @@
             <!-- End Header Area -->
 
             <!-- Start Banner Area -->
-			<section class="banner-area relative" id="home">
+			<!-- <section class="banner-area relative" id="home">
 				<div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
-						<div class="banner-content col-lg-8" style="margin-left:-10%;">
-							<div class="slide-holder">
+						<div class="col-lg-6 col-md-12 d-flex align-self-end img-right no-padding">
+							<div class="col-lg-6 col-md-6 slide-holder">
 									<span id="slide-1"></span>
 									<span id="slide-2"></span>
 									<span id="slide-3"></span>
 									<span id="slide-4"></span>
-								<div class="slide-group">
+								<div class="col-lg-6 col-md-12  slide-group">
 									<img src="img/E.png" class="slide-image" id="slide-1" /><img src="img/G.png" class="slide-image" id="slide-2"/><img src="img/H.png" class="slide-image" id="slide-3"/><img src="img/P.png" class="slide-image" id="slide-4" />
 								</div>
-								<div class="slide-button-holder">
+								<div class="col-lg-6 col-md-12 slide-button-holder">
 									<a href="#slide-1" class="slider-button"></a>
 									<a href="#slide-2" class="slider-button"></a>
 									<a href="#slide-3" class="slider-button"></a>
@@ -469,13 +248,33 @@
 								</div>
 							</div>
 						</div>
-						<div class="banner-content col-lg-4">
+						<div class="banner-content col-lg-6 col-md-6">
 							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
 							<h1 class="text-uppercase">
 								On Your <br>
 								First Order
 							</h1>
 							<button class="primary-btn text-uppercase"><a href="#">Order Here</a></button>
+						</div>							
+					</div>
+				</div>
+			</section> -->
+			<br>
+			<br>
+			<section class="banner-area relative" id="home">
+				<div class="container-fluid">
+					<div class="row fullscreen align-items-center justify-content-center">
+						<div class="topstrip col-lg-8 col-md-12 d-flex align-self-end img-right no-padding" style = "float:left;">
+							
+									<img id="img" src="img/E.png"/>
+						</div>
+						<div class="banner-content col-lg-4 col-md-12">
+							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
+							<h1 class="text-uppercase">
+								On Your <br>
+								First Order
+							</h1>
+							
 						</div>							
 					</div>
 				</div>
@@ -557,7 +356,7 @@
 										  <br>
 										  <div class="price">
 										  
-												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
+												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 												  <h4>'.$final_cost.'</h4>
 												  <h5>You save '.$discount.'%</h5>';
@@ -571,7 +370,7 @@
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
 												  }
 												  
 												  
@@ -614,7 +413,7 @@
 										  <br>
 										  <div class="price">
 										  
-												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
+												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 												  <h4>'.$final_cost.'</h4>
 												  <h5>You save '.$discount.'%</h5>';
@@ -628,7 +427,7 @@
 												}
 												
 												if($product_quantity>0){
-												  echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
 												}
 										   echo' </div>
 										</div>
@@ -637,6 +436,235 @@
 								  }
 							?>
 							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Gift' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Gifts </h3>
+								  <br>
+								  <a href="department.php?id1=Gift" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  
+												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+												  <h4>'.$final_cost.'</h4>
+												  <h5>You save '.$discount.'%</h5>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Hardware' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Hardware </h3>
+								  <br>
+								  <a href="department.php?id1=Hardware" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  
+												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+												  <h4>'.$final_cost.'</h4>
+												  <h5>You save '.$discount.'%</h5>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Fashion' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Fashion </h3>
+								  <br>
+								  <a href="department.php?id1=Fashion" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  
+												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+												  <h4>'.$final_cost.'</h4>
+												  <h5>You save '.$discount.'%</h5>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Medicines' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Medicines </h3>
+								  <br>
+								  <a href="department.php?id1=Medicines" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  
+												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+												  <h4>'.$final_cost.'</h4>
+												  <h5>You save '.$discount.'%</h5>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
 						</section>
 						<!-- End Best Seller -->
 						<!-- Start Filter Bar -->

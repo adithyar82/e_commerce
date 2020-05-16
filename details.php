@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+	}
 	$uname = $_SESSION['uname'];
 	$product_name = $_REQUEST['id'];
 	echo $_SESSION['username'];
@@ -40,53 +43,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<style>
-	.main {
-		margin-left: 10%;
-		margin-top: 15%;
-	}
-	.rating-star {
-		direction: rtl;
-		font-size: 40px;
-		unicode-bidi: bidi-override;
-		display: inline-block;
-	}
-	.rating-star input {
-		opacity: 0;
-		position: relative;
-		left: -30px;
-		z-index: 2;
-		cursor: pointer;
-	}
-	.rating-star span.star:before {
-		color: #777777;
-	}
-	.rating-star span.star {
-		display: inline-block;
-		font-family: FontAwesome;
-		font-style: normal;
-		font-weight: normal;
-		position: relative;
-		z-index: 1;
-	}
-	.rating-star span {
-		margin-left: -30px;
-	}
-	.rating-star span.star:before {
-		color: #777777;
-		content:"\f006";
-	}
-	.rating-star input:hover + span.star:before, .rating-star input:hover + span.star ~ span.star:before, .rating-star input:checked + span.star:before, .rating-star input:checked + span.star ~ span.star:before {
-		color: #ffd100;
-		content:"\f005";
-	}
-	
-	.selected-rating{
-		color: #ffd100;
-		font-weight: bold;
-		font-size: 42px;
-	}
-	</style>
+
 	<script>
 		$('#rating-form').on('change','[name="rating"]',function(){
 		$('#selected-rating').text($('[name="rating"]:checked').val());
@@ -119,14 +76,7 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
-			<style>
-				#myDIV {
-				width: 100%;
-				padding: 50px 0;
-				text-align: center;
-				margin-top: 20px;
-				}
-			</style>
+			<link rel="stylesheet" href="css/styles.css">
 			<script>
 				$('#row').pagination({
 				dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],
@@ -177,7 +127,8 @@
 						
 						<div class="d-flex justify-content-between align-items-center">
 								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>
+								<li><a href="faq.php">Help ?</a></li>								
 						</div>
 					</div>	
 					<br>				
@@ -200,13 +151,27 @@
 			</header>
             <!-- End Header Area -->
 		    <section>
-							<div class="row">
-								<div class="col-lg-8" style="margin-left:10%;margin-top:5%;">
+
+							<div class="row" style="margin-left:15%;">
+								<div class="col-lg-8" style="margin-top:5%;margin-bottom:5%">
 									<?php 
 										include('connect_db.php');
 										//   session_start();
 										$sql = "SELECT * FROM products WHERE product_name = '$product_name';";
 										$result = $conn->query($sql);
+										$sql_3 = "SELECT * FROM shops;";
+										$result_3 = $conn->query($sql_3);
+										if($result_3->num_rows>0){
+											while($row=$result_3->fetch_assoc()){
+												$address_12 = $row['address_1'];
+												$city_12 = $row['city'];
+												$state_12 = $row['state'];
+												$zipcode_12 = $row['zipcode'];
+												$country_12 = $row['country'];
+											}
+										}
+										
+										$shop_address = $address_12.' '.$city_12.' '.$state_12.' '.$zipcode_12.' '.$country_12;
 										if($result->num_rows>0){
 											while($row = $result->fetch_assoc()){
 												
@@ -216,10 +181,15 @@
 												$final_cost = $row['final_cost'];
 												$product_image = $row['product_image'];
 												$product_quantity = $row['product_quantity'];
+												$category = $row['category'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 												echo '<div class="col-md-6 single-product">
-												<a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-plus" style="float:right; font-size:25px"> </span></a>
-													<div class="content">
+													<div class="row" style="margin-left:1%; margin-top:15%">
+														<h4>'.$product_name.'&emsp;&emsp;|	</h4>
+														<h5 style="margin-top:1%;">&emsp;'.$category.'</h5>
+													</div>
+													<br>
+													<div class="content" style="height:275px;">
 													<div class="content-overlay"></div>
 														<img class=" img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
 													<div class="content-details fadeIn-bottom">
@@ -229,13 +199,37 @@
 																<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
 															</div>
 													</div>
-												</div>';
+												</div>
+												<br>
+												<div>
+													<a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-plus" style="font-size:25px;"></span></a>
+													<a href=" favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color:black;"><span class="glyphicon glyphicon-heart" style="font-size:25px;margin-left:5%;"></span></a>
+													<button value="Copy Url" onclick="Copy();" style="margin-left:65%;"><span class="glyphicon glyphicon-share-alt" style="font-size:25px; color:black; margin-right:3%;"></span>
+												</div>
+												<div>';
+													if($product_quantity<5){
+														if($product_quantity==0){
+														echo'<p style = "color:red"> Out of Stock <p>';  
+														}
+														else{
+														echo '<button onclick="location.href = "delivery_details_1.php" class="view-btn color-2 w-100 mt-10" ><span>Buy Now</span></button>';
+														echo'<p style = "color:red; margin-left:32%; margin-top:2%"> Only '.$product_quantity.' left in stock<p>';
+														}
+													}
+													
+													else{
+														$abc = "delivery_details_1.php";
+													echo'<button onclick="location.href = '.$abc.'" class="view-btn color-2 w-100 mt-10" ><span>Buy Now</span></button>';
+													}
+													echo'
+												</div>
+												';
 											}
 
 										}
 									?>
 								</div>
-								<div class="col-lg-4" style="margin-left:10%;margin-bottom:5%;">
+								<div class="col-lg-4" style="margin-bottom:5%; margin-left:5%; margin-top:1.5%">
 									<?php
 										include('connect_db.php');
 										//   session_start();
@@ -248,6 +242,20 @@
 												$average_ratings = $row['average_ratings'];
 											}
 										}
+										$sql3 = "SELECT COUNT(ratings) as total_ratings FROM product_ratings WHERE product_name = '$product_name';";
+										$result3 = $conn->query($sql3);
+										if($result3->num_rows>0){
+											while($row = $result3->fetch_assoc()){
+												$total_ratings = $row['total_ratings'];
+											}
+										}
+										$sql_3 = "SELECT COUNT(reviews) as total_reviews FROM product_reviews WHERE product_name = '$product_name';";
+										$result_3 = $conn->query($sql_3);
+										if($result_3->num_rows>0){
+											while($row = $result_3->fetch_assoc()){
+												$total_reviews = $row['total_reviews'];
+											}
+										}
 										if($result->num_rows>0){
 											while($row = $result->fetch_assoc()){
 												
@@ -256,73 +264,66 @@
 												$initial_cost = $row['initial_cost'];
 												$final_cost = $row['final_cost'];
 												$product_image = $row['product_image'];
+												$category = $row['category'];
 												$product_quantity = $row['product_quantity'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
-
-													echo '<div class="price">
-												
-														<h1 style="margin-bottom:3%;">'.$product_name.'</h1>
-															<h4 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h4>
-														<h3 style="margin-bottom:3%;">'.$final_cost.'</h3>
-														<h3 style="margin-bottom:3%;">You save '.$discount.'%</h3>
+												$discount_price=($initial_cost-$final_cost);
+													echo '<div class="price" style="margin-top:15%;">
 														<br>
-														
-									
-														<a href=" favourite.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "font-size: 20px; color:black"><span class="glyphicon glyphicon-heart" style="font-size:25px; color:black; margin-right:3%;"></span>Add to Favourites</a><br>
 														<br>
-														<button value="Copy Url" onclick="Copy();" ><span class="glyphicon glyphicon-share-alt" style="font-size:25px; color:black; margin-right:3%;"> Share</span>
+														<div class="row" style="margin-left:5%;">
+															<h5 style="margin-top:2%;">Price :</h5>
+															<h5 style="margin-top:2%; margin-left:2%;" class="text-white"><del style = "color : black">'.$initial_cost.'</del>&emsp;</h5>
+															<h3 style="color:green;">'.$final_cost.'</h3>
+														</div>
+														<div class="row" style="margin-left:20%;">
+															<h6 style="margin-bottom:3%;margin-top:2%">Discount :&emsp;</h6>
+															<h4 style="margin-bottom:3%;color:red;">Rs.	'.$discount_price.'</h4>
+														</div>
+														<h6 style="margin-left:15%;"> (Inclusive of all taxes)</h6>
+														<br>
+														<div class="row" style="margin-left:1%;">
+															<h5 style="margin-left:14%;"> Average Ratings: '.round($average_ratings,1).'</h5>
+														</div>
+														<br>
+														<div class="row" style="margin-left:3%;">
+															<h5>Ratings&nbsp;&nbsp;:&nbsp;'.$total_ratings.'&emsp;|</h5>
+															<h5>&emsp;Reviews&nbsp;&nbsp;:&nbsp;'.$total_reviews.'</h5>
+														</div>
+														<br>
 														<div>
-
-															
-															
-
+															<div style="margin-top:5%;">
+															<form method = "POST" action = "product_ratings.php">
+																<span class="rating-star" style="margin-left:28%;">
+																	<input type="radio" name="rating" value="5"><span class="star"></span>
+																
+																		<input type="radio" name="rating" value="4"><span class="star"></span>
+																
+																		<input type="radio" name="rating" value="3"><span class="star"></span>
+																
+																		<input type="radio" name="rating" value="2"><span class="star"></span>
+																
+																	<input type="radio" name="rating" value="1"><span class="star"></span>
+																</span>  
+																<input type = "text" name = "product_name" value = "'.$product_name.'" hidden>  
+																<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-30"><span></span>
+															</form>
+															</div>
 														</div>
+														<div class="row" style="margin-left:2%;margin-top:15%;">
+															<h6> Delivered Within &emsp;&emsp; :</h6>
+															<h5 style="color:green;">&emsp;2 hrs </h5> 
 														</div>
-														<br>';
-														if($product_quantity<5){
-															if($product_quantity==0){
-															  echo'<p style = "color:red"> Out of Stock <p>';  
-															}
-															else{
-															echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
-															echo '<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>';
-															}
-														}
-														else{
-														echo'<button onclick="location.href = "confermation.php" ;" class="view-btn color-2 w-100 mt-10"><span>Buy Now</span></button>';
-														}
-														echo'
-														<br>
-														<br>
-														<h5>Location</h5><br>
-														<h5> Average Ratings: '.round($average_ratings,1).'</h5><br>
-														
-								
-														<form method = "POST" action = "product_ratings.php">
-														<span class="rating-star" style="margin-left:28%;">
-															<input type="radio" name="rating" value="5"><span class="star"></span>
-														
-																<input type="radio" name="rating" value="4"><span class="star"></span>
-														
-																<input type="radio" name="rating" value="3"><span class="star"></span>
-														
-																<input type="radio" name="rating" value="2"><span class="star"></span>
-														
-															<input type="radio" name="rating" value="1"><span class="star"></span>
-														</span>  
-														<input type = "text" name = "product_name" value = "'.$product_name.'" hidden>  
-														<input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-10"><span></span>
-														</form>
-														
-												</div>
-												</div>
-												<br>';
+														<h6 style="margin-top:13%;">Cash on Delivery Not Available</h6>
+													</div>		
+								</div>
+							</div>';
 											}
 										}
 									?>
-							</div>
+								</div>
 						
-							<div class="container" style="margin-bottom:5%;">
+							<div class="container" style="margin-bottom:5%;margin-left:7%;">
 									<?php
 										include('connect_db.php');
 										//session_start();
@@ -339,6 +340,10 @@
 												$product_image = $row['product_image'];
 												$discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 												echo'<div class="reviews" style="margin-left:10%;margin-right:15%">
+												<h5>Shop Location: <a href="http://maps.google.com/maps?q='.$shop_address.'" target="_blank">'.
+												$address_12.','.$city_12.','.$state_12.','.$zipcode_12.','.$country_12.'
+												</a></h5>
+												<br>
 														<h5>Description</h5>
 														<textarea type="text" name = "description" cols="10" rows="5" placeholder="Description*" onfocus="this.placeholder=" onblur="this.placeholder = Description*" required class="common-input mt-20"></textarea>
 														<br>

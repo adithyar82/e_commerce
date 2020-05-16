@@ -1,5 +1,11 @@
     <?php
+    echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
     session_start();
+    if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+	}
     include("connect_db.php");
     include("./php/class.phpmailer.php");  
     // $fname = $_SESSION['username'];
@@ -30,9 +36,10 @@
     if($result_1->num_rows>=0){
         while($row = $result_1->fetch_assoc()){
             $product_image = $row['product_image'];
+            $shop_id = $row['shop_id'];
         }
     }
-    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, shipping_id, payment_id, product_quantity,status,product_image) VALUES (Null,'$order_id','$fname','$final_cost', '$name', '250', '450', '1','$status','$product_image');";
+    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$name', ' ','450', '1','$status','$product_image','$shop_id');";
     $result = $conn->query($sql);
     $sql1 = "SELECT * FROM products WHERE product_id = '$order_id';";
     $result1 = $conn->query($sql1);
@@ -72,7 +79,7 @@
                             <h2 align =center>Your Order Details are as follows :</h2>
                             <h2 align =center>Order Id : '.$order_id.'</h2>
                             <h2 align =center>Product name : '.$name.'</h2>
-                            <h2 align =center>Total Cost: '.total_cost.'</h2>
+                            <h2 align =center>Total Cost: '.$total_cost.'</h2>
                             <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
         $mail -> isHTML(true);
@@ -86,7 +93,18 @@
             // </script>';
         }
         echo '<script>
-        alert("Registered Successfully '.$sql.''.$result.'");
+        setTimeout(function () { 
+            swal({
+            title: "Confermation",
+            text: "Your order has been placed successfully",
+            type: "success",
+            confirmButtonText: "OK"
+            },
+            function(isConfirm){
+            if (isConfirm) {
+                window.location.href = "confermation.php";;
+            }
+            }); }, 1000);
         </script>';
     }
     
@@ -142,8 +160,9 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+                                <li><a href="contact_us.php">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>
+                                <li><a href="faq.php">Help ?</a></li>								
 						</div>
 					</div>	
 					<br>				

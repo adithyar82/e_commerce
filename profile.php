@@ -69,23 +69,11 @@
                             <ul class="list">
                                 <li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com.com</a></li>                             
                             </ul>
-                            <?php
-							if($username == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
-							</ul>';
-							}
-							else{
-                                echo '<ul class="list">
-                                <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#" style="margin-right:20px">Welcome '.$uname.' </a></li>
-							</ul>';
-							}
-							
-							?>
                             <ul class="list">
-								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:5px; font-size:20px"> &nbsp; &nbsp;</span><a href="logout.php" style = "margin-rigth:15px;">Logout</a></li>
+								<li><a href="logout.php" style = "margin-rigth:15px;">Logout</a></li>
+                            </ul>
+                            <ul class="list">
+								<li><a href="category.php" style = "margin-rigth:15px;"><span class="glyphicon glyphicon-home"></span></a></li>
 							</ul>
                         </div>
                     </div>                  
@@ -93,18 +81,11 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
                           <a class="navbar-brand" href="category.php">
-                            <img style="margin-left:25px;" src="img/logo.png" alt="">
+                            <img src="img/logo.png" alt="">
                             <p> Company Logo </p>
                           </a>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li><a href="category.php">Home</a></li>
-                            </ul>
-                          </div>                        
-                    </div>
+                         
+                          
                 </nav>
             </header>
             <!-- End Header Area -->
@@ -129,17 +110,17 @@
 
 		    <!-- Start My Account -->
             <section>
-                <div class="container" style="margin-left:22%; margin-bottom:7%; margin-top:7%">
-                    <div class="row">
-                        <div class="col-lg-8">
+                <div class="container">
+                    <!-- <div class="row"> -->
+                        <div class="col-md-8">
                             <div class="register-form">
                                 <h3 class="billing-title text-center"><span style="font-size:75px;" class="glyphicon glyphicon-user"></span></h3>
-                                <p class="text-center mt-40 mb-30"><?php echo $fname; ?></p>
+                                <p class="text-center mt-40 mb-30"><?php echo $fname; ?> </p>
                                 <p class="text-center mt-40 mb-30">Referral Code:</p>
-                                <input type="text" style = "margin-left:40%;" value="<?php echo $referral_code?>" id="myInput" disabled><br>
-                                <br>
-                                <button style = "margin-left:40%;"  onclick="myFunction()">Copy Referral Code</button>
-                                <br>
+                                <p class="text-center mt-40 mb-30"><input type="text" style = "color:black"  value="<?php echo $referral_code?>" id="myInput" disabled><br></p>
+                                <p class="text-center mt-40 mb-30"> <button style = "color:black"  onclick="myFunction()">Copy Referral Code</button></p>
+                    
+
                                 <form>
                                     <h4 style="color:white;">Phone Number</h4><br>
                                     <p> <?php echo $phone_number ?> </p>
@@ -162,7 +143,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
             </section>
 
