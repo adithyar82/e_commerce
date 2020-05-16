@@ -424,7 +424,7 @@
                                     <div class="review-stat d-flex align-items-center flex-wrap">
                                         <div class="review-overall">
                                             <h3>Overall</h3>
-                                            <div class="main-review"><?php echo $average_ratings?></div>
+                                            <div class="main-review"><?php echo round($average_ratings,2)?></div>
                                             <span>Based on <?php echo $total_ratings?> Ratings</span>
                                         </div>
                                         <div class="review-count">
