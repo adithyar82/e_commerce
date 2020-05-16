@@ -120,9 +120,9 @@
 		<body onload = "startTimer()">>
 
 			<!-- Start Header Area -->
-			<header class="default-header">
-				<div class="menutop-wrap">
-					<div class="menu-top container" style="margin-left:3%;">
+			<header class="default-header ">
+				<div class="menutop-wrap d-flex justify-content-center">
+					<div class="menu-top container">
 						<div class="form-group has-feedback has-feedback-left">
 							<!-- <label>Pickup Location</label> -->
 							<!-- \\] -->
@@ -131,28 +131,34 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-							</ul>
-								<li><a href="contact_us.php">+91 8095566699</a></li>
-                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li> 								
-							</ul>
-							<?php
+							<ul>
+								<li><a href="contact_us.php">Contact Us</a></li>
+								</ul>
+								<?php
 							if($uname == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="profile.php"> Welcome </a></li>
-							</ul>';
+								echo '
+								<ul>
+								<span class="glyphicon glyphicon-user"> 
+								<li><a href="profile.php"> </span> </a></li>
+								</ul>
+							';
 							}
 							else{
-                                echo '<ul class="list">
-                                <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="profile.php" style="margin-right:20px">Welcome '.$uname.' </a></li>
-							</ul>';
+								echo '
+								<ul>
+                                <span class="glyphicon glyphicon-user"> 
+								<li><a href="profile.php" style="margin-right:20px"> '.$uname.'</span> </a>
+								</ul>
+								<ul>
+								<li><a href="faq.php">Help ?</a></li>
+								</ul>
+							';
 							}
 							
-							?>
-							<ul class="list">
-								<li><a href="faq.php">Help ?</a></li>
+							?>								
 							</ul>
+							
+							
 							<ul class="list">
 								<span class="glyphicon glyphicon-log-out" style="font-size:20px;"></span>
 								<li><a href="logout.php">Logout</a></li>
@@ -161,8 +167,8 @@
 					</div>	
 					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
-					<div class="container" style="width:1500px;">
+				<nav class="navbar navbar-expand-lg  navbar-light d-flex justify-content-center">
+					<div class="container">
 						<div class="dropdown">
 							  <button onclick="myFunction()" class="btn"><span class="glyphicon glyphicon-align-justify"></span></button>
 							  <div id="myDropdown" class="dropdown-content">
@@ -182,7 +188,7 @@
 						  
 						  <div class="search-form" style="margin-left:2%; margin-top:1.5%">
            					 <form action="#" method="get">
-              					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
+              					<input type="search" name="search" id="search" style="width:250px;" placeholder="Type keywords &amp; press enter...">
              					<button type="submit" class="d-none"></button>
            					 </form>
 						  </div>
