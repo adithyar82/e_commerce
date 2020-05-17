@@ -221,7 +221,7 @@
 								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
 								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
 								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
-								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
+								        <a class="dropdown-item" href="department.php?id1=Hardware">Hardware</a>
 									  </div>
 									  <li><a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
 									  <li><a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
@@ -339,20 +339,35 @@
 				</div>
 			</section>
             <!-- End Banner Area -->
-			<div class="container">
+			<div class="container d-flex justify-content-center" style="margin-top:2%; margin-bottom:2%;">
 				<div class="row">
-					<div class="col-lg-12" style="margin-top:2%; margin-bottom:2%;">
-					<div class="dropdown" style="margin-left:50%;">
-							<button onclick="dropFunction()" class="btn"><span class="glyphicon glyphicon-th-large" style="color:black;font-size:25px"></span></span></button>
-							<div id="Dropdown" class="dropdown_content">
-								<a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
-								<a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
-								<a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
-								<a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
-								<a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
-								<a class="dropdown-item" href="department.php?id1=Hardware">Hardware</a>        
-							</div>
-						</div>
+					<div class="col-lg-12">
+						<a href="department.php?id1=Groceries">
+							<img src="img/food.png" alt="">
+						</a>
+						&emsp;&emsp;&emsp;&emsp;
+						<a href="department.php?id1=Sport Equipments">
+							<img src="img/sportive.png" alt="">
+						</a>
+						&emsp;&emsp;&emsp;&emsp;
+						<a href="department.php?id1=Electronics">
+							<img src="img/electronics.png" alt="">
+						</a>
+						&emsp;&emsp;&emsp;&emsp;
+						<a href="department.php?id1=Medicines">
+							<img src="img/medical.png" alt="">
+						</a>
+						&emsp;&emsp;&emsp;&emsp;
+						<a href="department.php?id1=Fashion">
+							<img src="img/users.png" alt="">
+						</a>
+						&emsp;&emsp;&emsp;&emsp;
+						<a href="department.php?id1=Hardware">
+							<img src="img/appliances.png" alt="">
+						</a>
+					</div>
+				</div>
+			</div>
 
 						<!-- Start Filter Bar -->
 						<div class="filter-bar d-flex flex-wrap align-items-center">
@@ -405,7 +420,7 @@
 										  $product_quantity = $row['product_quantity'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-3 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
 											  <div class="content" style="border:10px solid white;">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
@@ -465,7 +480,7 @@
 										  $product_quantity = $row['product_quantity'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-3 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
 											  <div class="content" style="border:10px solid white;">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
@@ -524,7 +539,7 @@
 										  $product_quantity = $row['product_quantity'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-3 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
 											  <div class="content" style="border:10px solid white;">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
@@ -584,7 +599,7 @@
 										  $product_quantity = $row['product_quantity'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-3 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
 											  <div class="content" style="border:10px solid white;">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
@@ -643,7 +658,7 @@
 										  $product_quantity = $row['product_quantity'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-3 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
 											  <div class="content" style="border:10px solid white;">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
@@ -703,7 +718,7 @@
 										  $product_quantity = $row['product_quantity'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-3 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
 											  <div class="content" style="border:10px solid white;">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
