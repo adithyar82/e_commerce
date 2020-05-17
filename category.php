@@ -363,7 +363,7 @@
 										  <div class="price">
 										  
 												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+													<p class="text-white"><del style = "color : black">'.$initial_cost.'</del></p>
 												  <h4>'.$final_cost.'</h4>
 												  <h5>You save '.$discount.'%</h5>';
 												  if($product_quantity<5){
