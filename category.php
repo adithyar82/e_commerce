@@ -192,7 +192,7 @@
              					<button type="submit" class="d-none"></button>
            					 </form>
 						  </div>
-
+						
 						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
 	
 						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
@@ -230,6 +230,59 @@
 						  </div>						
 					</div>
 				</nav>
+				<div class="menutop-wrap d-flex justify-content-center">
+					<div class="menu-top container">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
+							
+						</div>
+						
+						<div class="d-flex justify-content-between align-items-center">
+							<ul class="list">
+							<li><a href="category.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+							<li class="dropdown">
+							<span class="glyphicon glyphicon-tag"></span>
+								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+								        Orders
+								      </a>
+								      <div class="dropdown-menu" style="margin-top:10px">
+								        <a class="dropdown-item" href="order.php">Your Orders</a>
+								        <a class="dropdown-item" href="order_status.php">Current Orders</a>
+								        <!-- <a class="dropdown-item" href="login.php">Cancelled Orders</a> -->
+								        <a class="dropdown-item" href="tracking.php">Tracking</a>
+								      </div>
+									</li>
+									<li class="dropdown">
+									<span class="glyphicon glyphicon-th-list"></span>
+								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+								        Category
+								      </a>
+								      <div class="dropdown-menu">
+								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
+								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
+								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
+								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
+								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
+								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
+									  </div>
+							 		<li><a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
+									  <li><a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
+									</li>
+									
+								
+								
+															
+							
+							
+							
+							
+							
+						</div>
+					</div>	
+					<br>				
+				</div>
 			</header>
             <!-- End Header Area -->
 
@@ -340,7 +393,7 @@
 								  echo '
 								  <h3 style = "margin-left:40px;"> Electronics </h3>
 								  <br>
-								  <a href="department.php?id1=Electronics" style="margin-left:85%;"> View All +</a>';
+								  <a href="department.php?id1=Electronics" style="margin-left:65%;"> View All +</a>';
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
 										  
@@ -364,8 +417,11 @@
 										  
 												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<p class="text-white"><del style = "color : black">'.$initial_cost.'</del></p>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>';
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+													<h3>'.$final_cost.'</h3>
+													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
+													<h5 style = "color:white">You save '.$discount.'%</h5>
+													</div>';
 												  if($product_quantity<5){
 													  if($product_quantity==0){
 														echo'<p style = "color:red"> Out of Stock <p>';  
@@ -421,8 +477,12 @@
 										  
 												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>';
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+													<h3>'.$final_cost.'</h3>
+													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
+													<h5 style = "color:white">You save '.$discount.'%</h5>
+													</div>';
+												  
 												  if($product_quantity<5){
 													if($product_quantity==0){
 													  echo'<p style = "color:red"> Out of Stock <p>';  
@@ -476,8 +536,11 @@
 										  
 												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>';
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+													<h3>'.$final_cost.'</h3>
+													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
+													<h5 style = "color:white">You save '.$discount.'%</h5>
+													</div>';
 												  if($product_quantity<5){
 													  if($product_quantity==0){
 														echo'<p style = "color:red"> Out of Stock <p>';  
@@ -531,10 +594,12 @@
 										  <br>
 										  <div class="price">
 										  
-												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
+												  <h3><a style = "color:#686868"href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>';
+													<h3>'.$final_cost.'</h3>
+													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
+													<h5 style = "color:white">You save '.$discount.'%</h5>
+													</div>';
 												  if($product_quantity<5){
 													  if($product_quantity==0){
 														echo'<p style = "color:red"> Out of Stock <p>';  
@@ -590,8 +655,11 @@
 										  
 												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>';
+													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
+													<h3>'.$final_cost.'</h3>
+													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
+													<h5 style = "color:white">You save '.$discount.'%</h5>
+													</div>';
 												  if($product_quantity<5){
 													  if($product_quantity==0){
 														echo'<p style = "color:red"> Out of Stock <p>';  
@@ -647,8 +715,10 @@
 										  
 												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>';
+													<h3>'.$final_cost.'</h3>
+													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
+													<h5 style = "color:white">You save '.$discount.'%</h5>
+													</div>';
 												  if($product_quantity<5){
 													  if($product_quantity==0){
 														echo'<p style = "color:red"> Out of Stock <p>';  
@@ -858,146 +928,82 @@
 							<div class = "carousel-inner">
 								<div class = "item active" >
 								  	<div class = "row">
-									  	<div class = "col-xs-3" style = "background-color:white;">
+									<?php
+									$sql1 = "SELECT * FROM products WHERE category = 'Electronics' LIMIT 4;";
+									$result1 = $conn->query($sql1);
+									if($result1->num_rows>0){
+										while($row = $result1->fetch_assoc()){
+											$product_id = $row['product_id'];
+											$product_image = $row['product_image'];
+											$product_name = $row['product_name'];
+											$final_cost = $row['final_cost'];
+											echo '<div class = "col-xs-3" style = "background-color:white;">
 								  	  
 											<div class="single-search-product d-flex" style = "background-color:white;" >
-												<a href="#"><img src="img/r2.jpg" alt=""></a>
+												<a href="details_1.php?id='.$product_name.'"><img src="'.$product_image.'" alt=""></a>
 												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+													<a href="#" class="title">'.$product_name.'</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs'.$final_cost.'</div>
+													<a href=" checkout.php?id1='.$product_id.'">Buy Now <br>
 												</div>
 											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r2.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r2.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
+									  	</div>';
+										}
+									}
 									
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r2.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-										</div>
+									
+									?>
 									</div>
 								</div>
+								
 								<div class = "item">
 								  	<div class = "row">
-									  	<div class = "col-xs-3" style = "background-color:white;">
+										<?php
+									  $sql3 = "SELECT * FROM products WHERE category = 'Food' LIMIT 4;";
+									$result1 = $conn->query($sql1);
+									if($result1->num_rows>0){
+										while($row = $result1->fetch_assoc()){
+											echo '<div class = "col-xs-3" style = "background-color:white;">
 								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r3.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">abc</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r3.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">abc</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r3.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">abc</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-									
 											<div class="single-search-product d-flex" style = "background-color:white;" >
-												<a href="#"><img src="img/r3.jpg" alt=""></a>
+												<a href="details_1.php?id='.$product_name.'"><img src="'.$product_image.'" alt=""></a>
 												<div class="desc">
-													<a href="#" class="title">abc</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+													<a href="#" class="title">'.$product_name.'</a>
+													<div class="price"><span class="lnr lnr-tag"></span> '.$final_cost.'</div>
+													<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>
 												</div>
 											</div>
-										</div>
+									  	</div>';
+										}
+									}
+									?>
 									</div>
 								</div>
+									
 								<div class = "item">
 								  	<div class = "row">
-									  	<div class = "col-xs-3" style = "background-color:white;">
+										<?php
+									  $sql2 = "SELECT * FROM products WHERE category = 'Medicines' LIMIT 4;";
+									$result2 = $conn->query($sql2);
+									if($result2->num_rows>0){
+										while($row = $result1->fetch_assoc()){
+											echo '<div class = "col-xs-3" style = "background-color:white;">
 								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r4.jpg" alt=""></a>
+											<div class="single-search-product d-flex" style = "background-color:white;" >
+											<a href="details_1.php?id='.$product_name.'"><img src="'.$product_image.'" alt=""></a>
 												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+													<a href="#" class="title">'.$product_name.'</a>
+													<div class="price"><span class="lnr lnr-tag"></span> '.$final_cost.'</div>
+													<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>
 												</div>
 											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r4.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r4.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-									
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r4.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-										</div>
+									  	</div>';
+										}
+									}
+									?>
+									</div>
+								</div>
+										
 									</div>
 								</div>
 							</div>
