@@ -415,7 +415,7 @@
 										  <br>
 										  <div class="price">
 										  
-												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
+										  	<h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<p class="text-white"><del style = "color : black">'.$initial_cost.'</del></p>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 													<h3>'.$final_cost.'</h3>
@@ -475,7 +475,7 @@
 										  <br>
 										  <div class="price">
 										  
-												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
+										  	<h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 													<h3>'.$final_cost.'</h3>
@@ -534,7 +534,7 @@
 										  <br>
 										  <div class="price">
 										  
-												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
+										  		<h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 													<h3>'.$final_cost.'</h3>
@@ -594,7 +594,7 @@
 										  <br>
 										  <div class="price">
 										  
-												  <h3><a style = "color:#686868"href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
+												  ç
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 													<h3>'.$final_cost.'</h3>
 													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
@@ -653,7 +653,7 @@
 										  <br>
 										  <div class="price">
 										  
-												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
+										  		<h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
 													<h3>'.$final_cost.'</h3>
