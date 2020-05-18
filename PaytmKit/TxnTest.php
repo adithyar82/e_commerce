@@ -1,4 +1,5 @@
 <?php
+    include('../connect_db.php');
 	header("Pragma: no-cache");
 	header("Cache-Control: no-cache");
 	header("Expires: 0");
@@ -19,6 +20,7 @@
 	<form method="post" action="pgRedirect.php">
 		<table border="1">
 			<tbody>
+			<?php echo $username?>
 				<tr>
 					<th>S.No</th>
 					<th>Label</th>
