@@ -70,10 +70,9 @@
 				<div class="menutop-wrap">
 					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
-							<ul class="list">
-                            <li><a href="contact_us.php">+91 8095566699</a></li>
-                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>								
-							</ul>
+                            <ul class="list">
+								<li><a href="contact_us.php">Contact Support</a></li>
+							</ul>	
                             <?php
 							if($username == ""){
 								echo '<ul class="list">
@@ -203,7 +202,7 @@
             <!-- End Checkout Area -->
             <!-- Start Billing Details Form -->
             <div class="container">
-                <form method = "POST" action="confermation.php" class="billing-form">
+                <form method = "POST" action="confermation_1.php" class="billing-form">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <h3 class="billing-title mt-20 mb-10">Billing Details</h3>
@@ -379,62 +378,11 @@
 								<h6>Total</h6>
 								<div><?php echo $total_cost_1?></div>
 							</div>
-                            <div class="list-row border-bottom-0 d-flex justify-content-between">
-							</div>
-                                    </div>
-                                    <div class="d-flex align-items-center mt-10">
-                                        <input class="pixel-radio" type="radio" id="check" name="brand">
-                                        <label for="check" class="bold-lable">Check payments</label>
-                                    </div>
-                                    <p class="payment-info">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Paypal</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        <!-- <input type="checkbox" class="pixel-checkbox" id="login-4"> -->
-                                        <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Paytm</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        
-                                        <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">PhonePe</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        
-                                        <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Google Pay</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        <input type="checkbox" class="pixel-checkbox" id="login-4">
-                                        <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label>
-                                    </div>
+                            
+                            <div class="mt-20 d-flex align-items-start">
+                                <input type="checkbox" class="pixel-checkbox" id="login-4">
+                                <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label>
+                            </div>
                                     </form>
                                     <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
                                 </div>
