@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	$order_id = $_SESSION['order_id'];
 	header("Pragma: no-cache");
 	header("Cache-Control: no-cache");
 	header("Expires: 0");
@@ -14,6 +16,7 @@
 	if (isset($_POST["ORDER_ID"]) && $_POST["ORDER_ID"] != "") {
 
 		// In Test Page, we are taking parameters from POST request. In actual implementation these can be collected from session or DB. 
+		$order_id = $_POST['order_id'];
 		$ORDER_ID = $_POST["ORDER_ID"];
 
 		// Create an array having all required parameters for status query.
@@ -24,7 +27,7 @@
 		$requestParamList['CHECKSUMHASH'] = $StatusCheckSum;
 
 		// Call the PG's getTxnStatusNew() function for verifying the transaction status.
-		$responseParamList = getTxnStatusNew($requestParamList);
+		$responseParamList = getTxnStatusNew($requestParamList, $order_id);
 	}
 
 ?>
@@ -42,6 +45,11 @@
 				<tr>
 					<td><label>ORDER_ID::*</label></td>
 					<td><input id="ORDER_ID" tabindex="1" maxlength="20" size="20" name="ORDER_ID" autocomplete="off" value="<?php echo $ORDER_ID ?>">
+					</td>
+				</tr>
+				<tr>
+					<td><label>ORDER_ID::*</label></td>
+					<td><input id="order_id" tabindex="1" maxlength="20" size="20" name="ORDER_ID" autocomplete="off" value="<?php echo $order_id ?>">
 					</td>
 				</tr>
 				<tr>
