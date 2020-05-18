@@ -233,7 +233,7 @@
             <!-- End Checkout Area -->
             <!-- Start Billing Details Form -->
             <div class="container">
-                <form method = "POST" action="confermation.php" class="billing-form">
+                <form method = "POST" action="confermation_1.php" class="billing-form">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <h3 class="billing-title mt-20 mb-10">Billing Details</h3>
@@ -374,55 +374,12 @@
 								<div class="total"><?php echo $total_cost?></div>
 							</div>
                                     </div>
-                                    <div class="d-flex align-items-center mt-10">
-                                        <input class="pixel-radio" type="radio" id="check" name="brand">
-                                        <label for="check" class="bold-lable">Check payments</label>
-                                    </div>
-                                    <p class="payment-info">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Paypal</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        <!-- <input type="checkbox" class="pixel-checkbox" id="login-4"> -->
-                                        <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Paytm</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+                                    
                                     <div class="mt-20 d-flex align-items-start">
                                         
                                         <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
                                     </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">PhonePe</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        
-                                        <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Google Pay</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+                                    
                                     <div class="mt-20 d-flex align-items-start">
                                         <input type="checkbox" class="pixel-checkbox" id="login-4">
                                         <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label>
@@ -435,104 +392,7 @@
                     </div>
                 </form>
             </div>
-            <?php
-                                $firstName = "Aditya";
-                                $lastName = "Ritesh";
-                                $amount = $final_cost;
-                                $order_id = rand(1000000,99999999);
-                                $itemName = $product_quantity;
-                                echo <<<EOD
-                                
 
-    <style>
-    
-    .payment-button {
-      width:200px;
-      height:100px;
-      
-    }
-    
-    </style>
-  
-  
-  
-  
-    
-    <form name = "hidden-payment-form" class="paypal" action="payments_1.php" method="post" id="paypal_form">
-        <input type="hidden" name="cmd" value="_xclick" />
-        <input type="hidden" name="no_note" value="1" />
-        <input type="hidden" name="lc" value="IN" />
-        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
-        <input type="hidden" name="first_name" value="$firstName" />
-        <input type="hidden" name="last_name" value="$lastName" />
-        <input type="hidden" name="payer_email" value="$email" />
-        <input type="hidden" name="item_number" value="1" / >
-        <input type="hidden" name="item_name" value="$itemName" / >
-        <input type="hidden" name="order_id" value="$order_id"/ >
-		<input type="hidden" name="amount" value="$amount" / >
-    <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" border="0" type = "submit" name="submit1" alt="PayPal - The safer, easier way to pay online!"/>
-    </form>
-
-EOD;
-$order_id = rand(1000000,99999999);
-echo <<<EOD
-                                
-
-    <style>
-    
-    .payment-button {
-      width:200px;
-      height:100px;
-      
-    }
-    
-    </style>
-  
-  
-  
-  
-    
-    <form name = "hidden-payment-form" class="paypal" action="./PaytmKit/TxnTest.php" method="post" id="paypal_form">
-        <input type="hidden" name="cmd" value="_xclick" />
-        <input type="hidden" name="no_note" value="1" />
-        <input type="hidden" name="lc" value="IN" />
-        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
-        <input type="hidden" name="first_name" value="$firstName" />
-        <input type="hidden" name="last_name" value="$lastName" />
-        <input type="hidden" name="payer_email" value="$email" />
-        <input type="hidden" name="item_number" value="1" / >
-        <input type="hidden" name="order_id" value="$order_id" / >
-		<input type="hidden" name="item_name" value="$itemName" / >
-		<input type="hidden" name="amount" value="$amount" / >
-        <button class="view-btn color-2 w-20 mt-20"><span style = "color:#0984D1; font-weight:bold;">PAYTM</span></button>
-    </form>
-
-EOD;
-
-  
-$final_amount = $amount * 100;
-
-
-
-    ?>
-    
-    <form action="" method="POST"> 
-<script
-    src="https://checkout.razorpay.com/v1/checkout.js"
-    data-key="rzp_test_wziRFtUD6cTGmR" // Enter the Key ID generated from the Dashboard
-    data-amount="<?php echo $final_amount ?>" // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    data-currency="INR"
-    data-buttontext="Pay with Razorpay"
-    data-name="<?php echo $itemName ?>"
-    data-description="Test transaction"
-    data-image="https://example.com/your_logo.jpg"
-    data-prefill.name="Aditya Ritesh"
-    data-prefill.email="maditya183@gmail.com"
-    data-prefill.contact="8971966482"
-    data-theme.color="#F37254"
-></script>
-<input type="hidden" custom="Hidden Element" name="hidden">
-</form>
             <!-- End Billing Details Form -->
 
             <!-- Start Most Search Product Area -->

@@ -1,4 +1,6 @@
 <?php
+session_start();
+$order_id = $_SESSION['order_id'];
 header("Pragma: no-cache");
 header("Cache-Control: no-cache");
 header("Expires: 0");
@@ -25,7 +27,7 @@ $paramList["TXN_AMOUNT"] = $TXN_AMOUNT;
 $paramList["WEBSITE"] = PAYTM_MERCHANT_WEBSITE;
 
 
-$paramList["CALLBACK_URL"] = "https://loket.in/confermation.php?id=".$ORDER_ID;
+$paramList["CALLBACK_URL"] = "https://loket.in/confermation.php?id=".$order_id;
 /*
 $paramList["MSISDN"] = $MSISDN; //Mobile number of customer
 $paramList["EMAIL"] = $EMAIL; //Email ID of customer
