@@ -102,7 +102,7 @@
 			}
   
 			var images = [], x = -1;
-			images[0] = "img/E.png";
+			images[0] = "img/E1.png";
 			images[1] = "img/G.png";
 			images[2] = "img/H.png";
 			function myFunction() {
@@ -239,7 +239,7 @@
 							
 						</div>
 						
-						<div class="d-flex justify-content-between align-items-center">
+						<div class="d-flex justify-content-center">
 							<ul class="list">
 							<li><a href="category.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 							<li class="dropdown">
@@ -325,7 +325,7 @@
 					<div class="row fullscreen align-items-center justify-content-center">
 						<div class="topstrip col-lg-8 col-md-12 d-flex align-self-end img-right no-padding" style = "float:left;">
 							
-									<img id="img" src="img/E.png"/>
+									<img id="img" src="img/E1.png"/>
 						</div>
 						<div class="banner-content col-lg-4 col-md-12">
 							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
@@ -341,30 +341,43 @@
             <!-- End Banner Area -->
 			<div class="container d-flex justify-content-center" style="margin-top:2%; margin-bottom:2%;">
 				<div class="row">
-					<div class="col-lg-12">
-						<a href="department.php?id1=Groceries">
-							<img src="img/food.png" alt="">
-						</a>
-						&emsp;&emsp;&emsp;&emsp;
-						<a href="department.php?id1=Sport Equipments">
-							<img src="img/sportive.png" alt="">
-						</a>
-						&emsp;&emsp;&emsp;&emsp;
-						<a href="department.php?id1=Electronics">
-							<img src="img/electronics.png" alt="">
-						</a>
-						&emsp;&emsp;&emsp;&emsp;
-						<a href="department.php?id1=Medicines">
-							<img src="img/medical.png" alt="">
-						</a>
-						&emsp;&emsp;&emsp;&emsp;
-						<a href="department.php?id1=Fashion">
-							<img src="img/users.png" alt="">
-						</a>
-						&emsp;&emsp;&emsp;&emsp;
-						<a href="department.php?id1=Hardware">
-							<img src="img/appliances.png" alt="">
-						</a>
+					<div class="col-md-12">
+						<div class="col-md-2">
+							<a href="department.php?id1=Groceries">
+								<img src="img/food.png" alt="">
+								<span class="caption" style="display:block">Groceries</span>
+							</a>
+						</div>
+						<div class="col-md-2">
+							<a href="department.php?id1=Electronics">
+								<img src="img/electronics.png" alt="">
+								<span class="caption" style="display:block">Electronics</span>
+							</a>
+						</div>
+						<div class="col-md-2">
+							<a href="department.php?id1=Medicines">
+								<img src="img/medical.png" alt="">
+								<span class="caption" style="display:block">Medicines</span>
+							</a>
+						</div>
+						<div class="col-md-2">
+							<a href="department.php?id1=Fashion">
+								<img src="img/vegetables.png" alt="">
+								<span class="caption" style="display:block">Vegetables</span>
+							</a>
+						</div>
+						<div class="col-md-2">
+							<a href="department.php?id1=Hardware">
+								<img src="img/hardware.png" alt="">
+								<span class="caption" style="display:block">Hardware</span>
+							</a>
+						</div>
+						<div class="col-md-2">
+							<a href="department.php?id1=Hardware">
+								<img src="img/food and beverage.png" alt="">
+								<span class="caption" style="display:block">Beverage</span>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -429,25 +442,28 @@
 										  </div>
 										  <br>
 										  <div class="price">
-										  
-										  	<h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
-													<p class="text-white"><del style = "color : black">'.$initial_cost.'</del></p>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-													<h3>'.$final_cost.'</h3>
-													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
-													<h5 style = "color:white">You save '.$discount.'%</h5>
+										  			<div class="row align-items-center justify-content-center">
+														<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white"><del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
 													</div>';
 												  if($product_quantity<5){
 													  if($product_quantity==0){
-														echo'<p style = "color:red"> Out of Stock <p>';  
+														echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
 													  }
 													  else{
-													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
 													  }
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
 												  }
 												  
 												  
@@ -489,26 +505,29 @@
 										  </div>
 										  <br>
 										  <div class="price">
-										  
-										  	<h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-													<h3>'.$final_cost.'</h3>
-													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
-													<h5 style = "color:white">You save '.$discount.'%</h5>
+										  			<div class="row align-items-center justify-content-center">
+										  				<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white">&emsp;&emsp;<del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
 													</div>';
 												  
 												  if($product_quantity<5){
 													if($product_quantity==0){
-													  echo'<p style = "color:red"> Out of Stock <p>';  
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
 													}
 													else{
-													echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
 													}
 												}
 												
 												if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
 												}
 										   echo' </div>
 										</div>
@@ -548,25 +567,28 @@
 										  </div>
 										  <br>
 										  <div class="price">
-										  
-										  		<h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-													<h3>'.$final_cost.'</h3>
-													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
-													<h5 style = "color:white">You save '.$discount.'%</h5>
+										  			<div class="row align-items-center justify-content-center">
+										  				<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white">&emsp;&emsp;<del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
 													</div>';
 												  if($product_quantity<5){
 													  if($product_quantity==0){
-														echo'<p style = "color:red"> Out of Stock <p>';  
+														echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
 													  }
 													  else{
-													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
 													  }
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
 												  }
 												  
 												  
@@ -608,24 +630,28 @@
 										  </div>
 										  <br>
 										  <div class="price">
-										  
-												  ç
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-													<h3>'.$final_cost.'</h3>
-													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
-													<h5 style = "color:white">You save '.$discount.'%</h5>
+										  			<div class="row align-items-center justify-content-center">
+										  				<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white">&emsp;&emsp;<del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
 													</div>';
 												  if($product_quantity<5){
 													  if($product_quantity==0){
-														echo'<p style = "color:red"> Out of Stock <p>';  
+														echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
 													  }
 													  else{
-													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
 													  }
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
 												  }
 												  
 												  
@@ -667,25 +693,28 @@
 										  </div>
 										  <br>
 										  <div class="price">
-										  
-										  		<h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-													<h3>'.$final_cost.'</h3>
-													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
-													<h5 style = "color:white">You save '.$discount.'%</h5>
+										  			<div class="row align-items-center justify-content-center">
+										  				<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white">&emsp;&emsp;<del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
 													</div>';
 												  if($product_quantity<5){
 													  if($product_quantity==0){
-														echo'<p style = "color:red"> Out of Stock <p>';  
+														echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
 													  }
 													  else{
-													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
 													  }
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
 												  }
 												  
 												  
@@ -727,24 +756,28 @@
 										  </div>
 										  <br>
 										  <div class="price">
-										  
-												  <h3><a href = "details_1.php?id='.$product_name.'">'.$product_name.'</a></h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-													<h3>'.$final_cost.'</h3>
-													<div style = "background-color: #FF1493; border-radius: 25px; width: 63%; padding-left:10%; padding-right:10%">
-													<h5 style = "color:white">You save '.$discount.'%</h5>
+										  			<div class="row align-items-center justify-content-center">
+														<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white">&emsp;&emsp;<del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
 													</div>';
 												  if($product_quantity<5){
 													  if($product_quantity==0){
-														echo'<p style = "color:red"> Out of Stock <p>';  
+														echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
 													  }
 													  else{
-													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
 													  }
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>';
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
 												  }
 												  
 												  
