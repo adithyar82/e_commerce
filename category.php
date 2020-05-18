@@ -131,9 +131,9 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-							<ul>
-								<li><a href="contact_us.php">Contact Us</a></li>
-								</ul>
+							<ul class="list">
+								<li><a href="contact_us.php">Contact Support</a></li>
+							</ul>	
 								<?php
 							if($uname == ""){
 								echo '
@@ -363,7 +363,7 @@
 						<div class="col-md-2">
 							<a href="department.php?id1=Fashion">
 								<img src="img/vegetables.png" alt="">
-								<span class="caption" style="display:block">Vegetables</span>
+							<span class="caption" style="display:block">Vegetables</span>
 							</a>
 						</div>
 						<div class="col-md-2">

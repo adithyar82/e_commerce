@@ -118,9 +118,11 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-                                <li><a href="contact_us.php">+91 8095566699</a></li>
-                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>
-                                <li><a href="faq.php">Help ?</a></li>								
+                            <ul class="list">
+								<li><a href="contact_us.php">Contact Support</a></li>
+                                <li><a href="faq.php">Help ?</a></li>
+							</ul>	
+                                								
 						</div>
 					</div>	
 					<br>				
@@ -441,6 +443,7 @@
                                 $amount = $final_cost;
                                 $order_id = rand(1000000,99999999);
                                 $itemName = $product_quantity;
+                                $email="harshitha007@gmail.com";
                                 echo <<<EOD
                                 
 
