@@ -1,4 +1,4 @@
-    <?php
+<?php
     echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
@@ -11,7 +11,6 @@
     // $fname = $_SESSION['username'];
     $total_cost = $_SESSION['id1'];
     $order_id = rand(1000000,99999999);
-    $_SESSION['order_id'] = $order_id;
     $name = $_SESSION['id3'];
     $final_cost = $_SESSION['id4'];
     $fname = $_POST['fname'];
@@ -43,7 +42,7 @@
     }
     $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$name', ' ','$order_id', '1','$status','$product_image','$shop_id');";
     $result = $conn->query($sql);
-
+    
     $sql1 = "SELECT * FROM products WHERE product_id = '$order_id';";
     $result1 = $conn->query($sql1);
     if($result1->num_rows>0){
@@ -63,10 +62,12 @@
     $fname = "abc";
     $payment_status = "Successful";
     
-    $sql_3 = "INSERT INTO payment(payment_id, final_cost,payment_type,time_created,order_id,fname,product_name,product_image,status) VALUES (Null, '$final_cost', '$payment_type', CURRENT_TIME(), '$order_id','$fname','$name','$product_image','$payment_status');";
+    $sql_3 = "INSERT INTO payment(payment_id,final_cost,payment_type,time_created,order_id,fname,product_name,product_image,status) VALUES (Null, '$final_cost', '$payment_type', CURRENT_TIME(), '$order_id','$fname','$name','$product_image','$payment_status');";
     $result_3 = $conn->query($sql_3);
+
     ?>
-    <!DOCTYPE html>
+
+<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -314,6 +315,108 @@
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
+        <?php
+                                $firstName = $fname;
+                                $lastName = $lname;
+                                $amount = $final_cost;
+    
+                                $itemName = $name;
+                                $email=$email_address;
+                                echo <<<EOD
+                                
+
+    <style>
+    
+    .payment-button {
+      width:200px;
+      height:100px;
+      
+    }
+    
+    </style>
+  
+  
+  
+  
+    
+    <form name = "hidden-payment-form" class="paypal" action="payments_1.php" method="post" id="paypal_form">
+        <input type="hidden" name="cmd" value="_xclick" />
+        <input type="hidden" name="no_note" value="1" />
+        <input type="hidden" name="lc" value="IN" />
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+        <input type="hidden" name="first_name" value="$firstName" />
+        <input type="hidden" name="last_name" value="$lastName" />
+        <input type="hidden" name="payer_email" value="$email" />
+        <input type="hidden" name="item_number" value="1" / >
+        <input type="hidden" name="item_name" value="$itemName" / >
+        <input type="hidden" name="order_id" value="$order_id"/ >
+		<input type="hidden" name="amount" value="$amount" / >
+    <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" border="0" type = "submit" name="submit1" alt="PayPal - The safer, easier way to pay online!"/>
+    </form>
+
+EOD;
+$order_id = rand(1000000,99999999);
+echo <<<EOD
+                                
+
+    <style>
+    
+    .payment-button {
+      width:200px;
+      height:100px;
+      
+    }
+    
+    </style>
+  
+  
+  
+  
+    
+    <form name = "hidden-payment-form" class="paypal" action="./PaytmKit/TxnTest.php" method="post" id="paypal_form">
+        <input type="hidden" name="cmd" value="_xclick" />
+        <input type="hidden" name="no_note" value="1" />
+        <input type="hidden" name="lc" value="IN" />
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+        <input type="hidden" name="first_name" value="$firstName" />
+        <input type="hidden" name="last_name" value="$lastName" />
+        <input type="hidden" name="payer_email" value="$email" />
+        <input type="hidden" name="item_number" value="1" / >
+        <input type="hidden" name="order_id" value="$order_id" / >
+		<input type="hidden" name="item_name" value="$itemName" / >
+		<input type="hidden" name="amount" value="$amount" / >
+        <button class="view-btn color-2 w-20 mt-20"><span style = "color:#0984D1; font-weight:bold;">PAYTM</span></button>
+    </form>
+
+EOD;
+
+  
+$final_amount = $amount * 100;
+
+
+
+    ?>
+    
+    <form action="" method="POST"> 
+<script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_wziRFtUD6cTGmR" // Enter the Key ID generated from the Dashboard
+    data-amount="<?php echo $final_amount ?>" // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    data-currency="INR"
+    data-buttontext="Pay with Razorpay"
+    data-name="<?php echo $itemName ?>"
+    data-description="Test transaction"
+    data-image="https://example.com/your_logo.jpg"
+    data-prefill.name="Aditya Ritesh"
+    data-prefill.email="maditya183@gmail.com"
+    data-prefill.contact="8971966482"
+    data-theme.color="#F37254"
+></script>
+<input type="hidden" custom="Hidden Element" name="hidden">
+</form>
+=======
+>>>>>>> fa1e5017ce2b8087d3787c42f4203f48e2e0da1a
 		<!-- End Billing Details Form -->
 
             <!-- Start Most Search Product Area -->
@@ -437,6 +540,8 @@
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->  
+<<<<<<< HEAD
+=======
             <?php
                                 $firstName = $fname ;
                                 $lastName = $lname;
@@ -535,6 +640,7 @@ $final_amount = $amount * 100;
 ></script>
 <input type="hidden" custom="Hidden Element" name="hidden">
 </form>
+>>>>>>> fa1e5017ce2b8087d3787c42f4203f48e2e0da1a
             <br>
             <br>
             <br>    

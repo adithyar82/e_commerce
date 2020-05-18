@@ -131,9 +131,9 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-							<ul>
-								<li><a href="contact_us.php">Contact Us</a></li>
-								</ul>
+							<ul class="list">
+								<li><a href="contact_us.php">Contact Support</a></li>
+							</ul>	
 								<?php
 							if($uname == ""){
 								echo '
