@@ -51,6 +51,7 @@
     $_SESSION['id4'] = $total_cost;
     $_SESSION['id2'] = $product_id;
     $_SESSION['id3'] = $product_name;
+    $order_id = rand(10000000,99999999);
     $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
     $result_2 = $conn->query($sql_2);
     if($result_2->num_rows>0){
@@ -437,8 +438,9 @@
             <?php
                                 $firstName = "Aditya";
                                 $lastName = "Ritesh";
-                                $amount = $id4;
-                                $itemName = $id3;
+                                $amount = $final_cost;
+                                $order_id = rand(1000000,99999999);
+                                $itemName = $product_quantity;
                                 echo <<<EOD
                                 
 
@@ -465,12 +467,14 @@
         <input type="hidden" name="last_name" value="$lastName" />
         <input type="hidden" name="payer_email" value="$email" />
         <input type="hidden" name="item_number" value="1" / >
-		<input type="hidden" name="item_name" value="$itemName" / >
+        <input type="hidden" name="item_name" value="$itemName" / >
+        <input type="hidden" name="order_id" value="$order_id"/ >
 		<input type="hidden" name="amount" value="$amount" / >
     <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" border="0" type = "submit" name="submit1" alt="PayPal - The safer, easier way to pay online!"/>
     </form>
 
 EOD;
+$order_id = rand(1000000,99999999);
 echo <<<EOD
                                 
 
@@ -497,6 +501,7 @@ echo <<<EOD
         <input type="hidden" name="last_name" value="$lastName" />
         <input type="hidden" name="payer_email" value="$email" />
         <input type="hidden" name="item_number" value="1" / >
+        <input type="hidden" name="order_id" value="$order_id" / >
 		<input type="hidden" name="item_name" value="$itemName" / >
 		<input type="hidden" name="amount" value="$amount" / >
         <button class="view-btn color-2 w-20 mt-20"><span style = "color:#0984D1; font-weight:bold;">PAYTM</span></button>
