@@ -1,7 +1,7 @@
 Í<?php 
 $_SESSION['amount'] = $_POST['amount'];
 $amount = $_SESSION['amount'];
-$order_id = rand(10000000,99999999);
+$order_id = $_POST['order_id'];
 echo $amount;
 	include("./php/class.phpmailer.php");
 	function send_debug_mail($email, $body) {
@@ -26,7 +26,7 @@ echo $amount;
 
 
 	session_start();
-	send_debug_mail("uprab001@odu.edu", print_r($_POST, true));
+	// send_debug_mail("uprab001@odu.edu", print_r($_POST, true));
 
 	// $_SESSION['txn_id'] = $_POST['txn_id'];
 	ini_set('display_errors', 1);
