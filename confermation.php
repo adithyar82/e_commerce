@@ -134,8 +134,6 @@
             $zip = $row['zipcode'];
         }
     }
-
-
     ?>
     <!DOCTYPE html>
 	<html lang="zxx" class="no-js">

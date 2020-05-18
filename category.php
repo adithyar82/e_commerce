@@ -320,10 +320,13 @@
 			</section> -->
 			<br>
 			<br>
+			<br>
+			<br>
+			<br>
 			<section class="banner-area relative" id="home">
 				<div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
-						<div class="topstrip col-lg-8 col-md-12 d-flex align-self-end img-right no-padding" style = "float:left;">
+						<div class="topstrip col-lg-8 col-md-12 d-flex img-right no-padding" style = "float:right">
 							
 									<img id="img" src="img/E1.png"/>
 						</div>
@@ -339,45 +342,99 @@
 				</div>
 			</section>
             <!-- End Banner Area -->
+			<br>
+			<div class="d-flex justify-content-center">
+				<h3> Category </h3>
+				
+			</div>
 			<div class="container d-flex justify-content-center" style="margin-top:2%; margin-bottom:2%;">
 				<div class="row">
+				
 					<div class="col-md-12">
-						<div class="col-md-2">
+						<div class="col-md-6">
+						    
 							<a href="department.php?id1=Groceries">
 								<img src="img/food.png" alt="">
 								<span class="caption" style="display:block">Groceries</span>
 							</a>
+							
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-6">
 							<a href="department.php?id1=Electronics">
 								<img src="img/electronics.png" alt="">
 								<span class="caption" style="display:block">Electronics</span>
 							</a>
+							
 						</div>
-						<div class="col-md-2">
-							<a href="department.php?id1=Medicines">
-								<img src="img/medical.png" alt="">
-								<span class="caption" style="display:block">Medicines</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-6">
+						    
+							<a href="department.php?id1=Groceries">
+								<img src="img/food.png" alt="">
+								<span class="caption" style="display:block">Groceries</span>
 							</a>
+							
 						</div>
-						<div class="col-md-2">
-							<a href="department.php?id1=Fashion">
-								<img src="img/vegetables.png" alt="">
-							<span class="caption" style="display:block">Vegetables</span>
+						<div class="col-md-6">
+							<a href="department.php?id1=Electronics">
+								<img src="img/electronics.png" alt="">
+								<span class="caption" style="display:block">Electronics</span>
 							</a>
+							
 						</div>
-						<div class="col-md-2">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-6">
+						    
+							<a href="department.php?id1=Groceries">
+								<img src="img/food.png" alt="">
+								<span class="caption" style="display:block">Groceries</span>
+							</a>
+							
+						</div>
+						<div class="col-md-6">
+							<a href="department.php?id1=Electronics">
+								<img src="img/electronics.png" alt="">
+								<span class="caption" style="display:block">Electronics</span>
+							</a>
+							
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-6">
+						    
+							<a href="department.php?id1=Groceries">
+								<img src="img/food.png" alt="">
+								<span class="caption" style="display:block">Groceries</span>
+							</a>
+							
+						</div>
+						<div class="col-md-6">
+							<a href="department.php?id1=Electronics">
+								<img src="img/electronics.png" alt="">
+								<span class="caption" style="display:block">Electronics</span>
+							</a>
+							
+						</div>
+					</div>
+				</div>
+						<!-- <div class="col-md-2">
 							<a href="department.php?id1=Hardware">
 								<img src="img/hardware.png" alt="">
 								<span class="caption" style="display:block">Hardware</span>
 							</a>
-						</div>
-						<div class="col-md-2">
 							<a href="department.php?id1=Hardware">
 								<img src="img/food and beverage.png" alt="">
 								<span class="caption" style="display:block">Beverage</span>
 							</a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
