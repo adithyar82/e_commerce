@@ -1,31 +1,32 @@
 Í<?php 
 $_SESSION['amount'] = $_POST['amount'];
 $amount = $_SESSION['amount'];
+$order_id = rand(10000000,99999999);
 echo $amount;
-	// include("./php/class.phpmailer.php");
-	// function send_debug_mail($email, $body) {
+	include("./php/class.phpmailer.php");
+	function send_debug_mail($email, $body) {
 		
-	// 	$mail = new PHPMailer;
-	// 	$mailaddress = $email;
-	// 	$mail->isSMTP();
-	// 	$mail->Host = 'smtp.gmail.com';
-	// 	$mail->SMTPAuth = true;
-	// 	$mail -> Username = 'noreplytasteofIndia@gmail.com';
-	// 	$mail -> Password = 'India@2020';
-	// 	$mail->SMTPSecure = 'tls';
-	// 	$mail->Port = 587;                                    
-	// 	$mail->setFrom('noreplytasteofIndia@gmail.com', 'no reply');
-	// 	$mail->addAddress($mailaddress);
-	// 	$mail->Subject = 'Taste of India';
-	// 	$mail->Body = $body;
-	// 	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-	// 	$mail->isHTML(true);
-	// 	return $mail->send();
-	// }
+		$mail = new PHPMailer;
+		$mailaddress = $email;
+		$mail->isSMTP();
+		$mail->Host = 'smtp.gmail.com';
+		$mail->SMTPAuth = true;
+		$mail -> Username = 'noreplytasteofIndia@gmail.com';
+		$mail -> Password = 'India@2020';
+		$mail->SMTPSecure = 'tls';
+		$mail->Port = 587;                                    
+		$mail->setFrom('noreplytasteofIndia@gmail.com', 'no reply');
+		$mail->addAddress($mailaddress);
+		$mail->Subject = 'Taste of India';
+		$mail->Body = $body;
+		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+		$mail->isHTML(true);
+		return $mail->send();
+	}
 
 
 	session_start();
-	// send_debug_mail("uprab001@odu.edu", print_r($_POST, true));
+	send_debug_mail("uprab001@odu.edu", print_r($_POST, true));
 
 	// $_SESSION['txn_id'] = $_POST['txn_id'];
 	ini_set('display_errors', 1);
@@ -48,7 +49,7 @@ echo $amount;
 	// for your site.
 	$paypalConfig = [
 		'email' => 'sb-ovOot1549898@business.example.com',
-		'return_url' => 'https://loket.in/confermation.php',
+		'return_url' => "https://loket.in/confermation.php?id=".$order_id,
 		'cancel_url' => 'https://example.com/payment-cancelled.html',
 		'notify_url' => 'https://loket.in/confermation.php',
 	];
@@ -78,7 +79,7 @@ echo $amount;
 		// and currency so that these aren't overridden by the form data.
 		// $data['item_name'] = $itemName;
 		// $data['amount'] = $itemAmount;
-		$data['currency_code'] = 'INR';
+		$data['currency_code'] = 'USD';
 
 		// Add any custom fields for the query string.
 		//$data['custom'] = USERID;
