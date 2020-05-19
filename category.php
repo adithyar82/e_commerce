@@ -123,44 +123,37 @@
 			<header class="default-header ">
 				<div class="menutop-wrap d-flex justify-content-center">
 					<div class="menu-top container">
-						<div class="form-group has-feedback has-feedback-left">
-							<!-- <label>Pickup Location</label> -->
-							<!-- \\] -->
-							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
-							
-						</div>
-						
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
 								<li><a href="contact_us.php">Contact Support</a></li>
 							</ul>	
+							<ul>
 								<?php
 							if($uname == ""){
 								echo '
 								<ul>
-								<span class="glyphicon glyphicon-user"> 
-								<li><a href="profile.php"> </span> </a></li>
+									<li><span class="glyphicon glyphicon-user"></li> 
+									<li><a href="profile.php"></span></a></li>
 								</ul>
 							';
 							}
 							else{
 								echo '
 								<ul>
-                                <span class="glyphicon glyphicon-user"> 
-								<li><a href="profile.php" style="margin-right:20px"> '.$uname.'</span> </a>
+									<li><span class="glyphicon glyphicon-user"></li>
+									<li><a href="profile.php"> '.$uname.'</span> </a>
 								</ul>
-								<ul>
-								<li><a href="faq.php">Help ?</a></li>
-								</ul>
+								
 							';
 							}
 							
 							?>								
 							</ul>
-							
-							
+							<ul>
+								<li><a href="faq.php">Help ?</a></li>
+							</ul>
 							<ul class="list">
-								<span class="glyphicon glyphicon-log-out" style="font-size:20px;"></span>
+								<span class="glyphicon glyphicon-log-out" style="font-size:15px;"></span>
 								<li><a href="logout.php">Logout</a></li>
 							</ul>
 						</div>
@@ -169,155 +162,94 @@
 				</div>
 				<nav class="navbar navbar-expand-lg  navbar-light d-flex justify-content-center">
 					<div class="container">
-						<div class="dropdown">
-							  <button onclick="myFunction()" class="btn"><span class="glyphicon glyphicon-align-justify"></span></button>
-							  <div id="myDropdown" class="dropdown-content">
-									<a href="profile.php"><span class="glyphicon glyphicon-user"> </span> Profile</a>
-									<a href="order_status.php">Order Status</a>
-									<a href="order_history.php">Order History</a>
-									<a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
-									<a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
-									<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-									<a href="contact_us.php"><span class="glyphicon glyphicon-question-sign"></span> Help...?</a>
-							  </div>
-					      </div>
-						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
-							  <img style="margin-left:10px;" src="img/logo.png" alt="">
-							  <p> Company Logo </p>
-						  </a>
-						  
-						  <div class="search-form" style="margin-left:2%; margin-top:1.5%">
-           					 <form action="#" method="get">
-              					<input type="search" name="search" id="search" style="width:250px;" placeholder="Type keywords &amp; press enter...">
-             					<button type="submit" class="d-none"></button>
-           					 </form>
-						  </div>
 						
-						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
-	
-						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
-						    <ul class="navbar-nav" style="width:1500px;">
-								<li><a href="category.php">Home</a></li>
-								<!-- <li><a href="#latest">Recommendations</a></li> -->
-									<!-- Dropdown -->
-								    <li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Orders
-								      </a>
-								      <div class="dropdown-menu" style="margin-top:10px">
-								        <a class="dropdown-item" href="order.php">Your Orders</a>
-								        <a class="dropdown-item" href="order_status.php">Current Orders</a>
-								        <!-- <a class="dropdown-item" href="login.php">Cancelled Orders</a> -->
-								        <a class="dropdown-item" href="tracking.php">Tracking</a>
-								      </div>
-								    </li>
-									<li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Category
-								      </a>
-								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
-								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
-								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
-								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
-								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
-								        <a class="dropdown-item" href="department.php?id1=Hardware">Hardware</a>
-									  </div>
-									  <li><a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
-									  <li><a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
-								    </li>									
-						    </ul>
-						  </div>						
+						<ul>
+							<a class="navbar-brand" href="category.php">
+								<img style="margin-left:10px;" src="img/logo.png" alt="">
+								<p> Company Logo </p>
+							</a>
+						</ul>	
+						
 					</div>
 				</nav>
+
 				<div class="menutop-wrap d-flex justify-content-center">
 					<div class="menu-top container">
-						<div class="form-group has-feedback has-feedback-left">
-							<!-- <label>Pickup Location</label> -->
-							<!-- \\] -->
-							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
+						<div class="d-flex justify-content-center">
+							
+							<li>
+								<div class="dropdown">
+									<button onclick="myFunction()" class="btn"><span class="glyphicon glyphicon-align-justify"></span></button>
+									<div id="myDropdown" class="dropdown-content">
+										<a href="profile.php"><span class="glyphicon glyphicon-user"> </span> Profile</a>
+										<a href="order_status.php">Order Status</a>
+										<a href="order_history.php">Order History</a>
+										<a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
+										<a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+										<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+										<a href="contact_us.php"><span class="glyphicon glyphicon-question-sign"></span> Help...?</a>
+									</div>
+								</div>
+							</li>
+							&emsp;&emsp;&emsp;
+							<div class="row">
+								<div class="col-md-10 mt-3">
+									<div class="search-form">
+										<form action="#" method="get">
+											<input type="search" name="search" id="search" style="width:200px;" placeholder="Search...">
+											<button type="submit" class="d-none"></button>
+										</form>
+									</div>
+								</div>
+								<div class="col-md-2 mt-4">
+									<div><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
+								</div>
+							</div>
 							
 						</div>
-						
+					</div>
+				</div>
+
+				<div class="menutop-wrap d-flex justify-content-center">
+					<div class="menu-top container">
 						<div class="d-flex justify-content-center">
 							<ul class="list">
-							<li><a href="category.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-							<li class="dropdown">
-							<span class="glyphicon glyphicon-tag"></span>
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Orders
-								      </a>
-								      <div class="dropdown-menu" style="margin-top:10px">
-								        <a class="dropdown-item" href="order.php">Your Orders</a>
-								        <a class="dropdown-item" href="order_status.php">Current Orders</a>
-								        <!-- <a class="dropdown-item" href="login.php">Cancelled Orders</a> -->
-								        <a class="dropdown-item" href="tracking.php">Tracking</a>
-								      </div>
-									</li>
-									<li class="dropdown">
+								<li><a href="category.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+								<li class="dropdown">
+									<span class="glyphicon glyphicon-tag"></span>
+										<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+										Orders
+										</a>
+										<div class="dropdown-menu" style="margin-top:10px">
+											<a class="dropdown-item" href="order.php">Your Orders</a>
+											<a class="dropdown-item" href="order_status.php">Current Orders</a>
+											<!-- <a class="dropdown-item" href="login.php">Cancelled Orders</a> -->
+											<a class="dropdown-item" href="tracking.php">Tracking</a>
+										</div>
+								</li>
+								<li class="dropdown">
 									<span class="glyphicon glyphicon-th-list"></span>
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Category
-								      </a>
-								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
-								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
-								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
-								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
-								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
-								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
-									  </div>
-							 		<li><a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
-									  <li><a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
-									</li>
-									
-								
-								
-															
-							
-							
-							
-							
-							
+										<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+											Category
+										</a>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
+											<a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
+											<a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
+											<a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
+											<a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
+											<a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
+										</div>
+									<li><a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
+									<li><a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
+								</li>
 						</div>
-					</div>	
-					<br>				
+					</div>				
 				</div>
 			</header>
             <!-- End Header Area -->
 
-            <!-- Start Banner Area -->
-			<!-- <section class="banner-area relative" id="home">
-				<div class="container-fluid">
-					<div class="row fullscreen align-items-center justify-content-center">
-						<div class="col-lg-6 col-md-12 d-flex align-self-end img-right no-padding">
-							<div class="col-lg-6 col-md-6 slide-holder">
-									<span id="slide-1"></span>
-									<span id="slide-2"></span>
-									<span id="slide-3"></span>
-									<span id="slide-4"></span>
-								<div class="col-lg-6 col-md-12  slide-group">
-									<img src="img/E.png" class="slide-image" id="slide-1" /><img src="img/G.png" class="slide-image" id="slide-2"/><img src="img/H.png" class="slide-image" id="slide-3"/><img src="img/P.png" class="slide-image" id="slide-4" />
-								</div>
-								<div class="col-lg-6 col-md-12 slide-button-holder">
-									<a href="#slide-1" class="slider-button"></a>
-									<a href="#slide-2" class="slider-button"></a>
-									<a href="#slide-3" class="slider-button"></a>
-									<a href="#slide-4" class="slider-button"></a>
-								</div>
-							</div>
-						</div>
-						<div class="banner-content col-lg-6 col-md-6">
-							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
-							<h1 class="text-uppercase">
-								On Your <br>
-								First Order
-							</h1>
-							<button class="primary-btn text-uppercase"><a href="#">Order Here</a></button>
-						</div>							
-					</div>
-				</div>
-			</section> -->
+            
 			<br>
 			<br>
 			<br>
