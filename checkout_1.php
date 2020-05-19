@@ -8,6 +8,10 @@
     echo $uname;
     $value = $_REQUEST['id1'];
     $coupon_code = $_REQUEST['id2'];
+    $order_id = rand(1000000,99999999);
+    $_SESSION['order_id'] = $order_id;
+    $sql_12 = "UPDATE items SET order_id = '$order_id' WHERE username = '$uname';";
+    $result_12 = $conn->query($sql_12);
     $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
     $result_2 = $conn->query($sql_2);
     if($result_2->num_rows>0){
@@ -202,7 +206,7 @@
             <!-- End Checkout Area -->
             <!-- Start Billing Details Form -->
             <div class="container">
-                <form method = "POST" action="confermation_1.php" class="billing-form">
+                <form method = "POST" action="confermation_2.php" class="billing-form">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <h3 class="billing-title mt-20 mb-10">Billing Details</h3>
