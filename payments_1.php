@@ -1,31 +1,32 @@
 Í<?php 
 $_SESSION['amount'] = $_POST['amount'];
 $amount = $_SESSION['amount'];
+$order_id = $_POST['order_id'];
 echo $amount;
-	// include("./php/class.phpmailer.php");
-	// function send_debug_mail($email, $body) {
+	include("./php/class.phpmailer.php");
+	function send_debug_mail($email, $body) {
 		
-	// 	$mail = new PHPMailer;
-	// 	$mailaddress = $email;
-	// 	$mail->isSMTP();
-	// 	$mail->Host = 'smtp.gmail.com';
-	// 	$mail->SMTPAuth = true;
-	// 	$mail -> Username = 'noreplytasteofIndia@gmail.com';
-	// 	$mail -> Password = 'India@2020';
-	// 	$mail->SMTPSecure = 'tls';
-	// 	$mail->Port = 587;                                    
-	// 	$mail->setFrom('noreplytasteofIndia@gmail.com', 'no reply');
-	// 	$mail->addAddress($mailaddress);
-	// 	$mail->Subject = 'Taste of India';
-	// 	$mail->Body = $body;
-	// 	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-	// 	$mail->isHTML(true);
-	// 	return $mail->send();
-	// }
+		$mail = new PHPMailer;
+		$mailaddress = $email;
+		$mail->isSMTP();
+		$mail->Host = 'smtp.gmail.com';
+		$mail->SMTPAuth = true;
+		$mail -> Username = 'contact.azeempatel@gmail.com';
+		$mail -> Password = 'AzeemPatel46#';
+		$mail->SMTPSecure = 'tls';
+		$mail->Port = 587;                                    
+		$mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
+		$mail->addAddress($mailaddress);
+		$mail->Subject = 'E-commerce';
+		$mail->Body = $body;
+		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+		$mail->isHTML(true);
+		return $mail->send();
+	}
 
 
 	session_start();
-	// send_debug_mail("uprab001@odu.edu", print_r($_POST, true));
+	send_debug_mail("harshithaeshwar007@gmail.com", print_r($_POST, true));
 
 	// $_SESSION['txn_id'] = $_POST['txn_id'];
 	ini_set('display_errors', 1);
@@ -47,10 +48,10 @@ echo $amount;
 	// PayPal settings. Change these to your account details and the relevant URLs
 	// for your site.
 	$paypalConfig = [
-		'email' => 'sb-ovOot1549898@business.example.com'
-		// 'return_url' => 'https://toihr.com/payment_successful_1.php',
-		// 'cancel_url' => 'https://example.com/payment-cancelled.html',
-		// 'notify_url' => 'https://toihr.com/payments_1.php'
+		'email' => 'sb-ov0ot1549898@business.example.com',
+		'return_url' => "https://loket.in/confermation.php?id=".$order_id,
+		'cancel_url' => 'https://example.com/payment-cancelled.html',
+		'notify_url' => 'https://loket.in/confermation.php',
 	];
 
 	$paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
@@ -71,7 +72,7 @@ echo $amount;
 
 		// Set the PayPal return addresses.
 		$data['return'] = stripslashes($paypalConfig['return_url']);
-		$data['cancel_return'] = stripslashes($paypalConfig['cancel_url']);
+		// $data['cancel_return'] = stripslashes($paypalConfig['cancel_url']);
 		$data['notify_url'] = stripslashes($paypalConfig['notify_url']);
 
 		// Set the details about the product being purchased, including the amount

@@ -2,14 +2,12 @@
     require_once('config.php');
     include('connect_db.php');
     session_start();
-    $id1 = $_REQUEST['id1'];
-    $id2 = $_REQUEST['id2'];
-    $id3 = $_REQUEST['id3'];
-    $id4 = $id1 + 50;
-    $_SESSION['id1'] = $id1;
-    $_SESSION['id2'] = $id2;
-    $_SESSION['id3'] = $id3;
-    $_SESSION['id4'] = $id4;
+    if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+    }
+    $uname = $_SESSION['uname'];
+    $product_id = $_REQUEST['id1'];
+    $coupon_code = $_REQUEST['id2'];
     $sql = "SELECT * FROM shipping;";
     $result = $conn->query($sql);
     if($result->num_rows>0){
@@ -23,7 +21,11 @@
 
         }
     }
-    $sql1 = "SELECT * FROM Users WHERE username  = 'abc';";
+    $order_id = rand(1000000,99999999);
+    $_SESSION['order_id'] = $order_id;
+    $sql_12 = "UPDATE items SET order_id = '$order_id' WHERE username = '$uname';";
+    $result_12 = $conn->query($sql_12);
+    $sql1 = "SELECT * FROM Users WHERE username  = '$uname';";
     $result1= $conn->query($sql1);
     if($result1->num_rows>0){
         while ($row = $result1->fetch_assoc()){
@@ -33,6 +35,41 @@
 
         }
     }
+    $sql2 = "SELECT * FROM products WHERE product_id = '$product_id';";
+    $result2 = $conn->query($sql2);
+    if($result2->num_rows>0){
+        while($row = $result2->fetch_assoc()){
+            $product_name = $row['product_name'];
+            $final_cost = $row['final_cost'];
+            $product_quantity = $row['product_quantity'];
+        }
+    }
+    $sql_1 = "SELECT * FROM coupons WHERE coupon_code = '$coupon_code';";
+    $result_1 = $conn->query($sql_1);
+    if($result_1->num_rows>0){
+        while($row = $result_1->fetch_assoc()){
+            $value = $row['value'];
+        }
+    }
+    $total_cost = $final_cost - $value;
+    $_SESSION['id4'] = $total_cost;
+    $_SESSION['id2'] = $product_id;
+    $_SESSION['id3'] = $product_name;
+    $order_id = rand(10000000,99999999);
+    $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
+    $result_2 = $conn->query($sql_2);
+    if($result_2->num_rows>0){
+        while($row = $result_2->fetch_assoc()){
+            $delivery_status = $row['delivery_status'];
+            if($delivery_status == 0){
+                echo'<script>
+                alert("Currently there are no delivery boys available in your locality");
+                window.location = "category.php"
+                </script>';
+            }
+        }
+    }
+    
     ?>
     <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -85,8 +122,11 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+                            <ul class="list">
+								<li><a href="contact_us.php">Contact Support</a></li>
+                                <li><a href="faq.php">Help ?</a></li>
+							</ul>	
+                                								
 						</div>
 					</div>	
 					<br>				
@@ -199,7 +239,7 @@
             <!-- End Checkout Area -->
             <!-- Start Billing Details Form -->
             <div class="container">
-                <form method = "POST" action="confermation.php" class="billing-form">
+                <form method = "POST" action="confermation_1.php" class="billing-form">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <h3 class="billing-title mt-20 mb-10">Billing Details</h3>
@@ -303,72 +343,49 @@
 									<div>Total</div>
 								</div>
 							<div class="list-row d-flex justify-content-between">
-								<div><?php echo $id3?></div>
-								<div>x 02</div>
-								<div><?php echo $id1?></div>
+								<div><?php echo $product_name?></div>
+								<div>x 01</div>
+								<div><?php echo $final_cost?></div>
 							</div>
 							<div class="list-row d-flex justify-content-between">
 								<h6>Subtotal</h6>
-								<div><?php echo $id1?></div>
+								<div><?php echo $final_cost?></div>
 							</div>
 							<div class="list-row d-flex justify-content-between">
 								<h6>Shipping</h6>
 								<div>Flat rate: Rs50.00</div>
 							</div>
+                            <?php	
+                            if($value>0){
+                                echo'<div class="list-row d-flex justify-content-between">
+								<h6>Coupon Code</h6>
+								<div>'.$coupon_code.'</div>
+							</div>
+							<div class="list-row d-flex justify-content-between">
+								<h6>Value</h6>
+								<div>'.$value.'</div>
+                            </div>';
+                            echo'<a href = "buy_coupons_1.php?id1='.$product_id.'" button class="view-btn color-2 w-100 mt-20"><span>Change Coupon</span></button></a>';
+                            }
+                            else{
+                                echo'<a href = "buy_coupons_1.php?id1='.$product_id.'" button class="view-btn color-2 w-100 mt-20"><span>Apply Coupon</span></button></a>';
+                            }
+                            ?>
+                            <div class="list-row border-bottom-0 d-flex justify-content-between">
+                            
+                                
+							</div>
 							<div class="list-row border-bottom-0 d-flex justify-content-between">
 								<h6>Total</h6>
-								<div class="total"><?php echo $id4?></div>
+								<div class="total"><?php echo $total_cost?></div>
 							</div>
                                     </div>
-                                    <div class="d-flex align-items-center mt-10">
-                                        <input class="pixel-radio" type="radio" id="check" name="brand">
-                                        <label for="check" class="bold-lable">Check payments</label>
-                                    </div>
-                                    <p class="payment-info">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Paypal</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        <!-- <input type="checkbox" class="pixel-checkbox" id="login-4"> -->
-                                        <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Paytm</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+                                    
                                     <div class="mt-20 d-flex align-items-start">
                                         
                                         <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
                                     </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">PhonePe</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        
-                                        <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Google Pay</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+                                    
                                     <div class="mt-20 d-flex align-items-start">
                                         <input type="checkbox" class="pixel-checkbox" id="login-4">
                                         <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label>
@@ -380,101 +397,9 @@
                         </div>
                     </div>
                 </form>
-            </div>
-            <?php
-                                $firstName = "Aditya";
-                                $lastName = "Ritesh";
-                                $amount = $id4;
-                                $itemName = $id3;
-                                echo <<<EOD
+            </div>              
                                 
 
-    <style>
-    
-    .payment-button {
-      width:200px;
-      height:100px;
-      
-    }
-    
-    </style>
-  
-  
-  
-  
-    
-    <form name = "hidden-payment-form" class="paypal" action="payments_1.php" method="post" id="paypal_form">
-        <input type="hidden" name="cmd" value="_xclick" />
-        <input type="hidden" name="no_note" value="1" />
-        <input type="hidden" name="lc" value="IN" />
-        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
-        <input type="hidden" name="first_name" value="$firstName" />
-        <input type="hidden" name="last_name" value="$lastName" />
-        <input type="hidden" name="payer_email" value="$email" />
-        <input type="hidden" name="item_number" value="1" / >
-		<input type="hidden" name="item_name" value="$itemName" / >
-		<input type="hidden" name="amount" value="$amount" / >
-    <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" border="0" type = "submit" name="submit1" alt="PayPal - The safer, easier way to pay online!"/>
-    </form>
-
-EOD;
-echo <<<EOD
-                                
-
-    <style>
-    
-    .payment-button {
-      width:200px;
-      height:100px;
-      
-    }
-    
-    </style>
-  
-  
-  
-  
-    
-    <form name = "hidden-payment-form" class="paypal" action="./Paytmkit/TxnTest.php" method="post" id="paypal_form">
-        <input type="hidden" name="cmd" value="_xclick" />
-        <input type="hidden" name="no_note" value="1" />
-        <input type="hidden" name="lc" value="IN" />
-        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
-        <input type="hidden" name="first_name" value="$firstName" />
-        <input type="hidden" name="last_name" value="$lastName" />
-        <input type="hidden" name="payer_email" value="$email" />
-        <input type="hidden" name="item_number" value="1" / >
-		<input type="hidden" name="item_name" value="$itemName" / >
-		<input type="hidden" name="amount" value="$amount" / >
-        <button class="view-btn color-2 w-20 mt-20"><span style = "color:#0984D1; font-weight:bold;">PAYTM</span></button>
-    </form>
-
-EOD;
-
-  
-$final_amount = $amount * 100;
-
-
-
-    ?>
-    
-    <form action="" method="POST"> 
-<script
-    src="https://checkout.razorpay.com/v1/checkout.js"
-    data-key="rzp_test_wziRFtUD6cTGmR" // Enter the Key ID generated from the Dashboard
-    data-amount="<?php echo $final_amount ?>" // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    data-currency="INR"
-    data-buttontext="Pay with Razorpay"
-    data-name="<?php echo $itemName ?>"
-    data-description="Test transaction"
-    data-image="https://example.com/your_logo.jpg"
-    data-prefill.name="Aditya Ritesh"
-    data-prefill.email="maditya183@gmail.com"
-    data-prefill.contact="8971966482"
-    data-theme.color="#F37254"
-></script>
-<input type="hidden" custom="Hidden Element" name="hidden">
-</form>
             <!-- End Billing Details Form -->
 
             <!-- Start Most Search Product Area -->

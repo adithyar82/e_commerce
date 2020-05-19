@@ -1,4 +1,4 @@
-    <?php
+<?php
     session_start();
     include('connect_db.php');
     $username = $_SESSION['username'];
@@ -59,8 +59,10 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+                            <ul class="list">
+								<li><a href="contact_us.php">Contact Support</a></li>
+							</ul>	
+																
 						</div>
 					</div>	
 					<br>				
@@ -155,7 +157,7 @@
                         $item_price = $row['item_price']; 
                         $product_quantity = $row['product_quantity'];
                         $product_quantity_1 = $row['initial_quantity'];
-                        $item_id = $row['id'];
+                        // $item_id = $row['id'];
                         $total_price = $product_quantity * $item_price;
                         
                          echo'
@@ -294,16 +296,12 @@
                 $total_cost = $total_cost - $cost;
                 
                 ?>
+                
                 <div class="subtotal-area d-flex align-items-center justify-content-end">
                     <div class="title text-uppercase">Subtotal</div>
                     <div class="subtotal"><?php echo $total_cost ?></div>
                 </div>
-                <div style = "margin-left:80%">
-                <form method ="POST" action = "buy_coupons.php">
-                    <input type="text" name = "referral_code" placeholder="Enter Referral Code" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20 wt-40">
-                    <input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-20"><span></span>
-                <form>
-                </div>
+                   
                 <div>
                     <a href = "checkout_1.php"  button class="view-btn color-2 w-100 mt-20"><span>Buy Now</span></button>
                 </div>
@@ -451,7 +449,7 @@
                                 <p>Stay update with our latest</p>
                                 <div class="" id="mc_embed_signup">
 
-                                        <!-- <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+                                        <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
 
                                         <div class="d-flex flex-row">
 
@@ -461,11 +459,11 @@
                                                 <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
                                                 <div style="position: absolute; left: -5000px;">
                                                     <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                                                </div> -->
+                                                </div>
                                             
                                             <!-- <div class="col-lg-4 col-md-4">
                                                 <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-                                            </div>
+                                            </div>  -->
                                         </div>      
                                         <div class="info"></div>
                                         </form>
@@ -521,3 +519,4 @@
             <script src="js/main.js"></script>  
         </body>
     </html>
+

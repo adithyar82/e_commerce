@@ -11,9 +11,12 @@
             $product_name = $row['product_name'];
 			$order_id = $row['order_id'];
 			$product_image = $row['$product_image'];
+			
 
         }
-    }
+	}
+	
+	echo $delivery_address;
 	?>
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -67,7 +70,8 @@
 						
 						<div class="d-flex justify-content-between align-items-center">
 								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>
+								<li><a href="faq.php">Help ?</a></li>								
 						</div>
 					</div>	
 					<br>				
@@ -82,7 +86,7 @@
 	
 						  <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
-								<li><a href="D_homepage.php">Home</a></li>					
+								<li><a href="category.php">Home</a></li>					
 						    </ul>
 						  </div>						
 					</div>
@@ -128,6 +132,18 @@
 									$final_cost = $row['final_cost'];
 									$status = $row['status'];
 									$product_image = $row['product_image'];
+									$sql_2 = "SELECT * FROM shipping WHERE shipping_id = '$order_id';";
+									$result_2 = $conn->query($sql_2);
+									if($result_2->num_rows>0){
+										while($row=$result_2->fetch_assoc()){
+										$address_1 = $row['address_1'];
+										$city = $row['city'];
+										$state = $row['state'];
+										$zipcode = $row['zipcode'];
+										$country = $row['country'];
+									}
+								}
+								$delivery_address = $address_1.' '.$city.' '.$state.' '.$zipcode.' '.$country;
 									echo '<section class="brand-area pb-100">
 									<div class="container">
 										<div class="row logo-wrap"><div class="row logo-wrap">
@@ -135,7 +151,7 @@
 											<img class="content-image" src="'.$product_image.'" alt="">
 										</div>
 									</div>
-									<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Pick Up Location &nbsp;: <br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location: <br><br> Delivery &emsp; &emsp; &nbsp; &emsp; &nbsp : Delivered by today <br><br> </h3>';
+									<h3><br> Order ID &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$order_id.' <br><br> Product Name &nbsp; &nbsp; &nbsp;: '.$product_name.'<br><br> Product Cost &emsp; &nbsp; &nbsp;: '.$final_cost.'<br><br> Status &emsp; &emsp; &emsp;&emsp;&nbsp;&nbsp;&nbsp; : '.$status.' <br><br> Delivery Location: '.$delivery_address.' <br><br> Delivery &emsp; &emsp; &nbsp; &emsp; &nbsp : Delivered by today <br><br> </h3>';
 									if(($status == "ordered") || ($status == "order accepted")){
 										echo '<div class="container">
 										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5><br>

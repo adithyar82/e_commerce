@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+	}
 	$uname = $_SESSION['uname'];
 	echo $_SESSION['username'];
 	include('connect_db.php');
@@ -64,9 +67,12 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
+			<link rel="stylesheet" href="css/styles.css">
 			<link href="style.css" rel="stylesheet">
 
 			<script>
+				
+
 				$('#row').pagination({
 				dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],
 				pageSize: 5,
@@ -78,276 +84,45 @@
 					dataContainer.html(html);
 				}
 			})
-			</script>
 			
-			<script>
-				/* When the user clicks on the button, 
-				toggle between hiding and showing the dropdown content */
-				function myFunction() {
+			</script>
+			<script type = "text/javascript">
+			function displayNextImage() {
+				x = (x === images.length - 1) ? 0 : x + 1;
+				document.getElementById("img").src = images[x];
+			}
+  
+			function displayPreviousImage() {
+				x = (x <= 0) ? images.length - 1 : x - 1;
+				document.getElementById("img").src = images[x];
+			}
+  
+			function startTimer() {
+				setInterval(displayNextImage, 3000);
+			}
+  
+			var images = [], x = -1;
+			images[0] = "img/E1.png";
+			images[1] = "img/G.png";
+			images[2] = "img/H.png";
+			function myFunction() {
 				document.getElementById("myDropdown").classList.toggle("show");
 				}
-
-				// Close the dropdown if the user clicks outside of it
-				window.onclick = function(event) {
-				if (!event.target.matches('.dropbtn')) {
-					var dropdowns = document.getElementsByClassName("dropdown-content");
-					var i;
-					for (i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-					}
-				}
-				}
-			</script>
-
-			<script>
-				/* When the user clicks on the button, 
-				toggle between hiding and showing the dropdown content */
-				function dropFunction() {
-				document.getElementById("Dropdown").classList.toggle("show");
-				}
-
-				// Close the dropdown if the user clicks outside of it
-				window.onclick = function(event) {
-				if (!event.target.matches('.btn')) {
-					var dropdowns = document.getElementsByClassName("dropdown_content");
-					var i;
-					for (i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-					}
-				}
-				}
-			</script>
-
-			<style>
-			.dropbtn {
-			background-color: #FFFFFF;
-			color: black;
-			padding: 16px;
-			font-size: 20px;
-			border: none;
-			cursor: pointer;
+			function dropFunction() {
+			document.getElementById("Dropdown").classList.toggle("show");
 			}
+		</script>
+			
+		
 
-			.dropbtn:hover, .dropbtn:focus {
-			background-color: #2980B9;
-			}
-
-			.dropdown {
-			position: relative;
-			display: inline-block;
-			}
-
-			.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: #f1f1f1;
-			min-width: 160px;
-			overflow: auto;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-			}
-
-			.dropdown-content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-			}
-
-			.dropdown a:hover {background-color: #ddd;}
-
-			.show {display: block;}
-			</style>
-
-			<style>
-			.btn {
-			background-color: #FFFFFF;
-			color: black;
-			padding: 16px;
-			font-size: 20px;
-			border: none;
-			cursor: pointer;
-			}
-
-			.btn:hover, .btn:focus {
-			background-color: #2980B9;
-			}
-
-			.dropdown {
-			position: relative;
-			display: inline-block;
-			}
-
-			.dropdown_content {
-			display: none;
-			position: absolute;
-			background-color: #f1f1f1;
-			min-width: 160px;
-			overflow: auto;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-			}
-
-			.dropdown_content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-			}
-
-			.dropdown a:hover {background-color: #ddd;}
-
-			.show {display: block;}
-			</style>
-
-			<style>
-			.slide-holder
-			{
-				width:971px;  /*set the size of our slide holder*/
-				height:921px;
-				background-color:black;
-				margin:auto;
-				overflow:hidden;  /*overflow set to hidden*/
-			}
-
-			.slide-group {
-				width:3884px; /*width of our images combined*/
-				height:1842px;
-				position:relative; /*position relative to parent*/
-				clear:both;
-				z-index:0; /*set the z-index */
-				left: 0px; /*position the slide-group to the first image */
-			}
-
-			.slide-image { /*setup our individual images*/
-				float:left;
-				margin:0px; 
-				padding:0px;
-				position:relative; 
-				z-index:1; 
-			}
-			.slide-button-holder {
-				position: relative;
-				z-index:2;
-				text-align:center;
-				top:-220px;
-				background: rgba(0, 0, 0, 0.7);
-			}
-
-			.slider-button {
-				display:inline-block;
-				height:10px;
-				width:10px;
-				background-color:#fff;
-				border-radius:10px;
-			}
-
-			.slider-button:hover {
-				background-color:#ccc;
-			}
-			/*use the :target selector to set the left position of our .slide-group  */
-			#slide-1:target ~ .slide-group{ /*first button moves it to initial position*/
-				left:0px; 
-			}
-			#slide-2:target ~ .slide-group{ /*second image starts at 400px */
-				left:-1942px;
-
-			}
-			#slide-3:target ~ .slide-group{ /*third image starts at 800px */
-				left:-2913px;
-
-			}
-			#slide-4:target ~ .slide-group{ /*third image starts at 800px */
-				left:-3884px;
-
-			}
-			.slide-group {
-				width:3884px;
-				height:1842px;
-				position:relative;
-				clear:both;
-				z-index:0;
-				left:0px;
-
-					/*set transition property for all browsers */
-					-webkit-transition: left 2s;
-					-moz-transition: left 2s;
-					-o-transition: left 2s;
-					transition: left 2s;
-			}
-			/*slide-group CSS animation property*/
-			.slide-group {
-				width:3884px;
-				height:1842px;
-				position:relative;
-				clear:both;
-				z-index:0;
-				left:0px;
-
-				/* add following CSS animation properties */
-					animation-direction: alternate;  /*go forwards and backwards*/
-				animation:animate 12s infinite;   /*call keyframe "animate" (see below)
-			- total animation length 12 seconds*/
-
-				-webkit-animation-direction: alternate; /* chrome support */
-				-webkit-animation:animate 12s infinite;
-
-					/*   commented out transition properties
-					-webkit-transition: left 2s;
-						-moz-transition: left 2s;
-						-o-transition: left 2s;
-						transition: left 2s;   */
-			}
-
-			/*Add keyframes to animate the images*/
-
-			@keyframes animate {
-				0% {left:0px;}   /*first image */
-				6% {left:0px;}
-				15% {left:-971px;}  /*second image */
-				21% {left:-971px;}
-				30% {left:-1942px;}  /*third image */
-				36% {left:-1942px;}
-				45% {left:-2913px;}   /*forth image */
-				51% {left:-2913px;}
-				66% {left:-1942px;}  /*third image */
-				65% {left:-1942px;}
-				76% {left:-971px;}  /*second image*/
-				80% {left:-971px;}
-				100% {left:0px;}  /*first image*/
-			}
-
-			/* chrome support */
-			@-webkit-keyframes animate {
-				0% {left:0px;}   /*first image */
-				6% {left:0px;}
-				15% {left:-971px;}  /*second image */
-				21% {left:-971px;}
-				30% {left:-1942px;}  /*third image */
-				36% {left:-1942px;}
-				45% {left:-2913px;}   /*forth image */
-				51% {left:-2913px;}
-				66% {left:-1942px;}  /*third image */
-				65% {left:-1942px;}
-				76% {left:-971px;}  /*second image*/
-				80% {left:-971px;}
-				100% {left:0px;}  /*first image*/
-			}
-			</style>
 
 		</head>
-		<body>
+		<body onload = "startTimer()">>
 
 			<!-- Start Header Area -->
-			<header class="default-header">
-				<div class="menutop-wrap">
-					<div class="menu-top container" style="margin-left:3%;">
+			<header class="default-header ">
+				<div class="menutop-wrap d-flex justify-content-center">
+					<div class="menu-top container">
 						<div class="form-group has-feedback has-feedback-left">
 							<!-- <label>Pickup Location</label> -->
 							<!-- \\] -->
@@ -356,24 +131,34 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
-							</ul>
-							<?php
+							<ul class="list">
+								<li><a href="contact_us.php">Contact Support</a></li>
+							</ul>	
+								<?php
 							if($uname == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="profile.php"> Welcome </a></li>
-							</ul>';
+								echo '
+								<ul>
+								<span class="glyphicon glyphicon-user"> 
+								<li><a href="profile.php"> </span> </a></li>
+								</ul>
+							';
 							}
 							else{
-                                echo '<ul class="list">
-                                <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="profile.php" style="margin-right:20px">Welcome '.$uname.' </a></li>
-							</ul>';
+								echo '
+								<ul>
+                                <span class="glyphicon glyphicon-user"> 
+								<li><a href="profile.php" style="margin-right:20px"> '.$uname.'</span> </a>
+								</ul>
+								<ul>
+								<li><a href="faq.php">Help ?</a></li>
+								</ul>
+							';
 							}
 							
-							?>
+							?>								
+							</ul>
+							
+							
 							<ul class="list">
 								<span class="glyphicon glyphicon-log-out" style="font-size:20px;"></span>
 								<li><a href="logout.php">Logout</a></li>
@@ -382,16 +167,16 @@
 					</div>	
 					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
-					<div class="container" style="width:1500px;">
+				<nav class="navbar navbar-expand-lg  navbar-light d-flex justify-content-center">
+					<div class="container">
 						<div class="dropdown">
 							  <button onclick="myFunction()" class="btn"><span class="glyphicon glyphicon-align-justify"></span></button>
 							  <div id="myDropdown" class="dropdown-content">
 									<a href="profile.php"><span class="glyphicon glyphicon-user"> </span> Profile</a>
 									<a href="order_status.php">Order Status</a>
 									<a href="order_history.php">Order History</a>
-									<a href="favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
-									<a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+									<a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
+									<a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
 									<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
 									<a href="contact_us.php"><span class="glyphicon glyphicon-question-sign"></span> Help...?</a>
 							  </div>
@@ -401,19 +186,19 @@
 							  <p> Company Logo </p>
 						  </a>
 						  
-						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
+						  <div class="search-form" style="margin-left:2%; margin-top:1.5%">
            					 <form action="#" method="get">
-              					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
+              					<input type="search" name="search" id="search" style="width:250px;" placeholder="Type keywords &amp; press enter...">
              					<button type="submit" class="d-none"></button>
            					 </form>
 						  </div>
-
+						
 						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
 	
 						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
 						    <ul class="navbar-nav" style="width:1500px;">
 								<li><a href="category.php">Home</a></li>
-								<li><a href="#latest">Recommendations</a></li>
+								<!-- <li><a href="#latest">Recommendations</a></li> -->
 									<!-- Dropdown -->
 								    <li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -436,32 +221,85 @@
 								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
 								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
 								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
-								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
+								        <a class="dropdown-item" href="department.php?id1=Hardware">Hardware</a>
 									  </div>
-									  <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
-									  <li><a href="favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
+									  <li><a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
+									  <li><a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
 								    </li>									
 						    </ul>
 						  </div>						
 					</div>
 				</nav>
+				<div class="menutop-wrap d-flex justify-content-center">
+					<div class="menu-top container">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
+							
+						</div>
+						
+						<div class="d-flex justify-content-center">
+							<ul class="list">
+							<li><a href="category.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+							<li class="dropdown">
+							<span class="glyphicon glyphicon-tag"></span>
+								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+								        Orders
+								      </a>
+								      <div class="dropdown-menu" style="margin-top:10px">
+								        <a class="dropdown-item" href="order.php">Your Orders</a>
+								        <a class="dropdown-item" href="order_status.php">Current Orders</a>
+								        <!-- <a class="dropdown-item" href="login.php">Cancelled Orders</a> -->
+								        <a class="dropdown-item" href="tracking.php">Tracking</a>
+								      </div>
+									</li>
+									<li class="dropdown">
+									<span class="glyphicon glyphicon-th-list"></span>
+								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+								        Category
+								      </a>
+								      <div class="dropdown-menu">
+								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
+								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
+								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
+								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
+								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
+								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
+									  </div>
+							 		<li><a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
+									  <li><a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
+									</li>
+									
+								
+								
+															
+							
+							
+							
+							
+							
+						</div>
+					</div>	
+					<br>				
+				</div>
 			</header>
             <!-- End Header Area -->
 
             <!-- Start Banner Area -->
-			<section class="banner-area relative" id="home">
+			<!-- <section class="banner-area relative" id="home">
 				<div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
-						<div class="banner-content col-lg-8" style="margin-left:-10%;">
-							<div class="slide-holder">
+						<div class="col-lg-6 col-md-12 d-flex align-self-end img-right no-padding">
+							<div class="col-lg-6 col-md-6 slide-holder">
 									<span id="slide-1"></span>
 									<span id="slide-2"></span>
 									<span id="slide-3"></span>
 									<span id="slide-4"></span>
-								<div class="slide-group">
+								<div class="col-lg-6 col-md-12  slide-group">
 									<img src="img/E.png" class="slide-image" id="slide-1" /><img src="img/G.png" class="slide-image" id="slide-2"/><img src="img/H.png" class="slide-image" id="slide-3"/><img src="img/P.png" class="slide-image" id="slide-4" />
 								</div>
-								<div class="slide-button-holder">
+								<div class="col-lg-6 col-md-12 slide-button-holder">
 									<a href="#slide-1" class="slider-button"></a>
 									<a href="#slide-2" class="slider-button"></a>
 									<a href="#slide-3" class="slider-button"></a>
@@ -469,7 +307,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="banner-content col-lg-4">
+						<div class="banner-content col-lg-6 col-md-6">
 							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
 							<h1 class="text-uppercase">
 								On Your <br>
@@ -479,22 +317,127 @@
 						</div>							
 					</div>
 				</div>
+			</section> -->
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<section class="banner-area relative" id="home">
+				<div class="container-fluid">
+					<div class="row fullscreen align-items-center justify-content-center">
+						<div class="topstrip col-lg-8 col-md-12 d-flex img-right no-padding" style = "float:right">
+							
+									<img id="img" src="img/E1.png"/>
+						</div>
+						<div class="banner-content col-lg-4 col-md-12">
+							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
+							<h1 class="text-uppercase">
+								On Your <br>
+								First Order
+							</h1>
+							
+						</div>							
+					</div>
+				</div>
 			</section>
             <!-- End Banner Area -->
-			<div class="container">
+			<br>
+			<div class="d-flex justify-content-center">
+				<h3> Category </h3>
+				
+			</div>
+			<div class="container d-flex justify-content-center" style="margin-top:2%; margin-bottom:2%;">
 				<div class="row">
-					<div class="col-lg-12" style="margin-top:2%; margin-bottom:2%;">
-					<div class="dropdown" style="margin-left:50%;">
-							<button onclick="dropFunction()" class="btn"><span class="glyphicon glyphicon-th-large" style="color:black;font-size:25px"></span></span></button>
-							<div id="Dropdown" class="dropdown_content">
-								<a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
-								<a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
-								<a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
-								<a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
-								<a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
-								<a class="dropdown-item" href="department.php?id1=Hardware">Hardware</a>        
-							</div>
+				
+					<div class="col-md-12">
+						<div class="col-md-6">
+						    
+							<a href="department.php?id1=Groceries">
+								<img src="img/food.png" alt="">
+								<span class="caption" style="display:block">Groceries</span>
+							</a>
+							
 						</div>
+						<div class="col-md-6">
+							<a href="department.php?id1=Electronics">
+								<img src="img/electronics.png" alt="">
+								<span class="caption" style="display:block">Electronics</span>
+							</a>
+							
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-6">
+						    
+							<a href="department.php?id1=Groceries">
+								<img src="img/food.png" alt="">
+								<span class="caption" style="display:block">Groceries</span>
+							</a>
+							
+						</div>
+						<div class="col-md-6">
+							<a href="department.php?id1=Electronics">
+								<img src="img/electronics.png" alt="">
+								<span class="caption" style="display:block">Electronics</span>
+							</a>
+							
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-6">
+						    
+							<a href="department.php?id1=Groceries">
+								<img src="img/food.png" alt="">
+								<span class="caption" style="display:block">Groceries</span>
+							</a>
+							
+						</div>
+						<div class="col-md-6">
+							<a href="department.php?id1=Electronics">
+								<img src="img/electronics.png" alt="">
+								<span class="caption" style="display:block">Electronics</span>
+							</a>
+							
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-6">
+						    
+							<a href="department.php?id1=Groceries">
+								<img src="img/food.png" alt="">
+								<span class="caption" style="display:block">Groceries</span>
+							</a>
+							
+						</div>
+						<div class="col-md-6">
+							<a href="department.php?id1=Electronics">
+								<img src="img/electronics.png" alt="">
+								<span class="caption" style="display:block">Electronics</span>
+							</a>
+							
+						</div>
+					</div>
+				</div>
+						<!-- <div class="col-md-2">
+							<a href="department.php?id1=Hardware">
+								<img src="img/hardware.png" alt="">
+								<span class="caption" style="display:block">Hardware</span>
+							</a>
+							<a href="department.php?id1=Hardware">
+								<img src="img/food and beverage.png" alt="">
+								<span class="caption" style="display:block">Beverage</span>
+							</a>
+						</div> -->
+					</div>
+				</div>
+			</div>
 
 						<!-- Start Filter Bar -->
 						<div class="filter-bar d-flex flex-wrap align-items-center">
@@ -535,7 +478,7 @@
 								  echo '
 								  <h3 style = "margin-left:40px;"> Electronics </h3>
 								  <br>
-								  <a href="department.php?id1=Electronics" style="margin-left:85%;"> View All +</a>';
+								  <a href="department.php?id1=Electronics" style="margin-left:65%;"> View All +</a>';
 								  if($result->num_rows>0){
 									  while($row = $result->fetch_assoc()){
 										  
@@ -547,7 +490,7 @@
 										  $product_quantity = $row['product_quantity'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-3 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
 											  <div class="content" style="border:10px solid white;">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
@@ -556,22 +499,28 @@
 										  </div>
 										  <br>
 										  <div class="price">
-										  
-												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>';
+										  			<div class="row align-items-center justify-content-center">
+														<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white"><del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
+													</div>';
 												  if($product_quantity<5){
 													  if($product_quantity==0){
-														echo'<p style = "color:red"> Out of Stock <p>';  
+														echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
 													  }
 													  else{
-													  echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
 													  }
 												  }
 												  
 												  if($product_quantity>0){
-													echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
 												  }
 												  
 												  
@@ -604,7 +553,7 @@
 										  $product_quantity = $row['product_quantity'];
 										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
 										  echo '<div class="col-md-3 single-product">
-										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px; margin-left:70%"> </span></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style = "color : black"><span class="glyphicon glyphicon-heart" style="font-size:20px;"></span></a>
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
 											  <div class="content" style="border:10px solid white;">
 											  <div class="content-overlay"></div>
 												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
@@ -613,22 +562,29 @@
 										  </div>
 										  <br>
 										  <div class="price">
-										  
-												  <h3><a href = "details.php?id='.$product_name.'">'.$product_name.'</a></h3>
-													<h5 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h5>
-												  <h4>'.$final_cost.'</h4>
-												  <h5>You save '.$discount.'%</h5>';
+										  			<div class="row align-items-center justify-content-center">
+										  				<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white">&emsp;&emsp;<del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
+													</div>';
+												  
 												  if($product_quantity<5){
 													if($product_quantity==0){
-													  echo'<p style = "color:red"> Out of Stock <p>';  
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
 													}
 													else{
-													echo'<p style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
 													}
 												}
 												
 												if($product_quantity>0){
-												  echo'<a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>';
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
 												}
 										   echo' </div>
 										</div>
@@ -637,6 +593,259 @@
 								  }
 							?>
 							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Gift' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Gifts </h3>
+								  <br>
+								  <a href="department.php?id1=Gift" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  			<div class="row align-items-center justify-content-center">
+										  				<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white">&emsp;&emsp;<del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
+													</div>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Hardware' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Hardware </h3>
+								  <br>
+								  <a href="department.php?id1=Hardware" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  			<div class="row align-items-center justify-content-center">
+										  				<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white">&emsp;&emsp;<del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
+													</div>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Fashion' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Fashion </h3>
+								  <br>
+								  <a href="department.php?id1=Fashion" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  			<div class="row align-items-center justify-content-center">
+										  				<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white">&emsp;&emsp;<del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
+													</div>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
+							<div class="row" style="margin-bottom:3%; margin-top:3%">
+							<?php 
+								  include('connect_db.php');
+								//   session_start();
+								  $sql = "SELECT * FROM products WHERE category = 'Medicines' limit 4;";
+								  $result = $conn->query($sql);
+								  echo '
+								  <h3 style = "margin-left:40px;"> Medicines </h3>
+								  <br>
+								  <a href="department.php?id1=Medicines" style="margin-left:85%;"> View All +</a>';
+								  if($result->num_rows>0){
+									  while($row = $result->fetch_assoc()){
+										  
+										  $product_id = $row['product_id'];
+										  $product_name = $row['product_name'];
+										  $initial_cost = $row['initial_cost'];
+										  $final_cost = $row['final_cost'];
+										  $product_image = $row['product_image'];
+										  $product_quantity = $row['product_quantity'];
+										  $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
+										  echo '<div class="col-md-3 single-product">
+										  <a href="cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:80%;"><img src="img/plus.png" alt=""></a>&nbsp;<a href="favourite_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'" style="margin-left:2%;"><img src="img/heart.png" alt=""></a>
+											  <div class="content" style="border:10px solid white;">
+											  <div class="content-overlay"></div>
+												   <img class="content-image img-fluid d-block mx-auto" src="'.$product_image.'" alt="">
+											  <div class="content-details fadeIn-bottom">
+											  </div>
+										  </div>
+										  <br>
+										  <div class="price">
+										  			<div class="row align-items-center justify-content-center">
+														<h3><a href = "details_1.php?id='.$product_name.'" style="color:#8BA6BC;">'.$product_name.'</a></h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<p class="text-white">&emsp;&emsp;<del style = "color : black">'.$initial_cost.'</del></p>&emsp;<h3>'.$final_cost.'</h3>
+													</div>
+													<br>
+													<div class="row align-items-center justify-content-center">
+														<h4 style = "color:white; text-align:center; background-color: #FF1493; border-radius: 25px; width:150px;">You save '.$discount.'%</h4>
+													</div>';
+												  if($product_quantity<5){
+													  if($product_quantity==0){
+														echo'<p class="row align-items-center justify-content-center" style = "color:red"> Out of Stock <p>';  
+													  }
+													  else{
+													  echo'<p class="row align-items-center justify-content-center" style = "color:red"> Only '.$product_quantity.' left in stock<p>';
+													  }
+												  }
+												  
+												  if($product_quantity>0){
+													echo'<a class="row align-items-center justify-content-center" href=" checkout.php?id1='.$product_id.'" style="color:#8BA6BC;font-size:20px;">Buy Now</a> <br>';
+												  }
+												  
+												  
+										echo' </div>
+										</div>
+										<br>';
+									  }
+								  }
+							?>
+							</div>
+							<hr style="height:25px; background-color:#F0F0F0; z-index:-1">
 						</section>
 						<!-- End Best Seller -->
 						<!-- Start Filter Bar -->
@@ -824,146 +1033,82 @@
 							<div class = "carousel-inner">
 								<div class = "item active" >
 								  	<div class = "row">
-									  	<div class = "col-xs-3" style = "background-color:white;">
+									<?php
+									$sql1 = "SELECT * FROM products WHERE category = 'Electronics' LIMIT 4;";
+									$result1 = $conn->query($sql1);
+									if($result1->num_rows>0){
+										while($row = $result1->fetch_assoc()){
+											$product_id = $row['product_id'];
+											$product_image = $row['product_image'];
+											$product_name = $row['product_name'];
+											$final_cost = $row['final_cost'];
+											echo '<div class = "col-xs-3" style = "background-color:white;">
 								  	  
 											<div class="single-search-product d-flex" style = "background-color:white;" >
-												<a href="#"><img src="img/r2.jpg" alt=""></a>
+												<a href="details_1.php?id='.$product_name.'"><img src="'.$product_image.'" alt=""></a>
 												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+													<a href="#" class="title">'.$product_name.'</a>
+													<div class="price"><span class="lnr lnr-tag"></span> Rs'.$final_cost.'</div>
+													<a href=" checkout.php?id1='.$product_id.'">Buy Now <br>
 												</div>
 											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r2.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r2.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
+									  	</div>';
+										}
+									}
 									
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r2.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-										</div>
+									
+									?>
 									</div>
 								</div>
+								
 								<div class = "item">
 								  	<div class = "row">
-									  	<div class = "col-xs-3" style = "background-color:white;">
+										<?php
+									  $sql3 = "SELECT * FROM products WHERE category = 'Food' LIMIT 4;";
+									$result1 = $conn->query($sql1);
+									if($result1->num_rows>0){
+										while($row = $result1->fetch_assoc()){
+											echo '<div class = "col-xs-3" style = "background-color:white;">
 								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r3.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">abc</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r3.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">abc</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r3.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">abc</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-									
 											<div class="single-search-product d-flex" style = "background-color:white;" >
-												<a href="#"><img src="img/r3.jpg" alt=""></a>
+												<a href="details_1.php?id='.$product_name.'"><img src="'.$product_image.'" alt=""></a>
 												<div class="desc">
-													<a href="#" class="title">abc</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+													<a href="#" class="title">'.$product_name.'</a>
+													<div class="price"><span class="lnr lnr-tag"></span> '.$final_cost.'</div>
+													<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>
 												</div>
 											</div>
-										</div>
+									  	</div>';
+										}
+									}
+									?>
 									</div>
 								</div>
+									
 								<div class = "item">
 								  	<div class = "row">
-									  	<div class = "col-xs-3" style = "background-color:white;">
+										<?php
+									  $sql2 = "SELECT * FROM products WHERE category = 'Medicines' LIMIT 4;";
+									$result2 = $conn->query($sql2);
+									if($result2->num_rows>0){
+										while($row = $result1->fetch_assoc()){
+											echo '<div class = "col-xs-3" style = "background-color:white;">
 								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r4.jpg" alt=""></a>
+											<div class="single-search-product d-flex" style = "background-color:white;" >
+											<a href="details_1.php?id='.$product_name.'"><img src="'.$product_image.'" alt=""></a>
 												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
+													<a href="#" class="title">'.$product_name.'</a>
+													<div class="price"><span class="lnr lnr-tag"></span> '.$final_cost.'</div>
+													<a href=" checkout.php?id1='.$product_id.'">Buy Now</a> <br>
 												</div>
 											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r4.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-								  	  
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r4.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-									  	</div>
-										<div class = "col-xs-3" style = "background-color:white;">
-									
-											<div class="single-search-product d-flex" style = "background-color:white;">
-												<a href="#"><img src="img/r4.jpg" alt=""></a>
-												<div class="desc">
-													<a href="#" class="title">Pixelstore fresh Cabbage</a>
-													<div class="price"><span class="lnr lnr-tag"></span> Rs189.00</div>
-													<a href=" checkout.php?id1=189&id3=Pixelstore fresh Cabbage ">Buy Now</a> <br>
-												</div>
-											</div>
-										</div>
+									  	</div>';
+										}
+									}
+									?>
+									</div>
+								</div>
+										
 									</div>
 								</div>
 							</div>

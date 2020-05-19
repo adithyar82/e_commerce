@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+    }
+?>
 <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
@@ -50,7 +56,8 @@
 						
 						<div class="d-flex justify-content-between align-items-center">
 								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+								<li><i class="glyphicon glyphicon-map-marker"></i></li>	
+                                <li><a href="faq.php">Help ?</a></li>							
 						</div>
 					</div>	
 					<br>				

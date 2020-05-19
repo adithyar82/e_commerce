@@ -1,15 +1,46 @@
 <?php
 	session_start();
-	$username = $_SESSION['username'];
+	if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+	}
+	$uname = $_SESSION['uname'];
 	echo $_SESSION['username'];
-	?>
+	include('connect_db.php');
+	$registration_status = $_REQUEST['id1'];
+	$encrypted = $_REQUEST['id2'];
+	function my_simple_crypt( $string, $action = 'd') {
+    // you may change these values to your own
+    $secret_key = 'my_simple_secret_key';
+    $secret_iv = 'my_simple_secret_iv';
+  
+    $output = false;
+    $encrypt_method = "AES-256-CBC";
+    $key = hash( 'sha256', $secret_key );
+    $iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
+  
+    if( $action == 'e' ) {
+        $output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
+    }
+    else if( $action == 'd' ){
+        $output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
+    }
+  
+    return $output;
+  }
+	$email_address = my_simple_crypt($encrypted, 'd' );
+	echo $email_address;
+	$sql = "UPDATE Users SET registration_status = '$registration_status' WHERE email_address = '$email_address';";
+	$result = $conn->query($sql);
+?>
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
@@ -36,76 +67,149 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
+			<link rel="stylesheet" href="css/styles.css">
+			<link href="style.css" rel="stylesheet">
+
+			<script>
+				$('#row').pagination({
+				dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 40],
+				pageSize: 5,
+				showGoInput: true,
+				showGoButton: true,
+				callback: function(data, pagination) {
+					// template method of yourself
+					var html = template(data);
+					dataContainer.html(html);
+				}
+			})
+			
+			</script>
+			<script type = "text/javascript">
+			function displayNextImage() {
+				x = (x === images.length - 1) ? 0 : x + 1;
+				document.getElementById("img").src = images[x];
+			}
+  
+			function displayPreviousImage() {
+				x = (x <= 0) ? images.length - 1 : x - 1;
+				document.getElementById("img").src = images[x];
+			}
+  
+			function startTimer() {
+				setInterval(displayNextImage, 3000);
+			}
+  
+			var images = [], x = -1;
+			images[0] = "img/E.png";
+			images[1] = "img/G.png";
+			images[2] = "img/H.png";
+		</script>
+			
+		
+
+
 		</head>
-		<body>
+		<body onload = "startTimer()">>
 
 			<!-- Start Header Area -->
 			<header class="default-header">
 				<div class="menutop-wrap">
-					<div class="menu-top container">
+					<div class="menu-top container" style="margin-left:3%;">
+						<div class="form-group has-feedback has-feedback-left">
+							<!-- <label>Pickup Location</label> -->
+							<!-- \\] -->
+							<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
+							
+						</div>
+						
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 9823743493</a></li>
-								<li><a href="mailto:support@colorlib.com">support@azimpatel.com</a></li>								
-							</ul>
+								<li><a href="contact_us.php">Contact Support</a></li>
+							</ul>	
 							<?php
-							if($username == ""){
+							if($uname == ""){
 								echo '<ul class="list">
 								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
+								<li><a href="profile.php"> Welcome </a></li>
 							</ul>';
 							}
 							else{
-								echo '</span> <ul class="list">
-								<li><a href="#">Welcome '.$username.' </a></li>
+                                echo '<ul class="list">
+                                <span class="glyphicon glyphicon-user"> </span>
+								<li><a href="profile.php" style="margin-right:20px">Welcome '.$uname.' </a></li>
 							</ul>';
 							}
 							
 							?>
 							<ul class="list">
+								<li><a href="faq.php">Help ?</a></li>
+							</ul>
+							<ul class="list">
+								<span class="glyphicon glyphicon-log-out" style="font-size:20px;"></span>
 								<li><a href="logout.php">Logout</a></li>
 							</ul>
 						</div>
-					</div>					
+					</div>	
+					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light">
-					<div class="container">
-						  <a class="navbar-brand" href="#">
-							  <img src="img/logo.png" alt="">
+				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
+					<div class="container" style="width:1500px;">
+						<div class="dropdown">
+							  <button onclick="myFunction()" class="btn"><span class="glyphicon glyphicon-align-justify"></span></button>
+							  <div id="myDropdown" class="dropdown-content">
+									<a href="profile.php"><span class="glyphicon glyphicon-user"> </span> Profile</a>
+									<a href="order_status.php">Order Status</a>
+									<a href="order_history.php">Order History</a>
+									<a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
+									<a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+									<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+									<a href="contact_us.php"><span class="glyphicon glyphicon-question-sign"></span> Help...?</a>
+							  </div>
+					      </div>
+						  <a class="navbar-brand" style="margin-left:20px;" href="category.php">
+							  <img style="margin-left:10px;" src="img/logo.png" alt="">
 							  <p> Company Logo </p>
 						  </a>
-						  <div class="search-container">
-								<form action="/action_page.php">
-								  <input type="text" size = "50" placeholder="Search.." name="search">
-								  <button type="submit"><i class="fa fa-search"></i></button>
-								</form>
+						  
+						  <div class="search-form" style="margin-left:2%; margin-top:1.5%">
+           					 <form action="#" method="get">
+              					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
+             					<button type="submit" class="d-none"></button>
+           					 </form>
 						  </div>
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
-						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
-								<li><a href="#home">Home</a></li>
-								<li><a href="#catagory">Category</a></li>
-								<li><a href="#men">Product</a></li>
-								<!-- <li><a href="#women">Women</a></li> -->
-								<li><a href="#latest">Recommendations</a></li>
+
+						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
+	
+						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
+						    <ul class="navbar-nav" style="width:1500px;">
+								<li><a href="category.php">Home</a></li>
+								<!-- <li><a href="#latest">Recommendations</a></li> -->
 									<!-- Dropdown -->
 								    <li class="dropdown">
 								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Pages
+								        Orders
+								      </a>
+								      <div class="dropdown-menu" style="margin-top:10px">
+								        <a class="dropdown-item" href="order.php">Your Orders</a>
+								        <a class="dropdown-item" href="order_status.php">Current Orders</a>
+								        <!-- <a class="dropdown-item" href="login.php">Cancelled Orders</a> -->
+								        <a class="dropdown-item" href="tracking.php">Tracking</a>
+								      </div>
+								    </li>
+									<li class="dropdown">
+								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+								        Category
 								      </a>
 								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="category.php">Category</a>
-								        <a class="dropdown-item" href="single.php">Single</a>
-								        <!-- <a class="dropdown-item" href="cart.php">Cart</a> -->
-								        <a class="dropdown-item" href="checkout.php">Checkout</a>
-								        <a class="dropdown-item" href="confermation.php">Confirmation</a>
-								        <a class="dropdown-item" href="login.php">Login</a>
-								        <a class="dropdown-item" href="tracking.php">Tracking</a>
-								        <!-- <a class="dropdown-item" href="generic.php">Generic</a>
-								        <a class="dropdown-item" href="elements.php">Elements</a> -->
-								      </div>
+								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
+								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
+								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
+								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
+								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
+								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
+									  </div>
+									  <li><a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
+									  <li><a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
 								    </li>									
 						    </ul>
 						  </div>						
@@ -115,32 +219,53 @@
             <!-- End Header Area -->
 
             <!-- Start Banner Area -->
-            <!-- <section class="banner-area organic-breadcrumb">
-                <div class="container">
-                    <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
-                        <div class="col-first">
-                            <h1>Shop Category page</h1>
-                             <nav class="d-flex align-items-center justify-content-start">
-                                <a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="category.php">Category</a>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-			</section> -->
-			<section class="banner-area relative" id="home">
+			<!-- <section class="banner-area relative" id="home">
 				<div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
-						<div class="col-lg-6 col-md-12 padding: 40px;">
-							<img class="img-fluid" src="img/c39.png" alt="" width="100%" height="100%">
+						<div class="col-lg-6 col-md-12 d-flex align-self-end img-right no-padding">
+							<div class="col-lg-6 col-md-6 slide-holder">
+									<span id="slide-1"></span>
+									<span id="slide-2"></span>
+									<span id="slide-3"></span>
+									<span id="slide-4"></span>
+								<div class="col-lg-6 col-md-12  slide-group">
+									<img src="img/E.png" class="slide-image" id="slide-1" /><img src="img/G.png" class="slide-image" id="slide-2"/><img src="img/H.png" class="slide-image" id="slide-3"/><img src="img/P.png" class="slide-image" id="slide-4" />
+								</div>
+								<div class="col-lg-6 col-md-12 slide-button-holder">
+									<a href="#slide-1" class="slider-button"></a>
+									<a href="#slide-2" class="slider-button"></a>
+									<a href="#slide-3" class="slider-button"></a>
+									<a href="#slide-4" class="slider-button"></a>
+								</div>
+							</div>
 						</div>
-						<div class="banner-content col-lg-6 col-md-12">
+						<div class="banner-content col-lg-6 col-md-6">
 							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
 							<h1 class="text-uppercase">
 								On Your <br>
 								First Order
 							</h1>
 							<button class="primary-btn text-uppercase"><a href="#">Order Here</a></button>
+						</div>							
+					</div>
+				</div>
+			</section> -->
+			<br>
+			<br>
+			<section class="banner-area relative" id="home">
+				<div class="container-fluid">
+					<div class="row fullscreen align-items-center justify-content-center">
+						<div class="topstrip col-lg-8 col-md-12 d-flex align-self-end img-right no-padding" style = "float:left;">
+							
+									<img id="img" src="img/E.png"/>
+						</div>
+						<div class="banner-content col-lg-4 col-md-12">
+							<h1 class="title-top"><span>Flat</span> 50%Off</h1>
+							<h1 class="text-uppercase">
+								On Your <br>
+								First Order
+							</h1>
+							
 						</div>							
 					</div>
 				</div>
@@ -224,7 +349,7 @@
 												  <h5>'.$product_name.'</h5>
 													<h3 class="text-white"><del style = "color : black">'.$initial_cost.'</del></h3>
 												  <h3>'.$final_cost.'</h3>
-												  <a href=" checkout.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Buy Now</a> <br>
+												  <a href=" checkout.php?id1='.$product_id.'">Buy Now</a><br>
 												  <a href=" cart_1.php?id1='.$final_cost.'&id2='.$product_id.'&id3= '.$product_name.'">Add to Cart</a>
 										   </div>
 										</div>';

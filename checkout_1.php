@@ -1,8 +1,40 @@
     <?php
+    echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
     session_start();
     include('connect_db.php');
     $uname = $_SESSION['uname'];
     echo $uname;
+    $value = $_REQUEST['id1'];
+    $coupon_code = $_REQUEST['id2'];
+    $order_id = rand(1000000,99999999);
+    $_SESSION['order_id'] = $order_id;
+    $sql_12 = "UPDATE items SET order_id = '$order_id' WHERE username = '$uname';";
+    $result_12 = $conn->query($sql_12);
+    $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
+    $result_2 = $conn->query($sql_2);
+    if($result_2->num_rows>0){
+        while($row = $result_2->fetch_assoc()){
+            $delivery_status = $row['delivery_status'];
+            if($delivery_status == 0){
+                echo '<script>
+                setTimeout(function () { 
+                    swal({
+                    title: "Availability",
+                    text: "Currently there are no delivery boys available in your locality",
+                    type: "",
+                    confirmButtonText: "OK"
+                    },
+                    function(isConfirm){
+                    if (isConfirm) {
+                        window.location.href = "details_1.php?id='.$product_name.'";;
+                    }
+                    }); }, 1000);
+                </script>';
+            }
+        }
+    }
     ?>
     <!DOCTYPE html>
     <html lang="zxx" class="no-js">
@@ -42,10 +74,9 @@
 				<div class="menutop-wrap">
 					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
-							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+91 8095566699</a></li>
-								<li><a href="contact_us.php">support@azimpatel.com</a></li>								
-							</ul>
+                            <ul class="list">
+								<li><a href="contact_us.php">Contact Support</a></li>
+							</ul>	
                             <?php
 							if($username == ""){
 								echo '<ul class="list">
@@ -175,7 +206,7 @@
             <!-- End Checkout Area -->
             <!-- Start Billing Details Form -->
             <div class="container">
-                <form method = "POST" action="confermation.php" class="billing-form">
+                <form method = "POST" action="confermation_2.php" class="billing-form">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <h3 class="billing-title mt-20 mb-10">Billing Details</h3>
@@ -305,11 +336,21 @@
                             }
                             if($total_cost >= 15000){
                                 echo '<script>
-                                alert("Total Amount Should Not Exceed 15000")
-                                window.location = "cart.php";
-                                </script>';
+                                setTimeout(function () { 
+                                    swal({
+                                    title: "Cart",
+                                    text: "Total Amount Should Not Exceed 15000",
+                                    type: "",
+                                    confirmButtonText: "OK"
+                                    },
+                                    function(isConfirm){
+                                    if (isConfirm) {
+                                        window.location.href = "cart.php";
+                                    }
+                                    }); }, 1000);
+                                </script>';   
                             }
-								
+							$total_cost_1 = $total_cost - $value;	
                             ?>
 							
 							<div class="list-row d-flex justify-content-between">
@@ -320,64 +361,32 @@
 								<h6>Shipping</h6>
 								<div>Flat rate: Rs50.00</div>
 							</div>
-							<div class="list-row border-bottom-0 d-flex justify-content-between">
-								<h6>Total</h6>
-								<div class="total"><?php echo $id4?></div>
+                            <?php	
+                            if($value>0){
+                                echo'<div class="list-row d-flex justify-content-between">
+								<h6>Coupon Code</h6>
+								<div>'.$coupon_code.'</div>
 							</div>
-                                    </div>
-                                    <div class="d-flex align-items-center mt-10">
-                                        <input class="pixel-radio" type="radio" id="check" name="brand">
-                                        <label for="check" class="bold-lable">Check payments</label>
-                                    </div>
-                                    <p class="payment-info">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Paypal</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        <!-- <input type="checkbox" class="pixel-checkbox" id="login-4"> -->
-                                        <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Paytm</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        
-                                        <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">PhonePe</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        
-                                        <!-- <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label> -->
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
-                                            <label for="paypal" class="bold-lable">Google Pay</label>
-                                        </div>
-                                        <img src="img/organic-food/pm.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                    <div class="mt-20 d-flex align-items-start">
-                                        <input type="checkbox" class="pixel-checkbox" id="login-4">
-                                        <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label>
-                                    </div>
+							<div class="list-row d-flex justify-content-between">
+								<h6>Value</h6>
+								<div>'.$value.'</div>
+                            </div>
+                            ';
+                            echo'<a href = "buy_coupons.php?id='.$total_cost.'" button class="view-btn color-2 w-100 mt-20"><span>Change Coupon</span></button></a>';
+                            }
+                            else{
+                                echo'<a href = "buy_coupons.php?id='.$total_cost.'" button class="view-btn color-2 w-100 mt-20"><span>Apply Coupon</span></button></a>';
+                            }
+                            ?>
+                            <div class="list-row d-flex justify-content-between">
+								<h6>Total</h6>
+								<div><?php echo $total_cost_1?></div>
+							</div>
+                            
+                            <div class="mt-20 d-flex align-items-start">
+                                <input type="checkbox" class="pixel-checkbox" id="login-4">
+                                <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label>
+                            </div>
                                     </form>
                                     <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
                                 </div>

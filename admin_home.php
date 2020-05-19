@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+    }
 	$uname = $_SESSION['uname'];
 	echo $_SESSION['username'];
 	include('connect_db.php');
@@ -64,6 +67,7 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
+			<link rel="stylesheet" href="css/styles.css">
 			
 			<script>
 				$('#row').pagination({
@@ -122,105 +126,17 @@
 				}
 				}
 			</script>
-
-			<style>
-			.dropbtn {
-			background-color: #FFFFFF;
-			color: black;
-			padding: 16px;
-			font-size: 20px;
-			border: none;
-			cursor: pointer;
-			}
-
-			.dropbtn:hover, .dropbtn:focus {
-			background-color: #2980B9;
-			}
-
-			.dropdown {
-			position: relative;
-			display: inline-block;
-			}
-
-			.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: #f1f1f1;
-			min-width: 160px;
-			overflow: auto;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-			}
-
-			.dropdown-content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-			}
-
-			.dropdown a:hover {background-color: #ddd;}
-
-			.show {display: block;}
-			</style>
-
-			<style>
-			.btn {
-			background-color: #FFFFFF;
-			color: black;
-			padding: 16px;
-			font-size: 20px;
-			border: none;
-			cursor: pointer;
-			}
-
-			.btn:hover, .btn:focus {
-			background-color: #2980B9;
-			}
-
-			.dropdown {
-			position: relative;
-			display: inline-block;
-			}
-
-			.dropdown_content {
-			display: none;
-			position: absolute;
-			background-color: #f1f1f1;
-			min-width: 160px;
-			overflow: auto;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-			}
-
-			.dropdown_content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-			}
-
-			.dropdown a:hover {background-color: #ddd;}
-
-			.show {display: block;}
-			</style>
 		</head>
 		<body>
 
 			<!-- Start Header Area -->
 			<header class="default-header">
 				<div class="menutop-wrap">
-					<div class="menu-top container" style="margin-left:7%;">
-					<div class="form-group has-feedback has-feedback-left">
-						<!-- <label>Pickup Location</label> -->
-						<!-- \\] -->
-						<!-- <input type="text" style="text-align:center; margin-left:20%" size="100"  placeholder="Pickup Location" /> -->
-						
-					 </div>
+					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   support@azimpatel.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
-							</ul>
+							<ul class="list">
+                                <li><a href="contact_us.php">CONTACT SUPPORT</a></li>                           
+                            </ul>
 							<?php
 							if($username == ""){
 								echo '<ul class="list">
@@ -231,35 +147,22 @@
 							else{
                                 echo '<ul class="list">
                                 <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#" style="margin-right:20px">Welcome '.$uname.' </a></li>
+								<li><a href="#" style="margin-right:20px">'.$uname.' </a></li>
 							</ul>';
 							}
 							
 							?>
 							<ul class="list">
-								<li><span class="glyphicon glyphicon-log-out" style="float:right; margin-right:25px; margin-left:20px; font-size:20px"> </span><a href="logout.php">Logout</a></li>
+								<li><a href="faq.php">Help ?</a></li>
 							</ul>
 						</div>
 					</div>	
 					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light" style="margin-left:5%">
-					<div class="container" style="width:1500px;">
-					<div class="dropdown">
-							<button onclick="myFunction()" class="btn"><span class="glyphicon glyphicon-align-justify"></span></button>
-							<div id="myDropdown" class="dropdown-content">
-								<a href="profile.php">Profile</a>
-								<a href="order_status.php">Order Status</a>
-								<a href="order_history.php">Order History</a>
-								<a href="favourite.php">Wishlist</a>
-								<a href="cart.php">Cart</a>
-								<a href="logout.php">Logout</a>
-								<a href="contact_us.php">Help...?</a>
-							</div>
-						</div>
-						  <a class="navbar-brand" href="#">
+				<nav class="navbar navbar-expand-lg  navbar-light">
+					<div class="container">
+						  <a class="navbar-brand" href="category.php">
 							  <img src="img/logo.png" alt="">
-							  <p> Company Logo </p>
 						  </a>
 						  
 						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
@@ -268,146 +171,126 @@
              					<button type="submit" class="d-none"></button>
            					 </form>
 						  </div>
+
 						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
-						  <div class="collapse navbar-collapse" style = "margin-left:3%;" id="navbarSupportedContent">
-						    <ul class="navbar-nav" style="width:1500px; float:right">
-								<li><a href="category.php">Home</a></li>
-								<li><a href="transactions.php">Transactions</a></li>
-								<li><a href="stock_alert.php">Stock Alert</a></li>
-									<!-- Dropdown -->
-									<li class="dropdown">
-								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Category
-								      </a>
-								      <div class="dropdown-menu">
-								        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
-								        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
-								        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
-								        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
-								        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
-								        <a class="dropdown-item" href="tradepartmentcking.php?id1=Hardware">Hardware</a>
-									  </div>
-									  <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"> </span></a></li>
-									  <li><a href="favourite.php"><span class="glyphicon glyphicon-heart"> </span></a></li>
-								    </li>									
-						    </ul>
-						  </div>						
+						   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+						  </button>
+						  
+						  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button> -->
+                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li><a href="category.php">Home</a></li>
+                                <li><a href="transactions.php">Transaction</a></li>
+                                <li><a href="stock_alert.php">Stock Alert</a></li>
+                                    <!-- Dropdown -->
+                                    <li class="dropdown">
+                                      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                        Category
+                                      </a>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
+                                        <a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
+                                        <a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
+                                        <a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
+                                        <a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
+                                        <a class="dropdown-item" href="department.php?id1=Hardware">Hardware</a>
+                                      </div>
+                                    </li>                                   
+                            </ul>
+                          </div>                         
 					</div>
 				</nav>
 			</header>
             <!-- End Header Area -->
-			
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-9 col-lg-8 col-md-7">
+							<div class="dropdown">
+								<button onclick="dropFunction()" class="btn"><span class="glyphicon glyphicon-th-large" style="color:black;font-size:25px"></span></span></button>
+								<div id="Dropdown" class="dropdown_content">
+									<a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
+									<a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
+									<a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
+									<a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
+									<a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
+									<a class="dropdown-item" href="department.php?id1=Hardware">Hardware</a>        
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--Start Body Area-->
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12" style="margin-top:2%; margin-bottom:2%;">
-					<div class="dropdown" style="margin-left:50%;">
-							<button onclick="dropFunction()" class="btn"><span class="glyphicon glyphicon-th-large" style="color:black;font-size:25px"></span></span></button>
-							<div id="Dropdown" class="dropdown_content">
-								<a class="dropdown-item" href="department.php?id1=Electronics">Electronics</a>
-								<a class="dropdown-item" href="department.php?id1=Groceries">Groceries</a>
-								<a class="dropdown-item" href="department.php?id1=Fashion">Fashion</a>
-								<a class="dropdown-item" href="department.php?id1=Medicines">Medicines</a>
-								<a class="dropdown-item" href="department.php?id1=Sport Equipments">Sport Equipments</a>
-								<a class="dropdown-item" href="department.php?id1=Hardware">Hardware</a>        
-							</div>
-						</div>
-
-						<!-- Start Filter Bar -->
-						<div class="filter-bar d-flex flex-wrap align-items-center">
-							<a href="#" class="grid-btn active"><i class="fa fa-th" aria-hidden="true"></i></a>
-							<a href="#" class="list-btn"><i class="fa fa-th-list" aria-hidden="true"></i></a>
-							<div class="sorting">
-								<select>
-									<option value="1">Default sorting</option>
-									<option value="1">Default sorting</option>
-									<option value="1">Default sorting</option>
-								</select>
-							</div>
-							<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-								        Sort By
-								      </a>
-							    <div class="dropdown-menu">
-								        <a class="dropdown-item" href="category_1.php">Price : Low to High</a>
-								        <a class="dropdown-item" href="category_2.php">Price : High to Low</a>
-							    </div>
-							<div class="sorting mr-auto">
-								<select>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-								</select>
-							</div>
-						</div>
-						<!-- End Filter Bar -->
-						<!-- Start Best Seller -->
-						<section class="lattest-product-area pb-40 category-list">
-						<br>
-						<div class="container" style="margin-bottom:7%; margin-top:7%">
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="login-form">
-										<h3 class="billing-title text-center">User</h3>
-										<p class="text-center mt-10 mb-10"> </p>
-										
-											<h5> Total Users: </h5>
-											<br>
-											<br>
-											<input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Email Address" class="common-input mt-20" disabled>
-											<br>        
-											<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-														Email Address:
-													</a>
-													<div class="dropdown-menu" style="margin-top:10px">
-														<a class="dropdown-item" href="checkout.php">Registration</a>
-														<a class="dropdown-item" href="confermation.php">Home Page</a>
-													</div>
-											</h5> 
-											<div class="mt-20 d-flex align-items-center justify-content-between">
-												<div class="d-flex align-items-center">
-													<!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label> -->
-												</div>
-											</div>
-											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'user_details.php';"><span>User Details</span></button> &emsp; &emsp; &emsp;
-											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'order_status.php';"><span>View All Orders</span></button>
-											<!-- <button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button> -->
-										
+					<div class="col-md-6">
+						<div class="login-form">
+							<h3 class="billing-title text-center">User</h3>
+							<p class="text-center mt-10 mb-10"> </p>
+							
+								<h5> Total Users: </h5>
+								<br>
+								<br>
+								<input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Email Address" class="common-input mt-20" disabled>
+								<br>        
+								<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+											Email Address:
+										</a>
+										<div class="dropdown-menu" style="margin-top:10px">
+											<a class="dropdown-item" href="checkout.php">Registration</a>
+											<a class="dropdown-item" href="confermation.php">Home Page</a>
+										</div>
+								</h5> 
+								<div class="mt-20 d-flex align-items-center justify-content-between">
+									<div class="d-flex align-items-center">
+										<!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label> -->
 									</div>
 								</div>
-								<div class="col-lg-6">
-									<div class="login-form">
-										<h3 class="billing-title text-center">Delivery Boy</h3>
-										<p class="text-center mt-10 mb-10"> </p>
+								<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'user_details.php';"><span>User Details</span></button> &emsp; &emsp; &emsp;
+								<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'order_status.php';"><span>View All Orders</span></button>
+								<!-- <button class="view-btn color-2 w-100 mt-20"><span>View All Orders</span></button> -->
+							
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="login-form">
+							<h3 class="billing-title text-center">Delivery Boy</h3>
+							<p class="text-center mt-10 mb-10"> </p>
 
-											
-											<h5> Total Users: </h5>
-											<br>
-											<button class="view-btn color-2 w-100 mt-20" onclick="location.href = 'delivery_registration.php';"><span>Registration</span></button>
-											<br>
-											<input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Email Address" class="common-input mt-20" disabled>
-											<br>        
-											<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-														Email Address:
-													</a>
-													<div class="dropdown-menu" style="margin-top:10px">
-														<a class="dropdown-item" href="checkout.php">Registration</a>
-														<a class="dropdown-item" href="confermation.php">Home Page</a>
-													</div>
-											</h5> 
-											<div class="mt-20 d-flex align-items-center justify-content-between">
-												<div class="d-flex align-items-center">
-													<!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label> -->
-												</div>
-											</div>
-											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'delivery_personal.php';"><span>Personal</span></button> &emsp; &emsp; &emsp; &emsp;
-											<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'delivery_work.php';"><span>Delivery Details</span></button>
-											<button class="view-btn color-2 w-100 mt-20" onclick="location.href = 'delivery_history.php';"><span>View All Orders</span></button>
-										
+								
+								<h5> Total Users: </h5>
+								<br>
+								<button class="view-btn color-2 w-100 mt-20" onclick="location.href = 'delivery_registration.php';"><span>Registration</span></button>
+								<br>
+								<input type="text" name = "new_password" placeholder="" onfocus="this.placeholder=''" onblur="this.placeholder = 'New Password*'" value = "Email Address" class="common-input mt-20" disabled>
+								<br>        
+								<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+											Email Address:
+										</a>
+										<div class="dropdown-menu" style="margin-top:10px">
+											<a class="dropdown-item" href="checkout.php">Registration</a>
+											<a class="dropdown-item" href="confermation.php">Home Page</a>
+										</div>
+								</h5> 
+								<div class="mt-20 d-flex align-items-center justify-content-between">
+									<div class="d-flex align-items-center">
+										<!-- <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1"></label> -->
 									</div>
 								</div>
-							</div>
+								<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'delivery_personal.php';"><span>Personal</span></button> &emsp; &emsp; &emsp; &emsp;
+								<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'delivery_work.php';"><span>Delivery Details</span></button>
+								<button class="view-btn color-2 w-100 mt-20" onclick="location.href = 'delivery_history.php';"><span>View All Orders</span></button>
+							
 						</div>
-            </section>
-            <!-- End Most Search Product Area -->
+					</div>
+				</div>
+			</div>
+            <!-- End Body Area -->
 
             <!-- start footer Area -->      
             <footer class="footer-area section-gap">

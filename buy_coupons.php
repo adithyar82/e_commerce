@@ -1,4 +1,7 @@
 <?php
+	echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
     include('connect_db.php');
 	session_start();
 	if(isset($_POST['submit'])){
@@ -7,14 +10,34 @@
 		$result = $conn->query($sql);
 		if($result->num_rows>0){
 			echo '<script>
-			alert("Registered Successfully");
-			window.location = "cart.php?id=50";
+			setTimeout(function () { 
+				swal({
+				title: "Coupons",
+				text: "Coupon Valid",
+				type: "success",
+				confirmButtonText: "OK"
+				},
+				function(isConfirm){
+				if (isConfirm) {
+					window.location.href = "checkout.php";
+				}
+				}); }, 1000);
 			</script>';
 		}
 		else {
 			echo '<script>
-			alert("Invalid Credentials");
-			window.location = "cart.php?";
+			setTimeout(function () { 
+				swal({
+				title: "Coupons",
+				text: "Coupon Invalid",
+				type: "error",
+				confirmButtonText: "OK"
+				},
+				function(isConfirm){
+				if (isConfirm) {
+					window.location.href = "checkout.php";
+				}
+				}); }, 1000);
 			</script>';
 		}
 
@@ -30,6 +53,13 @@
             $value = $row['value'];
 			$minimum_cost = $row['cost'];
 
+        }
+	}
+	$sql3 = "SELECT MIN(cost) as minimum_cost FROM coupons";
+    $result3 = $conn->query($sql3);
+    if($result3->num_rows>0){
+        while($row = $result3->fetch_assoc()){
+           $minimum_cost_1 = $row['minimum_cost'];
         }
 	}
 	?>
@@ -84,8 +114,9 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+							<ul class="list">
+								<li><a href="contact_us.php">Contact Support</a></li>
+							</ul>								
 						</div>
 					</div>	
 					<br>				
@@ -336,10 +367,26 @@
 								<img class="d-block mx-auto" src="img/br5.png" alt="">
 							</a> -->
 							<br>
-							<h3 style="margin-left:45%"> Current Orders </h3>
+							<h2 style="text-align:center;"> Coupons </h2>
 							<?php
 							include('connect_db.php');
 							$sql = "SELECT * FROM coupons";
+							if($total_cost <= $minimum_cost_1){
+								echo '<script>
+								setTimeout(function () { 
+									swal({
+									title: "Coupons",
+									text: Coupons applicable for a minimum order of '.$minimum_cost_1.'",
+									type: "error",
+									confirmButtonText: "OK"
+									},
+									function(isConfirm){
+									if (isConfirm) {
+										window.location.href = "checkout_1.php?id1='.$product_id.'";
+									}
+									}); }, 1000);
+								</script>';
+							}
 							$result = $conn->query($sql);
 							if($result->num_rows>0){
 								while($row = $result->fetch_assoc()){
@@ -352,27 +399,25 @@
                                     if($total_cost >= $minimum_cost){
                                     echo'
                                     <div class="container">
-                                    <div class="container">
-                                    <div class="row logo-wrap"><div class="row logo-wrap">
-                                    <div class="container">
-                                    
-                                    
-                                    <h3><br> Coupon Code &emsp; &emsp; &nbsp; &nbsp; &nbsp; &nbsp; : '.$coupon_code.' <br><br> Value &nbsp; &nbsp; &nbsp;: '.$value.'<br><br>Cost &emsp; &nbsp; &nbsp;: '.$minimum_cost.'<br><br>
+                                    <div class="container d-flex justify-content-center">
+                                    <div class="row logo-wrap" style="background-color:#777777;"><div class="row logo-wrap" style="background-color: #f41068;">
+									<div class="container">
+									
+									<h4> Coupon Code &emsp; &emsp;: &emsp; &emsp;'.$coupon_code.' <br><br> Value &emsp; &emsp; &emsp; &emsp; &emsp; &nbsp;: &emsp; &emsp;Rs.'.$value.'<br><br>Minimum Order &nbsp;&emsp;: &emsp; &emsp;Rs.'.$minimum_cost.'</h4>
+
+									<div class="container">
+										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5>
+									</div>
+									<div class="container">
+									<h5><a href = "checkout_1.php?id1='.$value.'&id2='.$coupon_code.'">Apply Coupon<br></a><br></h5><br>
+									</div>
+									
+                                    </div>
                                     </div>
                                 
                                 
                                 </div>
 									</div>';
-	
-									
-									echo'
-									<div class="container">
-										<h5><a href = "tracking.php?id='.$order_id.'"><br></a><br></h5><br>
-										</div>
-									<div class="container">
-										<h5><a href = "cart.php?id='.$value.'">Apply Coupon<br></a><br></h5><br>
-										</div>
-                                    </div>';
                                     }
 								echo'
 								

@@ -33,20 +33,61 @@
 			<link rel="stylesheet" href="css/main.css">
 		</head>
 		<body>
-        <div class="col-md-6-lg-12">
-            <div style="margin-left:15%; margin-right:15%">
-		        			<div class="register-form">
-				        		<h3 class="billing-title text-center">Contact Us</h3>
-						        <p class="text-center mt-40 mb-30">Enter the details</p>
-						        <form method ="POST" action = "register.php">
-							        <input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
-							        <input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
-							        <input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
-                                    <textarea type="text" name = "comment" cols="30" rows="5" placeholder="Comment*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Comment*'" required class="common-input mt-20"></textarea>
-                                    <br>
-							        <button style="margin-left:47%;" type = "submit" name = "submit" >Submit</button>
-						        </form>
-                            </div>
-            </div>                
-		</div>
+			<section class="banner-area organic-breadcrumb">
+				<div class="container">
+					<div class="breadcrumb-banner d-flex flex-wrap align-items-center">
+						<div class="col-first">
+							<h1>Contact</h1>
+								<nav class="d-flex align-items-center justify-content-start">
+								<a href="category.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+								<a href="contact_us.php">Contact</a>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+			<!-- Start Header Area -->
+            <header class="default-header">
+				<div class="menutop-wrap">
+					<div class="menu-top container">
+				        <div class="d-flex justify-content-between align-items-center">
+                            <ul class="list">
+                                <li><a href="contact_us.php">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>                             
+                            </ul>							
+						</div>
+					</div>	
+					<br>				
+				</div>
+				<nav class="navbar navbar-expand-lg navbar-light">
+					<div class="container" style="width:1500px;">
+
+						<a class="navbar-brand" href="category.php">
+							<img style="margin-left:25px;" src="img/logo.png" alt="">
+							<p> Company Logo </p>
+						</a>
+						<ul class="navbar-nav" style="width:1500px;">
+							<li><a href="category.php">Home</a></li>
+						</ul>						
+					</div>
+				</nav>
+			</header>
+			<div class="container">
+				<div class="col-md-6">
+					<div class="register-form">
+						<h3 class="billing-title text-center">Contact Us</h3>
+						<p class="text-center mt-40 mb-30">Enter the details</p>
+						<form method ="POST" action = "register_1.php">
+							<input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
+							<input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
+							<input type="text" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
+							<textarea type="text" name = "comment" cols="30" rows="5" placeholder="Comment*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Comment*'" required class="common-input mt-20"></textarea>
+							<br>
+							<button type = "submit" name = "submit" >Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			</section>               
         </body>

@@ -34,33 +34,22 @@
                     <div class="menu-top container">
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="list">
-                                <li><a href="contact_us.php">+91 8095566699   |   supporazeempatel@gmail.com</a></li>
-                                                            
-                            </ul>
-                            
+                                <li><a href="contact_us.php">CONTACT SUPPORT</a></li>                             
+                            </ul> 
                         </div>
                     </div>                  
                 </div>
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
-                          <a class="navbar-brand" href="category.php">
-                            <img src="img/logo.png" alt="">
-                          </a>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li><a href="#home">Home</a></li>
-                                
-                            </ul>
-                          </div>                        
+                        <a class="navbar-brand" href="category.php">
+                        <img src="img/logo.png" alt="">
+                        </a>
                     </div>
                 </nav>
             </header>
            
             <!-- reset password-->
-            <div class="container" style="margin-top:10%;margin-bottom:5%;margin-left:27%">
+            <div class="container">
 				<div class="col-md-6">
 					<div class="login-form">
 						<h3 class="billing-title text-center">Admin Login</h3>
@@ -69,10 +58,11 @@
 							<input type="text" name = "admin_username" placeholder="Admin Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Admin Username*'" required class="common-input mt-20">
 							<input type="password" name = "password" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
                             <input type="email" name = "email_address" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
-							<div class="mt-20 d-flex align-items-center justify-content-between">
-								<div class="d-flex align-items-center">
-                                <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
-							</div>
+							    <div class="mt-20 d-flex align-items-center justify-content-between">
+								    <div class="d-flex align-items-center">
+                                    <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label>
+                                    </div>
+							    </div>
                             <button class="view-btn color-2 w-100 mt-20" onclick="window.location.href = 'admin_home.php';"><span>SUBMIT</span></button>
 						</form>
 					</div>

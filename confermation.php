@@ -1,95 +1,176 @@
     <?php
+    echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
     session_start();
+    if(!isset($_SESSION['uname'])){
+		header("location:index.php");
+	}
     include("connect_db.php");
     include("./php/class.phpmailer.php");  
     // $fname = $_SESSION['username'];
-    $total_cost = $_SESSION['id1'];
-    $order_id = $_SESSION['id2'];
-    $name = $_SESSION['id3'];
-    $final_cost = $_SESSION['id4'];
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $ename = $_POST['ename'];
-    $address_1 = $_POST['address_1'];
-    $address_2 = $_POST['address_2'];
-    $email_address = $_SESSION['email_address'];
-    $city = $_POST['city'];
-    $state = $_POST['state'];
-    $country = $_POST['country'];
-    $zip = $_POST['zip'];
-    $shipping_address = $_POST['shipping_address'];
-    $address_11 = $_POST['address_11'];
-    $address_12 = $_POST['address_12'];
-    $city_1 = $_POST['city_1'];
-    $state_1 = $_POST['state_1'];
-    $country_1 = $_POST['country_1'];
-    $zip_1= $_POST['zip_1'];
-    $status = 'ordered';
-    $sql_1 = "SELECT * FROM products where product_id  = '$order_id';";
+//     $total_cost = $_SESSION['id1'];
+//     $order_id = $_SESSION['id2'];
+//     $name = $_SESSION['id3'];
+//     $final_cost = $_SESSION['id4'];
+//     $fname = $_POST['fname'];
+//     $lname = $_POST['lname'];
+//     $ename = $_POST['ename'];
+//     $address_1 = $_POST['address_1'];
+//     $address_2 = $_POST['address_2'];
+//     $email_address = $_SESSION['email_address'];
+//     $city = $_POST['city'];
+//     $state = $_POST['state'];
+//     $country = $_POST['country'];
+//     $zip = $_POST['zip'];
+//     $shipping_address = $_POST['shipping_address'];
+//     $address_11 = $_POST['address_11'];
+//     $address_12 = $_POST['address_12'];
+//     $city_1 = $_POST['city_1'];
+//     $state_1 = $_POST['state_1'];
+//     $country_1 = $_POST['country_1'];
+//     $zip_1= $_POST['zip_1'];
+//     $status = 'ordered';
+//     $sql_1 = "SELECT * FROM products where product_id  = '$order_id';";
+//     $result_1 = $conn->query($sql_1);
+//     if($result_1->num_rows>=0){
+//         while($row = $result_1->fetch_assoc()){
+//             $product_image = $row['product_image'];
+//             $shop_id = $row['shop_id'];
+//             $final_cost = $row['final_cost'];
+//         }
+//     }
+//     $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$name', ' ','450', '1','$status','$product_image','$shop_id');";
+//     $result = $conn->query($sql);
+//     if($result->num_rows>=0){
+//         echo '<script>
+//         setTimeout(function () { 
+//             swal({
+//             title: "Confermation",
+//             text: "Your order has been placed successfully",
+//             type: "success",
+//             confirmButtonText: "OK"
+//             },
+//             function(isConfirm){
+//             }); }, 1000);
+//         </script>';
+
+//     }
+//     $sql1 = "SELECT * FROM products WHERE product_id = '$order_id';";
+//     $result1 = $conn->query($sql1);
+//     if($result1->num_rows>0){
+//         while($row = $result1->fetch_assoc()){
+//             $product_quantity = $row['product_quantity'];
+//     }
+
+    
+//     $product_quantity = $product_quantity - 1;
+// }
+//     $sql3 = "INSERT INTO shipping(shipping_id, product_id, address_1, address_2,city,state,zipcode,country) VALUES (Null, '$order_id','$address_1','$address_2','$city','$state','$zip','$country');";
+//     $result3 = $conn->query($sql3);
+    
+//     $sql_2 = "UPDATE products SET product_quantity = '$product_quantity' WHERE product_id = '$order_id';";
+//     $result2 = $conn->query($sql2);
+//     $payment_type = "abc";
+//     $fname = "abc";
+//     $payment_status = "Successful";
+    
+//     $sql_2 = "INSERT INTO payment(payment_id, final_cost,payment_type,time_created,order_id,fname,product_name,product_image,status) VALUES (Null, '$final_cost', '$payment_type', CURRENT_TIME(), '$order_id','$fname','$name','$product_image','$payment_status');";
+//     $result_2 = $conn->query($sql_2);
+    // if($result->num_rows>=0){
+    //     $mail = new PHPMailer;
+    //     $mailaddress = "";                               // Enable verbose debug output
+    //     $mail->isSMTP();                                      // Set mailer to use SMTP
+    //     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+    //     $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    //     $mail -> Username = 'contact.azeempatel@gmail.com';
+    //     $mail -> Password = 'AzeemPatel46#';                          // SMTP password
+    //     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+    //     $mail->Port = 587;                                    // TCP port to connect to
+    //     $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
+    //     $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
+    //     $mail->Subject = 'E Commerce Website';
+    //     $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
+    //                         <h2 align =center>Your Order Details are as follows :</h2>
+    //                         <h2 align =center>Order Id : '.$order_id.'</h2>
+    //                         <h2 align =center>Product name : '.$name.'</h2>
+    //                         <h2 align =center>Total Cost: '.$final_cost.'</h2>
+    //                         <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
+    //     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    //     $mail -> isHTML(true);
+    //     if(!$mail->send()) {
+    //         echo 'Message could not be sent.';
+    //         echo 'Mailer Error: ' . $mail->ErrorInfo;
+    //     } else {
+    //         // echo'<script>
+    //         // alert("Email has been sent successfully");
+    //         // window.location= "cashier.php";
+    //         // </script>';
+    //     }
+        
+    // }
+    $order_id = $_REQUEST['id'];
+    $sql = "SELECT * FROM order_status WHERE payment_id = '$order_id';";
+    $result = $conn->query($sql);
+    if($result->num_rows>0){
+        while($row=$result->fetch_assoc()){
+            $id = $row['order_id'];
+            $fname = $row['fname'];
+            $final_cost = $row['final_cost'];
+            $product_name = $row['product_name'];
+            $payment_id = $row['payment_id'];
+            $product_quantity = $row['product_quantity'];
+            $mail = new PHPMailer;
+            $mailaddress = "harshithaeshwar007@gmail.com";                              // Enable verbose debug output
+            $mail->isSMTP();                                      // Set mailer to use SMTP
+            $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $mail -> Username = 'contact.azeempatel@gmail.com';
+            $mail -> Password = 'AzeemPatel46#';                          // SMTP password
+            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = 587;                                    // TCP port to connect to
+            $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
+            $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
+            $mail->Subject = 'E Commerce Website';
+            $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
+                                <h2 align =center>Your Order Details are as follows :</h2>
+                                <h2 align =center>Order Id : '.$order_id.'</h2>
+                                <h2 align =center>Product name : '.$product_name.'</h2>
+                                <h2 align =center>Total Cost: '.$final_cost.'</h2>
+                                <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
+            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+            $mail -> isHTML(true);
+            if(!$mail->send()) {
+                echo 'Message could not be sent.';
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                // echo'<script>
+                // alert("Email has been sent successfully");
+                // window.location= "cashier.php";
+                // </script>';
+            }
+        }
+    }
+
+    $sql1 = "SELECT * FROM shipping WHERE product_id = '$order_id';";
+    $result1 = $conn->query($sql1);
+    if($result1->num_rows>0){
+        while($row=$result1->fetch_assoc()){
+            $address_1 = $row['address_1'];
+            $address_2 = $row['address_2'];
+            $city = $row['city'];
+            $state = $row['state'];
+            $country = $row['country'];
+            $zip = $row['zipcode'];
+        }
+    }
+    $sql_1 = "SELECT SUM(final_cost) as total_cost FROM items WHERE order_id ='$order_d';";
     $result_1 = $conn->query($sql_1);
     if($result_1->num_rows>=0){
         while($row = $result_1->fetch_assoc()){
-            $product_image = $row['product_image'];
+            $total_cost_1 = $row['total_cost'];
         }
     }
-    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, shipping_id, payment_id, product_quantity,status,product_image) VALUES (Null,'$order_id','$fname','$final_cost', '$name', '250', '450', '1','$status','$product_image');";
-    $result = $conn->query($sql);
-    $sql1 = "SELECT * FROM products WHERE product_id = '$order_id';";
-    $result1 = $conn->query($sql1);
-    if($result1->num_rows>0){
-        while($row = $result1->fetch_assoc()){
-            $product_quantity = $row['product_quantity'];
-    }
-
-    
-    $product_quantity = $product_quantity - 1;
-}
-    $sql3 = "INSERT INTO shipping(shipping_id, product_id, address_1, address_2,city,state,zipcode,country) VALUES (Null, '$order_id','$address_1','$address_2','$city','$state','$zip','$country');";
-    $result3 = $conn->query($sql3);
-    
-    $sql_2 = "UPDATE products SET product_quantity = '$product_quantity' WHERE product_id = '$order_id';";
-    $result2 = $conn->query($sql2);
-    $payment_type = "abc";
-    $fname = "abc";
-    $payment_status = "Successful";
-    
-    $sql_2 = "INSERT INTO payment(payment_id, final_cost,payment_type,time_created,order_id,fname,product_name,product_image,status) VALUES (Null, '$final_cost', '$payment_type', CURRENT_TIME(), '$order_id','$fname','$name','$product_image','$payment_status');";
-    $result_2 = $conn->query($sql_2);
-    if($result->num_rows>=0){
-        $mail = new PHPMailer;
-        $mailaddress = $email_address;                               // Enable verbose debug output
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail -> Username = 'noreplytasteofIndia@gmail.com';
-        $mail -> Password = 'India@2020';                          // SMTP password
-        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 587;                                    // TCP port to connect to
-        $mail->setFrom('noreplytasteofIndia@gmail.com', 'no reply');
-        $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
-        $mail->Subject = 'E Commerce Website';
-        $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
-                            <h2 align =center>Your Order Details are as follows :</h2>
-                            <h2 align =center>Order Id : '.$order_id.'</h2>
-                            <h2 align =center>Product name : '.$name.'</h2>
-                            <h2 align =center>Total Cost: '.total_cost.'</h2>
-                            <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
-        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-        $mail -> isHTML(true);
-        if(!$mail->send()) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-            // echo'<script>
-            // alert("Email has been sent successfully");
-            // window.location= "cashier.php";
-            // </script>';
-        }
-        echo '<script>
-        alert("Registered Successfully '.$sql.''.$result.'");
-        </script>';
-    }
-    
     ?>
     <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -142,8 +223,10 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-								<li><i class="glyphicon glyphicon-map-marker"></i></li>								
+                            <ul class="list">
+								<li><a href="contact_us.php">Contact Support</a></li>
+                                <li><a href="faq.php">Help ?</a></li>
+							</ul>		
 						</div>
 					</div>	
 					<br>				
@@ -220,7 +303,7 @@
 						</tr>
 						<tr>
 							<td>Total</td>
-							<td>: <?php echo $total_cost ?> </td>
+							<td>: <?php echo $final_cost ?> </td>
 						</tr>
 						<tr>
 							<td>Payment method</td>
@@ -258,44 +341,26 @@
 				<div class="col-md-4">
 					<h3 class="billing-title mt-20 pl-15">Shipping Address</h3>
                     <table class="order-rable">';
-                    if(isset($_POST['shipping_address'])){
+                    
                     echo'
 						<tr>
 							<td>Street</td>
-							<td>: '.$address_11.'</td>
+							<td>: '.$address_1.'</td>
 						</tr>
 						<tr>
 							<td>City</td>
-							<td>: '.$city_1.'</td>
+							<td>: '.$city.'</td>
 						</tr>
 						<tr>
 							<td>Country</td>
-							<td>: '.$country_1.'</td>
+							<td>: '.$country.'</td>
 						</tr>
 						<tr>
 							<td>Postcode</td>
-							<td>: '.$zip_1.'</td>
+							<td>: '.$zip.'</td>
                         </tr>';
-                    }
-                    else{
-                        echo'
-                            <tr>
-                                <td>Street</td>
-                                <td>: '.$address_1.'</td>
-                            </tr>
-                            <tr>
-                                <td>City</td>
-                                <td>: '.$city.'</td>
-                            </tr>
-                            <tr>
-                                <td>Country</td>
-                                <td>: '.$country.'</td>
-                            </tr>
-                            <tr>
-                                <td>Postcode</td>
-                                <td>: '.$zip.'</td>
-                            </tr>';
-                        }
+                   
+                        
 					echo'</table>
                 </div>';
                 ?>
@@ -314,14 +379,31 @@
 									<div>Product</div>
 									<div>Total</div>
 								</div>
+								<?php
+                                $sql = "SELECT * FROM items WHERE order_id = '$order_id';";
+                                $result = $conn->query($sql);
+                                if($result->num_rows>0){
+                                    while($row=$result->fetch_assoc()){
+                                        $fname = $row['username'];
+                                        $item_name = $row['item_name'];
+                                        $item_price = $row['item_price'];
+                                        $product_quantity = $row['product_quantity'];
+                                        $order_id = $row['order_id'];
+                                        $final_cost = $row['final_cost'];
+                                echo'
 								<div class="list-row d-flex justify-content-between">
-									<div><?php echo $name?></div>
-									<div>x 02</div>
-									<div><?php echo $total_cost?></div>
+									<div>'.$item_name.'</div>
+									<div>x '.$product_quantity.'</div>
+									<div>'.$final_cost.'</div>
 								</div>
+								';
+                                    }
+                                }
+                
+                            ?>
 								<div class="list-row d-flex justify-content-between">
 									<h6>Subtotal</h6>
-									<div><?php echo $total_cost?></div>
+									<div><?php echo $final_cost?></div>
 								</div>
 								<div class="list-row d-flex justify-content-between">
 									<h6>Shipping</h6>

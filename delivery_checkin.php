@@ -1,5 +1,10 @@
 <?php
+session_start();
 include('connect_db.php');
+if(!isset($_SESSION['uname'])){
+    header("location:index.php");
+}
+$username = $_SESSION['uname'];
 $sql1 = "SELECT COUNT(status) as ordered FROM order_status WHERE status != 'ordered';";
 	$result1 = $conn->query($sql1);
 	if($result1->num_rows>0){
@@ -14,6 +19,13 @@ if($result2->num_rows>0){
         $delivered = $row['delivered'];
     }
 }
+$sql_1 = "SELECT COUNT(status) as ordered_1 FROM order_status WHERE status != 'ordered' and delivery_boy = '$username';";
+	$result_1 = $conn->query($sql_1);
+	if($result_1->num_rows>0){
+		while($row = $result_1->fetch_assoc()){
+			$ordered_1 = $row['ordered_1'];
+		}
+	}
 ?>
 <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -58,26 +70,16 @@ if($result2->num_rows>0){
 					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
-								<li><a href="contact_us.php">+91 8095566699   |   contact.azeempatel@gmail.com</a></li>
-															
+                                <li><a href="contact_us.php">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>								
 							</ul>
-							<?php
-							if($username == ""){
-								echo '<ul class="list">
-								<span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#"> Welcome </a></li>
-							</ul>';
-							}
-							else{
-                                echo '<ul class="list">
-                                <span class="glyphicon glyphicon-user"> </span>
-								<li><a href="#">Welcome '.$username.' </a></li>
-							</ul>';
-                            }
-                            ?>
+    
 							<ul class="list">
-								<li><a href="logout.php">Logout</a></li>
+                                <li><a href="logout.php"><?php echo $_SESSION['uname']?></a> &nbsp; &nbsp;
+                                <a href="faq.php">Help ?</a> &nbsp;
+                                <a href="logout.php">Logout</a></li>
 							</ul>
+                            
 						</div>
 					</div>					
 				</div>
@@ -96,18 +98,20 @@ if($result2->num_rows>0){
             <!-- End Header Area -->
             <!-- End Banner Area -->
 		<!-- Start My Account -->
-		<div class="container" style="margin-left:16%; margin-bottom:7%; margin-top:7%">
+		<div class="container">
 			<div class="row">
-				<div class="col-lg-6">
-					<div class="login-form" style="margin-bottom:-7%; margin-top-7%">
+				<div class="col-md-12">
+					<div class="login-form">
 						<h3 class="billing-title text-center"><span  style="font-size:50px;" class="glyphicon glyphicon-user"></span></h3>
-                        <h4 class="text-center mt-20 mb-40">User Name</h4>
+                        <h4 class="text-center mt-20 mb-40"><?php echo $username ?></h4>
 						<p class="text-center mt-10 mb-40">Welcome back !</p>
                         <button onclick="location.href = 'delivery_details_1.php';" class="view-btn color-2 w-100 mt-10" ><span>Check In</span></button>
                         <h4 class="text-center mt-20 mb-40">Activities Finished</h4>
                         <p class="text-center mt-20 mb-40"><?php echo $delivered ?></p>
                         <h4 class="text-center mt-10 mb-40">Activities Pending</h4>
                         <p class="text-center mt-20 mb-40"><?php echo $ordered ?></p>
+                        <h4 class="text-center mt-10 mb-40">My Activities Pending</h4>
+                        <p class="text-center mt-20 mb-40"><?php echo $ordered_1 ?></p>
                         <h4 class="text-center mt-10 mb-40">Overall Rating</h4>
 						<form method = "POST" action = "login_1.php">
                             <h5 class="text-center mt-10 mb-40">Overall Review</h5>
