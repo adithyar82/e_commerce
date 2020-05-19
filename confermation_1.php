@@ -537,8 +537,6 @@ $final_amount = $amount * 100;
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->  
-<<<<<<< HEAD
-=======
             <?php
                                 $firstName = $fname ;
                                 $lastName = $lname;
@@ -637,7 +635,6 @@ $final_amount = $amount * 100;
 ></script>
 <input type="hidden" custom="Hidden Element" name="hidden">
 </form>
->>>>>>> fa1e5017ce2b8087d3787c42f4203f48e2e0da1a
             <br>
             <br>
             <br>    

@@ -122,7 +122,7 @@
             $product_quantity = $row['product_quantity'];
         }
     }
-    $sql1 = "SELECT * FROM shipping WHERE shipping_id = '$id';";
+    $sql1 = "SELECT * FROM shipping WHERE product_id = '$order_id';";
     $result1 = $conn->query($sql1);
     if($result1->num_rows>0){
         while($result1->fetch_assoc()){
