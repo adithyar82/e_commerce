@@ -21,6 +21,10 @@
 
         }
     }
+    $order_id = rand(1000000,99999999);
+    $_SESSION['order_id'] = $order_id;
+    $sql_12 = "UPDATE items SET order_id = '$order_id' WHERE username = '$uname';";
+    $result_12 = $conn->query($sql_12);
     $sql1 = "SELECT * FROM Users WHERE username  = '$uname';";
     $result1= $conn->query($sql1);
     if($result1->num_rows>0){

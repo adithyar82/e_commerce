@@ -324,7 +324,6 @@
                                 $email=$email_address;
                                 echo <<<EOD
                                 
-
     <style>
     
     .payment-button {
@@ -353,12 +352,10 @@
 		<input type="hidden" name="amount" value="$amount" / >
     <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" border="0" type = "submit" name="submit1" alt="PayPal - The safer, easier way to pay online!"/>
     </form>
-
 EOD;
-$order_id = rand(1000000,99999999);
+
 echo <<<EOD
                                 
-
     <style>
     
     .payment-button {
@@ -387,7 +384,6 @@ echo <<<EOD
 		<input type="hidden" name="amount" value="$amount" / >
         <button class="view-btn color-2 w-20 mt-20"><span style = "color:#0984D1; font-weight:bold;">PAYTM</span></button>
     </form>
-
 EOD;
 
   
@@ -545,7 +541,6 @@ $final_amount = $amount * 100;
                                 $email = $email_address;
                                 echo <<<EOD
                                 
-
     <style>
     
     .payment-button {
@@ -574,12 +569,10 @@ $final_amount = $amount * 100;
 		<input type="hidden" name="amount" value="$amount" / >
     <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" border="0" type = "submit" name="submit1" alt="PayPal - The safer, easier way to pay online!"/>
     </form>
-
 EOD;
-$order_id = rand(1000000,99999999);
+// $order_id = rand(1000000,99999999);
 echo <<<EOD
                                 
-
     <style>
     
     .payment-button {
@@ -608,7 +601,6 @@ echo <<<EOD
 		<input type="hidden" name="amount" value="$amount" / >
         <button class="view-btn color-2 w-20 mt-20"><span style = "color:#0984D1; font-weight:bold;">PAYTM</span></button>
     </form>
-
 EOD;
 
   
@@ -725,4 +717,3 @@ $final_amount = $amount * 100;
             <script src="js/main.js"></script>  
         </body>
     </html>
-    

@@ -1,177 +1,53 @@
-    <?php
-    echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
-    session_start();
-    if(!isset($_SESSION['uname'])){
-		header("location:index.php");
-	}
-    include("connect_db.php");
-    include("./php/class.phpmailer.php");  
-    // $fname = $_SESSION['username'];
-//     $total_cost = $_SESSION['id1'];
-//     $order_id = $_SESSION['id2'];
-//     $name = $_SESSION['id3'];
-//     $final_cost = $_SESSION['id4'];
-//     $fname = $_POST['fname'];
-//     $lname = $_POST['lname'];
-//     $ename = $_POST['ename'];
-//     $address_1 = $_POST['address_1'];
-//     $address_2 = $_POST['address_2'];
-//     $email_address = $_SESSION['email_address'];
-//     $city = $_POST['city'];
-//     $state = $_POST['state'];
-//     $country = $_POST['country'];
-//     $zip = $_POST['zip'];
-//     $shipping_address = $_POST['shipping_address'];
-//     $address_11 = $_POST['address_11'];
-//     $address_12 = $_POST['address_12'];
-//     $city_1 = $_POST['city_1'];
-//     $state_1 = $_POST['state_1'];
-//     $country_1 = $_POST['country_1'];
-//     $zip_1= $_POST['zip_1'];
-//     $status = 'ordered';
-//     $sql_1 = "SELECT * FROM products where product_id  = '$order_id';";
-//     $result_1 = $conn->query($sql_1);
-//     if($result_1->num_rows>=0){
-//         while($row = $result_1->fetch_assoc()){
-//             $product_image = $row['product_image'];
-//             $shop_id = $row['shop_id'];
-//             $final_cost = $row['final_cost'];
-//         }
-//     }
-//     $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$name', ' ','450', '1','$status','$product_image','$shop_id');";
-//     $result = $conn->query($sql);
-//     if($result->num_rows>=0){
-//         echo '<script>
-//         setTimeout(function () { 
-//             swal({
-//             title: "Confermation",
-//             text: "Your order has been placed successfully",
-//             type: "success",
-//             confirmButtonText: "OK"
-//             },
-//             function(isConfirm){
-//             }); }, 1000);
-//         </script>';
+<?php
+session_start();
+$uname = $_SESSION['uname'];
+$order_id = $_SESSION['order_id'];
+echo $order_id;
+include('connect_db.php');
+$address_1 = $_POST['address_1'];
+$address_2 = $_POST['address_2'];
+$email_address = $_SESSION['email_address'];
+$city = $_POST['city'];
+$state = $_POST['state'];
+$country = $_POST['country'];
+$zip = $_POST['zip'];
+$shipping_address = $_POST['shipping_address'];
+$sql = "SELECT * FROM items WHERE order_id = '$order_id';";
+$result = $conn->query($sql);
+if($result->num_rows>0){
+    while($row=$result->fetch_assoc()){
+        $fname = $row['username'];
+        $item_name = $row['item_name'];
+        $item_price = $row['item_price'];
+        $product_quantity = $row['product_quantity'];
+        $order_id = $row['order_id'];
+        $final_cost = $row['final_cost'];
+        $product_image = $row['product_image'];
+        $status = "ordered";
+        $payment_status = "Payment Initiated";
+        $shop_id = 2;
+        echo $fname;
+        $sql1 = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$item_name', ' ','$order_id', '1','$status','$product_image','$shop_id');";
+        echo $sql1;
+        $result1 = $conn->query($sql1);
+        $sql_3 = "INSERT INTO payment(payment_id,final_cost,payment_type,time_created,order_id,fname,product_name,product_image,status) VALUES (Null, '$final_cost', '$payment_type', CURRENT_TIME(), '$order_id','$fname','$item_name','$product_image','$payment_status');";
+        $result_3 = $conn->query($sql_3);
+        echo $sql_3;
+        $product_quantity = $product_quantity-1;
+        $sql3 = "INSERT INTO shipping(shipping_id, product_id, address_1, address_2,city,state,zipcode,country) VALUES (Null, '$order_id','$address_1','$address_2','$city','$state','$zip','$country');";
+        $result3 = $conn->query($sql3);
+    }
+}
+$sql_1 = "SELECT SUM(final_cost) as total_cost FROM items WHERE username ='$uname';";
+$result_1 = $conn->query($sql_1);
+if($result_1->num_rows>=0){
+    while($row = $result_1->fetch_assoc()){
+        $total_cost_1 = $row['total_cost'];
+    }
+}
 
-//     }
-//     $sql1 = "SELECT * FROM products WHERE product_id = '$order_id';";
-//     $result1 = $conn->query($sql1);
-//     if($result1->num_rows>0){
-//         while($row = $result1->fetch_assoc()){
-//             $product_quantity = $row['product_quantity'];
-//     }
-
-    
-//     $product_quantity = $product_quantity - 1;
-// }
-//     $sql3 = "INSERT INTO shipping(shipping_id, product_id, address_1, address_2,city,state,zipcode,country) VALUES (Null, '$order_id','$address_1','$address_2','$city','$state','$zip','$country');";
-//     $result3 = $conn->query($sql3);
-    
-//     $sql_2 = "UPDATE products SET product_quantity = '$product_quantity' WHERE product_id = '$order_id';";
-//     $result2 = $conn->query($sql2);
-//     $payment_type = "abc";
-//     $fname = "abc";
-//     $payment_status = "Successful";
-    
-//     $sql_2 = "INSERT INTO payment(payment_id, final_cost,payment_type,time_created,order_id,fname,product_name,product_image,status) VALUES (Null, '$final_cost', '$payment_type', CURRENT_TIME(), '$order_id','$fname','$name','$product_image','$payment_status');";
-//     $result_2 = $conn->query($sql_2);
-//     if($result->num_rows>=0){
-//         $mail = new PHPMailer;
-//         $mailaddress = $email_address;                               // Enable verbose debug output
-//         $mail->isSMTP();                                      // Set mailer to use SMTP
-//         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-//         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-//         $mail -> Username = 'contact.azeempatel@gmail.com';
-//         $mail -> Password = 'AzeemPatel46#';                          // SMTP password
-//         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-//         $mail->Port = 587;                                    // TCP port to connect to
-//         $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
-//         $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
-//         $mail->Subject = 'E Commerce Website';
-//         $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
-//                             <h2 align =center>Your Order Details are as follows :</h2>
-//                             <h2 align =center>Order Id : '.$order_id.'</h2>
-//                             <h2 align =center>Product name : '.$name.'</h2>
-//                             <h2 align =center>Total Cost: '.$final_cost.'</h2>
-//                             <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
-//         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-//         $mail -> isHTML(true);
-//         if(!$mail->send()) {
-//             echo 'Message could not be sent.';
-//             echo 'Mailer Error: ' . $mail->ErrorInfo;
-//         } else {
-//             // echo'<script>
-//             // alert("Email has been sent successfully");
-//             // window.location= "cashier.php";
-//             // </script>';
-//         }
-        
-//     }
-    $order_id = $_REQUEST['id'];
-    $sql = "SELECT * FROM order_status WHERE payment_id = '$order_id';";
-    $result = $conn->query($sql);
-    if($result->num_rows>0){
-        while($row=$result->fetch_assoc()){
-            $id = $row['order_id'];
-            $fname = $row['fname'];
-            $final_cost = $row['final_cost'];
-            $product_name = $row['product_name'];
-            $payment_id = $row['payment_id'];
-            $product_quantity = $row['product_quantity'];
-            $mail = new PHPMailer;
-            $mailaddress = "harshithaeshwar007@gmail.com";                              // Enable verbose debug output
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail -> Username = 'contact.azeempatel@gmail.com';
-            $mail -> Password = 'AzeemPatel46#';                          // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;                                    // TCP port to connect to
-            $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
-            $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
-            $mail->Subject = 'E Commerce Website';
-            $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
-                                <h2 align =center>Your Order Details are as follows :</h2>
-                                <h2 align =center>Order Id : '.$order_id.'</h2>
-                                <h2 align =center>Product name : '.$product_name.'</h2>
-                                <h2 align =center>Total Cost: '.$final_cost.'</h2>
-                                <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-            $mail -> isHTML(true);
-            if(!$mail->send()) {
-                echo 'Message could not be sent.';
-                echo 'Mailer Error: ' . $mail->ErrorInfo;
-            } else {
-                // echo'<script>
-                // alert("Email has been sent successfully");
-                // window.location= "cashier.php";
-                // </script>';
-            }
-        }
-    }
-    $sql1 = "SELECT * FROM shipping WHERE product_id = '$order_id';";
-    $result1 = $conn->query($sql1);
-    if($result1->num_rows>0){
-        while($row=$result1->fetch_assoc()){
-            $address_1 = $row['address_1'];
-            $address_2 = $row['address_2'];
-            $city = $row['city'];
-            $state = $row['state'];
-            $country = $row['country'];
-            $zip = $row['zipcode'];
-        }
-    }
-    $sql_1 = "SELECT SUM(final_cost) as total_cost FROM items WHERE order_id ='$order_d';";
-    $result_1 = $conn->query($sql_1);
-    if($result_1->num_rows>=0){
-        while($row = $result_1->fetch_assoc()){
-            $total_cost_1 = $row['total_cost'];
-        }
-    }
-    ?>
-    <!DOCTYPE html>
+?>
+<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -222,10 +98,9 @@
 						</div>
 						
 						<div class="d-flex justify-content-between align-items-center">
-                            <ul class="list">
-								<li><a href="contact_us.php">Contact Support</a></li>
-                                <li><a href="faq.php">Help ?</a></li>
-							</ul>		
+                                <li><a href="contact_us.php">+91 8095566699</a></li>
+                                <li><a href="contact_us.php">contact.azeempatel@gmail.com</a></li>
+                                <li><a href="faq.php">Help ?</a></li>								
 						</div>
 					</div>	
 					<br>				
@@ -287,7 +162,7 @@
 
 		<!-- Start Checkout Area -->
 		<div class="container" style="margin-left:17%">
-			<p class="text-center" style="font-size:25px">Thank you. Your order has been received.</p>
+			<!-- <p class="text-center" style="font-size:25px">Thank you. Your order has been received.</p> -->
 			<div class="row mt-50">
 				<div class="col-md-4">
 					<h3 class="billing-title mt-20 pl-15">Order Info</h3>
@@ -302,7 +177,7 @@
 						</tr>
 						<tr>
 							<td>Total</td>
-							<td>: <?php echo $final_cost ?> </td>
+							<td>: <?php echo $total_cost_1 ?> </td>
 						</tr>
 						<tr>
 							<td>Payment method</td>
@@ -340,26 +215,44 @@
 				<div class="col-md-4">
 					<h3 class="billing-title mt-20 pl-15">Shipping Address</h3>
                     <table class="order-rable">';
-                    
+                    if(isset($_POST['shipping_address'])){
                     echo'
 						<tr>
 							<td>Street</td>
-							<td>: '.$address_1.'</td>
+							<td>: '.$address_11.'</td>
 						</tr>
 						<tr>
 							<td>City</td>
-							<td>: '.$city.'</td>
+							<td>: '.$city_1.'</td>
 						</tr>
 						<tr>
 							<td>Country</td>
-							<td>: '.$country.'</td>
+							<td>: '.$country_1.'</td>
 						</tr>
 						<tr>
 							<td>Postcode</td>
-							<td>: '.$zip.'</td>
+							<td>: '.$zip_1.'</td>
                         </tr>';
-                   
-                        
+                    }
+                    else{
+                        echo'
+                            <tr>
+                                <td>Street</td>
+                                <td>: '.$address_1.'</td>
+                            </tr>
+                            <tr>
+                                <td>City</td>
+                                <td>: '.$city.'</td>
+                            </tr>
+                            <tr>
+                                <td>Country</td>
+                                <td>: '.$country.'</td>
+                            </tr>
+                            <tr>
+                                <td>Postcode</td>
+                                <td>: '.$zip.'</td>
+                            </tr>';
+                        }
 					echo'</table>
                 </div>';
                 ?>
@@ -378,7 +271,7 @@
 									<div>Product</div>
 									<div>Total</div>
 								</div>
-								<?php
+                                <?php
                                 $sql = "SELECT * FROM items WHERE order_id = '$order_id';";
                                 $result = $conn->query($sql);
                                 if($result->num_rows>0){
@@ -400,18 +293,18 @@
                                 }
                 
                             ?>
-								<div class="list-row d-flex justify-content-between">
+                            <div class="list-row d-flex justify-content-between">
 									<h6>Subtotal</h6>
-									<div><?php echo $final_cost?></div>
+									<div><?php echo $total_cost_1?></div>
 								</div>
 								<div class="list-row d-flex justify-content-between">
 									<h6>Shipping</h6>
 									<div>Flat rate: Rs50.00</div>
 								</div>
-								<div class="list-row border-bottom-0 d-flex justify-content-between">
+                            <div class="list-row border-bottom-0 d-flex justify-content-between">
 									<h6>Total</h6>
-									<div class="total"><?php echo $final_cost?></div>
-								</div>
+									<div class="total"><?php echo $total_cost_1?></div>
+                            </div>
 							</div>
                             
 						</div>
@@ -419,6 +312,101 @@
 				</div>
 			</div>
 		</div>
+        <?php
+                                $firstName = $fname;
+                                $lastName = $lname;
+                                $amount = $total_cost_1;
+    
+                                $itemName = $item_name;
+                                $email=$email_address;
+                                echo <<<EOD
+                                
+    <style>
+    
+    .payment-button {
+      width:200px;
+      height:100px;
+      
+    }
+    
+    </style>
+  
+  
+  
+  
+    
+    <form name = "hidden-payment-form" class="paypal" action="payments_1.php" method="post" id="paypal_form">
+        <input type="hidden" name="cmd" value="_xclick" />
+        <input type="hidden" name="no_note" value="1" />
+        <input type="hidden" name="lc" value="IN" />
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+        <input type="hidden" name="first_name" value="$firstName" />
+        <input type="hidden" name="last_name" value="$lastName" />
+        <input type="hidden" name="payer_email" value="$email" />
+        <input type="hidden" name="item_number" value="1" / >
+        <input type="hidden" name="item_name" value="$itemName" / >
+        <input type="hidden" name="order_id" value="$order_id"/ >
+		<input type="hidden" name="amount" value="$amount" / >
+    <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" border="0" type = "submit" name="submit1" alt="PayPal - The safer, easier way to pay online!"/>
+    </form>
+EOD;
+
+echo <<<EOD
+                                
+    <style>
+    
+    .payment-button {
+      width:200px;
+      height:100px;
+      
+    }
+    
+    </style>
+  
+  
+  
+  
+    
+    <form name = "hidden-payment-form" class="paypal" action="./PaytmKit/TxnTest.php" method="post" id="paypal_form">
+        <input type="hidden" name="cmd" value="_xclick" />
+        <input type="hidden" name="no_note" value="1" />
+        <input type="hidden" name="lc" value="IN" />
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+        <input type="hidden" name="first_name" value="$firstName" />
+        <input type="hidden" name="last_name" value="$lastName" />
+        <input type="hidden" name="payer_email" value="$email" />
+        <input type="hidden" name="item_number" value="1" / >
+        <input type="hidden" name="order_id" value="$order_id" / >
+		<input type="hidden" name="item_name" value="$itemName" / >
+		<input type="hidden" name="amount" value="$amount" / >
+        <button class="view-btn color-2 w-20 mt-20"><span style = "color:#0984D1; font-weight:bold;">PAYTM</span></button>
+    </form>
+EOD;
+
+  
+$final_amount = $amount * 100;
+
+
+
+    ?>
+    
+    <form action="" method="POST"> 
+<script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_wziRFtUD6cTGmR" // Enter the Key ID generated from the Dashboard
+    data-amount="<?php echo $final_amount ?>" // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    data-currency="INR"
+    data-buttontext="Pay with Razorpay"
+    data-name="<?php echo $itemName ?>"
+    data-description="Test transaction"
+    data-image="https://example.com/your_logo.jpg"
+    data-prefill.name="Aditya Ritesh"
+    data-prefill.email="maditya183@gmail.com"
+    data-prefill.contact="8971966482"
+    data-theme.color="#F37254"
+></script>
+<input type="hidden" custom="Hidden Element" name="hidden">
+</form>
 		<!-- End Billing Details Form -->
 
             <!-- Start Most Search Product Area -->
@@ -542,6 +530,8 @@
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->  
+    
+
             <br>
             <br>
             <br>    
