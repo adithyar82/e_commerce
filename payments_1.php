@@ -3,9 +3,12 @@ $_SESSION['amount'] = $_POST['amount'];
 $amount = $_SESSION['amount'];
 $order_id = $_POST['order_id'];
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 // $order_id = rand(10000000,99999999);
 =======
 >>>>>>> fa1e5017ce2b8087d3787c42f4203f48e2e0da1a
+>>>>>>> 8646d81eadd859947f021b7af36cb86ef404e778
 echo $amount;
 	include("./php/class.phpmailer.php");
 	function send_debug_mail($email, $body) {
