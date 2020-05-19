@@ -353,7 +353,7 @@
     <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" border="0" type = "submit" name="submit1" alt="PayPal - The safer, easier way to pay online!"/>
     </form>
 EOD;
-$order_id = rand(1000000,99999999);
+
 echo <<<EOD
                                 
     <style>
@@ -533,6 +533,7 @@ $final_amount = $amount * 100;
             <!-- End Most Search Product Area -->
 
             <!-- start footer Area -->  
+
             <?php
                                 $firstName = $fname ;
                                 $lastName = $lname;
@@ -570,7 +571,7 @@ $final_amount = $amount * 100;
     <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" border="0" type = "submit" name="submit1" alt="PayPal - The safer, easier way to pay online!"/>
     </form>
 EOD;
-$order_id = rand(1000000,99999999);
+// $order_id = rand(1000000,99999999);
 echo <<<EOD
                                 
     <style>
@@ -627,6 +628,7 @@ $final_amount = $amount * 100;
 ></script>
 <input type="hidden" custom="Hidden Element" name="hidden">
 </form>
+
             <br>
             <br>
             <br>    

@@ -77,38 +77,38 @@
     
 //     $sql_2 = "INSERT INTO payment(payment_id, final_cost,payment_type,time_created,order_id,fname,product_name,product_image,status) VALUES (Null, '$final_cost', '$payment_type', CURRENT_TIME(), '$order_id','$fname','$name','$product_image','$payment_status');";
 //     $result_2 = $conn->query($sql_2);
-    // if($result->num_rows>=0){
-    //     $mail = new PHPMailer;
-    //     $mailaddress = "";                               // Enable verbose debug output
-    //     $mail->isSMTP();                                      // Set mailer to use SMTP
-    //     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-    //     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    //     $mail -> Username = 'contact.azeempatel@gmail.com';
-    //     $mail -> Password = 'AzeemPatel46#';                          // SMTP password
-    //     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-    //     $mail->Port = 587;                                    // TCP port to connect to
-    //     $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
-    //     $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
-    //     $mail->Subject = 'E Commerce Website';
-    //     $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
-    //                         <h2 align =center>Your Order Details are as follows :</h2>
-    //                         <h2 align =center>Order Id : '.$order_id.'</h2>
-    //                         <h2 align =center>Product name : '.$name.'</h2>
-    //                         <h2 align =center>Total Cost: '.$final_cost.'</h2>
-    //                         <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
-    //     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-    //     $mail -> isHTML(true);
-    //     if(!$mail->send()) {
-    //         echo 'Message could not be sent.';
-    //         echo 'Mailer Error: ' . $mail->ErrorInfo;
-    //     } else {
-    //         // echo'<script>
-    //         // alert("Email has been sent successfully");
-    //         // window.location= "cashier.php";
-    //         // </script>';
-    //     }
+//     if($result->num_rows>=0){
+//         $mail = new PHPMailer;
+//         $mailaddress = $email_address;                               // Enable verbose debug output
+//         $mail->isSMTP();                                      // Set mailer to use SMTP
+//         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+//         $mail->SMTPAuth = true;                               // Enable SMTP authentication
+//         $mail -> Username = 'contact.azeempatel@gmail.com';
+//         $mail -> Password = 'AzeemPatel46#';                          // SMTP password
+//         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+//         $mail->Port = 587;                                    // TCP port to connect to
+//         $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
+//         $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
+//         $mail->Subject = 'E Commerce Website';
+//         $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
+//                             <h2 align =center>Your Order Details are as follows :</h2>
+//                             <h2 align =center>Order Id : '.$order_id.'</h2>
+//                             <h2 align =center>Product name : '.$name.'</h2>
+//                             <h2 align =center>Total Cost: '.$final_cost.'</h2>
+//                             <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
+//         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+//         $mail -> isHTML(true);
+//         if(!$mail->send()) {
+//             echo 'Message could not be sent.';
+//             echo 'Mailer Error: ' . $mail->ErrorInfo;
+//         } else {
+//             // echo'<script>
+//             // alert("Email has been sent successfully");
+//             // window.location= "cashier.php";
+//             // </script>';
+//         }
         
-    // }
+//     }
     $order_id = $_REQUEST['id'];
     $sql = "SELECT * FROM order_status WHERE payment_id = '$order_id';";
     $result = $conn->query($sql);
