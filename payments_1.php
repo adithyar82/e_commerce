@@ -35,7 +35,7 @@ echo $amount;
 
 	// For test payments we want to enable the sandbox mode. If you want to put live
 	// payments through then this setting needs changing to `false`.
-	$enableSandbox = true;
+	$enableSandbox = false;
 
 	// Database settings. Change these for your database configuration.
 	$dbConfig = [
@@ -48,9 +48,10 @@ echo $amount;
 	// PayPal settings. Change these to your account details and the relevant URLs
 	// for your site.
 	$paypalConfig = [
-		'email' => 'sb-ov0ot1549898@business.example.com',
+		// 'email' => 'sb-ov0ot1549898@business.example.com',
+		'email' => 'maditya183@gmail.com.com',
 		'return_url' => "https://loket.in/confermation.php?id=".$order_id,
-		'cancel_url' => 'https://example.com/payment-cancelled.html',
+		'cancel_url' => "https://loket.in/T_status_cancel.php?id=".$order_id,
 		'notify_url' => 'https://loket.in/confermation.php',
 	];
 
