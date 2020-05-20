@@ -1,6 +1,7 @@
 <?php
-session_start();
-$order_id = $_SESSION['order_id'];
+
+include('../connect_db.php');
+
 header("Pragma: no-cache");
 header("Cache-Control: no-cache");
 header("Expires: 0");
@@ -10,7 +11,7 @@ require_once("./lib/encdec_paytm.php");
 
 $checkSum = "";
 $paramList = array();
-
+$order_id = $_POST['order_id'];
 $ORDER_ID = $_POST["ORDER_ID"];
 $CUST_ID = $_POST["CUST_ID"];
 $INDUSTRY_TYPE_ID = $_POST["INDUSTRY_TYPE_ID"];
@@ -27,7 +28,10 @@ $paramList["TXN_AMOUNT"] = $TXN_AMOUNT;
 $paramList["WEBSITE"] = PAYTM_MERCHANT_WEBSITE;
 
 
-$paramList["CALLBACK_URL"] = "https://loket.in/confermation.php?id=".$order_id;
+$paramList["CALLBACK_URL"] = "https://loket.in/T_status_success.php?id=".$order_id;
+$payment_type = "Paytm";
+$sql_12 = "UPDATE payment SET payment_type = '$payment_type' WHERE order_id = '$order_id';";
+$result_12 = $conn->query($sql_12);
 /*
 $paramList["MSISDN"] = $MSISDN; //Mobile number of customer
 $paramList["EMAIL"] = $EMAIL; //Email ID of customer
