@@ -183,7 +183,7 @@
                           <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li><a href="category.php">Home</a></li>
-                                <li><a href="transactions.php">Transaction</a></li>
+                                <li><a href="T_table.php">Transaction</a></li>
                                 <li><a href="stock_alert.php">Stock Alert</a></li>
                                     <!-- Dropdown -->
                                     <li class="dropdown">
