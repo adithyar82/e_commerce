@@ -163,7 +163,7 @@
             $zip = $row['zipcode'];
         }
     }
-    $sql_1 = "SELECT SUM(final_cost) as total_cost FROM items WHERE order_id ='$order_d';";
+    $sql_1 = "SELECT SUM(final_cost) as total_cost FROM order_status WHERE payment_id ='$order_id';";
     $result_1 = $conn->query($sql_1);
     if($result_1->num_rows>=0){
         while($row = $result_1->fetch_assoc()){
@@ -381,7 +381,7 @@
 									<div>Total</div>
 								</div>
 								<?php
-                                $sql = "SELECT * FROM items WHERE order_id = '$order_id';";
+                                $sql = "SELECT * FROM order_status WHERE payment_id = '$order_id';";
                                 $result = $conn->query($sql);
                                 if($result->num_rows>0){
                                     while($row=$result->fetch_assoc()){
