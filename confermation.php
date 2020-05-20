@@ -170,6 +170,8 @@
             $total_cost_1 = $row['total_cost'];
         }
     }
+    $sql_3 = "UPDATE payments SET status = '$payment_status' WHERE order_id = '$order_id';";
+    $result_3 = $conn->query($sql_3);
     ?>
     <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
