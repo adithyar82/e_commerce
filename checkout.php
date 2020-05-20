@@ -55,7 +55,7 @@
     $_SESSION['id4'] = $total_cost;
     $_SESSION['id2'] = $product_id;
     $_SESSION['id3'] = $product_name;
-    $order_id = rand(10000000,99999999);
+    // $order_id = rand(10000000,99999999);
     $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
     $result_2 = $conn->query($sql_2);
     if($result_2->num_rows>0){
