@@ -38,7 +38,7 @@ echo $amount;
 
 	// For test payments we want to enable the sandbox mode. If you want to put live
 	// payments through then this setting needs changing to `false`.
-	$enableSandbox = true;
+	$enableSandbox = false;
 
 	// Database settings. Change these for your database configuration.
 	$dbConfig = [
@@ -82,7 +82,7 @@ echo $amount;
 		// and currency so that these aren't overridden by the form data.
 		// $data['item_name'] = $itemName;
 		// $data['amount'] = $itemAmount;
-		$data['currency_code'] = 'USD';
+		$data['currency_code'] = 'INR';
 
 		// Add any custom fields for the query string.
 		//$data['custom'] = USERID;

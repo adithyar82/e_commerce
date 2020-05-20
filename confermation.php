@@ -151,7 +151,6 @@
             }
         }
     }
-
     $sql1 = "SELECT * FROM shipping WHERE product_id = '$order_id';";
     $result1 = $conn->query($sql1);
     if($result1->num_rows>0){
