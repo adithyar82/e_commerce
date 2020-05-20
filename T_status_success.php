@@ -86,9 +86,14 @@
                         <img src="img/success.png" alt="">
                     </div>
                     <br>
+                    <?php
+                    $payment_status = $_POST['isPaymentSuccessful'];
+                    echo $_POST['isPaymentSuccessful'];
+                    echo $payment_status;
+                    ?>
                     <h1 class="d-flex justify-content-center" style="color:green;">Payment Successful</h1><br>
-                    <h3>Order Id:</h3><br>
-                    <h3>First Name:</h3><br>
+                    <h3>Order Id:</h3><br><?php echo $_POST['isPaymentSuccessful'];?>
+                    <h3>First Name:</h3><br><?php echo $payment_status;?>
                     <h3>Last Name:</h3><br>
                     <h3>Transaction Id:</h3><br>
                     <h3>Transaction Time:</h3><br>
