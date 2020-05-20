@@ -1,3 +1,23 @@
+
+<?php
+include('connect_db.php');
+$payment_status = $_POST['isPaymentSuccessful'];
+echo $_POST['isPaymentSuccessful'];
+echo $payment_status;
+$order_id = $_POST['order_id'];
+echo $_POST['order_id'];
+$sql = "SELECT order_status.fname, order_status.product_name, order_status.item_id,order_status.product_quantity, order_status.final_cost, payment.status,payment.time_created, payment.payment_type FROM order_status INNER JOIN payment ON order_status.payment_id = payment.order_id  WHERE order_status.payment_id = '$order_id'";
+$result = $conn->query($sql);
+if($result->num_rows>0){
+    while($row=$result->fetch_assoc()){
+        $fname = $row['fname'];
+        $final_cost = $row['final_cost'];
+        $product_name = $row['product_name'];
+        $product_quanity = $row['product_quanity'];
+        $payment_type = $row['payment_type'];
+    }
+}
+?>
 <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
@@ -87,17 +107,15 @@
                     </div>
                     <br>
                     <h1 class="d-flex justify-content-center" style="color:green;">Payment Successful</h1><br>
-                    <h3>Order Id:</h3><br>
-                    <h3>First Name:</h3><br>
-                    <h3>Last Name:</h3><br>
-                    <h3>Transaction Id:</h3><br>
-                    <h3>Transaction Time:</h3><br>
+                    <h3>Order Id: <?php echo $order_id;?></h3><br>
+                    <h3>First Name: <?php echo $fname?></h3><br>
+                    <h3>Total Cost: <?php echo $final_cost?></h3><br>
                     <h3>Transaction Type:</h3><br>
                     <button style="width:200px; background-color:green; color:white;" onclick="myFunction()">Product Details</button>
                         <div id="myDIV">
                             <br>
-                            <h4>Product Name :</h4><br>
-                            <h4>Product Price :</h4><br>
+                            <h3>Product Name: <?php echo $product_name?></h3><br>
+                            <h3>Product Quanity: <?php echo $product_quantity?></h3><br>
                         </div>
                 </div>
             </div>
