@@ -1,189 +1,61 @@
-<?php
-    include('connect_db.php');
-    // $order_id = $_REQUEST['id'];
-    $sql = "SELECT * FROM order_status WHERE order_id = '10';";
-    $result = $conn->query($sql);
-    if($result->num_rows>0){
-        while($row=$result->fetch_assoc()){
-            $status  = $row['status'];
-            $delivery_time = $row['delivery_time'];
-        }
-    }
-    ?>
-<!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
   width: 100%;
-  text-align: center;
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 </style>
-
-<script>
-function startTimer(duration, display) {
-   
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-}
-
-window.onload = function () {
-    var time = 60 * <?php echo $delivery_time?>,
-        display = document.querySelector('#time');
-    startTimer(time, display);
-};
-</script>
-
 </head>
 <body>
+<?php
+session_start();
+$uname = $_SESSION['uname'];
+include('connect_db.php');
+echo'
+        <h2>HTML Table</h2>
 
-<div class="slideshow-container">
+        <table>
+          <tr>
+            <th>First Name</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Total Cost</th>
+            <th>Order Id</th>
+            <th>Payment Status</th>
+            <th>Payment Type</th>
+            <th>Transaction Time</th>
 
-
-<!-- <div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="img/r12.jpg" style="width:100%">
-  <div class="text">Caption Text</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="img/r8.jpg" style="width:100%">
-  <div class="text">Caption Two</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="img/r9.jpg" style="width:100%">
-  <div class="text">Caption Three</div>
-</div> -->
-<p> Hello Harshitha</p>
-<div>Your Order Will be delivered in <span id="time">05:00</span> minutes!</div>
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
-<div id="countdownExample">
-  <div class="values"></div>
-</div>
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
-
-
-<br><br>
-
-     
-<br><br>
-<a href="http://simplestepscode.com/" target="_blank">Simple Steps Code</a>
-</body>
-</html>
+          </tr>';
+$sql = "SELECT order_status.fname, order_status.product_name, order_status.item_id,order_status.product_quantity, order_status.final_cost, payment.status,payment.time_created, payment.payment_type FROM order_status INNER JOIN payment ON order_status.payment_id = payment.order_id  WHERE order_status.fname = '$uname' ORDER BY time_created DESC ";
+$result = $conn->query($sql);
+if($result->num_rows>=0){
+  while($row=$result->fetch_assoc()){
+    echo'<tr>
+    <td>'.$row['fname'].'</td>
+    <td>'.$row['product_name'].'</td>
+    <td>'.$row['product_quantity'].'</td>
+    <td>'.$row['final_cost'].'</td>
+    <td>'.$row['item_id'].'</td>
+    <td>'.$row['status'].'</td>
+    <td>'.$row['payment_type'].'</td>
+    <td>'.$row['time_created'].'</td>
+  </tr>';
+  }
+}
+    
+    ?>
+        
+        </body>
+        </html>
