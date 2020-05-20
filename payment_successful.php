@@ -1,12 +1,12 @@
 <html>
 <body>
 <?php
-require_once("./loadEnvironmentals.php");
+// require_once("./loadEnvironmentals.php");
 
 $txn_id = $_SESSION['txn_id'];
 $_SESSION['txn_id'] = $_POST['txn_id'];
 echo '
-	<form id="successform" action="viewTransaction.php" method="post">
+	<form id="successform" action="T_status_success.php" method="post">
 		<input type="hidden" name="isPaymentSuccessful" value="true" />
 		<input type="submit" name="submit" id="submitBtn" />
 	</form>
@@ -14,7 +14,7 @@ echo '
 		document.getElementById("submitBtn").click();
 	</script>
 ';
-
+echo "done";
 ?>
 
 <body>

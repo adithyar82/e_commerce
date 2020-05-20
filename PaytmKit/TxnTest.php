@@ -5,7 +5,7 @@
 	header("Expires: 0");
 	$item_name = $_POST['item_name'];
 	$amount = $_POST['amount'];
-
+	$order_id = $_POST['order_id'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -57,6 +57,14 @@
 					<td><input title="TXN_AMOUNT" tabindex="10"
 						type="text" name="TXN_AMOUNT"
 						value="<?php echo $amount?>">
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td><label>txnAmount*</label></td>
+					<td><input title="TXN_AMOUNT" tabindex="10"
+						type="text" name="order_id"
+						value="<?php echo $order_id?>">
 					</td>
 				</tr>
 				<tr>
