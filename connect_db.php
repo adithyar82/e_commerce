@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "admin";
+$password = "monarchs";
 $dbname = "e_commerce";
 
 // Create connection
