@@ -135,7 +135,7 @@ $result = $conn->query($sql);
                             <h3 class="billing-title text-center">Register</h3>
                             <p class="text-center mt-40 mb-30">Create your very own account </p>
                             <form method ="POST" action = "register.php">
-                                <input type="text" pattern="[a-zA-Z]*" oninvalid="setCustomValidity('Please enter salphabets only. ')" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
+                                <input type="text" name = "fname" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
                                 <input type="email" name = "email_address" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address'" required class="common-input mt-20">
                                 <span class="error error_red" id="spanEmail_at_registration"></span>
                                 <input type="tel" pattern="[0-9]{10}" title="Must contain 10 digit number" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">

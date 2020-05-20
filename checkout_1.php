@@ -390,47 +390,7 @@
                                     </form>
                                     <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
                                 </div>
-                                <?php
-                                $firstName = "Aditya";
-                                $lastName = "Ritesh";
-                                $amount = "800";
-                                $itemName = "Dettol";
-                                echo <<<EOD
                                 
-
-    <style>
-    
-    .payment-button {
-      width:200px;
-      height:100px;
-      
-    }
-    
-    </style>
-  
-  
-  
-  
-    
-    <form name = "hidden-payment-form" class="paypal" action="payments_1.php" method="post" id="paypal_form">
-        <input type="hidden" name="cmd" value="_xclick" />
-        <input type="hidden" name="no_note" value="1" />
-        <input type="hidden" name="lc" value="IN" />
-        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
-        <input type="hidden" name="first_name" value="$firstName" />
-        <input type="hidden" name="last_name" value="$lastName" />
-        <input type="hidden" name="payer_email" value="$email" />
-        <input type="hidden" name="item_number" value="1" / >
-		<input type="hidden" name="item_name" value="$itemName" / >
-		<input type="hidden" name="amount" value="$amount" / >
-    <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" border="0" type = "submit" name="submit1" alt="PayPal - The safer, easier way to pay online!"/>
-    </form>
-
-EOD;
-  
-
-
-    ?>
                             </div>
                             
                         </div>
