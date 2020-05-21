@@ -4,6 +4,7 @@
 // require_once("./loadEnvironmentals.php");
 
 $txn_id = $_SESSION['txn_id'];
+echo $txn_id;
 $_SESSION['txn_id'] = $_POST['txn_id'];
 echo '
 	<form id="successform" action="T_status_success.php" method="post">
