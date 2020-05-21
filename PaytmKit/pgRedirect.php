@@ -28,7 +28,7 @@ $paramList["TXN_AMOUNT"] = $TXN_AMOUNT;
 $paramList["WEBSITE"] = PAYTM_MERCHANT_WEBSITE;
 
 
-$paramList["CALLBACK_URL"] = "https://loket.in/T_status_success.php?id=".$order_id;
+$paramList["CALLBACK_URL"] = "https://loket.in/T_status_success.php?id1=".$order_id."&id2=".$ORDER_ID; 
 $payment_type = "Paytm";
 $sql_12 = "UPDATE payment SET payment_type = '$payment_type' WHERE order_id = '$order_id';";
 $result_12 = $conn->query($sql_12);
