@@ -1,10 +1,15 @@
 
 <?php
+echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
 include('connect_db.php');
+include("./php/class.phpmailer.php"); 
 $payment_status = $_POST['isPaymentSuccessful'];
 echo $_POST['isPaymentSuccessful'];
 echo $payment_status;
 $order_id = $_POST['order_id'];
+$ORDER_ID = $_REQUEST['id2'];
 echo $_POST['order_id'];
 $transaction_id = $data['txn_id'];
 echo $transaction_id;
@@ -17,6 +22,57 @@ if($result->num_rows>0){
         $product_name = $row['product_name'];
         $product_quanity = $row['product_quanity'];
         $payment_type = $row['payment_type'];
+    }
+}
+$sql_12 = "UPDATE payment SET transaction_id = '$ORDER_ID' WHERE order_id = '$order_id';";
+$result_12 = $conn->query($sql_12);
+if($result_12->num_rows>0){
+    while($row=$result_12->fetch_assoc()){
+        $id = $row['order_id'];
+        $fname = $row['fname'];
+        $final_cost = $row['final_cost'];
+        $product_name = $row['product_name'];
+        $payment_id = $row['payment_id'];
+        $product_quantity = $row['product_quantity'];
+        $mail = new PHPMailer;
+        $mailaddress = "harshithaeshwar007@gmail.com";                              // Enable verbose debug output
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail -> Username = 'contact.azeempatel@gmail.com';
+        $mail -> Password = 'AzeemPatel46#';                          // SMTP password
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;                                    // TCP port to connect to
+        $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
+        $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
+        $mail->Subject = 'E Commerce Website';
+        $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
+                            <h2 align =center>Your Order Details are as follows :</h2>
+                            <h2 align =center>Order Id : '.$order_id.'</h2>
+                            <h2 align =center>Product name : '.$product_name.'</h2>
+                            <h2 align =center>Total Cost: '.$final_cost.'</h2>
+                            <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        $mail -> isHTML(true);
+        if(!$mail->send()) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo '<script>
+        setTimeout(function () { 
+            swal({
+            title: "Payment",
+            text: "Transaction successful",
+            type: "success",
+            confirmButtonText: "OK"
+            },
+            function(isConfirm){
+            if (isConfirm) {
+                window.location.href = "T_status_success.php";
+            }
+            }); }, 1000);
+        </script>';
+        }
     }
 }
 ?>
