@@ -30,6 +30,8 @@ if($result->num_rows>0){
         $sql1 = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$item_name', ' ','$order_id', '1','$status','$product_image','$shop_id');";
         echo $sql1;
         $result1 = $conn->query($sql1);
+        $sql_13 = "DELETE FROM items WHERE order_id = '$order_id';";
+        $result_13 = $conn->query($sql_13);
         $sql_3 = "INSERT INTO payment(payment_id,final_cost,payment_type,time_created,order_id,fname,product_name,product_image,status) VALUES (Null, '$final_cost', '$payment_type', CURRENT_TIME(), '$order_id','$fname','$item_name','$product_image','$payment_status');";
         $result_3 = $conn->query($sql_3);
         echo $sql_3;
