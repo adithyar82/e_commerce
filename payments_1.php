@@ -59,7 +59,7 @@ echo $amount;
 		'email' => 'maditya183@gmail.com.com',
 		'return_url' => "https://loket.in/T_status_success.php?id=".$order_id,
 		'cancel_url' => "https://loket.in/T_status_cancel.php?id=".$order_id,
-		'notify_url' => 'https://loket.in/confermation.php',
+		'notify_url' => "https://loket.in/T_status_success.php?id=".$order_id,
 	];
 
 	$paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
