@@ -1,8 +1,12 @@
 Í<?php 
+include('connect_db.php');
 $_SESSION['amount'] = $_POST['amount'];
 $amount = $_SESSION['amount'];
 $order_id = $_POST['order_id'];
-
+$payment_type = "Paypal";
+$sql_12 = "UPDATE payment SET payment_type = '$payment_type' WHERE order_id = '$order_id';";
+$result_12 = $conn->query($sql_12);
+$result_12 = $conn->query($sql_12);
 // $order_id = rand(10000000,99999999);
 
 echo $amount;
@@ -51,8 +55,9 @@ echo $amount;
 	// PayPal settings. Change these to your account details and the relevant URLs
 	// for your site.
 	$paypalConfig = [
-		'email' => 'sb-ov0ot1549898@business.example.com',
-		'return_url' => "https://loket.in/payment_successful.php?id=".$order_id,
+		// 'email' => 'sb-ov0ot1549898@business.example.com',
+		'email' => 'maditya183@gmail.com.com',
+		'return_url' => "https://loket.in/T_status_success.php?id=".$order_id,
 		'cancel_url' => "https://loket.in/T_status_cancel.php?id=".$order_id,
 		'notify_url' => 'https://loket.in/confermation.php',
 	];

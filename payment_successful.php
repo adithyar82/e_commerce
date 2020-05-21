@@ -2,7 +2,6 @@
 <body>
 <?php
 // require_once("./loadEnvironmentals.php");
-$order_id = $_REQUEST['id'];
 $txn_id = $_SESSION['txn_id'];
 $_SESSION['txn_id'] = $_POST['txn_id'];
 echo '
@@ -15,7 +14,7 @@ echo '
 		document.getElementById("submitBtn").click();
 	</script>
 ';
-
+echo "done";
 ?>
 
 <body>
