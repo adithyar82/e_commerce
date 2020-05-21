@@ -6,7 +6,6 @@ $order_id = $_POST['order_id'];
 $payment_type = "Paypal";
 $sql_12 = "UPDATE payment SET payment_type = '$payment_type' WHERE order_id = '$order_id';";
 $result_12 = $conn->query($sql_12);
-$result_12 = $conn->query($sql_12);
 // $order_id = rand(10000000,99999999);
 
 echo $amount;
@@ -51,15 +50,15 @@ echo $amount;
 		'password' => 'monarchs',
 		'name' => 'E_Commerce'
 	];
-
+    $transaction_id = $_POST['txn_id'];
 	// PayPal settings. Change these to your account details and the relevant URLs
 	// for your site.
 	$paypalConfig = [
-		// 'email' => 'sb-ov0ot1549898@business.example.com',
-		'email' => 'maditya183@gmail.com.com',
-		'return_url' => "https://loket.in/T_status_success.php?id=".$order_id,
-		'cancel_url' => "https://loket.in/T_status_cancel.php?id=".$order_id,
-		'notify_url' => 'https://loket.in/confermation.php',
+		'email' => 'sb-ov0ot1549898@business.example.com',
+		// 'email' => 'maditya183@gmail.com.com',
+		'return_url' => "https://loket.in/T_status_success.php?id1=".$order_id."&id2=".$transaction_id,
+		'cancel_url' => "https://loket.in/T_status_cancel.php?id1=".$order_id,
+		'notify_url' => "https://loket.in/T_status_success.php?id1=".$order_id."&id2=".$transaction_id,
 	];
 
 	$paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
@@ -87,7 +86,7 @@ echo $amount;
 		// and currency so that these aren't overridden by the form data.
 		// $data['item_name'] = $itemName;
 		// $data['amount'] = $itemAmount;
-		$data['currency_code'] = 'INR';
+		$data['currency_code'] = 'USD';
 
 		// Add any custom fields for the query string.
 		//$data['custom'] = USERID;
@@ -102,6 +101,7 @@ echo $amount;
 	} else {
 		// Handle the PayPal response.
 		$_SESSION['txn_id'] = $_POST['txn_id'];
+		
 		// Create a connection to the database.
 		$db = new mysqli($dbConfig['localhost'], $dbConfig['admin'], $dbConfig['monarchs'], $dbConfig['e_commerce']);
 		// Assign posted variables to local data array.
@@ -116,6 +116,9 @@ echo $amount;
 			'payer_email' => $_POST['payer_email'],
 			'custom' => $_POST['custom'],
 		];
+		$transaction_id = $data['txn_id'];
+		$sql = "UPDATE payment SET transaction_id = '$transaction_id' WHERE order_id = '$order_id';";
+		$result = $conn->query($sql);
 		// We need to verify the transaction comes from PayPal and check we've not
 		// already processed the transaction before adding the payment to our
 		// database.
