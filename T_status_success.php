@@ -11,6 +11,8 @@ echo $payment_status;
 $order_id = $_POST['order_id'];
 $ORDER_ID = $_REQUEST['id2'];
 echo $_POST['order_id'];
+$transaction_id = $data['txn_id'];
+echo $transaction_id;
 $sql = "SELECT order_status.fname, order_status.product_name, order_status.item_id,order_status.product_quantity, order_status.final_cost, payment.status,payment.time_created, payment.payment_type FROM order_status INNER JOIN payment ON order_status.payment_id = payment.order_id  WHERE order_status.payment_id = '$order_id'";
 $result = $conn->query($sql);
 if($result->num_rows>0){
@@ -168,7 +170,7 @@ if($result_12->num_rows>0){
                     <h3>Order Id: <?php echo $order_id;?></h3><br>
                     <h3>First Name: <?php echo $fname?></h3><br>
                     <h3>Total Cost: <?php echo $final_cost?></h3><br>
-                    <h3>Transaction Type:</h3><br>
+                    <h3>Transaction Type:</h3><br><?php echo $transaction_id;?>
                     <button style="width:200px; background-color:green; color:white;" onclick="myFunction()">Product Details</button>
                         <div id="myDIV">
                             <br>
