@@ -184,6 +184,7 @@
 										<a href="profile.php"><span class="glyphicon glyphicon-user"> </span> Profile</a>
 										<a href="order_status.php">Order Status</a>
 										<a href="order_history.php">Order History</a>
+										<a href="T_table.php">View Transactions</a>
 										<a href="updated_favourite.php"><span class="glyphicon glyphicon-heart"></span> Wishlist</a>
 										<a href="updated_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
 										<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
