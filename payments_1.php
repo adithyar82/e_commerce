@@ -63,16 +63,16 @@ echo $amount;
 		'host' => 'localhost',
 		'username' => 'loketdff_root',
 		'password' => 'Adityam1998#',
-		'name' => 'loketdff_e_commerce_testing'
+		'name' => 'loketdff_e_commerce_staging'
 	];
 	// PayPal settings. Change these to your account details and the relevant URLs
 	// for your site.
 	$paypalConfig = [
 		'email' => 'sb-ov0ot1549898@business.example.com',
 		// 'email' => 'maditya183@gmail.com.com',
-		'return_url' => "https://loket.in/testing/T_status_success.php?id=".$order_id,
-		'cancel_url' => "https://loket.in/testing/T_status_cancel.php",
-		'notify_url' => "https://loket.in/testing/T_status_success.php?id=".$order_id
+		'return_url' => "https://loket.in/staging/T_status_success.php?id=".$order_id,
+		'cancel_url' => "https://loket.in/staging/T_status_cancel.php",
+		'notify_url' => "https://loket.in/staging/T_status_success.php?id=".$order_id
 	];
 
 	$paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
@@ -100,7 +100,7 @@ echo $amount;
 		// and currency so that these aren't overridden by the form data.
 		// $data['item_name'] = $itemName;
 		// $data['amount'] = $itemAmount;
-		$data['currency_code'] = 'USD';
+		$data['currency_code'] = 'INR';
 
 		// Add any custom fields for the query string.
 		//$data['custom'] = USERID;
@@ -116,7 +116,7 @@ echo $amount;
 		// Handle the PayPal response.
 		
 		// Create a connection to the database.
-		$db = new mysqli($dbConfig['localhost'], $dbConfig['loketdff_root'], $dbConfig['Adityam1998#'], $dbConfig['loketdff_e_commerce_testing']);
+		$db = new mysqli($dbConfig['localhost'], $dbConfig['loketdff_root'], $dbConfig['Adityam1998#'], $dbConfig['loketdff_e_commerce_staging']);
 		// Assign posted variables to local data array.
 		$data = [
 			'item_name' => $_POST['item_name'],
