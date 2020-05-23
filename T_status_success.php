@@ -5,6 +5,7 @@ include("./php/class.phpmailer.php");
 $payment_status = $_POST['isPaymentSuccessful'];
 echo $_POST['isPaymentSuccessful'];
 echo $payment_status;
+
 $encrypted = $_REQUEST['id'];
 function my_simple_crypt( $string, $action = 'd') {
     // you may change these values to your own
@@ -27,6 +28,13 @@ function my_simple_crypt( $string, $action = 'd') {
   }
   $order_id = my_simple_crypt($encrypted, 'd' );
   $sql = "SELECT order_status.fname, order_status.product_name, order_status.item_id,order_status.product_quantity, order_status.final_cost, payment.status,payment.time_created, payment.payment_type FROM order_status INNER JOIN payment ON order_status.payment_id = payment.order_id  WHERE order_status.payment_id = '$order_id'";
+
+$order_id = $_POST['order_id'];
+$ORDER_ID = $_REQUEST['id2'];
+echo $_POST['order_id'];
+$transaction_id = $_POST['txn_id'];
+echo $transaction_id;
+$sql = "SELECT order_status.fname, order_status.product_name, order_status.item_id,order_status.product_quantity, order_status.final_cost, payment.status,payment.time_created, payment.payment_type FROM order_status INNER JOIN payment ON order_status.payment_id = payment.order_id  WHERE order_status.payment_id = '$order_id'";
 $result = $conn->query($sql);
 if($result->num_rows>0){
     while($row=$result->fetch_assoc()){
@@ -37,6 +45,10 @@ if($result->num_rows>0){
         $payment_type = $row['payment_type'];
     }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4800be375c48dafd771b960bb8990e65c6002d0a
   $mail = new PHPMailer;
             $mailaddress = "harshithaeshwar007@gmail.com";                              // Enable verbose debug output
             $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -54,7 +66,11 @@ if($result->num_rows>0){
                                 <h2 align =center>Order Id : '.$order_id.'</h2>
                                 <h2 align =center>Product name : '.$product_name.'</h2>
                                 <h2 align =center>Total Cost: '.$final_cost.'</h2>
+<<<<<<< HEAD
                                 <h3 aling = left><a href = "http://loket.in/staging/order_status.php"> Track Your Order Here ';
+=======
+                                <h3 aling = left><a href = "http://loket.in/testing/order_status.php"> Track Your Order Here ';
+>>>>>>> 4800be375c48dafd771b960bb8990e65c6002d0a
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
             $mail -> isHTML(true);
             if(!$mail->send()) {
@@ -65,8 +81,66 @@ if($result->num_rows>0){
                 // alert("Email has been sent successfully");
                 // window.location= "cashier.php";
                 // </script>';
+<<<<<<< HEAD
             }
 
+=======
+            }
+
+=======
+$sql_12 = "UPDATE payment SET transaction_id = '$ORDER_ID' WHERE order_id = '$order_id';";
+$result_12 = $conn->query($sql_12);
+if($result_12->num_rows>0){
+    while($row=$result_12->fetch_assoc()){
+        $id = $row['order_id'];
+        $fname = $row['fname'];
+        $final_cost = $row['final_cost'];
+        $product_name = $row['product_name'];
+        $payment_id = $row['payment_id'];
+        $product_quantity = $row['product_quantity'];
+        $mail = new PHPMailer;
+        $mailaddress = "harshithaeshwar007@gmail.com";                              // Enable verbose debug output
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail -> Username = 'contact.azeempatel@gmail.com';
+        $mail -> Password = 'AzeemPatel46#';                          // SMTP password
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;                                    // TCP port to connect to
+        $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
+        $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
+        $mail->Subject = 'E Commerce Website';
+        $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
+                            <h2 align =center>Your Order Details are as follows :</h2>
+                            <h2 align =center>Order Id : '.$order_id.'</h2>
+                            <h2 align =center>Product name : '.$product_name.'</h2>
+                            <h2 align =center>Total Cost: '.$final_cost.'</h2>
+                            <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        $mail -> isHTML(true);
+        if(!$mail->send()) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo '<script>
+        setTimeout(function () { 
+            swal({
+            title: "Payment",
+            text: "Transaction successful",
+            type: "success",
+            confirmButtonText: "OK"
+            },
+            function(isConfirm){
+            if (isConfirm) {
+                window.location.href = "T_status_success.php";
+            }
+            }); }, 1000);
+        </script>';
+        }
+    }
+}
+>>>>>>> 81f1bb091882662259f746c4522bd83d1eec84f7
+>>>>>>> 4800be375c48dafd771b960bb8990e65c6002d0a
 ?>
 <!DOCTYPE html>
 	<html lang="zxx" class="no-js">

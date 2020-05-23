@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+     
     include('connect_db.php');
     $username = $_SESSION['username'];
     // $id1 = $_REQUEST['id1'];

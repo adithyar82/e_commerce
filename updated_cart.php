@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	
+	 
 	$uname = $_SESSION['uname'];
     $product_name = $_REQUEST['id'];
     

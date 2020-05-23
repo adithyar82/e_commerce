@@ -11,13 +11,31 @@ require_once("./lib/encdec_paytm.php");
 
 $checkSum = "";
 $paramList = array();
-$order_id = $_POST['order_id'];
 $ORDER_ID = $_POST["ORDER_ID"];
 $CUST_ID = $_POST["CUST_ID"];
 $INDUSTRY_TYPE_ID = $_POST["INDUSTRY_TYPE_ID"];
 $CHANNEL_ID = $_POST["CHANNEL_ID"];
 $TXN_AMOUNT = $_POST["TXN_AMOUNT"];
-
+function my_simple_crypt( $string, $action = 'e' ) {
+	// you may change these values to your own
+	$secret_key = 'my_simple_secret_key';
+	$secret_iv = 'my_simple_secret_iv';
+ 
+	$output = false;
+	$encrypt_method = "AES-256-CBC";
+	$key = hash( 'sha256', $secret_key );
+	$iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
+ 
+	if( $action == 'e' ) {
+		$output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
+	}
+	else if( $action == 'd' ){
+		$output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
+	}
+ 
+	return $output;
+}
+$order_id = my_simple_crypt($order,'e');
 // Create an array having all required parameters for creating checksum.
 $paramList["MID"] = PAYTM_MERCHANT_MID;
 $paramList["ORDER_ID"] = $ORDER_ID;
