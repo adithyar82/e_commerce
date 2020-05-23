@@ -1,18 +1,18 @@
 <?php
+    session_start();
     echo'<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
-    session_start();
-    if(!isset($_SESSION['uname'])){
-		header("location:index.php");
-	}
+    
+     
     include("connect_db.php");
     include("./php/class.phpmailer.php");  
     // $fname = $_SESSION['username'];
     $total_cost = $_SESSION['id1'];
-    $order_id = rand(1000000,99999999);
+    $product_id = $_POST['product_id'];
+    $order_id = $_POST['order_id'];
     $name = $_SESSION['id3'];
-    $final_cost = $_SESSION['id4'];
+    // $final_cost = $_SESSION['id4'];
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $ename = $_POST['ename'];
@@ -31,19 +31,20 @@
     $country_1 = $_POST['country_1'];
     $zip_1= $_POST['zip_1'];
     $status = 'ordered';
-    $sql_1 = "SELECT * FROM products where product_id  = '$order_id';";
+    $sql_1 = "SELECT * FROM products where product_id  = '$product_id';";
     $result_1 = $conn->query($sql_1);
     if($result_1->num_rows>=0){
         while($row = $result_1->fetch_assoc()){
+            $product_name = $row['product_name'];
             $product_image = $row['product_image'];
             $shop_id = $row['shop_id'];
             $final_cost = $row['final_cost'];
         }
     }
-    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$name', ' ','$order_id', '1','$status','$product_image','$shop_id');";
+    $sql = "INSERT INTO order_status(order_id,item_id,fname,final_cost,product_name, delivery_boy, payment_id, product_quantity,status,product_image, shop_id) VALUES (Null,'$order_id','$fname','$final_cost', '$product_name', ' ','$order_id', '1','$status','$product_image','$shop_id');";
     $result = $conn->query($sql);
     
-    $sql1 = "SELECT * FROM products WHERE product_id = '$order_id';";
+    $sql1 = "SELECT * FROM products WHERE product_id = '$product_id';";
     $result1 = $conn->query($sql1);
     if($result1->num_rows>0){
         while($row = $result1->fetch_assoc()){
@@ -56,7 +57,7 @@
     $sql3 = "INSERT INTO shipping(shipping_id, product_id, address_1, address_2,city,state,zipcode,country) VALUES (Null, '$order_id','$address_1','$address_2','$city','$state','$zip','$country');";
     $result3 = $conn->query($sql3);
     
-    $sql_2 = "UPDATE products SET product_quantity = '$product_quantity' WHERE product_id = '$order_id';";
+    $sql_2 = "UPDATE products SET product_quantity = '$product_quantity' WHERE product_id = '$product_id';";
     $result_2 = $conn->query($sql_2);
     
     $fname = $uname;
@@ -292,13 +293,13 @@
 									<div>Total</div>
 								</div>
 								<div class="list-row d-flex justify-content-between">
-									<div><?php echo $name?></div>
+									<div><?php echo $product_name?></div>
 									<div>x 02</div>
-									<div><?php echo $total_cost?></div>
+									<div><?php echo $final_cost?></div>
 								</div>
 								<div class="list-row d-flex justify-content-between">
 									<h6>Subtotal</h6>
-									<div><?php echo $total_cost?></div>
+									<div><?php echo $final_cost?></div>
 								</div>
 								<div class="list-row d-flex justify-content-between">
 									<h6>Shipping</h6>
@@ -319,7 +320,7 @@
                                 $firstName = $fname;
                                 $lastName = $lname;
                                 $amount = $final_cost;
-                                $itemName = $name;
+                                $itemName = $product_name;
                                 $email=$email_address;
                                 echo <<<EOD
                                 

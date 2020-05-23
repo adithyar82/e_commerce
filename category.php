@@ -1,8 +1,6 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['uname'])){
-		header("location:index.php");
-	}
+	
 	$uname = $_SESSION['uname'];
 	echo $_SESSION['username'];
 	include('connect_db.php');
