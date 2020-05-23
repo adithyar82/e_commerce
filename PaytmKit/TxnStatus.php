@@ -1,4 +1,8 @@
 <?php
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	$order_id = $_POST['order_id'];
 	header("Pragma: no-cache");
 	header("Cache-Control: no-cache");
 	header("Expires: 0");
@@ -26,9 +30,7 @@
 
 		// Call the PG's getTxnStatusNew() function for verifying the transaction status.
 		$responseParamList = getTxnStatusNew($requestParamList, $order_id);
-	}
-
-?>
+	}?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -59,8 +61,7 @@
 		<br/></br/>
 		<?php
 		if (isset($responseParamList) && count($responseParamList)>0 )
-		{ 
-		?>
+		{ ?>
 		<h2>Response of status query:</h2>
 		<table style="border: 1px solid nopadding" border="0">
 			<tbody>

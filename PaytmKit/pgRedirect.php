@@ -46,8 +46,10 @@ $paramList["TXN_AMOUNT"] = $TXN_AMOUNT;
 $paramList["WEBSITE"] = PAYTM_MERCHANT_WEBSITE;
 
 
-$paramList["CALLBACK_URL"] = "https://loket.in/T_status_success.php?id1=".$order_id."&id2=".$ORDER_ID; 
-$payment_type = "Paytm";
+$paramList["CALLBACK_URL"] = "https://loket.in/staging/T_status_success.php?id1=".$order_id."&id2=".$ORDER_ID; 
+// $payment_type = "Paytm";
+// $sql_12 = "UPDATE payment SET payment_type = '$payment_type' WHERE order_id = '$order_id';";
+// $result_12 = $conn->query($sql_12);
 /*
 $paramList["MSISDN"] = $MSISDN; //Mobile number of customer
 $paramList["EMAIL"] = $EMAIL; //Email ID of customer
@@ -72,8 +74,7 @@ $checkSum = getChecksumFromArray($paramList,PAYTM_MERCHANT_KEY);
 			<?php
 			foreach($paramList as $name => $value) {
 				echo '<input type="hidden" name="' . $name .'" value="' . $value . '">';
-			}
-			?>
+			}//?>
 			<input type="hidden" name="CHECKSUMHASH" value="<?php echo $checkSum ?>">
 			</tbody>
 		</table>
