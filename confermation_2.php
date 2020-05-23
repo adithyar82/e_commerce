@@ -1,7 +1,7 @@
 <?php
 session_start();
 $uname = $_SESSION['uname'];
-$order_id = $_SESSION['order_id'];
+$order_id = $_POST['order_id'];
 echo $order_id;
 include('connect_db.php');
 $address_1 = $_POST['address_1'];
@@ -40,7 +40,7 @@ if($result->num_rows>0){
         $result3 = $conn->query($sql3);
     }
 }
-$sql_1 = "SELECT SUM(final_cost) as total_cost FROM items WHERE username ='$uname';";
+$sql_1 = "SELECT SUM(final_cost) as total_cost FROM items';";
 $result_1 = $conn->query($sql_1);
 if($result_1->num_rows>=0){
     while($row = $result_1->fetch_assoc()){
