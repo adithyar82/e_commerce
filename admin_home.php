@@ -127,11 +127,12 @@
 				}
 			</script>
 		</head>
+		
 		<body>
 
 			<!-- Start Header Area -->
 			<header class="default-header">
-				<div class="menutop-wrap">
+				<div class="menutop-wrap d-flex justify-content-center">
 					<div class="menu-top container">
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="list">
@@ -160,7 +161,7 @@
 					<br>				
 				</div>
 				<nav class="navbar navbar-expand-lg  navbar-light">
-					<div class="container">
+					<div class="container d-flex justify-content-center">
 						  <a class="navbar-brand" href="category.php">
 							  <img src="img/logo.png" alt="">
 						  </a>
@@ -180,7 +181,7 @@
 						  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                           </button> -->
-                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                          <div class="d-flex justify-content-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li><a href="category.php">Home</a></li>
                                 <li><a href="T_table.php">Transaction</a></li>
@@ -205,7 +206,7 @@
 				</nav>
 			</header>
             <!-- End Header Area -->
-			<section>
+			<!-- <section>
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-9 col-lg-8 col-md-7">
@@ -223,10 +224,10 @@
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> -->
 
 			<!--Start Body Area-->
-			<div class="container">
+			<div class="container d-flex justify-content-center" style = "margin-top:10%">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="login-form">
@@ -366,7 +367,7 @@
                     </div>
                 </div>
             </footer>   
-            <!-- End footer Area -->       
+            <!-- End footer Area ->       
 
 			<!-- Modal Quick Product View -->
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">

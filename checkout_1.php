@@ -9,8 +9,7 @@
     $value = $_REQUEST['id1'];
     $coupon_code = $_REQUEST['id2'];
     $order_id = rand(1000000,99999999);
-    $_SESSION['order_id'] = $order_id;
-    $sql_12 = "UPDATE items SET order_id = '$order_id' WHERE username = '$uname';";
+    $sql_12 = "UPDATE items SET order_id = '$order_id';";
     $result_12 = $conn->query($sql_12);
     $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
     $result_2 = $conn->query($sql_2);
@@ -223,6 +222,9 @@
                                 <div class="col-lg-6">
                                     <input type="email" name = "ename" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address*'" required class="common-input">
                                 </div>
+                                <div class="col-lg-6">
+                                    <input type="text" name = "order_id" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address*'" value = "<?php echo $order_id?>" required class="common-input" hidden>
+                                </div>
                                 <div class="col-lg-12">
                                     <div class="sorting">
                                         <select>
@@ -311,9 +313,9 @@
 								</div>
 							
                             <?php 
-                            $sql = "SELECT * FROM items WHERE username = '$uname';";
+                            $sql = "SELECT * FROM items';";
                             $result = $conn->query($sql);
-                            $sql1 = "SELECT SUM(final_cost) as total_cost FROM items WHERE username ='$uname';";
+                            $sql1 = "SELECT SUM(final_cost) as total_cost FROM items';";
                             $result1 = $conn->query($sql1);
                             if($result1->num_rows>0){
                                 while($row = $result1->fetch_assoc()){

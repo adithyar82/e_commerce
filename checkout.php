@@ -1,12 +1,14 @@
     <?php
+    session_start();
     require_once('config.php');
     include('connect_db.php');
-    session_start();
+    
     if(!isset($_SESSION['uname'])){
 		header("location:index.php");
     }
     $uname = $_SESSION['uname'];
     $product_id = $_REQUEST['id1'];
+
     $coupon_code = $_REQUEST['id2'];
     $sql = "SELECT * FROM shipping;";
     $result = $conn->query($sql);
@@ -255,6 +257,8 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <input type="email" name = "ename" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address*'" value = "<?php echo $email_address?>" required class="common-input">
+                                    <input type="text" name = "order_id" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address*'" value = "<?php echo $order_id?>" required class="common-input" hidden>
+                                    <input type="text" name = "product_id" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address*'" value = "<?php echo $product_id?>" required class="common-input" hidden>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="sorting">
@@ -345,7 +349,7 @@
 							<div class="list-row d-flex justify-content-between">
 								<div><?php echo $product_name?></div>
 								<div>x 01</div>
-								<div><?php echo $final_cost?></div>
+								<div><?php echo $total_cost?></div>
 							</div>
 							<div class="list-row d-flex justify-content-between">
 								<h6>Subtotal</h6>

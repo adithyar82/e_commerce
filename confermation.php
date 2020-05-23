@@ -3,9 +3,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
     session_start();
-    if(!isset($_SESSION['uname'])){
-		header("location:index.php");
-	}
+     
     include("connect_db.php");
     include("./php/class.phpmailer.php");  
     // $fname = $_SESSION['username'];
