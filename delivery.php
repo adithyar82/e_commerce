@@ -1,9 +1,7 @@
 <?php
     include('connect_db.php');
 	session_start();
-	if(!isset($_SESSION['uname'])){
-		header("location:index.php");
-	}
+	 
 	$uname = $_SESSION['uname'];
 	$sql_1 = "SELECT * FROM Users WHERE fname = '$uname';";
 	$result_1 = $conn->query($sql_1);

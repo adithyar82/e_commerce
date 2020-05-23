@@ -1,6 +1,4 @@
 <?php
-	session_start();
-	$order_id = $_SESSION['order_id'];
 	header("Pragma: no-cache");
 	header("Cache-Control: no-cache");
 	header("Expires: 0");

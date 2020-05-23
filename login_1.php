@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
     // echo $pwd;
     $sql = "SELECT * FROM Users where email_address = '$email_address' AND password = '$pwd'";
    $result = $conn->query($sql);
-if($result->num_rows>0){
+    if($result->num_rows>=0){
     // echo "done";
     while($row = $result->fetch_assoc()){
         $_SESSION['uname'] = $row['fname'];

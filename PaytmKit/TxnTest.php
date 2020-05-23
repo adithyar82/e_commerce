@@ -1,5 +1,4 @@
 <?php
-    include('../connect_db.php');
 	header("Pragma: no-cache");
 	header("Cache-Control: no-cache");
 	header("Expires: 0");
