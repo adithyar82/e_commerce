@@ -1,10 +1,8 @@
-Í<?php 
+<?php 
 include('connect_db.php');
-$_SESSION['amount'] = $_POST['amount'];
-$amount = $_SESSION['amount'];
-$order_id = $_POST['order_id'];
+$order = $_POST['order_id'];
 $payment_type = "Paypal";
-$sql_12 = "UPDATE payment SET payment_type = '$payment_type' WHERE order_id = '$order_id';";
+$sql_12 = "UPDATE payment SET payment_type = '$payment_type' WHERE order_id = '$order';";
 $result_12 = $conn->query($sql_12);
 // $order_id = rand(10000000,99999999);
 
@@ -29,12 +27,29 @@ echo $amount;
 		$mail->isHTML(true);
 		return $mail->send();
 	}
+	function my_simple_crypt( $string, $action = 'e' ) {
+		// you may change these values to your own
+		$secret_key = 'my_simple_secret_key';
+		$secret_iv = 'my_simple_secret_iv';
+	 
+		$output = false;
+		$encrypt_method = "AES-256-CBC";
+		$key = hash( 'sha256', $secret_key );
+		$iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
+	 
+		if( $action == 'e' ) {
+			$output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
+		}
+		else if( $action == 'd' ){
+			$output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
+		}
+	 
+		return $output;
+	}
+	$order_id = my_simple_crypt($order,'e');
 
-
-	session_start();
 	send_debug_mail("harshithaeshwar007@gmail.com", print_r($_POST, true));
 
-	// $_SESSION['txn_id'] = $_POST['txn_id'];
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
@@ -46,19 +61,18 @@ echo $amount;
 	// Database settings. Change these for your database configuration.
 	$dbConfig = [
 		'host' => 'localhost',
-		'username' => 'admin',
-		'password' => 'monarchs',
-		'name' => 'E_Commerce'
+		'username' => 'loketdff_root',
+		'password' => 'Adityam1998#',
+		'name' => 'loketdff_e_commerce_testing'
 	];
-    $transaction_id = $_POST['txn_id'];
 	// PayPal settings. Change these to your account details and the relevant URLs
 	// for your site.
 	$paypalConfig = [
 		'email' => 'sb-ov0ot1549898@business.example.com',
 		// 'email' => 'maditya183@gmail.com.com',
-		'return_url' => "https://loket.in/T_status_success.php?id1=".$order_id."&id2=".$transaction_id,
-		'cancel_url' => "https://loket.in/T_status_cancel.php?id1=".$order_id,
-		'notify_url' => "https://loket.in/T_status_success.php?id1=".$order_id."&id2=".$transaction_id,
+		'return_url' => "https://loket.in/testing/T_status_success.php?id=".$order_id,
+		'cancel_url' => "https://loket.in/testing/T_status_cancel.php",
+		'notify_url' => "https://loket.in/testing/T_status_success.php?id=".$order_id
 	];
 
 	$paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
@@ -100,10 +114,9 @@ echo $amount;
 
 	} else {
 		// Handle the PayPal response.
-		$_SESSION['txn_id'] = $_POST['txn_id'];
 		
 		// Create a connection to the database.
-		$db = new mysqli($dbConfig['localhost'], $dbConfig['admin'], $dbConfig['monarchs'], $dbConfig['e_commerce']);
+		$db = new mysqli($dbConfig['localhost'], $dbConfig['loketdff_root'], $dbConfig['Adityam1998#'], $dbConfig['loketdff_e_commerce_testing']);
 		// Assign posted variables to local data array.
 		$data = [
 			'item_name' => $_POST['item_name'],
@@ -127,11 +140,4 @@ echo $amount;
 				// Payment successfully added.
 			}
 		}
-	}
-
-
-
-
-
-
-?>
+	}?>
