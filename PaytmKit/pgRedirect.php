@@ -46,7 +46,7 @@ $paramList["TXN_AMOUNT"] = $TXN_AMOUNT;
 $paramList["WEBSITE"] = PAYTM_MERCHANT_WEBSITE;
 
 
-$paramList["CALLBACK_URL"] = "https://loket.in/T_status_success.php?id=".$order_id;
+$paramList["CALLBACK_URL"] = "https://loket.in/T_status_success.php?id1=".$order_id."&id2=".$ORDER_ID; 
 $payment_type = "Paytm";
 /*
 $paramList["MSISDN"] = $MSISDN; //Mobile number of customer
