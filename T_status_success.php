@@ -45,10 +45,7 @@ if($result->num_rows>0){
         $payment_type = $row['payment_type'];
     }
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 4800be375c48dafd771b960bb8990e65c6002d0a
+
   $mail = new PHPMailer;
             $mailaddress = "harshithaeshwar007@gmail.com";                              // Enable verbose debug output
             $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -66,11 +63,7 @@ if($result->num_rows>0){
                                 <h2 align =center>Order Id : '.$order_id.'</h2>
                                 <h2 align =center>Product name : '.$product_name.'</h2>
                                 <h2 align =center>Total Cost: '.$final_cost.'</h2>
-<<<<<<< HEAD
-                                <h3 aling = left><a href = "http://loket.in/staging/order_status.php"> Track Your Order Here ';
-=======
                                 <h3 aling = left><a href = "http://loket.in/testing/order_status.php"> Track Your Order Here ';
->>>>>>> 4800be375c48dafd771b960bb8990e65c6002d0a
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
             $mail -> isHTML(true);
             if(!$mail->send()) {
@@ -81,13 +74,8 @@ if($result->num_rows>0){
                 // alert("Email has been sent successfully");
                 // window.location= "cashier.php";
                 // </script>';
-<<<<<<< HEAD
             }
 
-=======
-            }
-
-=======
 $sql_12 = "UPDATE payment SET transaction_id = '$ORDER_ID' WHERE order_id = '$order_id';";
 $result_12 = $conn->query($sql_12);
 if($result_12->num_rows>0){
@@ -139,7 +127,6 @@ if($result_12->num_rows>0){
         }
     }
 }
->>>>>>> 81f1bb091882662259f746c4522bd83d1eec84f7
 >>>>>>> 4800be375c48dafd771b960bb8990e65c6002d0a
 ?>
 <!DOCTYPE html>
