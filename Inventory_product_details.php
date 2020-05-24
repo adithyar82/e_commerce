@@ -61,13 +61,7 @@ $product_code = uniqid();
                     <a class="navbar-brand" style="margin-left:20px;" href="category.php">
                         <img style="margin-left:25px;" src="img/logo.png" alt="">
                         <p> Company Logo </p>
-                    </a>
-
-                    <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
-                        <ul class="navbar-nav" style="width:1500px;">
-                            <li><a href="category.php ">Home</a></li>					
-                        </ul>
-                    </div>						
+                    </a>					
                 </div>
             </nav>
         </header>
@@ -128,9 +122,15 @@ $product_code = uniqid();
                     <input id = "quantity" type="text" name = "quantity" placeholder="Quantity*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Quantity*'" class="common-input mt-20"></h5><br>
                     <input id = "purchase_price" type="text" name = "initial_cost" placeholder="Purchase Size*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Purchase Price*'" class="common-input mt-20"></h5><br>
                     <input id = "selling_price" type="text" name = "final_cost" placeholder="Selling Price*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Selling Price'" required class="common-input mt-20"><br>
-                    <h5>Product Code:  <?php echo $product_code?></h5>
-                    <input id = "product_code" type="text" name = "product_code" placeholder="Selling Price*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Selling Price'" value = "<?php echo $product_code?>" hidden class="common-input mt-20">
-                    
+                    <div class="menu-top container">
+                        <div class="d-flex justify-content-center">
+                            <ul class="list">
+                                <li><h4>Product Code &emsp;:&emsp; <?php echo $product_code?></h4></li>
+                                <li><input id = "product_code" type="text" name = "product_code" placeholder="Selling Price*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Selling Price'" value = "<?php echo $product_code?>" hidden class="common-input mt-20"></li>
+                                <img src="img/barcode.png" alt="">
+                            </ul>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -176,9 +176,7 @@ $product_code = uniqid();
                             </div>
                             </div>
                     </div>	
-                    <label for="cars">Choose a car:</label>
 
-				
                     <div class="col-lg-3  col-md-6 col-sm-6">
                         <div class="single-footer-widget mail-chimp">
                             <h6 class="mb-20">Instragram Feed</h6>
