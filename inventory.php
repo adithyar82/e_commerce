@@ -50,7 +50,7 @@
 
                     <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
                         <ul class="navbar-nav" style="width:1500px;">
-                            <li><a href="category.php ">Home</a></li>					
+                            <li><a href="admin_home.php ">Home</a></li>					
                         </ul>
                     </div>						
                 </div>
@@ -80,7 +80,7 @@
                    
                         <li><a href="Inventory_shop_details.php "><h4>Shop Details</h4></a></li> &emsp;&emsp;
                         <li><a href="Inventory_category_details.php "><h4>Category Details</h4></a></li>&emsp;&emsp;
-                        <li><a href="Inventory_subcategory_details.php "><h4>Sub Category Details</h4></a></li>&emsp;&emsp;
+                        <li><a href="Inventory_category_details.php "><h4>Sub Category Details</h4></a></li>&emsp;&emsp;
                         <li><a href="Inventory_product_details.php "><h4>Product Details</h4></a></li>&emsp;&emsp;					
                     
                 </div>
