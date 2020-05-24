@@ -203,9 +203,11 @@
 												$city_12 = $row['city'];
 												$state_12 = $row['state'];
 												$zipcode_12 = $row['zipcode'];
-												$country_12 = $row['country'];
+                                                $country_12 = $row['country'];
+                                               
 											}
                                         }
+                                        
                                         $sql_2 = "SELECT AVG(ratings) as average_ratings FROM product_ratings WHERE product_name = '$product_name';";
 										$result_2 = $conn->query($sql_2);
 										if($result_2->num_rows>0){
@@ -239,9 +241,10 @@
 												$final_cost = $row['final_cost'];
 												$product_image = $row['product_image'];
 												$product_quantity = $row['product_quantity'];
-												$category = $row['category'];
+                                                $sub_category = $row['sub_category'];
                                                 $discount=round((($initial_cost-$final_cost)/($initial_cost))*100);
                                                 $discount_price = $initial_cost - $final_cost;
+                            
                     
                         echo' 
                         <div class="col-lg-6">
@@ -257,7 +260,7 @@
                                     <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span><h5 style="margin-top:2%; margin-left:2%;" class="text-white"><del style = "color : black">'.$initial_cost.'</del>&emsp;</h5> <span class="ml-10">Rs '.$final_cost.'</span></div>
                                     <h4 style="margin-bottom:3%;margin-top:2%">Discount :&emsp; Rs.	'.$discount_price.' &nbsp; '.$discount.'% off</h4>
                                     <h6 style="margin-left:15%;"> (Inclusive of all taxes)</h6><br>
-                                    <div class="category">Category: <span>'.$category.'</span></div>';
+                                    <div class="category">Category: <span>'.$sub_category.'</span></div>';
                                     if($product_quantity>0){
                                         echo'<div class="available">Availibility: <span style="color:green">In Stock</span></div>';
                                     }
