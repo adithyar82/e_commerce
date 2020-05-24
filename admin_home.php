@@ -160,13 +160,13 @@
 					</div>	
 					<br>				
 				</div>
-				<nav class="navbar navbar-expand-lg  navbar-light">
+				<nav class="navbar navbar-expand-lg  navbar-light d-flex justify-content-center">
 					<div class="container d-flex justify-content-center">
 						  <a class="navbar-brand" href="category.php">
 							  <img src="img/logo.png" alt="">
 						  </a>
 						  
-						  <div class="search-form" style="margin-left:2%; margin-top:2.5%">
+						  <!-- <div class="search-form" style="margin-left:2%; margin-top:2.5%">
            					 <form action="#" method="get">
               					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
              					<button type="submit" class="d-none"></button>
@@ -176,7 +176,7 @@
 						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
 						   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
-						  </button>
+						  </button> -->
 						  
 						  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -227,9 +227,10 @@
 			</section> -->
 
 			<!--Start Body Area-->
-			<div class="container d-flex justify-content-center" style = "margin-top:10%">
-				<div class="row">
-					<div class="col-md-6">
+			<section>
+			<div class="container d-flex justify-content-center" style = "margin-top:5%">
+				<div class="row d-flex justify-content-center">
+					<div class="col-md-6 d-flex justify-content-center">
 						<div class="login-form">
 							<h3 class="billing-title text-center">User</h3>
 							<p class="text-center mt-10 mb-10"> </p>
@@ -258,7 +259,7 @@
 							
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 d-flex justify-content-center">
 						<div class="login-form">
 							<h3 class="billing-title text-center">Delivery Boy</h3>
 							<p class="text-center mt-10 mb-10"> </p>
@@ -285,12 +286,15 @@
 								</div>
 								<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'delivery_personal.php';"><span>Personal</span></button> &emsp; &emsp; &emsp; &emsp;
 								<button class="view-btn color-2 w-30 mt-20" onclick="location.href = 'delivery_work.php';"><span>Delivery Details</span></button>
-								<button class="view-btn color-2 w-100 mt-20" onclick="location.href = 'delivery_history.php';"><span>View All Orders</span></button>
+								<button class="view-btn color-2 w-50 mt-20" onclick="location.href = 'delivery_history.php';"><span>View All Orders</span></button>
 							
 						</div>
 					</div>
 				</div>
 			</div>
+			</section>
+
+			<section>
             <!-- End Body Area -->
 
             <!-- start footer Area -->      

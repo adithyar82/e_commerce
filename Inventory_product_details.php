@@ -1,142 +1,15 @@
-
 <?php
-include('connect_db.php');
-include("./php/class.phpmailer.php"); 
-$payment_status = $_POST['isPaymentSuccessful'];
-echo $_POST['isPaymentSuccessful'];
-echo $payment_status;
-
-$encrypted = $_REQUEST['id'];
-function my_simple_crypt( $string, $action = 'd') {
-    // you may change these values to your own
-    $secret_key = 'my_simple_secret_key';
-    $secret_iv = 'my_simple_secret_iv';
-  
-    $output = false;
-    $encrypt_method = "AES-256-CBC";
-    $key = hash( 'sha256', $secret_key );
-    $iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
-  
-    if( $action == 'e' ) {
-        $output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
-    }
-    else if( $action == 'd' ){
-        $output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
-    }
-  
-    return $output;
-  }
-  $order_id = my_simple_crypt($encrypted, 'd' );
-  $sql = "SELECT order_status.fname, order_status.product_name, order_status.item_id,order_status.product_quantity, order_status.final_cost, payment.status,payment.time_created, payment.payment_type FROM order_status INNER JOIN payment ON order_status.payment_id = payment.order_id  WHERE order_status.payment_id = '$order_id'";
-
-$order_id = $_POST['order_id'];
-$ORDER_ID = $_REQUEST['id2'];
-echo $_POST['order_id'];
-$transaction_id = $_POST['txn_id'];
-echo $transaction_id;
-$sql = "SELECT order_status.fname, order_status.product_name, order_status.item_id,order_status.product_quantity, order_status.final_cost, payment.status,payment.time_created, payment.payment_type FROM order_status INNER JOIN payment ON order_status.payment_id = payment.order_id  WHERE order_status.payment_id = '$order_id'";
-$result = $conn->query($sql);
-if($result->num_rows>0){
-    while($row=$result->fetch_assoc()){
-        $fname = $row['fname'];
-        $final_cost = $row['final_cost'];
-        $product_name = $row['product_name'];
-        $product_quanity = $row['product_quanity'];
-        $payment_type = $row['payment_type'];
-    }
-}
-
-  $mail = new PHPMailer;
-            $mailaddress = "harshithaeshwar007@gmail.com";                              // Enable verbose debug output
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail -> Username = 'contact.azeempatel@gmail.com';
-            $mail -> Password = 'AzeemPatel46#';                          // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;                                    // TCP port to connect to
-            $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
-            $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
-            $mail->Subject = 'E Commerce Website';
-            $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
-                                <h2 align =center>Your Order Details are as follows :</h2>
-                                <h2 align =center>Order Id : '.$order_id.'</h2>
-                                <h2 align =center>Product name : '.$product_name.'</h2>
-                                <h2 align =center>Total Cost: '.$final_cost.'</h2>
-                                <h3 aling = left><a href = "http://loket.in/testing/order_status.php"> Track Your Order Here ';
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-            $mail -> isHTML(true);
-            if(!$mail->send()) {
-                echo 'Message could not be sent.';
-                echo 'Mailer Error: ' . $mail->ErrorInfo;
-            } else {
-                // echo'<script>
-                // alert("Email has been sent successfully");
-                // window.location= "cashier.php";
-                // </script>';
-            }
-
-$sql_12 = "UPDATE payment SET transaction_id = '$ORDER_ID' WHERE order_id = '$order_id';";
-$result_12 = $conn->query($sql_12);
-if($result_12->num_rows>0){
-    while($row=$result_12->fetch_assoc()){
-        $id = $row['order_id'];
-        $fname = $row['fname'];
-        $final_cost = $row['final_cost'];
-        $product_name = $row['product_name'];
-        $payment_id = $row['payment_id'];
-        $product_quantity = $row['product_quantity'];
-        $mail = new PHPMailer;
-        $mailaddress = "harshithaeshwar007@gmail.com";                              // Enable verbose debug output
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail -> Username = 'contact.azeempatel@gmail.com';
-        $mail -> Password = 'AzeemPatel46#';                          // SMTP password
-        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 587;                                    // TCP port to connect to
-        $mail->setFrom('contact.azeempatel@gmail.com', 'no reply');
-        $mail->addAddress($mailaddress);     // Add a recipient                                  // Set email format to HTML
-        $mail->Subject = 'E Commerce Website';
-        $mail->Body    = '<h1 align =center>Dear '.$fname.' Thank you for Placing your order through E Commerce Portal</h1>
-                            <h2 align =center>Your Order Details are as follows :</h2>
-                            <h2 align =center>Order Id : '.$order_id.'</h2>
-                            <h2 align =center>Product name : '.$product_name.'</h2>
-                            <h2 align =center>Total Cost: '.$final_cost.'</h2>
-                            <h3 aling = left><a href = "http://localhost:8888/shop/order_status.php"> Track Your Order Here ';
-        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-        $mail -> isHTML(true);
-        if(!$mail->send()) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-            echo '<script>
-        setTimeout(function () { 
-            swal({
-            title: "Payment",
-            text: "Transaction successful",
-            type: "success",
-            confirmButtonText: "OK"
-            },
-            function(isConfirm){
-            if (isConfirm) {
-                window.location.href = "T_status_success.php";
-            }
-            }); }, 1000);
-        </script>';
-        }
-    }
-}
->>>>>>> 4800be375c48dafd771b960bb8990e65c6002d0a
 ?>
 <!DOCTYPE html>
+
 	<html lang="zxx" class="no-js">
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    
+
+
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
@@ -181,7 +54,7 @@ if($result_12->num_rows>0){
 
         <!-- Start Header Area -->
         <header class="default-header">
-            <nav class="navbar navbar-expand-lg  navbar-light" style="margin-right:20%">
+            <nav class="navbar navbar-expand-lg  navbar-light d-flex justify-content-center">
                 <div class="container" style="width:1500px;">
                     <a class="navbar-brand" style="margin-left:20px;" href="category.php">
                         <img style="margin-left:25px;" src="img/logo.png" alt="">
@@ -202,8 +75,8 @@ if($result_12->num_rows>0){
         <section class="banner-area organic-breadcrumb">
             <div class="container">
                 <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
-                    <div class="col-lg-12">
-                        <h1>Transaction Status</h1>
+                    <div class="col-md-12">
+                        <h1>Product Inventory</h1>
                     </div>
                 </div>
             </div>
@@ -211,25 +84,49 @@ if($result_12->num_rows>0){
         <!-- End Banner Area -->
         
         <section class="brand-area pb-100">
-            <div class="container">
-                <div class="logo-wrap">
+        <div class="menutop-wrap d-flex justify-content-center">
+            <div class="menu-top container">
+                <div class="d-flex justify-content-center">
+                    <ul class="list">
+                        <li><h3>Product Details</h3></li>&emsp;&emsp;&emsp;&emsp;
+                        <li><a><img src="img/camera.png" alt=""></a></li>
+                        <li>
+                <form method = "POST" action = "">
+                                <button type="submit" name="submit" form="upload"><img src="img/upload.png" alt=""></button>
+                            
+                        </li>
+                    </ul>
+                </div>
+
                     <div class="d-flex justify-content-center">
-                        <img src="img/success.png" alt="">
+                   
                     </div>
-                    <br>
-                    <h1 class="d-flex justify-content-center" style="color:green;">Payment Successful</h1><br>
-                    <h3>Order Id: <?php echo $order_id;?></h3><br>
-                    <h3>First Name: <?php echo $fname?></h3><br>
-                    <h3>Total Cost: <?php echo $final_cost?></h3><br>
-                    <h3>Transaction Type:<?php echo $payment_type;?></h3><br>
-                    <button style="width:200px; background-color:green; color:white;" onclick="myFunction()">Product Details</button>
+                
+                    <input id = "product_name" type="text" name = "product_name" placeholder="Product Name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Product Name*'" required class="common-input mt-20">
+                    <textarea type="text" name = "description" placeholder="Description*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Description*'" required class="common-input mt-20"></textarea><br>
+                    <section>
+                    <button style="width:100%; height:40px;" onclick="myFunction()">Specification</button>
                         <div id="myDIV">
                             <br>
-                            <h3>Product Name: <?php echo $product_name?></h3><br>
-                            <h3>Product Quanity: <?php echo $product_quantity?></h3><br>
+                            <h5>Width:<input id = "width" type="number" name = "width" placeholder="Width*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Width*'" class="common-input mt-20"></h5><br>
+                            <h5>Depth:<input id = "depth" type="number" name = "depth" placeholder="Depth*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Depth*'" class="common-input mt-20"></h5><br>
+                            <h5>Height:<input id = "height" type="number" name = "height" placeholder="Heigth*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Heigth*'" class="common-input mt-20"></h5><br>
+                            <h5>Height:<input id = "weight" type="number" name = "weight" placeholder="Weight*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Weight*'" class="common-input mt-20"></h5><br>
+                            <h5>Expiry Date:<input id = "date" type="date" name = "date" placeholder="Date*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Date*'" class="common-input mt-20"></h5><br>
                         </div>
-                </div>
+                    </section>
+                    <input id = "units" type="text" name = "units" placeholder="Units*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Units*'" required class="common-input mt-20">
+                    <input id = "purchase_price" type="text" name = "purchase_price" placeholder="Puchase Price*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Puchase Price*'" required class="common-input mt-20">
+                    <input id = "selling_price" type="text" name = "selling_price" placeholder="Selling Price*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Selling Price*'" required class="common-input mt-20">
+                    <div class="mt-20 d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                        <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Apply Default Tax Amount</label></div>
+                    </div>
+                    <input id = "tax" type="text" name = "tax" placeholder="TAX ( in % )*" onfocus="this.placeholder=''" onblur="this.placeholder = 'TAX ( in % )*'" required class="common-input mt-20">
+                    
+                </form>
             </div>
+        </div>
         </section>
         
         <!-- start footer Area -->		
