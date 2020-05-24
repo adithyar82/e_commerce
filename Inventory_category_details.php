@@ -36,18 +36,7 @@
 			<link rel="stylesheet" href="css/main.css">
 			<link href="style.css" rel="stylesheet">
 
-            <script>
-                function myFunction() {
-                var x = document.getElementById("myDIV");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-                }
-            </script>
-
-        </head>
+            </head>
         <body>
 
         <!-- Start Header Area -->
@@ -57,7 +46,7 @@
                     <a class="navbar-brand" style="margin-left:20px;" href="category.php">
                         <img style="margin-left:25px;" src="img/logo.png" alt="">
                         <p> Company Logo </p>
-                    </a>			
+                    </a>		
                 </div>
             </nav>
         </header>
@@ -68,68 +57,76 @@
             <div class="container">
                 <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                     <div class="col-md-12">
-                        <h1>Product Inventory</h1>
+                        <h1>Category Inventory</h1>
                     </div>
                 </div>
             </div>
         </section>
         <!-- End Banner Area -->
-        
-        <section class="brand-area pb-100">
-        <div class="menutop-wrap d-flex justify-content-center">
-        <div class="col-md-8">
-            <div class="menu-top container">
-                <div class="d-flex justify-content-center">
-                    <ul class="list">
-                        <li><h3>Product Details</h3></li>&emsp;&emsp;&emsp;&emsp;
-                        <li><a><img src="img/camera.png" alt=""></a></li>
-                        <li>
-                <form method = "POST" action = "">
-                            <button type="submit" name="submit" form="upload"><img src="img/upload.png" alt=""></button>   
-                        </li>
-                    </ul>
-                </div>
 
-                    <div class="d-flex justify-content-center">
-                   
-                    </div>
-                
-                    <input id = "product_name" type="text" name = "product_name" placeholder="Product Name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Product Name*'" required class="common-input mt-20">
-                    <textarea type="text" name = "description" placeholder="Description*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Description*'" required class="common-input mt-20"></textarea><br>
-                    <section>
-                    <button style="width:100%; height:40px;" onclick="myFunction()">Specification</button>
-                        <div id="myDIV">
-                            <br>
-                            <h5>Width:<input id = "width" type="number" name = "width" placeholder="Width*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Width*'" class="common-input mt-20"></h5><br>
-                            <h5>Depth:<input id = "depth" type="number" name = "depth" placeholder="Depth*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Depth*'" class="common-input mt-20"></h5><br>
-                            <h5>Height:<input id = "height" type="number" name = "height" placeholder="Heigth*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Heigth*'" class="common-input mt-20"></h5><br>
-                            <h5>Height:<input id = "weight" type="number" name = "weight" placeholder="Weight*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Weight*'" class="common-input mt-20"></h5><br>
-                            <h5>Expiry Date:<input id = "date" type="date" name = "date" placeholder="Date*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Date*'" class="common-input mt-20"></h5><br>
-                        </div>
-                    </section>
-                    <input id = "units" type="text" name = "units" placeholder="Units*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Units*'" required class="common-input mt-20">
-                    <input id = "purchase_price" type="text" name = "purchase_price" placeholder="Puchase Price*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Puchase Price*'" required class="common-input mt-20">
-                    <input id = "selling_price" type="text" name = "selling_price" placeholder="Selling Price*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Selling Price*'" required class="common-input mt-20">
-                    <div class="mt-20 d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center">
-                        <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Apply Default Tax Amount</label></div>
-                    </div>
-                    <input id = "tax" type="text" name = "tax" placeholder="TAX ( in % )*" onfocus="this.placeholder=''" onblur="this.placeholder = 'TAX ( in % )*'" required class="common-input mt-20">
-                    
-                </form>
+        <section>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+            <div class="login-form">
                 <div class="menu-top container">
                     <div class="d-flex justify-content-center">
                         <ul class="list">
-                            <li><h3>Product Code &emsp;:</h3></li>&emsp;&emsp;&emsp;&emsp;
-                            <li><a><img src="img/barcode.png" alt=""></a></li>
+                            <li><img src="img/category.png" alt=""></li>&emsp;
+                            <li><h3>Category Details</h3></li>&emsp;
+                            <li>
+                    <form method = "POST" action = "">
+                                <button type="submit" name="submit" form="upload"><img src="img/upload.png" alt=""></button>   
+                            </li>
                         </ul>
                     </div>
+                    <br>
+                        <input name = "category_name" type="text" placeholder="Category Name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Category Name*'" required class="common-input">
+                    </form>
+                    <br>
+                    <div class="menu-top container">
+                        <div class="d-flex justify-content-center">
+                            <ul class="list">
+                                <li><h3>Category:</h3></li>
+                                <li><a><img src="img/barcode.png" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="login-form">
+                <div class="menu-top container">
+                    <div class="d-flex justify-content-center">
+                        <ul class="list">
+                            <li><img src="img/subcategory.png" alt=""></li>&emsp;
+                            <li><h3>Sub Category Details</h3></li>&emsp;
+                            <li>
+                    <form method = "POST" action = "">
+                                <button type="submit" name="submit" form="upload"><img src="img/upload.png" alt=""></button>   
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
+                        <input name = "sub_category_name" type="text" placeholder="Sub Category Name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Sub Category Name*'" required class="common-input">
+                    </form>
+                    <br>
+                    <div class="menu-top container">
+                        <div class="d-flex justify-content-center">
+                            <ul class="list">
+                                <li><h3>Sub Category:</h3></li>
+                                <li><a><img src="img/barcode.png" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
         </div>
         </section>
-        
+        <br>
         <!-- start footer Area -->
         <section>		
         <footer class="footer-area section-gap">

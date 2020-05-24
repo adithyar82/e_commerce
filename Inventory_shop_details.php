@@ -36,18 +36,7 @@
 			<link rel="stylesheet" href="css/main.css">
 			<link href="style.css" rel="stylesheet">
 
-            <script>
-                function myFunction() {
-                var x = document.getElementById("myDIV");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-                }
-            </script>
-
-        </head>
+            </head>
         <body>
 
         <!-- Start Header Area -->
@@ -57,7 +46,7 @@
                     <a class="navbar-brand" style="margin-left:20px;" href="category.php">
                         <img style="margin-left:25px;" src="img/logo.png" alt="">
                         <p> Company Logo </p>
-                    </a>			
+                    </a>		
                 </div>
             </nav>
         </header>
@@ -68,59 +57,42 @@
             <div class="container">
                 <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                     <div class="col-md-12">
-                        <h1>Product Inventory</h1>
+                        <h1>Shop Inventory</h1>
                     </div>
                 </div>
             </div>
         </section>
         <!-- End Banner Area -->
-        
+
         <section class="brand-area pb-100">
         <div class="menutop-wrap d-flex justify-content-center">
         <div class="col-md-8">
             <div class="menu-top container">
                 <div class="d-flex justify-content-center">
                     <ul class="list">
-                        <li><h3>Product Details</h3></li>&emsp;&emsp;&emsp;&emsp;
-                        <li><a><img src="img/camera.png" alt=""></a></li>
+                        <li><img src="img/online-shopping.png" alt=""></li>
+                        <li><h3>Shop Details</h3></li>
                         <li>
                 <form method = "POST" action = "">
                             <button type="submit" name="submit" form="upload"><img src="img/upload.png" alt=""></button>   
                         </li>
                     </ul>
                 </div>
-
-                    <div class="d-flex justify-content-center">
-                   
-                    </div>
-                
-                    <input id = "product_name" type="text" name = "product_name" placeholder="Product Name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Product Name*'" required class="common-input mt-20">
-                    <textarea type="text" name = "description" placeholder="Description*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Description*'" required class="common-input mt-20"></textarea><br>
-                    <section>
-                    <button style="width:100%; height:40px;" onclick="myFunction()">Specification</button>
-                        <div id="myDIV">
-                            <br>
-                            <h5>Width:<input id = "width" type="number" name = "width" placeholder="Width*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Width*'" class="common-input mt-20"></h5><br>
-                            <h5>Depth:<input id = "depth" type="number" name = "depth" placeholder="Depth*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Depth*'" class="common-input mt-20"></h5><br>
-                            <h5>Height:<input id = "height" type="number" name = "height" placeholder="Heigth*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Heigth*'" class="common-input mt-20"></h5><br>
-                            <h5>Height:<input id = "weight" type="number" name = "weight" placeholder="Weight*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Weight*'" class="common-input mt-20"></h5><br>
-                            <h5>Expiry Date:<input id = "date" type="date" name = "date" placeholder="Date*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Date*'" class="common-input mt-20"></h5><br>
-                        </div>
-                    </section>
-                    <input id = "units" type="text" name = "units" placeholder="Units*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Units*'" required class="common-input mt-20">
-                    <input id = "purchase_price" type="text" name = "purchase_price" placeholder="Puchase Price*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Puchase Price*'" required class="common-input mt-20">
-                    <input id = "selling_price" type="text" name = "selling_price" placeholder="Selling Price*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Selling Price*'" required class="common-input mt-20">
-                    <div class="mt-20 d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center">
-                        <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Apply Default Tax Amount</label></div>
-                    </div>
-                    <input id = "tax" type="text" name = "tax" placeholder="TAX ( in % )*" onfocus="this.placeholder=''" onblur="this.placeholder = 'TAX ( in % )*'" required class="common-input mt-20">
-                    
+                    <input name = "shop_name" type="text" placeholder="Shop Name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Shop Name*'" required class="common-input">
+                    <input name = "address_1" type="text" placeholder="Address line 01*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Address line 01*'" required class="common-input">
+                    <input name = "address_2" type="text" placeholder="Address line 02*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Address line 02*'" required class="common-input">
+                    <input name = "city" type="text" placeholder="Town/City*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Town/City*'" required class="common-input">
+                    <input name = "state" type="text" placeholder="State*" onfocus="this.placeholder=''" onblur="this.placeholder = 'State*'" required class="common-input">
+                    <input name = "country" type="text" placeholder="Country*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Country*'" required class="common-input">
+                    <input name = "zipcode" type="text" placeholder="Pin-Code*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Pin-Code*'" required class="common-input">
+                    <input name = "contact_name" type="text" placeholder="Contact Person Name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Contact Person Name*'" required class="common-input">
+                    <input type="email" name = "email_address" placeholder="Email Address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address'" required class="common-input mt-20">
+                    <input type="tel" pattern="[0-9]{10}" title="Must contain 10 digit number" name = "phone_number" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
                 </form>
                 <div class="menu-top container">
                     <div class="d-flex justify-content-center">
                         <ul class="list">
-                            <li><h3>Product Code &emsp;:</h3></li>&emsp;&emsp;&emsp;&emsp;
+                            <li><h3>Shop Code &emsp;:</h3></li>&emsp;&emsp;&emsp;&emsp;
                             <li><a><img src="img/barcode.png" alt=""></a></li>
                         </ul>
                     </div>
@@ -129,7 +101,7 @@
         </div>
         </div>
         </section>
-        
+
         <!-- start footer Area -->
         <section>		
         <footer class="footer-area section-gap">

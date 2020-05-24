@@ -126,6 +126,7 @@
 				}
 				}
 			</script>
+
 		</head>
 		
 		<body>
@@ -294,7 +295,6 @@
 			</div>
 			</section>
 
-			<section>
             <!-- End Body Area -->
 
             <!-- start footer Area -->      

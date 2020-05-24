@@ -36,17 +36,6 @@
 			<link rel="stylesheet" href="css/main.css">
 			<link href="style.css" rel="stylesheet">
 
-            <script>
-                function myFunction() {
-                var x = document.getElementById("myDIV");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-                }
-            </script>
-
         </head>
         <body>
 
@@ -57,7 +46,13 @@
                     <a class="navbar-brand" style="margin-left:20px;" href="category.php">
                         <img style="margin-left:25px;" src="img/logo.png" alt="">
                         <p> Company Logo </p>
-                    </a>			
+                    </a>
+
+                    <div class="collapse navbar-collapse" style = "margin-left:83%;" id="navbarSupportedContent">
+                        <ul class="navbar-nav" style="width:1500px;">
+                            <li><a href="category.php ">Home</a></li>					
+                        </ul>
+                    </div>						
                 </div>
             </nav>
         </header>
@@ -68,68 +63,32 @@
             <div class="container">
                 <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                     <div class="col-md-12">
-                        <h1>Product Inventory</h1>
+                        <h1>Inventory</h1>
                     </div>
                 </div>
             </div>
         </section>
         <!-- End Banner Area -->
-        
-        <section class="brand-area pb-100">
-        <div class="menutop-wrap d-flex justify-content-center">
-        <div class="col-md-8">
-            <div class="menu-top container">
-                <div class="d-flex justify-content-center">
-                    <ul class="list">
-                        <li><h3>Product Details</h3></li>&emsp;&emsp;&emsp;&emsp;
-                        <li><a><img src="img/camera.png" alt=""></a></li>
-                        <li>
-                <form method = "POST" action = "">
-                            <button type="submit" name="submit" form="upload"><img src="img/upload.png" alt=""></button>   
-                        </li>
-                    </ul>
-                </div>
 
-                    <div class="d-flex justify-content-center">
+        <section>
+        <br>
+        <h3 class="d-flex justify-content-center">PRODUCTS</h3>
+        <br>
+        <div class="menutop-wrap d-flex justify-content-center">
+            <div class="menu-top container">
+                <div class="d-flex justify-content-center">>
                    
-                    </div>
-                
-                    <input id = "product_name" type="text" name = "product_name" placeholder="Product Name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Product Name*'" required class="common-input mt-20">
-                    <textarea type="text" name = "description" placeholder="Description*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Description*'" required class="common-input mt-20"></textarea><br>
-                    <section>
-                    <button style="width:100%; height:40px;" onclick="myFunction()">Specification</button>
-                        <div id="myDIV">
-                            <br>
-                            <h5>Width:<input id = "width" type="number" name = "width" placeholder="Width*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Width*'" class="common-input mt-20"></h5><br>
-                            <h5>Depth:<input id = "depth" type="number" name = "depth" placeholder="Depth*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Depth*'" class="common-input mt-20"></h5><br>
-                            <h5>Height:<input id = "height" type="number" name = "height" placeholder="Heigth*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Heigth*'" class="common-input mt-20"></h5><br>
-                            <h5>Height:<input id = "weight" type="number" name = "weight" placeholder="Weight*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Weight*'" class="common-input mt-20"></h5><br>
-                            <h5>Expiry Date:<input id = "date" type="date" name = "date" placeholder="Date*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Date*'" class="common-input mt-20"></h5><br>
-                        </div>
-                    </section>
-                    <input id = "units" type="text" name = "units" placeholder="Units*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Units*'" required class="common-input mt-20">
-                    <input id = "purchase_price" type="text" name = "purchase_price" placeholder="Puchase Price*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Puchase Price*'" required class="common-input mt-20">
-                    <input id = "selling_price" type="text" name = "selling_price" placeholder="Selling Price*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Selling Price*'" required class="common-input mt-20">
-                    <div class="mt-20 d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center">
-                        <input type="checkbox" class="pixel-checkbox" id="login-1"><label for="login-1">Apply Default Tax Amount</label></div>
-                    </div>
-                    <input id = "tax" type="text" name = "tax" placeholder="TAX ( in % )*" onfocus="this.placeholder=''" onblur="this.placeholder = 'TAX ( in % )*'" required class="common-input mt-20">
+                        <li><a href="Inventory_shop_details.php "><h4>Shop Details</h4></a></li> &emsp;&emsp;
+                        <li><a href="Inventory_category_details.php "><h4>Category Details</h4></a></li>&emsp;&emsp;
+                        <li><a href="Inventory_subcategory_details.php "><h4>Sub Category Details</h4></a></li>&emsp;&emsp;
+                        <li><a href="Inventory_product_details.php "><h4>Product Details</h4></a></li>&emsp;&emsp;					
                     
-                </form>
-                <div class="menu-top container">
-                    <div class="d-flex justify-content-center">
-                        <ul class="list">
-                            <li><h3>Product Code &emsp;:</h3></li>&emsp;&emsp;&emsp;&emsp;
-                            <li><a><img src="img/barcode.png" alt=""></a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
-        </div>
-        </section>
-        
+        <br>
+        </section>		
+
         <!-- start footer Area -->
         <section>		
         <footer class="footer-area section-gap">
@@ -209,16 +168,16 @@
         </section>	
         <!-- End footer Area -->		
 
-			<script src="js/vendor/jquery-2.2.4.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-			<script src="js/vendor/bootstrap.min.js"></script>
-			<script src="js/jquery.ajaxchimp.min.js"></script>
-			<script src="js/jquery.nice-select.min.js"></script>
-			<script src="js/jquery.sticky.js"></script>
-			<script src="js/ion.rangeSlider.js"></script>
-			<script src="js/jquery.magnific-popup.min.js"></script>
+            <script src="js/vendor/jquery-2.2.4.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+            <script src="js/vendor/bootstrap.min.js"></script>
+            <script src="js/jquery.ajaxchimp.min.js"></script>
+            <script src="js/jquery.nice-select.min.js"></script>
+            <script src="js/jquery.sticky.js"></script>
+            <script src="js/ion.rangeSlider.js"></script>
+            <script src="js/jquery.magnific-popup.min.js"></script>
             <script src="js/owl.carousel.min.js"></script>			
-			<script src="js/main.js"></script>	
-			
-		</body>
-	</html>
+            <script src="js/main.js"></script>	
+            
+        </body>
+    </html>
