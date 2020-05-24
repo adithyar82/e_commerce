@@ -75,7 +75,7 @@
                             <li><img src="img/category.png" alt=""></li>&emsp;
                             <li><h3>Category Details</h3></li>&emsp;
                             <li>
-                    <form method = "POST" action = "">
+                    <form method = "POST" action = "inventory_3.php" id = "upload">
                                 <button type="submit" name="submit" form="upload"><img src="img/upload.png" alt=""></button>   
                             </li>
                         </ul>
@@ -103,8 +103,8 @@
                             <li><img src="img/subcategory.png" alt=""></li>&emsp;
                             <li><h3>Sub Category Details</h3></li>&emsp;
                             <li>
-                    <form method = "POST" action = "">
-                                <button type="submit" name="submit" form="upload"><img src="img/upload.png" alt=""></button>   
+                    <form method = "POST" action = "inventory_4.php" id = "upload_1">
+                                <button type="submit" name="submit" form="upload_1"><img src="img/upload.png" alt=""></button>   
                             </li>
                         </ul>
                     </div>

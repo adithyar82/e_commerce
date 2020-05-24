@@ -32,7 +32,7 @@ if($result->num_rows>=0){
         },
         function(isConfirm){
         if (isConfirm) {
-            window.location.href = "inventory_product_details.php";
+            window.location.href = "inventory.php";
         }
         }); }, 1000);
     </script>';
