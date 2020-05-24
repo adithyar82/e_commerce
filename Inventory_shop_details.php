@@ -73,7 +73,7 @@
                         <li><img src="img/online-shopping.png" alt=""></li>
                         <li><h3>Shop Details</h3></li>
                         <li>
-                <form method = "POST" action = "">
+                <form method = "POST" action = "inventory_2.php" id = "upload">
                             <button type="submit" name="submit" form="upload"><img src="img/upload.png" alt=""></button>   
                         </li>
                     </ul>
