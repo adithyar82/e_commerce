@@ -163,28 +163,17 @@
 				</div>
 				<nav class="navbar navbar-expand-lg  navbar-light d-flex justify-content-center">
 					<div class="container d-flex justify-content-center">
-						  <a class="navbar-brand" href="category.php">
-							  <img src="img/logo.png" alt="">
-						  </a>
-						  
-						  <!-- <div class="search-form" style="margin-left:2%; margin-top:2.5%">
-           					 <form action="#" method="get">
-              					<input type="search" name="search" id="search" style="width:300px;" placeholder="Type keywords &amp; press enter...">
-             					<button type="submit" class="d-none"></button>
-           					 </form>
-						  </div>
-
-						  <div style="margin-left:1%; margin-top:1%"><a href="#"><span class="glyphicon glyphicon-search"> </span></a></div>
-						   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-						  </button> -->
-						  
-						  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button> -->
+						<a class="navbar-brand" href="category.php">
+							<img src="img/logo.png" alt="">
+						</a>
+					</div>
+				</nav>
+				<nav class="navbar navbar-expand-lg  navbar-light d-flex justify-content-center">
+					<div class="container d-flex justify-content-center">
                           <div class="d-flex justify-content-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li><a href="category.php">Home</a></li>
+								<li><a href="category.php">Home</a></li>
+								<li><a href="inventory.php">Inventory</a></li>
                                 <li><a href="T_table.php">Transaction</a></li>
                                 <li><a href="stock_alert.php">Stock Alert</a></li>
                                     <!-- Dropdown -->
