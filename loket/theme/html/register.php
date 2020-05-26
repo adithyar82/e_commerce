@@ -283,7 +283,7 @@ include('connect_db.php');
                                                 <div class="col-md-5 pr-lg-0">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant ">
-                                                            <h4>subscribe to newsletter</h4>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
